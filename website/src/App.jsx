@@ -18,7 +18,7 @@ export default (state, actions) => {
     <div style={{ marginTop: '5rem' }}>
       <SideMenu state={state} class={state.sideMenu ? '' : 'slideout'} />
       <NavHeader actions={actions} />
-      <div style={{ marginLeft: '50%', transform: 'translateX(-52%)' }}>
+      <div style={{ marginLeft: '50%', transform: 'translateX(-51%)' }}>
         <Button onclick={toggleBackground} style={{ fontWeight: 'lighter' }} text={'Hell / Dunkel'} />
       </div>
       {state.page === 'splash' ? <Splash state={state} /> : ''}
