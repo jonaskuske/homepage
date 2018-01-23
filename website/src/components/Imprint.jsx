@@ -2,7 +2,8 @@ const style = {
   margin: '0 3rem 3rem 50%',
   transform: 'translateX(-50%)',
   width: '50%',
-  fontSize: '0.77rem'
+  fontSize: '0.9rem',
+  fontWeight: 'lighter'
 };
 
 export default props => (

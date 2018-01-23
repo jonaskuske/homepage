@@ -43,6 +43,10 @@ p {
   display: flex;
   z-index: 99;
   justify-content: space-between;
+  pointer-events: none;
+}
+.events {
+  pointer-events: initial;
 }
 .header-link-text {
   font-size: 1.1rem;
