@@ -5,7 +5,7 @@ import App from '@/App';
 
 const container = document.createElement('div');
 container.id = 'app';
-container.classList.add('app-light');
+document.body.classList.add('app-light');
 document.body.prepend(container);
 
 const state = {

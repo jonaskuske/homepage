@@ -9,13 +9,13 @@ import Impressum from '@@/Imprint';
 
 function toggleBackground() {
   actions.toggleBackground();
-  document.querySelector('#app').classList.toggle('app-light');
-  document.querySelector('#app').classList.toggle('app-dark');
+  document.querySelector('body').classList.toggle('app-light');
+  document.querySelector('body').classList.toggle('app-dark');
 }
 
 export default (state, actions) => {
   return (
-    <div>
+    <div style={{ marginTop: '5rem' }}>
       <SideMenu state={state} class={state.sideMenu ? '' : 'slideout'} />
       <NavHeader actions={actions} />
       <div style={{ marginLeft: '50%', transform: 'translateX(-52%)' }}>

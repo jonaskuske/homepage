@@ -4,7 +4,7 @@ import actions from '@/main';
 
 const style = {
   height: '100vh',
-  width: '300px',
+  width: '250px',
   position: 'absolute'
 };
 

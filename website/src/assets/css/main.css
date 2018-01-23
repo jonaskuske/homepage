@@ -13,7 +13,13 @@ html, body, #app {
 .side-panel-dark::before {
   background: url(../images/bg-dark.jpg) center / cover fixed;
 }
+body {
+  overflow: hidden;
+}
 #app {
+  overflow-y: auto;
+}
+#app, body {
   height: 100vh;
   margin: 0;
   will-change: opacity;
@@ -31,7 +37,11 @@ p {
 }
 .header {
   padding-top: 2.5rem;
+  position: fixed;
+  width: 100%;
+  top: 0;
   display: flex;
+  z-index: 99;
   justify-content: space-between;
 }
 .header-link-text {
@@ -42,15 +52,17 @@ p {
   position: absolute;
   top: 0;
   left: 0;
-  will-change: left;
+  will-change: opacity;
   transition: left 350ms ease-in-out;
-  background-color: rgba(255, 255, 255, 0.05);
+  background-color: rgba(255, 255, 255, 0.1);
+  background-blend-mode: hard-light;
   box-shadow: 2px 0 15px rgba(0,0,0,0.25);
   display: grid;
   grid-template: 5.5rem 200px repeat(auto-fill, minmax(50px, 1fr)) / 1fr;
   grid-row-gap: 20px;
   text-align: center;
   justify-items: center;
+  z-index: 1;
 
 }
 .side-panel::before {
@@ -60,7 +72,7 @@ p {
   right: 0;
   bottom: 0;
   left: 0;
-  filter: blur(5px);
+  filter: blur(6px);
   z-index: -1;
 }
 .slideout {
