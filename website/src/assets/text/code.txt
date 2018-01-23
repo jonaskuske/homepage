@@ -1,0 +1,3 @@
+Moderne Web Technologien, die die Grenzen zwischen Internet und nativen Anwendungen verschwimmen lassen, interessieren mich besonders.
+Gerne arbeite ich mit modernen JavaScript Frameworks bzw. Libraries, insbesondere Vue und React, und probiere neue, kleinere Tools aus.
+Diese Seite wurde mit Hilfe von »hyperapp«, einem React-ähnlichen, aber unfassbar schlanken (1KB) JS-Framework, geschrieben. Trotzdem ist es mir auch wichtig, ein gutes Verständnis von purem JavaScript zu haben - vor allem, weil die Sprache meiner Meinung nach spätestens seit ES2015 zu einer vollwertigen (und ab und zu sogar eleganten) Sprache geworden ist.

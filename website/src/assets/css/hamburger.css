@@ -1,0 +1,21 @@
+.hamburger {
+  margin-top: 12px;
+  width: 35px;
+  height: 18px;
+  cursor: pointer;
+}
+.hamburger, .hamburger::before, .hamburger::after {
+border-bottom: 2px solid white;
+}
+.hamburger::before, .hamburger::after {
+  content: "";
+  position: absolute;
+  width: inherit;
+  top: 0;
+  left: 0;
+}
+.hamburger::before {
+  margin-top: 9px;
+}
+.hamburger::after {
+}
