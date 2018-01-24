@@ -15,7 +15,7 @@ export default props => {
         <Hamburger class='events' style={{ marginLeft: '3.5rem' }} onclick={() => actions.toggleMenu()} />
       </div>
       <div style={{ display: 'flex', marginRight: '3.5rem' }}>
-        {links.map(props => <HeaderLink class='events' {...props} />)}
+        {links.map(({ text, href }) => <HeaderLink class='events' href={href}>{text}</HeaderLink>)}
       </div>
     </div>
   );

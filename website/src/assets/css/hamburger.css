@@ -1,4 +1,5 @@
 .hamburger {
+  position: relative;
   margin-top: 12px;
   width: 35px;
   height: 18px;
@@ -16,6 +17,4 @@ border-bottom: 2px solid white;
 }
 .hamburger::before {
   margin-top: 9px;
-}
-.hamburger::after {
 }

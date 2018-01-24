@@ -5,13 +5,9 @@ const style = {
   outline: 'none'
 };
 
-export default props => {
-  const { text, ...otherProps } = props;
+export default (props, children) => {
   return (
-    <button
-      {...otherProps}
-      style={style}
-    >
-      {text || 'Hier klicken'}
+    <button {...props} style={style}>
+      {children || 'Hier klicken'}
     </button>);
 };

@@ -1,7 +1,7 @@
 const view = props => {
-  const { style, class: className, ...rest } = props;
+  const { class: className, ...rest } = props;
   return (
-    <div {...rest} style={{ position: 'relative', ...style }} class={'hamburger ' + className} />
+    <div {...rest} class={'hamburger ' + className} />
   );
 };
 
