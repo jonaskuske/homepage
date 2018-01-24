@@ -44,12 +44,15 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'Hyperapp Demo'
+      title: 'Portfolio | Jonas Kuske'
     }),
     new webpack.ProvidePlugin({
       h: ['hyperapp', 'h']
     })
-  ]
+  ],
+  devServer: {
+    historyApiFallback: true
+  }
 };
 
 if (process.env.NODE_ENV === 'production') module.exports.plugins.push(new webpack.optimize.UglifyJsPlugin());
