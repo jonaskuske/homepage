@@ -19,7 +19,7 @@ export default (state, actions) => (
     <SideMenu light={state.lightBackground} class={state.sideMenu ? '' : 'slideout'} />
     <NavHeader actions />
     <div style={{ marginLeft: '50%', transform: 'translateX(-52%)' }}>
-      <Button onclick={toggleBackground} style={{ fontWeight: 'lighter' }}>Hell / Dunkel</Button>
+      <Button onclick={toggleBackground}> Hell / Dunkel </Button>
     </div>
     {state.page === '/' ? <Splash state /> : ''}
     {state.page === 'projects' ? <Projects state /> : ''}
