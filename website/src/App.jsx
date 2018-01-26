@@ -4,12 +4,12 @@ import NavHeader from '@@/NavHeader';
 import SideMenu from '@@/SideMenu';
 
 export default (state, actions) => (
-  <div id='app'>
+  <div id='app' oncreate={actions.allProjects}>
     <SideMenu light={state.lightBackground} class={state.sideMenu ? '' : 'slideout'} />
     <NavHeader />
     <div class='dark-light-btn'>
-      <Button onclick={actions.toggleBackground} style={{ padding: 0 }}> Hell / Dunkel </Button>
+      <Button onclick={actions.toggleBackground} style={{ padding: 0 }}> Farbe ändern </Button>
     </div>
-    <RouterView state />
+    <RouterView state={state} />
   </div>
 );

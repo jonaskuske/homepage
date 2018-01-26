@@ -1,23 +1,12 @@
-const style = {
-  margin: '0 3rem 3rem 50%',
-  transform: 'translateX(-50%)',
-  width: '50%'
-};
+import actions from '@/main';
+import router from '@/router';
 
-const img = {
-  background: 'rgba(240, 240, 240, 0.902) center / cover no-repeat',
-  width: '400%',
-  marginRight: '2rem',
-  height: '300px'
-};
-
-const view = ({ state, ...rest }) => {
-  const { title, image, text } = state.projekt;
+const view = ({ state: { title, image, text }, ...rest }) => {
   return (
-    <div style={style}>
-      <h1>{title || 'EIN PROJEKT'}</h1>
+    <div class='content-container'>
+      <h1>{title.toUpperCase()}</h1>
       <div class='detail-container'>
-        <div style={{ ...img, backgroundImage: image }} /> <p>'lala'</p>
+        <div class='detail-image' style={{ backgroundImage: `url(${image})` }} /> <p>{text}</p>
       </div>
     </div>
   );

@@ -1,9 +1,14 @@
 import projekte from '@/assets/projekte.json';
+import effects from '@/main';
+import router from '@/router';
 
 export const state = {
   updateHack: false,
   sideMenu: true,
-  projekt: undefined,
+  title: '',
+  image: '',
+  text: '',
+  projekte: {},
   lightBackground: true
 };
 
@@ -16,9 +21,20 @@ export const actions = {
   },
   toggleMenu: () => state => ({ sideMenu: !state.sideMenu }),
   setMenu: value => state => ({ sideMenu: value }),
-  setProject: value => state => {
-    let projekte;
-    fetch(projekte).then(r => r.json().then(d => (projekte = d)));
-    return { projekt: projekte[value] };
-  }
+  setProject: ({ title, image, text }) => state => {
+    return { title, image, text };
+  },
+  deleteProject: () => ({ title: {}, image: {}, text: {} }),
+  getProject: id => state => {
+    return fetch(projekte)
+      .then(response => response.json())
+      .then(data => {
+        if (!data.hasOwnProperty(id)) return (router.push(id), false);
+        effects.setProject(data[id]);
+      });
+  },
+  allProjects: () => {
+    return fetch(projekte).then(r=>r.json()).then(d=>effects.set(d));
+  },
+  set: value => state => ({projekte: value})
 };
