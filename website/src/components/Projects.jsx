@@ -13,7 +13,7 @@ export default props => (
   <div style={style}>
     <h1>PROJEKTE</h1>
     <div class='projekt-container'>
-      {projects.map(el => <Thumbnail onclick={() => router.push('/detail')}> {el} </Thumbnail>)}
+      {projects.map(el => <Thumbnail onclick={() => router.push('/detail?projekt=1')}> {el} </Thumbnail>)}
     </div>
   </div>
 );

@@ -23,18 +23,20 @@ const routes = [
   {
     path: '/impressum',
     component: Imprint
-  },
+  }
 ];
 
 const router = {
   routes,
   push(target) {
-    RouterView = router.match(target);
+    setProjectFromQuery();
+    RouterView = router.match(target.split('?')[0]);
     router.setTitle(target);
     history.pushState(actions.getState(), target, target);
     actions.forceUpdate();
   },
   init() {
+    setProjectFromQuery();
     RouterView = router.match(window.location.pathname);
     router.setTitle(window.location.pathname);
     const notEmpty = obj => {
@@ -54,3 +56,10 @@ const router = {
 export { RouterView };
 
 export default router;
+
+function setProjectFromQuery() {
+  if (!window.location.search) return false;
+  const query = window.location.search.substring(1).split('=');
+  if (query[0] !== 'projekt') return false;
+  actions.setProject(query[1]);
+}

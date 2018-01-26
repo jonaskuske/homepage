@@ -10,6 +10,6 @@ export default (state, actions) => (
     <div class='dark-light-btn'>
       <Button onclick={actions.toggleBackground} style={{ padding: 0 }}> Hell / Dunkel </Button>
     </div>
-    <RouterView />
+    <RouterView state />
   </div>
 );

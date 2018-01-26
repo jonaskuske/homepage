@@ -14,3 +14,5 @@ if (!state.lightBackground) document.body.classList.add('app-dark');
 const vm = app(state, actions, App, document.body);
 
 export default vm;
+
+window.la = vm;
