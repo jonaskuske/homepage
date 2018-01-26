@@ -1,7 +1,6 @@
-const view = props => {
-  const { class: className, ...rest } = props;
+const view = ({ class: className, ...props }) => {
   return (
-    <div {...rest} class={'hamburger ' + className} />
+    <div {...props} class={'hamburger ' + className} />
   );
 };
 

@@ -7,7 +7,7 @@ const style = {
 };
 
 export default props => (
-  <div style={style}>
+  <div class='content-container'>
     <h1>IMPRESSUM</h1>
     <div>
       Information in accordance with section 5 TMG<br /><br />

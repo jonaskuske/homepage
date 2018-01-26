@@ -1,13 +1,6 @@
-const style = {
-  border: 'none',
-  padding: '5px 15px',
-  cursor: 'pointer',
-  outline: 'none'
-};
-
-export default (props, children) => {
+export default ({ class: className, ...props }, children) => {
   return (
-    <button {...props} style={style}>
+    <button {...props} class={'btn ' + (className ? className : '')}>
       {children || 'Hier klicken'}
     </button>);
 };

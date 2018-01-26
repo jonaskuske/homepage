@@ -1,28 +1,43 @@
-html, body, #app {
+html, body {
   margin: 0;
 }
 body {
-  background: url(../images/bg-light.jpg) center / cover fixed;
+  background: url(http://www.qygjxz.com/data/out/18/5769022-background-image.png) center / cover fixed;
+  background-color: rgba(20, 20, 20, 0.35);
+  background-blend-mode: soft-light;
 }
 .app-dark {
-  background: url(../images/bg-dark.jpg) center / cover fixed;
-}
-.panel-light::before {
   background: url(../images/bg-light.jpg) center / cover fixed;
 }
-.panel-dark::before {
-  background: url(../images/bg-dark.jpg) center / cover fixed;
+.panel-light::before {
+  background: url(http://www.qygjxz.com/data/out/18/5769022-background-image.png) center / cover fixed;
+  background-color: rgba(20, 20, 20, 0.35);
+  background-blend-mode: soft-light;
 }
-body {
-  overflow: hidden;
+.panel-dark::before {
+  background: url(../images/bg-light.jpg) center / cover fixed;
 }
 #app {
-  overflow-y: auto;
+  margin-top: 5rem;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
-#app, body {
-  height: 100vh;
-  margin: 0;
+body {
+  height: 100%;
   will-change: opacity;
+}
+::-webkit-scrollbar {
+  width: 0.7rem;
+  height: 1rem;
+  background: #585858;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #fff;
+  border-radius: 5px;
 }
 div, p, button, h1, h2, h3, h4 {
   font-family: Bahnschrift, Roboto, "Open Sans", sans-serif;
@@ -53,7 +68,7 @@ p {
   font-weight: 400;
 }
 .side-panel {
-  position: absolute;
+  position: fixed;
   height: 100vh;
   width: 250px;
   top: 0;
@@ -61,7 +76,6 @@ p {
   will-change: opacity;
   transition: left 350ms ease-in-out;
   background-color: rgba(255, 255, 255, 0.1);
-  background-blend-mode: hard-light;
   box-shadow: 2px 0 15px rgba(0,0,0,0.25);
   display: grid;
   grid-template: 5.5rem 200px repeat(auto-fill, minmax(50px, 1fr)) / 1fr;
@@ -69,7 +83,6 @@ p {
   text-align: center;
   justify-items: center;
   z-index: 1;
-
 }
 .side-panel::before {
   content: '';
@@ -103,22 +116,19 @@ a {
 button {
   background: none;
 }
-
 @keyframes spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
-
 .projekt-container {
   display: grid;
-  grid-template: auto / repeat(auto-fit, minmax(170px, 1fr));
+  grid-template: auto / repeat(auto-fit, minmax(230px, 1fr));
   grid-gap: 0.9rem;
 }
-
 .thumbnail {
   cursor: pointer;
   width: 100%;
-  background: url(http://100wordsfilmfestival.com/wp-content/uploads/2014/10/box-bg-img.jpg) center / cover no-repeat;
+  background: rgba(240, 240, 240, 0.902) center / cover no-repeat;
   margin: 0;
   position: relative;
 }
@@ -142,9 +152,37 @@ button {
 .thumbnail:hover .overlay {
   opacity: 1;
 }
-
 .detail-container {
   display: flex;
   justify-content: space-between;
-height: 100%;
+  height: 100%;
+}
+.dark-light-btn {
+  margin-left: 50%;
+  transform: translateX(-50%);
+}
+.btn {
+  border: none;
+  padding: 5px 15px;
+  cursor: pointer;
+  outline: none;
+}
+.detail-image {
+  background: transparent center / cover no-repeat;
+  width: 400%;
+  margin-right: 2rem;
+  height: 300px;
+}
+.content-container {
+  margin: 0 3rem 3rem 50%;
+  transform: translateX(-50%);
+  width: 50%;
+}
+.profile-pic {
+  width: 170px;
+  height: 170px;
+  border-radius: 50%;
+  position: relative;
+  box-shadow: 0 0 6px 1px rgba(0,0,0,0.3);
+  cursor: pointer;
 }

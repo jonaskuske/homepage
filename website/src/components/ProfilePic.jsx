@@ -1,13 +1,9 @@
 import profilePic from '@img/Lisbon.jpg';
 
 const style = {
-  background: `url(${profilePic}) center / cover no-repeat`,
-  width: '170px',
-  height: '170px',
-  borderRadius: '50%',
-  position: 'relative'
+  background: `url(${profilePic}) center / cover no-repeat`
 };
 
-export default props => (
-  <div style={{ ...style, ...props.style }} />
+export default ({ style: inheritedStyle, ...props }) => (
+  <div class='profile-pic' style={{ ...style, ...inheritedStyle }} {...props} />
 );
