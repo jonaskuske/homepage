@@ -108,14 +108,15 @@ button {
 
 .projekt-container {
   display: grid;
-  grid-template: auto / repeat(auto-fit, minmax(170px, 1fr));
+  grid-template: auto / repeat(auto-fit, minmax(230px, 1fr));
   grid-gap: 0.9rem;
 }
 
 .thumbnail {
   cursor: pointer;
   width: 100%;
-  background: url(http://100wordsfilmfestival.com/wp-content/uploads/2014/10/box-bg-img.jpg) center / cover no-repeat;
+  background: url(http://ku.edu.np/kucc/wp-content/uploads/2017/10/design.png) center / cover no-repeat;
+  background-color: rgba(240, 240, 240, 0.902);
   margin: 0;
   position: relative;
 }
@@ -144,4 +145,14 @@ button {
   display: flex;
   justify-content: space-between;
 height: 100%;
+}
+.dark-light-btn {
+  margin-left: 50%;
+  transform: translateX(-50%);
+}
+.btn {
+  border: none;
+  padding: 5px 15px;
+  cursor: pointer;
+  outline: none;
 }

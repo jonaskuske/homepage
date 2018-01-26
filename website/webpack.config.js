@@ -8,7 +8,7 @@ module.exports = {
   entry: './src/main.js',
   output: {
     path: path.resolve(__dirname, './dist'),
-    filename: 'bundle.js'
+    filename: 'main.[hash].js'
   },
   resolve: {
     extensions: ['.js', '.jsx', '.json'],
@@ -34,7 +34,7 @@ module.exports = {
       },
       {
         test: /\.jpg$/,
-        loader: 'url-loader'
+        loader: 'file-loader?name=[name].[hash].[ext]'
       },
       {
         test: /\.txt$/,

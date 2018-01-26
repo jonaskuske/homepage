@@ -7,13 +7,13 @@ const style = {
   width: '50%'
 };
 
-const projects = new Array(14).fill('la');
+const projects = new Array(11).fill('Ein Projekt');
 
 export default props => (
   <div style={style}>
     <h1>PROJEKTE</h1>
     <div class='projekt-container'>
-      {projects.map(el => <Thumbnail onclick={() => router.push('detail')} />)}
+      {projects.map(el => <Thumbnail onclick={() => router.push('/detail')}> {el} </Thumbnail>)}
     </div>
   </div>
 );

@@ -8,8 +8,8 @@ const style = {
 
 const menuItems = [
   { text: 'Start', route: '/' },
-  { text: 'Projekte', route: 'projects' },
-  { text: 'Impressum', route: 'imprint' }
+  { text: 'Projekte', route: '/projekte' },
+  { text: 'Impressum', route: '/impressum' }
 ];
 
 const view = props => {
@@ -17,7 +17,7 @@ const view = props => {
     <div class={`side-panel ${props.light ? 'panel-light' : 'panel-dark'} ${props.class}`} style={{ ...style, ...props.style }}>
       <div /> {/* spacer for css grid */}
       <ProfilePic />
-      {menuItems.map(m => <Button class={'side-btn'} onclick={() => router.push(m.route)}>{m.text}</Button>)}
+      {menuItems.map(({ route, text }) => <Button class={'side-btn'} onclick={() => router.push(route)}>{text}</Button>)}
     </div>
   );
 };

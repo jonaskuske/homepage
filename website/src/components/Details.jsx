@@ -1,4 +1,4 @@
-import txt from '@/assets/text/welcome.txt';
+import txt from '@/assets/text/projekt.txt';
 
 const style = {
   margin: '0 3rem 3rem 50%',
@@ -7,9 +7,11 @@ const style = {
 };
 
 const img = {
-  background: 'url(http://100wordsfilmfestival.com/wp-content/uploads/2014/10/box-bg-img.jpg) center / cover no-repeat',
-  width: '10rem',
-  height: '10rem'
+  background: 'url(http://ku.edu.np/kucc/wp-content/uploads/2017/10/design.png) center / cover no-repeat',
+  backgroundColor: 'rgba(240, 240, 240, 0.902)',
+  width: '400%',
+  marginRight: '2rem',
+  height: '300px'
 };
 
 const view = ({ title, ...rest }) => {
