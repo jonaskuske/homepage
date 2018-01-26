@@ -3,9 +3,7 @@ import Thumbnail from './Thumbnail';
 
 export default ({ state: { projekte } }) => {
   let werke = [];
-  for (let werk in projekte) {
-    werke.push(projekte[werk]);
-  }
+  for (let werk in projekte) werke.push(projekte[werk]);
   return (
     <div class='content-container'>
       <h1>PROJEKTE</h1>

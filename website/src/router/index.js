@@ -35,24 +35,23 @@ const router = {
   routes,
   push(target) {
     RouterView = router.match(target.split('?')[0]);
+    history.pushState({}, target, target);
     router.setTitle(target);
-    history.pushState(actions.getState(), target, target);
-    if (target.includes('?')) router.getProjectFromQuery();
+    if (target.includes('?')) router.getProjectFromURL();
     actions.forceUpdate();
   },
   init() {
     RouterView = router.match(window.location.pathname);
-    router.setTitle(window.location.pathname);
-    router.getProjectFromQuery();
+    router.getProjectFromURL();
   },
   match(route) {
     return router.routes.reduce((a, b) => b.path === route ? b.component : a, ErrorPage);
   },
-  setTitle(string) {
-    const title = (string === '/' ? 'Portfolio' : string).replace('/', '');
-    document.querySelector('title').textContent = `${title.charAt(0).toUpperCase() + title.slice(1)} | Jonas Kuske`;
+  setTitle(s) {
+    const t = (s === '/' ? 'Portfolio' : s).replace('/', '');
+    document.querySelector('title').textContent = `${t[0].toUpperCase() + t.slice(1)} | Jonas Kuske`;
   },
-  getProjectFromQuery() {
+  getProjectFromURL() {
     const source = window.location.search;
     const query = source.substring(1).split('=');
     if (query[0] !== 'id') return false;

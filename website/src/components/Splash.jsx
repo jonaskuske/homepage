@@ -1,5 +1,3 @@
-import Button from '@@/Button';
-import actions from '@/main';
 import welcome from '@/assets/text/welcome.txt';
 import codeText from '@/assets/text/code.txt';
 import designText from '@/assets/text/design.txt';

@@ -1,6 +1,3 @@
-import actions from '@/main';
-import router from '@/router';
-
 const view = ({ state: { title, image, text }, ...rest }) => {
   return (
     <div class='content-container'>

@@ -1,7 +1,3 @@
-const view = ({ class: className, ...props }) => {
-  return (
-    <div {...props} class={'hamburger ' + className} />
-  );
-};
-
-export default view;
+export default ({ class: className, ...props }) => (
+  <div {...props} class={'hamburger ' + className} />
+);

@@ -186,3 +186,11 @@ button {
   box-shadow: 0 0 6px 1px rgba(0,0,0,0.3);
   cursor: pointer;
 }
+.link-container {
+  display: flex;
+  margin-right: 3.5rem;
+}
+.impressum {
+  font-size: 0.9rem;
+  font-weight: lighter;
+}

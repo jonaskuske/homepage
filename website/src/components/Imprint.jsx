@@ -1,13 +1,5 @@
-const style = {
-  margin: '0 3rem 3rem 50%',
-  transform: 'translateX(-50%)',
-  width: '50%',
-  fontSize: '0.9rem',
-  fontWeight: 'lighter'
-};
-
 export default props => (
-  <div class='content-container'>
+  <div class='content-container impressum'>
     <h1>IMPRESSUM</h1>
     <div>
       Information in accordance with section 5 TMG<br /><br />
@@ -17,7 +9,7 @@ export default props => (
       <h2>Contact</h2>
       Telephone: +491603336948<br />
       E-Mail: <a href="mailto:joku49@gmail.com">joku49@gmail.com</a><br />
-      Website: <a href="http://www.jonaskuske.com" target="_blank" rel="noreferrer">jonaskuske.com</a><br /><br />
+      Website: <a href="http://www.jonaskuske.com" target="_blank" rel="noopener">jonaskuske.com</a><br /><br />
       <h2>Person responsible for content in accordance with 55 Abs. 2 RStV</h2><br />
       Jonas Kuske, An der Allee 36 27568 Bremerhaven<br /><br />
       <h2>Disclaimer</h2>
