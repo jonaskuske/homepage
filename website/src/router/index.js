@@ -29,10 +29,9 @@ const routes = [
 const router = {
   routes,
   push(target) {
-    router.setTitle(target);
-    actions.setMenu(false);
-    history.pushState(actions.getState(), target, target);
     RouterView = router.match(target);
+    router.setTitle(target);
+    history.pushState(actions.getState(), target, target);
     actions.forceUpdate();
   },
   init() {

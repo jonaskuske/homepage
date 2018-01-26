@@ -1,7 +1,6 @@
-export default (props, children) => {
-  const { class: className, ...otherProps } = props;
+export default ({ class: className, ...props }, children) => {
   return (
-    <button {...otherProps} class={'btn ' + className}>
+    <button {...props} class={'btn ' + className}>
       {children || 'Hier klicken'}
     </button>);
 };

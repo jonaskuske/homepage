@@ -4,6 +4,7 @@ import actions from '@/main';
 
 const links = [
   { text: 'GitHub', href: 'https://github.com/jonaskuske' },
+  { text: 'LinkedIn', href: 'https://www.linkedin.com/in/jonaskuske/' },
   { text: 'Adobe Portfolio', href: 'http://jonaskuske.com' },
   { text: 'Kontakt', href: 'mailto:joku49@gmail.com' },
 ];

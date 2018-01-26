@@ -1,6 +1,6 @@
 export const state = {
   updateHack: false,
-  sideMenu: false,
+  sideMenu: true,
   lightBackground: true
 };
 
