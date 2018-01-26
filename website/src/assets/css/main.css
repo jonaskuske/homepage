@@ -1,4 +1,4 @@
-html, body, #app {
+html, body {
   margin: 0;
 }
 body {
@@ -13,15 +13,12 @@ body {
 .panel-dark::before {
   background: url(../images/bg-dark.jpg) center / cover fixed;
 }
-body {
-  overflow: hidden;
-}
 #app {
+  margin-top: 5rem;
   overflow-y: auto;
 }
-#app, body {
+body {
   height: 100vh;
-  margin: 0;
   will-change: opacity;
 }
 div, p, button, h1, h2, h3, h4 {

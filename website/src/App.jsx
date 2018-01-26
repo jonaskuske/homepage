@@ -1,4 +1,4 @@
-import router from '@/router';
+import { default as router, RouterView } from '@/router';
 import actions from '@/main';
 import Button from '@@/Button';
 import NavHeader from '@@/NavHeader';
@@ -15,15 +15,16 @@ function toggleBackground() {
 }
 
 export default (state, actions) => (
-  <div oncreate={router.init} style={{ marginTop: '5rem' }}>
+  <div oncreate={router.init} id='app'>
     <SideMenu light={state.lightBackground} class={state.sideMenu ? '' : 'slideout'} />
     <NavHeader actions />
     <div style={{ marginLeft: '50%', transform: 'translateX(-52%)' }}>
       <Button onclick={toggleBackground}> Hell / Dunkel </Button>
     </div>
-    {state.page === '/' ? <Splash state /> : ''}
+    <RouterView />
+    {/*{state.page === '/' ? <Splash state /> : ''}
     {state.page === 'projects' ? <Projects state /> : ''}
     {state.page === 'detail' ? <Details state /> : ''}
-    {state.page === 'imprint' ? <Impressum state /> : ''}
+{state.page === 'imprint' ? <Impressum state /> : ''}*/}
   </div>
 );
