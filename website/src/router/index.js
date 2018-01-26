@@ -48,7 +48,7 @@ const router = {
     return router.routes.reduce((a, b) => b.path === route ? b.component : a, ErrorPage);
   },
   setTitle(s) {
-    const t = (s === '/' ? 'Portfolio' : s).replace('/', '');
+    const t = (s === '/' ? 'Portfolio' : s.includes('?') ? s.split('?')[1].split('=')[1] : s).replace('/', '');
     document.querySelector('title').textContent = `${t[0].toUpperCase() + t.slice(1)} | Jonas Kuske`;
   },
   getProjectFromURL() {
