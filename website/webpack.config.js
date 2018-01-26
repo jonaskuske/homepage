@@ -48,7 +48,12 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'Portfolio | Jonas Kuske'
+      title: 'Portfolio | Jonas Kuske',
+      minify: {
+        removeComments: true,
+        collapseWhitespace: true,
+        removeAttributeQuotes: true
+      }
     }),
     new webpack.ProvidePlugin({
       h: ['hyperapp', 'h']
