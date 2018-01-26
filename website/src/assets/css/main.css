@@ -97,8 +97,11 @@ p {
 .slideout {
   left: -300px;
 }
+.side-link {
+  z-index: 6;
+}
 .side-btn {
-  width: 70%;
+  width: 11rem;
   height: 50px;
   z-index: 5;
   color: #f0f0f0;

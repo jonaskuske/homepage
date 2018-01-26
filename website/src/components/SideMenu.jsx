@@ -14,9 +14,11 @@ const view = ({ light, class: className }) => (
     <div />
     <ProfilePic onclick={() => router.push('/me')} />
     {menuItems.map(({ route, text }) => (
-      <Button class={'side-btn'} onclick={() => router.push(route)}>
-        {text}
-      </Button>
+      <a class='side-link' href={route} onclick={() => false}>
+        <Button class={'side-btn'} onclick={() => router.push(route)}>
+          {text}
+        </Button>
+      </a>
     ))}
   </div>
 );

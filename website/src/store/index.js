@@ -4,7 +4,7 @@ import effects from '@/main';
 
 export const state = {
   updateHack: false,
-  sideMenu: true,
+  sideMenu: false,
   title: '',
   image: '',
   text: '',

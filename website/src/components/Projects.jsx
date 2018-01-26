@@ -9,7 +9,7 @@ export default ({ state: { projekte } }) => {
       <h1>PROJEKTE</h1>
       <div class='projekt-container'>
         {werke.map(({ title, id, image }) => (
-          <Thumbnail style={{ backgroundImage: `url(${image})` }} onclick={() => router.push(`/detail?id=${id}`)}>
+          <Thumbnail style={{ backgroundImage: `url(${image})` }} onclick={() => router.push(`/detail?id=${id}`)} href={`/detail?id=${id}`}>
             {title}
           </Thumbnail>
         ))}
