@@ -9,7 +9,9 @@ export const state = {
   image: '',
   text: '',
   projekte: {},
-  lightBackground: true
+  projectLoading: true,
+  lightBackground: true,
+  scrollTop: 0
 };
 
 export const actions = {
@@ -30,5 +32,6 @@ export const actions = {
       });
   },
   allProjects: () => fetch(projekte).then(r => r.json()).then(d => effects.set(d)),
+  setScrollTop: value => state => ({ scrollTop: value }),
   set: value => state => ({ projekte: value })
 };

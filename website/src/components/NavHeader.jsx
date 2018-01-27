@@ -9,13 +9,17 @@ const links = [
   { text: 'Kontakt', href: 'mailto:joku49@gmail.com' },
 ];
 
-export default props => {
+const handleScroll = () => actions.setScrollTop(document.documentElement.scrollTop);
+const addListener = () => document.addEventListener('scroll', handleScroll, { passive: true });
+const removeListener = () => document.removeEventListener('scroll', handleScroll);
+
+export default ({ scroll }) => {
   return (
-    <div class='header'>
+    <div class='header' oncreate={addListener}>
       <div>
         <Hamburger class='events' style={{ marginLeft: '3.5rem' }} onclick={actions.toggleMenu} />
       </div>
-      <div class='link-container'>
+      <div class={`link-container ${scroll > 0 ? 'invisible' : ''}`}>
         {links.map(({ text, href }) => <HeaderLink class='events' href={href}>{text}</HeaderLink>)}
       </div>
     </div>

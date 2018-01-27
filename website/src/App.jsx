@@ -6,7 +6,7 @@ import SideMenu from '@@/SideMenu';
 export default (state, actions) => (
   <div id='app' oncreate={actions.allProjects}>
     <SideMenu light={state.lightBackground} class={state.sideMenu ? '' : 'slideout'} />
-    <NavHeader />
+    <NavHeader scroll={state.scrollTop} />
     <div class='dark-light-btn'>
       <Button onclick={actions.toggleBackground} style={{ padding: 0 }}> Farbe ändern </Button>
     </div>

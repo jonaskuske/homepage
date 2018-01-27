@@ -26,13 +26,13 @@ const spinningGradients = props => (props.definitions.map(
 ));
 
 const LoadingSpinner = props => (
-  <svg viewBox="0 0 120 120" fill="transparent">
+  <svg viewBox="0 0 120 120" fill="transparent" {...props} >
     <circle
       r={42}
       cx={60}
       cy={60}
       fill={'transparent'}
-      stroke={'#282828'}
+      stroke={'#f0f0f0'}
       stroke-width={6}
       stroke-dasharray="2 9.5"
     />
@@ -40,8 +40,8 @@ const LoadingSpinner = props => (
     <linearGradient id="half-circle">
       <stop offset="0%" stop-opacity="0" />
       <stop offset="49.99%" stop-opacity="0" />
-      <stop offset="50%" stop-color="#282828" />
-      <stop offset="100%" stop-color="#282828" />
+      <stop offset="50%" stop-color="#f0f0f0" />
+      <stop offset="100%" stop-color="#f0f0f0" />
     </linearGradient>
     <circle
       r={36}

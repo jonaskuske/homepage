@@ -63,6 +63,18 @@ p {
 .events {
   pointer-events: initial;
 }
+.invisible {
+  width: 145px;
+  flex-flow: row wrap;
+  text-align: right;
+}
+.invisible > a {
+  width: 100%;
+}
+.invisible > a > .header-link-text {
+font-size: 1rem;
+font-weight: 200;
+}
 .header-link-text {
   font-size: 1.1rem;
   font-weight: 400;
@@ -151,6 +163,7 @@ button {
   transition: opacity 200ms ease-out;
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 .thumbnail:hover .overlay {
   opacity: 1;
@@ -192,6 +205,7 @@ button {
 .link-container {
   display: flex;
   margin-right: 3.5rem;
+  transition: opacity 200ms ease-in-out;
 }
 .impressum {
   font-size: 0.9rem;
