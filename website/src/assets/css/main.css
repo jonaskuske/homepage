@@ -146,6 +146,8 @@ button {
   background: rgba(240, 240, 240, 0.902) center / cover no-repeat;
   margin: 0;
   position: relative;
+  box-shadow: 0 0 0 4px #585858;
+  box-shadow: 0 0 0 4px var(--theme-color, #0b8dc9);
 }
 .thumbnail p {
   width: 100%;

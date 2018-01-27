@@ -1,7 +1,13 @@
 import router from '@/router';
+import actions from '@/main';
 import Thumbnail from './Thumbnail';
 
-export default ({ state: { projekte, projectLoading }, ...props }) => {
+const loadThenNavigate = id => {
+  actions.startLoading();
+  setTimeout(() => { router.push(`/detail?id=${id}`); actions.stopLoading(); }, 1000);
+};
+
+export default ({ state: { projekte, projectLoading, themeColor }, ...props }) => {
   let werke = [];
   for (let werk in projekte) werke.push(projekte[werk]);
   return (
@@ -11,9 +17,10 @@ export default ({ state: { projekte, projectLoading }, ...props }) => {
         {werke.map(({ title, id, image }) => (
           <Thumbnail
             style={{ backgroundImage: `url(${image})` }}
-            onclick={() => router.push(`/detail?id=${id}`)}
+            onclick={() => loadThenNavigate(id)}
             href={`/detail?id=${id}`}
             loading={projectLoading}
+            color={themeColor}
           >
             {title}
           </Thumbnail>

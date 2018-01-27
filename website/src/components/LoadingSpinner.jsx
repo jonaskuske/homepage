@@ -25,14 +25,14 @@ const spinningGradients = props => (props.definitions.map(
   ]
 ));
 
-const LoadingSpinner = props => (
+const LoadingSpinner = ({ color, ...props }) => (
   <svg viewBox="0 0 120 120" fill="transparent" {...props} >
     <circle
       r={42}
       cx={60}
       cy={60}
       fill={'transparent'}
-      stroke={'#f0f0f0'}
+      stroke={color || '#f0f0f0'}
       stroke-width={6}
       stroke-dasharray="2 9.5"
     />
