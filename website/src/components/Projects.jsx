@@ -1,11 +1,11 @@
 import router from '@/router';
 import Thumbnail from './Thumbnail';
 
-export default ({ state: { projekte, projectLoading } }) => {
+export default ({ state: { projekte, projectLoading }, ...props }) => {
   let werke = [];
   for (let werk in projekte) werke.push(projekte[werk]);
   return (
-    <div class='content-container'>
+    <div key='projects' class='content-container' {...props}>
       <h1>PROJEKTE</h1>
       <div class='projekt-container'>
         {werke.map(({ title, id, image }) => (

@@ -15,7 +15,7 @@ const removeListener = () => document.removeEventListener('scroll', handleScroll
 
 export default ({ scroll }) => {
   return (
-    <div class='header' oncreate={addListener}>
+    <div class='header' oncreate={addListener} ondestroy={removeListener}>
       <div>
         <Hamburger class='events' style={{ marginLeft: '3.5rem' }} onclick={actions.toggleMenu} />
       </div>

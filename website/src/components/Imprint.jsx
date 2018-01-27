@@ -1,5 +1,5 @@
-export default props => (
-  <div class='content-container impressum'>
+export default ({ class: className, ...props }) => (
+  <div key='imprint' class={`content-container impressum ${className ? className : ''}`} {...props}>
     <h1>IMPRESSUM</h1>
     <div>
       Information in accordance with section 5 TMG<br /><br />

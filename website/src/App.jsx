@@ -10,6 +10,6 @@ export default (state, actions) => (
     <div class='dark-light-btn'>
       <Button onclick={actions.toggleBackground} style={{ padding: 0 }}> Farbe ändern </Button>
     </div>
-    <RouterView state={state} />
+    <RouterView oncreate={() => console.log('created')} state={state} />
   </div>
 );
