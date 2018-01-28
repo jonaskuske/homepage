@@ -9,7 +9,7 @@ const links = [
   { text: 'Kontakt', href: 'mailto:joku49@gmail.com' },
 ];
 
-const handleScroll = () => actions.setScrollTop(document.documentElement.scrollTop);
+const handleScroll = (e) => { actions.setScrollTop(document.documentElement.scrollTop || document.body.scrollTop); };
 const addListener = () => document.addEventListener('scroll', handleScroll, { passive: true });
 const removeListener = () => document.removeEventListener('scroll', handleScroll);
 

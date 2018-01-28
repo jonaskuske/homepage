@@ -1,12 +1,34 @@
 import welcome from '@/assets/text/welcome.txt';
-import codeText from '@/assets/text/code.txt';
-import designText from '@/assets/text/design.txt';
+import Thumbnail from '@@/Thumbnail';
+import actions from '@/main';
+import router from '@/router';
 
-export default ({ class: className, ...props }) => (
-  <div class={`content-container ${className ? className : ''}`} {...props} >
-    <h1>WILLKOMMEN</h1>
-    <p> {welcome} </p>
-    <p> {codeText} </p>
-    <p> {designText} </p>
-  </div>
-);
+const loadThenNavigate = id => {
+  actions.startLoading();
+  setTimeout(() => { router.push(`/detail?id=${id}`); actions.stopLoading(); }, 1000);
+};
+
+export default ({ class: className, state: { projekte, projectLoading, themeColor }, ...props }) => {
+  let werke = [];
+  for (let werk in projekte) werke.push(projekte[werk]);
+  return (
+    <div class={`content-container ${className ? className : ''}`} {...props} >
+      <h1>WILLKOMMEN</h1>
+      <p> {welcome} </p>
+      <h2 style={{ marginTop: '2rem' }}> Letzte <span class='pointer' onclick={() => router.push('/projekte')}>Projekte:</span> </h2>
+      <div class='projekt-container'>
+        {werke.reverse().map(({ title, id, image }, index) => index < 3 && (
+          <Thumbnail
+            style={{ backgroundImage: `url(${image})` }}
+            onclick={() => loadThenNavigate(id)}
+            href={`/detail?id=${id}`}
+            loading={projectLoading}
+            color={themeColor}
+          >
+            {title}
+          </Thumbnail>
+        ))}
+      </div>
+    </div>
+  );
+};

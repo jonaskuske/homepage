@@ -2,8 +2,8 @@ html, body {
   margin: 0;
 }
 body {
-  background-color: rgb(255, 115, 0);
-
+  background: url(../images/bg.jpg) center / cover;
+  background-attachment: fixed;
 }
 body::before {
   content: '';
@@ -14,17 +14,8 @@ body::before {
   width: 100%;
   height: 100%;
   position: fixed;
-  background: url(../images/bg-dark.jpg) center / cover;
-  background-attachment: fixed;
-}
-.app-dark {
-  background: url(../images/bg-light.jpg) center / cover fixed;
-}
-.panel-light::before {
-  background-color: rgb(255, 115, 0);
-}
-.panel-dark::before {
-  background: url(../images/bg-light.jpg) center / cover fixed;
+  background-color: #0b8dc9;
+  background-color: var(--theme-color);
 }
 #app {
   margin-top: 5rem;
@@ -40,6 +31,9 @@ body {
   height: 1rem;
   background: #585858;
 }
+.pointer {
+  cursor: pointer;
+}
 ::-webkit-scrollbar-thumb {
   background: rgba(255, 255, 255, 0.7);
   border-radius: 5px;
@@ -52,8 +46,12 @@ div, p, button, h1, h2, h3, h4 {
   font-family: Bahnschrift, Roboto, "Open Sans", sans-serif;
   color: #fff;
 }
+h1, p {
+  transition: font-size 300ms;
+}
 h1 {
-  font-size: 4.5rem;
+  font-size: 3rem;
+  margin-bottom: 2rem;
 }
 p {
   font-size: 1.1rem;
@@ -72,52 +70,49 @@ p {
 .events {
   pointer-events: initial;
 }
-.invisible {
-  width: 145px;
-  flex-flow: row wrap;
-  text-align: right;
-}
-.invisible > a {
-  width: 100%;
-}
-.invisible > a > .header-link-text {
-font-size: 1rem;
-font-weight: 200;
-}
 .header-link-text {
-  font-size: 1.1rem;
-  font-weight: 400;
+  font-size: 0.9rem;
+}
+.header-link-text:hover {
+  color: var(--theme-color);
+  text-shadow: 0 0 2px #585858;
 }
 .side-panel {
   position: fixed;
+  margin: 0;
+  padding: 0;
   height: 100vh;
-  width: 250px;
+  width: 400px;
   top: 0;
-  left: 0;
-  will-change: opacity;
-  transition: left 350ms ease-in-out;
+  left: -15px;
+  transition: left 350ms ease-in-out, width 200ms;
   display: grid;
   grid-template: 5.5rem 200px repeat(auto-fill, minmax(50px, 1fr)) / 1fr;
+  background-color: #0b8dc9;
+  background-color: var(--theme-color);
   grid-row-gap: 20px;
   text-align: center;
   justify-items: center;
   z-index: 99;
+  overflow: hidden;
+  box-shadow: 0 0 1px 2px rgba(0,0,0,0.3);
 }
 .side-panel::before {
   content: '';
   position: absolute;
+  background: url(../images/bg.jpg) center / cover fixed;
+  height: 100%;
+  width: 110%;
   top: 0;
-  right: 0;
   bottom: 0;
-  box-shadow: 0 0 2px 2px black;
-opacity: 0.6;
-  background: url(../images/bg-dark.jpg) center / cover;
   left: 0;
-  filter: blur(7px);
+  right: 0;
+  opacity: 0.6;
+  filter: blur(4px);
   z-index: -1;
 }
 .slideout {
-  left: -300px;
+  left: -400px;
 }
 .side-link {
   z-index: 6;
@@ -140,6 +135,8 @@ a {
 }
 button {
   background: none;
+  margin: 0;
+  padding: 0;
 }
 @keyframes spin {
   from { transform: rotate(0deg); }
@@ -147,13 +144,13 @@ button {
 }
 .projekt-container {
   display: grid;
-  grid-template: auto / repeat(auto-fit, minmax(230px, 1fr));
+  grid-template: auto / repeat(auto-fit, minmax(50px, 300px));
   grid-gap: 0.9rem;
 }
 .thumbnail {
   cursor: pointer;
   width: 100%;
-  background: rgba(240, 240, 240, 0.902) center / cover no-repeat;
+  background: #f0f0f0 center / cover no-repeat;
   margin: 0;
   position: relative;
   box-shadow: 0 0 0 4px #585858;
@@ -182,7 +179,8 @@ button {
 }
 .detail-container {
   display: flex;
-  justify-content: space-between;
+  flex-flow: wrap;
+  justify-content: center;
   height: 100%;
 }
 .dark-light-btn {
@@ -191,15 +189,28 @@ button {
 }
 .btn {
   border: none;
-  padding: 5px 15px;
   cursor: pointer;
   outline: none;
 }
 .detail-image {
-  background: transparent center / cover no-repeat;
-  width: 400%;
-  margin-right: 2rem;
-  height: 300px;
+  width: 100%;
+  height: 100%;
+  align-self: center;
+}
+.detail-text {
+  height: 100%;
+  align-self: center;
+}
+@media screen and (min-width: 1650px) {
+.detail-image {
+  padding-right: 2.5rem;
+  max-width: 40%;
+}
+.detail-text {
+  padding-left: 2.5rem;
+  box-shadow: -6px 0 0 -2px white;
+  max-width: 40%;
+}
 }
 .content-container {
   margin: 0 3rem 3rem 50%;
@@ -217,9 +228,37 @@ button {
 .link-container {
   display: flex;
   margin-right: 3.5rem;
-  transition: opacity 200ms ease-in-out;
+  transition: opacity 100ms;
 }
 .impressum {
   font-size: 0.9rem;
   font-weight: lighter;
+}
+
+.invisible {
+  opacity: 0;
+}
+@media screen and (min-width: 750px) {
+    h1 {
+      font-size: 4.5rem;
+    }
+    .side-panel {
+      width: 250px;
+    }
+    .header-link-text {
+      font-size: 1.1rem;
+      font-weight: 400;
+    }
+    .invisible {
+      width: 145px;
+      flex-flow: row wrap;
+      text-align: right;
+    }
+    .invisible > a {
+      width: 100%;
+    }
+    .invisible > a > .header-link-text {
+    font-size: 1rem;
+    font-weight: 200;
+    }
 }

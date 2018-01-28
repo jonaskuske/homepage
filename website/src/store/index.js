@@ -22,13 +22,11 @@ const blue = '#0b8dc9';
 
 export const actions = {
   forceUpdate: () => state => ({ updateHack: !state.updateHack }),
-  toggleBackground: () => state => {
+  setColor: value => state => {
     const clr = isRed ? blue : red;
-    document.body.style.setProperty('--theme-color', clr);
-    effects.setThemeColor(clr);
+    document.body.style.setProperty('--theme-color', value || clr);
+    effects.setThemeColor(value || clr);
     isRed = !isRed;
-    document.querySelector('body').classList.toggle('app-dark');
-    return { lightBackground: !state.lightBackground };
   },
   toggleMenu: () => state => ({ sideMenu: !state.sideMenu }),
   setMenu: value => state => ({ sideMenu: value }),
@@ -48,5 +46,5 @@ export const actions = {
   set: value => state => ({ projekte: value }),
   startLoading: val => state => ({ projectLoading: true }),
   stopLoading: val => state => ({ projectLoading: false }),
-  setThemeColor: val => state => ({themeColor: val})
+  setThemeColor: val => state => ({ themeColor: val })
 };
