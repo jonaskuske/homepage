@@ -226,6 +226,7 @@ button {
   width: 70%;
 }
 .profile-pic {
+  user-select: none;
   width: 210px;
   height: 210px;
   border-radius: 50%;
@@ -236,6 +237,7 @@ button {
   cursor: pointer;
 }
 .profile-pic-animation {
+  user-select: none;
   position: absolute;
   transition: transform 350ms ease-out, opacity 400ms ease-out;
   top: 0;
