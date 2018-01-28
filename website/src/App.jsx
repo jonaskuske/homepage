@@ -44,6 +44,6 @@ export default (state, actions) => (
           <Color style={{ opacity: 0 }} />
         ]]}
     </div>
-    <RouterView oncreate={fadeIn} onupdate={fadeIn} state={state} />
+    <RouterView state={state} oncreate={fadeIn} onupdate={(el, old) => state.page !== old['data-page'] && fadeIn(el)} />
   </div>
 );

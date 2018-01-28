@@ -1,5 +1,5 @@
-const view = ({ state: { title, image, text }, class: className, ...props }) => (
-  <div key='details' class={`content-container ${className ? className : ''}`} {...props} >
+const view = ({ state: { title, image, text, page }, class: className, ...props }) => (
+  <div key='details' data-page={page} class={`content-container ${className ? className : ''}`} {...props} >
     <h1>{title.toUpperCase()}</h1>
     <div class='detail-container'>
       <img class='detail-image' src={image} /> <p class='detail-text'>{text}</p>

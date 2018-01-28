@@ -13,21 +13,16 @@ export const state = {
   lightBackground: true,
   scrollTop: 0,
   themeColor: '#0b8dc9',
-  isMobile: false
+  isMobile: false,
+  page: '/'
 };
-
-let isRed = false;
-const red = '#e9a322';
-const blue = '#0b8dc9';
-
 
 export const actions = {
   forceUpdate: () => state => ({ updateHack: !state.updateHack }),
   setColor: value => state => {
-    const clr = isRed ? blue : red;
-    document.body.style.setProperty('--theme-color', value || clr);
-    effects.setThemeColor(value || clr);
-    isRed = !isRed;
+    document.body.style.setProperty('--theme-color', value);
+    document.querySelector('meta[name=theme-color]').content = value;
+    effects.setThemeColor(value);
   },
   toggleMenu: () => state => ({ sideMenu: !state.sideMenu }),
   setMenu: value => state => ({ sideMenu: value }),
@@ -48,5 +43,6 @@ export const actions = {
   startLoading: val => state => ({ projectLoading: true }),
   stopLoading: val => state => ({ projectLoading: false }),
   setThemeColor: val => state => ({ themeColor: val }),
-  setMobileMode: val => state => ({ isMobile: val })
+  setMobileMode: val => state => ({ isMobile: val }),
+  setPage: val => state => ({ page: val })
 };

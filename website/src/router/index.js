@@ -38,10 +38,12 @@ const router = {
     if (pushNew) history.pushState({}, target, target);
     router.setTitle(target);
     if (target.includes('?')) router.getProjectFromURL();
+    actions.setPage(target);
     actions.forceUpdate();
   },
   init() {
     RouterView = router.match(window.location.pathname);
+    actions.setPage(window.location.pathname);
     router.getProjectFromURL();
     window.addEventListener('popstate', state => router.push(state.path[0].location.pathname, false));
   },

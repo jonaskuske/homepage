@@ -5,14 +5,14 @@ import router from '@/router';
 
 const loadThenNavigate = id => {
   actions.startLoading();
-  setTimeout(() => { router.push(`/detail?id=${id}`); actions.stopLoading(); }, 1000);
+  setTimeout(() => { actions.setProject({ image: '', title: '', text: '' }); router.push(`/detail?id=${id}`); actions.stopLoading(); }, 1000);
 };
 
-export default ({ class: className, state: { projekte, projectLoading, themeColor }, ...props }) => {
+export default ({ class: className, state: { projekte, projectLoading, themeColor, page }, ...props }) => {
   let werke = [];
   for (let werk in projekte) werke.push(projekte[werk]);
   return (
-    <div key='welcome' class={`content-container ${className ? className : ''}`} {...props} >
+    <div key='welcome' data-page={page} class={`content-container ${className ? className : ''}`} {...props} >
       <h1>WILLKOMMEN</h1>
       <p> {welcome} </p>
       <h2 style={{ marginTop: '2rem' }}> Letzte <span class='pointer' onclick={() => router.push('/projekte')}>Projekte:</span> </h2>
