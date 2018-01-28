@@ -19,11 +19,17 @@ const setRandomColor = () => actions.setColor(colors[random(colors.length)]);
 const openColorPicker = color => {
   const el = document.querySelector('input[type=color]'); el.value = color; el.focus(); el.click();
 };
+const addMobileListener = () => {
+  const matcher = window.matchMedia('(min-width: 1000px)');
+  const handler = query => actions.setMobileMode(query.matches ? false : true);
+  handler(matcher);
+  matcher.addListener(handler);
+};
 
 export default (state, actions) => (
-  <div id='app' oncreate={() => { actions.allProjects(); setRandomColor(); }}>
+  <div id='app' oncreate={() => { actions.allProjects(); setRandomColor(); addMobileListener(); }}>
     <SideMenu light={state.lightBackground} class={state.sideMenu ? '' : 'slideout'} />
-    <NavHeader scroll={state.scrollTop} />
+    <NavHeader scroll={state.scrollTop} menu={state.sideMenu} mobile={state.isMobile} />
     <div class='dark-light-btn'>
       {cssVariables && [
         <Button onclick={setRandomColor}> Zufallsfarbe </Button>,

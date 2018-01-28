@@ -12,7 +12,8 @@ export const state = {
   projectLoading: false,
   lightBackground: true,
   scrollTop: 0,
-  themeColor: '#0b8dc9'
+  themeColor: '#0b8dc9',
+  isMobile: false
 };
 
 let isRed = false;
@@ -46,5 +47,6 @@ export const actions = {
   set: value => state => ({ projekte: value }),
   startLoading: val => state => ({ projectLoading: true }),
   stopLoading: val => state => ({ projectLoading: false }),
-  setThemeColor: val => state => ({ themeColor: val })
+  setThemeColor: val => state => ({ themeColor: val }),
+  setMobileMode: val => state => ({ isMobile: val })
 };

@@ -13,13 +13,13 @@ const handleScroll = (e) => { actions.setScrollTop(document.documentElement.scro
 const addListener = () => document.addEventListener('scroll', handleScroll, { passive: true });
 const removeListener = () => document.removeEventListener('scroll', handleScroll);
 
-export default ({ scroll }) => {
+export default ({ scroll, menu, mobile }) => {
   return (
     <div class='header' oncreate={addListener} ondestroy={removeListener}>
       <div>
         <Hamburger class='events' style={{ marginLeft: '3.5rem' }} onclick={actions.toggleMenu} />
       </div>
-      <div class={`link-container ${scroll ? 'invisible' : ''}`}>
+      <div class={`link-container ${scroll || (menu && mobile) ? 'invisible' : ''}`}>
         {links.map(({ text, href }) => <HeaderLink class='events' href={href}>{text}</HeaderLink>)}
       </div>
     </div>
