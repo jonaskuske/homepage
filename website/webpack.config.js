@@ -64,7 +64,7 @@ module.exports = {
       h: ['hyperapp', 'h']
     }),
     new WebpackPwaManifest({
-      short_name: 'jk Portfolio',
+      short_name: 'Jonas Kuske',
       name: 'Portfolio | Jonas Kuske',
       description: 'Portfolio von Jonas Kuske, Designer & Developer.',
       start_url: '/?utm_source=homescreen',
