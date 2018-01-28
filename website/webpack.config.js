@@ -46,6 +46,10 @@ module.exports = {
       {
         test: /\.json/,
         loader: 'file-loader?name=[name].[hash].[ext]'
+      },
+      {
+        test: /\.htaccess$/,
+        loader: 'file-loader?name=[name]'
       }
     ]
   },

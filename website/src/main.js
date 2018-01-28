@@ -1,3 +1,4 @@
+import '@/lib/.htaccess';
 import { app } from 'hyperapp';
 import { state, actions } from './store';
 import Router from '@/router';
