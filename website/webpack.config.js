@@ -3,6 +3,7 @@
 const webpack = require('webpack');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
   entry: ['promise-polyfill/src/polyfill', 'whatwg-fetch', './src/main.js'],
@@ -47,6 +48,7 @@ module.exports = {
     ]
   },
   plugins: [
+    new CleanWebpackPlugin(['dist']),
     new HtmlWebpackPlugin({
       title: 'Portfolio | Jonas Kuske',
       minify: {
