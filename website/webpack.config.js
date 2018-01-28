@@ -69,7 +69,7 @@ module.exports = {
       description: 'Portfolio von Jonas Kuske, Designer & Developer.',
       start_url: '/?utm_source=homescreen',
       display: 'standalone',
-      theme_color: '#000040',
+      theme_color: '#585858',
       background_color: '#f0f0f0',
       dir: 'ltr',
       ios: true,
