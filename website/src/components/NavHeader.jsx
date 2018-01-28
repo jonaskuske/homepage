@@ -19,7 +19,7 @@ export default ({ scroll, menu, mobile }) => {
       <div>
         <Hamburger class='events' style={{ marginLeft: '3.5rem' }} onclick={actions.toggleMenu} />
       </div>
-      <div class={`link-container ${scroll > 0 || (menu && mobile) ? 'invisible' : ''}`}>
+      <div class={`link-container ${scroll > 0 || (menu && mobile) ? 'link-container-change' : ''}`}>
         {links.map(({ text, href }) => <HeaderLink class='events' href={href}>{text}</HeaderLink>)}
       </div>
     </div>

@@ -14,6 +14,10 @@ const colors = [
   '#000040'
 ];
 
+const fadeIn = el => {
+  el.classList.add('invisible');
+  setTimeout(() => el.classList.remove('invisible'), 30);
+};
 const random = max => Math.floor(Math.random() * Math.floor(max));
 const setRandomColor = () => actions.setColor(colors[random(colors.length)]);
 const openColorPicker = color => {
@@ -40,6 +44,6 @@ export default (state, actions) => (
           <Color style={{ opacity: 0 }} />
         ]]}
     </div>
-    <RouterView state={state} />
+    <RouterView oncreate={fadeIn} onupdate={fadeIn} state={state} />
   </div>
 );

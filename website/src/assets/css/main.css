@@ -208,7 +208,7 @@ button {
   height: 100%;
   align-self: center;
 }
-@media screen and (min-width: 1650px) {
+@media screen and (min-width: 1570px) {
 .detail-image {
   padding-right: 2.5rem;
   max-width: 40%;
@@ -220,6 +220,7 @@ button {
 }
 }
 .content-container {
+  transition: opacity 450ms ease-out, transform 300ms ease-out;
   margin: 0 3rem 3rem 50%;
   transform: translateX(-50%);
   width: 70%;
@@ -241,8 +242,12 @@ button {
   font-size: 0.9rem;
   font-weight: lighter;
 }
+.link-container-change {
+  opacity: 0;
+}
 .invisible {
   opacity: 0;
+  transform: translateX(-50%) scale(0.9);
 }
 @media screen and (min-width: 1000px) {
     h1 {
@@ -258,15 +263,15 @@ button {
       font-size: 1.1rem;
       font-weight: 400;
     }
-    .invisible {
+    .link-container-change {
       width: 145px;
       flex-flow: row wrap;
       text-align: right;
     }
-    .invisible > a {
+    .link-container-change > a {
       width: 100%;
     }
-    .invisible > a > .header-link-text {
+    .link-container-change > a > .header-link-text {
     font-size: 1rem;
     font-weight: 200;
     }
@@ -293,7 +298,7 @@ button {
     .side-btn {
       height: 50px;
     }
-    .invisible {
+    .link-container-change {
       opacity: 1;
     }
 }
