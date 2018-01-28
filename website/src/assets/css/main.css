@@ -188,7 +188,7 @@ button {
 .dark-light-btn {
   margin-left: 50%;
   transform: translateX(-50%);
-  width: 75%;
+  width: 70%;
 }
 .btn {
   border: none;
@@ -222,7 +222,7 @@ button {
 .content-container {
   margin: 0 3rem 3rem 50%;
   transform: translateX(-50%);
-  width: 75%;
+  width: 70%;
 }
 .profile-pic {
   width: 210px;
