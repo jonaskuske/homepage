@@ -15,7 +15,7 @@ export default ({ class: className, state: { projekte, projectLoading, themeColo
     <div key='welcome' data-page={page} class={`content-container ${className ? className : ''}`} {...props} >
       <h1 class='kern'>WILLKOMMEN</h1>
       <p> {welcome} </p>
-      <h2 style={{ marginTop: '2rem' }}> Letzte <span class='pointer' onclick={() => router.push('/projekte')}>Projekte:</span> </h2>
+      <h2 style={{ marginTop: '2rem' }}> Letzte <span class='pointer' onclick={() => router.push('/projekte')}>Projekte</span> </h2>
       <div class='projekt-container'>
         {werke.reverse().map(({ title, id, image }, index) => index < 3 && (
           <Thumbnail

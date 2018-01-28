@@ -10,15 +10,13 @@ const menuItems = [
   { text: 'Impressum', route: '/impressum' }
 ];
 
-const view = ({ light, class: className, mobile }) => (
-  <div class={`side-panel ${light ? 'panel-light ' : 'panel-dark'} ${className || ''}`} >
+const view = ({ class: className, mobile }) => (
+  <div class={`side-panel ${className || ''}`} >
     <div />
     <ProfilePic onclick={() => { mobile && actions.setMenu(false); router.push('/me'); }} />
     {menuItems.map(({ route, text }) => (
       <a class='side-link' href={route} onclick={() => false}>
-        <Button class={'side-btn'} onclick={() => { mobile && actions.setMenu(false); router.push(route); }}>
-          {text}
-        </Button>
+        <Button class={'side-btn'} onclick={() => { mobile && actions.setMenu(false); router.push(route); }}> {text} </Button>
       </a>
     ))}
   </div>

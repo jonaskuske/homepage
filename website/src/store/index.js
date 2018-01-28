@@ -10,7 +10,6 @@ export const state = {
   text: '',
   projekte: {},
   projectLoading: false,
-  lightBackground: true,
   scrollTop: 0,
   themeColor: '#0b8dc9',
   isMobile: false,
