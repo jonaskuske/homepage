@@ -1,6 +1,6 @@
 // feature detect
 const hasColorInput = (() => { const t = document.createElement('input'); t.setAttribute('type', 'color'); t.value = '!'; return t.type === 'color' && t.value !== '!'; })();
-const cssVarSupported = (() => window.CSS && window.CSS.supports && window.CSS.supports('--tets-var', 0))();
+const cssVarSupported = (() => window.CSS && window.CSS.supports && window.CSS.supports('color', 'var(--theme-color)'))();
 
 // polyfill
 if (!String.prototype.includes) {
