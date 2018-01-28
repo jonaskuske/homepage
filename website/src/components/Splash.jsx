@@ -13,7 +13,7 @@ export default ({ class: className, state: { projekte, projectLoading, themeColo
   for (let werk in projekte) werke.push(projekte[werk]);
   return (
     <div key='welcome' data-page={page} class={`content-container ${className ? className : ''}`} {...props} >
-      <h1>WILLKOMMEN</h1>
+      <h1 class='kern'>WILLKOMMEN</h1>
       <p> {welcome} </p>
       <h2 style={{ marginTop: '2rem' }}> Letzte <span class='pointer' onclick={() => router.push('/projekte')}>Projekte:</span> </h2>
       <div class='projekt-container'>

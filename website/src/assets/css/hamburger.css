@@ -1,15 +1,17 @@
 .hamburger {
+  margin-left: 2.5rem;
   position: relative;
-  margin-top: 12px;
-  width: 35px;
-  height: 18px;
+  width: 55px;
+  height: 32px;
   cursor: pointer;
+  outline: none;
+  user-select: none;
 }
 .hamburger, .hamburger::before, .hamburger::after {
-border-bottom: 2px solid white;
+border-bottom: 4px solid white;
 }
 .hamburger:hover, .hamburger:hover::before, .hamburger:hover::after {
-border-bottom: 2px solid var(--theme-color);
+border-bottom: 4px solid var(--theme-color);
 }
 .hamburger::before, .hamburger::after {
   content: "";
@@ -19,5 +21,20 @@ border-bottom: 2px solid var(--theme-color);
   left: 0;
 }
 .hamburger::before {
-  margin-top: 9px;
+  margin-top: 16px;
+}
+@media screen and (min-width: 1000px) {
+  .hamburger {
+    height: 18px;
+    width: 35px;
+  }
+  .hamburger::before {
+    margin-top: 9px;
+  }
+  .hamburger, .hamburger::before, .hamburger::after {
+    border-bottom: 2px solid white;
+  }
+  .hamburger:hover, .hamburger:hover::before, .hamburger:hover::after {
+    border-bottom: 2px solid var(--theme-color);
+  }
 }
