@@ -1,4 +1,4 @@
-export default ({ class: className, ...props }) => (
+export default ({ class: className, state, ...props }) => (
   <div key='imprint' class={`content-container impressum ${className ? className : ''}`} {...props}>
     <h1>IMPRESSUM</h1>
     <div>
