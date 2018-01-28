@@ -5,6 +5,7 @@ html, body {
 body {
   background: url(../images/bg.jpg) center / cover no-repeat;
   background-attachment: fixed;
+  overflow-x: hidden;
 }
 body::before {
   content: '';
