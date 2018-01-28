@@ -10,8 +10,7 @@ const colors = [
   '#77f113',
   '#b815ef',
   '#f58b00',
-  '#00ffff',
-  '#000040'
+  '#00ffff'
 ];
 
 const fadeIn = el => {
