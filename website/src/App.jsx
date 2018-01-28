@@ -10,7 +10,8 @@ const colors = [
   '#77f113',
   '#b815ef',
   '#f58b00',
-  '#00ffff'
+  '#00ffff',
+  '#000040'
 ];
 
 const random = max => Math.floor(Math.random() * Math.floor(max));
