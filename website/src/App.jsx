@@ -16,7 +16,7 @@ const colors = [
 
 const fadeIn = el => {
   el.classList.add('invisible');
-  setTimeout(() => el.classList.remove('invisible'), 30);
+  setTimeout(() => el.classList.remove('invisible'), 15);
 };
 const random = max => Math.floor(Math.random() * Math.floor(max));
 const setRandomColor = () => actions.setColor(colors[random(colors.length)]);

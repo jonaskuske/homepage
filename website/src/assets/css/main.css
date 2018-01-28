@@ -87,7 +87,7 @@ p {
   width: 500px;
   top: 0;
   left: -15px;
-  transition: width 200ms, transform 350ms ease-in-out;
+  transition: width 200ms, transform 200ms ease-in-out;
   display: grid;
   grid-template: 5.5rem 200px repeat(auto-fill, minmax(50px, 1fr)) / 1fr;
   background-color: #0b8dc9;
@@ -220,7 +220,7 @@ button {
 }
 }
 .content-container {
-  transition: opacity 450ms ease-out, transform 300ms ease-out;
+  transition: opacity 200ms ease-out, transform 150ms ease-out;
   margin: 0 3rem 3rem 50%;
   transform: translateX(-50%);
   width: 70%;
@@ -319,6 +319,9 @@ button {
     .profile-pic {
       width: 150px;
       height: 150px;
+    }
+    .content-container {
+      transition: opacity 450ms ease-out, transform 300ms ease-out;
     }
     .side-panel {
       grid-row-gap: 20px;
