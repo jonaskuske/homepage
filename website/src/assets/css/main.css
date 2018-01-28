@@ -4,7 +4,6 @@ html, body {
 }
 body {
   background: url(../images/bg.jpg) center / cover no-repeat;
-  background-attachment: fixed;
   overflow-x: hidden;
 }
 body::before {
@@ -275,6 +274,9 @@ button {
   transform: translateX(-50%) scale(0.9);
 }
 @media screen and (min-width: 1000px) {
+    body {
+      background-attachment: fixed;
+    }
     h1 {
       font-size: 4.5rem;
     }
