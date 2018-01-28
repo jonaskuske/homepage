@@ -33,9 +33,9 @@ const routes = [
 
 const router = {
   routes,
-  push(target) {
+  push(target, pushNew = true) {
     RouterView = router.match(target.split('?')[0]);
-    history.pushState({}, target, target);
+    if (pushNew) history.pushState({}, target, target);
     router.setTitle(target);
     if (target.includes('?')) router.getProjectFromURL();
     actions.forceUpdate();
@@ -43,6 +43,7 @@ const router = {
   init() {
     RouterView = router.match(window.location.pathname);
     router.getProjectFromURL();
+    window.addEventListener('popstate', state => router.push(state.path[0].location.pathname, false));
   },
   match(route) {
     return router.routes.reduce((a, b) => b.path === route ? b.component : a, ErrorPage);

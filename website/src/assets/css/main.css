@@ -2,17 +2,26 @@ html, body {
   margin: 0;
 }
 body {
-  background: url(http://www.qygjxz.com/data/out/18/5769022-background-image.png) center / cover fixed;
-  background-color: rgba(20, 20, 20, 0.35);
-  background-blend-mode: soft-light;
+  background-color: rgb(255, 115, 0);
+
+}
+body::before {
+  content: '';
+  display: block;
+  top: 0;
+  opacity: 0.6;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  background: url(../images/bg-dark.jpg) center / cover;
+  background-attachment: fixed;
 }
 .app-dark {
   background: url(../images/bg-light.jpg) center / cover fixed;
 }
 .panel-light::before {
-  background: url(http://www.qygjxz.com/data/out/18/5769022-background-image.png) center / cover fixed;
-  background-color: rgba(20, 20, 20, 0.35);
-  background-blend-mode: soft-light;
+  background-color: rgb(255, 115, 0);
 }
 .panel-dark::before {
   background: url(../images/bg-light.jpg) center / cover fixed;
@@ -87,14 +96,12 @@ font-weight: 200;
   left: 0;
   will-change: opacity;
   transition: left 350ms ease-in-out;
-  background-color: rgba(255, 255, 255, 0.1);
-  box-shadow: 2px 0 15px rgba(0,0,0,0.25);
   display: grid;
   grid-template: 5.5rem 200px repeat(auto-fill, minmax(50px, 1fr)) / 1fr;
   grid-row-gap: 20px;
   text-align: center;
   justify-items: center;
-  z-index: 1;
+  z-index: 99;
 }
 .side-panel::before {
   content: '';
@@ -102,8 +109,11 @@ font-weight: 200;
   top: 0;
   right: 0;
   bottom: 0;
+  box-shadow: 0 0 2px 2px black;
+opacity: 0.6;
+  background: url(../images/bg-dark.jpg) center / cover;
   left: 0;
-  filter: blur(6px);
+  filter: blur(7px);
   z-index: -1;
 }
 .slideout {
