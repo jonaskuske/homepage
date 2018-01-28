@@ -1,6 +1,7 @@
 import Button from '@@/Button';
 import ProfilePic from '@@/ProfilePic';
 import router from '@/router';
+import actions from '@/main';
 
 const menuItems = [
   { text: 'Start', route: '/' },
@@ -9,13 +10,13 @@ const menuItems = [
   { text: 'Impressum', route: '/impressum' }
 ];
 
-const view = ({ light, class: className }) => (
+const view = ({ light, class: className, mobile }) => (
   <div class={`side-panel ${light ? 'panel-light ' : 'panel-dark'} ${className || ''}`} >
     <div />
-    <ProfilePic onclick={() => router.push('/me')} />
+    <ProfilePic onclick={() => { mobile && actions.setMenu(false); router.push('/me'); }} />
     {menuItems.map(({ route, text }) => (
       <a class='side-link' href={route} onclick={() => false}>
-        <Button class={'side-btn'} onclick={() => router.push(route)}>
+        <Button class={'side-btn'} onclick={() => { mobile && actions.setMenu(false); router.push(route); }}>
           {text}
         </Button>
       </a>

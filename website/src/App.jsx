@@ -28,7 +28,7 @@ const addMobileListener = () => {
 
 export default (state, actions) => (
   <div id='app' oncreate={() => { actions.allProjects(); setRandomColor(); addMobileListener(); }}>
-    <SideMenu light={state.lightBackground} class={state.sideMenu ? '' : 'slideout'} />
+    <SideMenu light={state.lightBackground} class={state.sideMenu ? '' : 'slideout'} mobile={state.isMobile} />
     <NavHeader scroll={state.scrollTop} menu={state.sideMenu} mobile={state.isMobile} />
     <div class='dark-light-btn'>
       {cssVariables && [
