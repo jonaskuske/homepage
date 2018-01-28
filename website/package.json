@@ -28,6 +28,8 @@
     "webpack-dev-server": "^2.11.1"
   },
   "dependencies": {
-    "hyperapp": "^1.0.2"
+    "hyperapp": "^1.0.2",
+    "promise-polyfill": "^7.0.2",
+    "whatwg-fetch": "^2.0.3"
   }
 }

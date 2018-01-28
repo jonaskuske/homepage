@@ -5,7 +5,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  entry: './src/main.js',
+  entry: ['promise-polyfill/src/polyfill', 'whatwg-fetch', './src/main.js'],
   output: {
     path: path.resolve(__dirname, './dist'),
     filename: 'main.[hash].js'
@@ -34,7 +34,7 @@ module.exports = {
       },
       {
         test: /\.jpg$/,
-        loader: 'file-loader?name=[name].[hash].[ext]'
+        loader: 'file-loader?name=[name].[ext]'
       },
       {
         test: /\.txt$/,
