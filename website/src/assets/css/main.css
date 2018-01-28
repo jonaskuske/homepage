@@ -87,7 +87,7 @@ p {
   width: 500px;
   top: 0;
   left: -15px;
-  transition: left 350ms ease-in-out, width 200ms;
+  transition: width 200ms, transform 350ms ease-in-out;
   display: grid;
   grid-template: 5.5rem 200px repeat(auto-fill, minmax(50px, 1fr)) / 1fr;
   background-color: #0b8dc9;
@@ -102,7 +102,7 @@ p {
 .side-panel::before {
   content: '';
   position: absolute;
-  background: url(../images/bg.jpg) center / cover fixed;
+  background: url(../images/bg.jpg) left / cover no-repeat;
   height: 100%;
   width: 110%;
   top: 0;
@@ -114,7 +114,7 @@ p {
   z-index: -1;
 }
 .slideout {
-  left: -500px;
+  transform: translateX(-500px);
 }
 .side-link {
   z-index: 6;
@@ -277,10 +277,15 @@ button {
       font-size: 4.5rem;
     }
     .side-panel {
+      transition: left 350ms ease-in-out, width 200ms;
       width: 250px;
+    }
+    .side-panel::before {
+      background: url(../images/bg.jpg) center / cover fixed;
     }
     .slideout {
       left: -250px;
+      transform: initial;
     }
     .header-link-text {
       font-size: 1.1rem;
