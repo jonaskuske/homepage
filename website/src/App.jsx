@@ -37,7 +37,7 @@ export default (state, actions) => (
       {cssVariables && [
         <Button onclick={setRandomColor}> Zufallsfarbe </Button>,
         HTMLColorInput && [
-          <Button onclick={() => openColorPicker(state.themeColor)} style={{ paddingLeft: '15px' }}>
+          <Button onclick={() => openColorPicker(state.themeColor)} style={{ marginLeft: '15px' }}>
             Farbe ausw&auml;hlen
           </Button>,
           <Color style={{ opacity: 0 }} />
