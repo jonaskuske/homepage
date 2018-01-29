@@ -161,11 +161,6 @@ button {
   height: 100%;
   align-self: center;
 }
-.detail-text {
-  padding-left: 2.5rem;
-  box-shadow: -6px 0 0 -2px white;
-  max-width: 40%;
-}
 .content-container {
   transition: opacity 200ms ease-out, transform 150ms ease-out;
   margin: 0 3rem 3rem 50%;
