@@ -8,5 +8,3 @@ const view = ({ state: { title, image, text, page }, class: className, ...props 
 );
 
 export default view;
-
-//{/*style={{ backgroundImage: `url(${image})` }}*/}
