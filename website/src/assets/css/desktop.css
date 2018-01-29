@@ -8,6 +8,7 @@
     .side-panel {
       transition: left 350ms ease-in-out, width 200ms;
       width: 250px;
+      box-shadow: 1px 3px 4px 3px rgba(0,0,0,0.2);
     }
     .side-panel::before {
       background: url(../images/bg.jpg) center / cover fixed;
