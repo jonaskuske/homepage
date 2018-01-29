@@ -7,8 +7,10 @@ html, body {
 body {
   background: url(../images/bg.jpg) center / cover no-repeat;
   overflow-x: hidden;
+  height: 100%;
+  will-change: opacity;
 }
-body::after {
+body::before {
   content: '';
   display: block;
   top: 0;
@@ -19,16 +21,11 @@ body::after {
   position: fixed;
   background: #0b8dc9;
   background: var(--theme-color);
-  z-index: -1;
 }
 #app {
   margin-top: 5rem;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-body {
-  height: 100%;
-  will-change: opacity;
 }
 ::-webkit-scrollbar {
   width: 0.7rem;
@@ -114,7 +111,7 @@ p {
   bottom: 0;
   left: 0;
   right: 0;
-  opacity: 0.6;
+  opacity: 0.4;
   filter: blur(4px);
   z-index: -1;
 }
@@ -282,7 +279,7 @@ button {
 .link-container-change {
   opacity: 0;
 }
-.invisible {
+.animate-in {
   opacity: 0;
   transform: translateX(-50%) scale(0.9);
 }
@@ -299,6 +296,7 @@ button {
     }
     .side-panel::before {
       background: url(../images/bg.jpg) center / cover fixed;
+      opacity: 0.5;
     }
     .slideout {
       left: -250px;
@@ -309,7 +307,7 @@ button {
       font-weight: 400;
     }
     .link-container-change {
-      width: 145px;
+      width: 155px;
       flex-flow: row wrap;
       text-align: right;
     }

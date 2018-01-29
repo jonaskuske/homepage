@@ -13,9 +13,9 @@ const colors = [
   '#00ffff'
 ];
 
-const fadeIn = el => {
-  el.classList.add('invisible');
-  setTimeout(() => el.classList.remove('invisible'), 15);
+const animate = el => {
+  el.classList.add('animate-in');
+  setTimeout(() => el.classList.remove('animate-in'), 15);
 };
 const random = max => Math.floor(Math.random() * Math.floor(max));
 const setRandomColor = () => actions.setColor(colors[random(colors.length)]);
@@ -43,6 +43,6 @@ export default (state, actions) => (
           <Color style={{ opacity: 0 }} />
         ]]}
     </div>
-    <RouterView state={state} oncreate={fadeIn} onupdate={(el, old) => state.page !== old['data-page'] && fadeIn(el)} />
+    <RouterView state={state} oncreate={animate} onupdate={(el, old) => state.page !== old['data-page'] && animate(el)} />
   </div>
 );
