@@ -4,9 +4,10 @@ import actions from '@/main';
 import router from '@/router';
 
 const loadThenNavigate = (id, el) => {
+  actions.setProject({ image: '', title: '', text: '' });
   el = el.tagName === 'DIV' ? el : el.parentNode;
   el.classList.add('spinner-overlay');
-  setTimeout(() => { actions.setProject({ image: '', title: '', text: '' }); router.push(`/detail?id=${id}`); el.classList.remove('spinner-overlay'); }, 1000);
+  setTimeout(() => { router.push(`/detail?id=${id}`); el.classList.remove('spinner-overlay'); }, 1000);
 };
 
 export default ({ class: className, state: { projekte, projectLoading, themeColor, page }, ...props }) => {
