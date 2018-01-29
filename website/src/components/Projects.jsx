@@ -2,9 +2,10 @@ import router from '@/router';
 import actions from '@/main';
 import Thumbnail from './Thumbnail';
 
-const loadThenNavigate = id => {
-  actions.startLoading();
-  setTimeout(() => { actions.setProject({ image: '', title: '', text: '' }); router.push(`/detail?id=${id}`); actions.stopLoading(); }, 1000);
+const loadThenNavigate = (id, el) => {
+  el = el.tagName === 'div' ? el : el.parentNode;
+  el.classList.add('spinner-overlay');
+  setTimeout(() => { actions.setProject({ image: '', title: '', text: '' }); router.push(`/detail?id=${id}`); el.classList.remove('spinner-overlay'); }, 1000);
 };
 
 export default ({ state: { projekte, projectLoading, themeColor, page }, ...props }) => {
@@ -19,10 +20,10 @@ export default ({ state: { projekte, projectLoading, themeColor, page }, ...prop
         {werke.reverse().map(({ title, id, image }) => (
           <Thumbnail
             style={{ backgroundImage: `url(${image})` }}
-            onclick={() => loadThenNavigate(id)}
+            onclick={evt => { loadThenNavigate(id, evt.target); }}
             href={`/detail?id=${id}`}
-            loading={projectLoading}
             color={themeColor}
+            id={id}
           >
             {title}
           </Thumbnail>

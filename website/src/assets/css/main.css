@@ -131,6 +131,20 @@ button {
 .thumbnail:hover .overlay {
   opacity: 1;
 }
+.spinner {
+  width: 50%;
+  height: 50%;
+  display: none;
+}
+.spinner-overlay {
+  opacity: 1;
+}
+.spinner-overlay p {
+  display: none;
+}
+.spinner-overlay .spinner {
+  display: initial;
+}
 .detail-container {
   display: flex;
   flex-flow: wrap;

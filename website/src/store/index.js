@@ -9,7 +9,6 @@ export const state = {
   image: '',
   text: '',
   projekte: {},
-  projectLoading: false,
   scrollTop: 0,
   themeColor: '#0b8dc9',
   isMobile: false,
@@ -26,21 +25,15 @@ export const actions = {
   toggleMenu: () => state => ({ sideMenu: !state.sideMenu }),
   setMenu: value => state => ({ sideMenu: value }),
   setProject: ({ title, image, text }) => state => ({ title, image, text }),
-  getProject: id => state => {
-    effects.startLoading();
-    return fetch(projekte)
-      .then(r => r.json())
-      .then(d => {
-        if (!d.hasOwnProperty(id)) return (router.push(id), false);
-        effects.setProject(d[id]);
-        effects.stopLoading();
-      });
-  },
+  getProject: id => state => fetch(projekte)
+    .then(r => r.json())
+    .then(d => {
+      if (!d.hasOwnProperty(id)) return (router.push(id), false);
+      effects.setProject(d[id]);
+    }),
   allProjects: () => fetch(projekte).then(r => r.json()).then(d => effects.set(d)),
   setScrollTop: value => state => ({ scrollTop: value }),
   set: value => state => ({ projekte: value }),
-  startLoading: val => state => ({ projectLoading: true }),
-  stopLoading: val => state => ({ projectLoading: false }),
   setThemeColor: val => state => ({ themeColor: val }),
   setMobileMode: val => state => ({ isMobile: val }),
   setPage: val => state => ({ page: val })
