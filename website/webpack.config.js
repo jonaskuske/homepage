@@ -7,7 +7,7 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const WebpackPwaManifest = require('webpack-pwa-manifest');
 
 
-module.exports = {
+const config = {
   entry: ['promise-polyfill/src/polyfill', 'whatwg-fetch', './src/main.js'],
   output: {
     path: path.resolve(__dirname, './dist'),
@@ -92,7 +92,6 @@ module.exports = {
   }
 };
 
-if (process.env.NODE_ENV === 'production') module.exports.plugins.push(
-  new webpack.optimize.UglifyJsPlugin()
-);
-else module.exports.plugins.push(new webpack.NamedModulesPlugin());
+if (process.env.NODE_ENV !== 'production') config.plugins.push(new webpack.NamedModulesPlugin());
+
+module.exports = config;

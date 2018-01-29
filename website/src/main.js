@@ -1,6 +1,6 @@
-import { app } from 'hyperapp';
 import '@/lib/.htaccess';
 import '@/assets/css';
+import { app } from 'hyperapp';
 import Swiper from '@/lib/swiper';
 import { state, actions } from './store';
 import router from '@/router';
