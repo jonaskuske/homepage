@@ -150,7 +150,7 @@ button {
 .color-btn-container .btn {
   font-size: 1.1rem;
   font-weight: lighter;
-  box-shadow: 0 2px 0 0 var(--theme-color);
+  border-bottom: solid 2px var(--theme-color);
 }
 .detail-image {
   width: 100%;
