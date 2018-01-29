@@ -1,0 +1,84 @@
+@media screen and (min-width: 1000px) {
+    body {
+      background-attachment: fixed;
+    }
+    h1 {
+      font-size: 4.5rem;
+    }
+    .side-panel {
+      transition: left 350ms ease-in-out, width 200ms;
+      width: 250px;
+    }
+    .side-panel::before {
+      background: url(../images/bg.jpg) center / cover fixed;
+      opacity: 0.5;
+    }
+    .slideout {
+      left: -250px;
+      transform: initial;
+    }
+    .header-link-text {
+      font-size: 1.1rem;
+      font-weight: 400;
+    }
+    .link-container-change {
+      width: 155px;
+      flex-flow: row wrap;
+      text-align: right;
+    }
+    .link-container-change > a {
+      width: 100%;
+    }
+    .link-container-change > a > .header-link-text {
+    font-size: 1rem;
+    font-weight: 200;
+    }
+    .projekt-container {
+      grid-template: auto / repeat(auto-fit, minmax(50px, 300px));
+    }
+    html {
+      font-size: initial;
+    }
+    .color-btn-container, .content-container {
+      width: 60%;
+    }
+    .color-btn-container .btn {
+      font-size: initial;
+      font-weight: initial;
+    }
+    .profile-pic {
+      width: 150px;
+      height: 150px;
+    }
+    .content-container {
+      transition: opacity 450ms ease-out, transform 300ms ease-out;
+    }
+    .side-panel {
+      grid-row-gap: 20px;
+    }
+    .side-btn {
+      height: 50px;
+    }
+    .link-container-change {
+      opacity: 1;
+    }
+    .hamburger {
+      height: 18px;
+      width: 35px;
+    }
+    .hamburger::before {
+      margin-top: 9px;
+    }
+    .hamburger, .hamburger::before, .hamburger::after {
+      border-bottom: 2px solid white;
+    }
+    .hamburger:hover, .hamburger:hover::before, .hamburger:hover::after {
+      border-bottom: 2px solid var(--theme-color);
+    }
+}
+@media screen and (min-width: 1570px) {
+  .detail-image {
+    padding-right: 2.5rem;
+    max-width: 40%;
+  }
+}

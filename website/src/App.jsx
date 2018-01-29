@@ -13,6 +13,7 @@ const colors = [
   '#00ffff'
 ];
 
+const startup = () => { actions.allProjects(); setRandomColor(); addMobileListener(); };
 const animate = el => {
   el.classList.add('animate-in');
   setTimeout(() => el.classList.remove('animate-in'), 15);
@@ -30,10 +31,10 @@ const addMobileListener = () => {
 };
 
 export default (state, actions) => (
-  <div id='app' oncreate={() => { actions.allProjects(); setRandomColor(); addMobileListener(); }}>
-    <SideMenu class={state.sideMenu ? '' : 'slideout'} mobile={state.isMobile} />
+  <div id='app' oncreate={startup}>
+    <SideMenu class={!state.sideMenu ? 'slideout' : ''} mobile={state.isMobile} />
     <NavHeader scroll={state.scrollTop} menu={state.sideMenu} mobile={state.isMobile} />
-    <div class='dark-light-btn'>
+    <div class='color-btn-container'>
       {cssVariables && [
         <Button onclick={setRandomColor}> Zufallsfarbe </Button>,
         HTMLColorInput && [
