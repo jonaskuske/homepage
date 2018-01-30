@@ -11,6 +11,7 @@ const view = ({ color, id = '', ...props }) => {
         stroke={color || '#f0f0f0'}
         stroke-width={6}
         stroke-dasharray="2 9.5"
+        style={{ animation, transformOrigin: '60px 60px' }}
       />
       <linearGradient id={`half-circle${id}`}>
         <stop offset="0%" stop-opacity="0" />
