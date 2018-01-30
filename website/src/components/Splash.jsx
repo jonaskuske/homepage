@@ -10,7 +10,7 @@ const loadThenNavigate = (id, el) => {
   setTimeout(() => { router.push(`/detail?id=${id}`); el.classList.remove('spinner-overlay'); }, 1000);
 };
 
-const view = ({ class: className = '', projects, themeColor, ...props }) => {
+const view = ({ class: className = '', projects, color, ...props }) => {
   let werke = [];
   for (let werk in projects) werke.push(projects[werk]);
   return (
@@ -24,7 +24,7 @@ const view = ({ class: className = '', projects, themeColor, ...props }) => {
             image={image}
             onclick={evt => loadThenNavigate(id, evt.target)}
             href={`/detail?id=${id}`}
-            color={themeColor}
+            color={color}
             id={id}
           >
             {title}

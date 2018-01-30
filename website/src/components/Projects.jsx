@@ -9,7 +9,8 @@ const loadThenNavigate = (id, el) => {
   setTimeout(() => { router.push(`/detail?id=${id}`); el.classList.remove('spinner-overlay'); }, 1000);
 };
 
-const view = ({ projects, themeColor, class: className = '', ...props }) => {
+const view = ({ projects, color, class: className = '', ...props }) => {
+  console.log(color);
   let werke = [];
   for (let werk in projects) werke.push(projects[werk]);
   return (
@@ -20,10 +21,10 @@ const view = ({ projects, themeColor, class: className = '', ...props }) => {
       <div class='projekt-container'>
         {werke.reverse().map(({ title, id, image }) => (
           <Thumbnail
-            image={image}
             onclick={evt => { loadThenNavigate(id, evt.target); }}
             href={`/detail?id=${id}`}
-            color={themeColor}
+            image={image}
+            color={color}
             id={id}
           >
             {title}
