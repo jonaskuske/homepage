@@ -1,5 +1,5 @@
-export default ({ class: className = '', state: { page }, ...props }) => (
-  <div key='imprint' data-page={page} class={`content-container impressum ${className}`} {...props}>
+const view = ({ class: className = '', state: { page }, ...props }) => (
+  <div key='imprint' data-page={page} class={`impressum ${className}`} {...props}>
     <h1 class='kern'>IMPRESSUM</h1>
     <div>
       Angaben gem&auml;ß &sect; 5 TMG<br /><br />
@@ -22,3 +22,5 @@ export default ({ class: className = '', state: { page }, ...props }) => (
       </div>
   </div>
 );
+
+export default view;

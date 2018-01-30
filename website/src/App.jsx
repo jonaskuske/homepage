@@ -44,6 +44,11 @@ export default (state, actions) => (
           <Color style={{ opacity: 0 }} />
         ]]}
     </div>
-    <RouterView state={state} oncreate={animate} onupdate={(el, old) => state.page !== old['data-page'] && animate(el)} />
+    <RouterView
+      state={state}
+      class='content-container'
+      oncreate={animate}
+      onupdate={(el, old) => state.page !== old['data-page'] && animate(el)}
+    />
   </div>
 );

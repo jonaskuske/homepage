@@ -1,6 +1,6 @@
 import Spinner from '@@/LoadingSpinner';
 
-export default ({ img, class: className = '', id, href = '#', color, ...props }, child) => (
+const view = ({ img, class: className = '', id, href = '#', color, ...props }, child) => (
   <a href={href} onclick={() => false}>
     <div class={`thumbnail ${className}`} {...props}>
       <div style={{ paddingTop: '100%' }} />
@@ -11,3 +11,5 @@ export default ({ img, class: className = '', id, href = '#', color, ...props },
     </div>
   </a>
 );
+
+export default view;
