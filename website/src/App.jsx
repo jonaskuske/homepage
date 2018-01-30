@@ -10,7 +10,7 @@ import Load from '@@/LoadingScreen';
 
 const startup = colors => { addMobileListener(); setRandomColor(colors); };
 const animate = el => {
-  wait(30).then(() => { el.classList.remove('animate-in'); document.documentElement.scrollIntoView({ behavior: 'smooth', block: 'start' }); });
+  wait(30).then(() => { el.classList.remove('animate-in'); document.documentElement.scrollIntoView(true); });
 };
 const random = max => Math.floor(Math.random() * Math.floor(max));
 const setRandomColor = colors => actions.setColor(colors[random(colors.length)]);
