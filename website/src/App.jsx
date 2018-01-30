@@ -10,8 +10,7 @@ import Load from '@@/LoadingScreen';
 
 const startup = colors => { addMobileListener(); setRandomColor(colors); };
 const animate = el => {
-  el.classList.add('animate-in');
-  wait(20).then(() => el.classList.remove('animate-in'));
+  wait(30).then(() => el.classList.remove('animate-in'));
 };
 const random = max => Math.floor(Math.random() * Math.floor(max));
 const setRandomColor = colors => actions.setColor(colors[random(colors.length)]);
@@ -25,7 +24,7 @@ const addMobileListener = () => {
   matcher.addListener(handler);
 };
 
-const view = ({ colors, page, panel, scrollTop, mobile, themeColor, projects, project, ...state }, actions) => (
+const view = ({ colors, page, panel, scrollTop, mobile, themeColor, projects, project, transition, ...state }, actions) => (
   <div id='app' oncreate={() => startup(colors)}>
     <SideMenu class={!panel ? 'slideout' : ''} mobile={mobile} />
     <NavHeader scroll={scrollTop} menu={panel} mobile={mobile} />
@@ -40,7 +39,7 @@ const view = ({ colors, page, panel, scrollTop, mobile, themeColor, projects, pr
         ]]}
     </div>
     <RouterView
-      class='content-container'
+      class={'content-container animate-in'}
       data-page={page}
       data={{ color: themeColor, projects, project }}
       oncreate={animate}

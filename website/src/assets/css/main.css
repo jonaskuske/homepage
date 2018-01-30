@@ -100,7 +100,7 @@ button {
   to { transform: rotate(360deg); }
 }
 .content-container {
-  transition: opacity 200ms ease-out, transform 150ms ease-out;
+  transition: opacity 700ms ease-out, transform 20ms ease-out;
   margin: 0 3rem 3rem 50%;
   transform: translateX(-50%);
   width: 70%;
@@ -217,8 +217,13 @@ button {
 }
 .animate-in {
   opacity: 0;
-  transform: translateX(-50%) scale(0.9);
+  transform: translateX(-50%) scale(0.92);
 }
 .kern::first-letter {
   margin: 0 3px 0 0;
+}
+.animation-fallback {
+  display: flex;
+  justify-content: center;
+  animation: spin 1.6s linear infinite reverse -0.2s;
 }
