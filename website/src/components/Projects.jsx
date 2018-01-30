@@ -10,7 +10,6 @@ const loadThenNavigate = (id, el) => {
 };
 
 const view = ({ projects, color, class: className = '', ...props }) => {
-  console.log(color);
   let werke = [];
   for (let werk in projects) werke.push(projects[werk]);
   return (
