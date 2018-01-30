@@ -6,10 +6,10 @@ const view = ({ image, class: className = '', id, mobile, href = '#', color, ...
     <div class={`thumbnail ${className}`} style={{ backgroundImage: `url(${image})` }} {...props}>
       <div class='overlay'>
         {svgAnimation
-          ? <Spinner class='spinner' color={color} animation={{ inner: true, outer: !mobile }} id={id} />
+          ? <Spinner class='spinner' color={{ dash: color }} animation={{ inner: true, outer: !mobile }} id={id} />
           : (
             < div class='animation-fallback'>
-              <Spinner class='spinner' animation={{ inner: false, outer: false }} color={color} id={id} />
+              <Spinner class='spinner' animation={{ inner: false, outer: false }} color={{ dash: color }} id={id} />
             </div>
           )}
 

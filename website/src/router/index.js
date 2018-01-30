@@ -1,4 +1,5 @@
 import actions from '@/main';
+import { wait } from '@/lib/helpers';
 import Imprint from '@@/Imprint';
 import Projects from '@@/Projects';
 import Splash from '@@/Splash';
@@ -71,7 +72,11 @@ const router = {
     return new Promise(resolve => {
       if (query[0] !== 'id') return resolve();
       RouterView = LoadingScreen;
-      actions.requestProject(query[1]).then(resolve);
+      return Promise.all([
+        actions.requestProject(query[1]),
+        wait(600)
+      ]).then(resolve);
+
     });
 
   }
