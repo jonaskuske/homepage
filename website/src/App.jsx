@@ -13,7 +13,7 @@ const colors = [
   '#00ffff'
 ];
 
-const startup = () => { actions.allProjects(); setRandomColor(); addMobileListener(); };
+const startup = () => { actions.fetchProjects(); setRandomColor(); addMobileListener(); };
 const animate = el => {
   el.classList.add('animate-in');
   setTimeout(() => el.classList.remove('animate-in'), 15);
@@ -25,15 +25,15 @@ const openColorPicker = color => {
 };
 const addMobileListener = () => {
   const matcher = window.matchMedia('(min-width: 1000px)');
-  const handler = query => actions.setMobileMode(query.matches ? false : true);
+  const handler = query => actions.setLayout(query.matches ? false : true);
   handler(matcher);
   matcher.addListener(handler);
 };
 
 export default (state, actions) => (
   <div id='app' oncreate={startup}>
-    <SideMenu class={!state.sideMenu ? 'slideout' : ''} mobile={state.isMobile} />
-    <NavHeader scroll={state.scrollTop} menu={state.sideMenu} mobile={state.isMobile} />
+    <SideMenu class={!state.panel ? 'slideout' : ''} mobile={state.mobile} />
+    <NavHeader scroll={state.scrollTop} menu={state.panel} mobile={state.mobile} />
     <div class='color-btn-container'>
       {cssVariables && [
         <Button onclick={setRandomColor}> Zufallsfarbe </Button>,

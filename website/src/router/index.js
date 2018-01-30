@@ -39,7 +39,6 @@ const router = {
     router.setTitle(target);
     if (target.includes('?')) router.getProjectFromURL();
     actions.setPage(target);
-    actions.forceUpdate();
   },
   init() {
     RouterView = router.match(window.location.pathname);
@@ -58,7 +57,7 @@ const router = {
     const source = window.location.search;
     const query = source.substring(1).split('=');
     if (query[0] !== 'id') return false;
-    actions.getProject(query[1]);
+    actions.requestProject(query[1]);
   }
 };
 

@@ -9,9 +9,9 @@ const loadThenNavigate = (id, el) => {
   setTimeout(() => { router.push(`/detail?id=${id}`); el.classList.remove('spinner-overlay'); }, 1000);
 };
 
-export default ({ state: { projekte, projectLoading, themeColor, page }, ...props }) => {
+export default ({ state: { projects, projectLoading, themeColor, page }, ...props }) => {
   let werke = [];
-  for (let werk in projekte) werke.push(projekte[werk]);
+  for (let werk in projects) werke.push(projects[werk]);
   return (
     <div data-page={page} key='projects' class='content-container' {...props}>
       <h1>PROJEKTE</h1>

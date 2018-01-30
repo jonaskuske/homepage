@@ -1,40 +1,40 @@
-import projekte from '@/assets/projekte.json';
+import projects from '@/assets/projekte.json';
 import router from '@/router';
 import effects from '@/main';
 
 export const state = {
-  updateHack: false,
-  sideMenu: false,
-  title: '',
-  image: '',
-  text: '',
-  projekte: {},
+  mobile: false,
+  panel: false,
+  page: '/',
   scrollTop: 0,
   themeColor: '#0b8dc9',
-  isMobile: false,
-  page: '/'
+  projects: {},
+  project: {
+    title: '',
+    text: '',
+    image: ''
+  }
 };
 
 export const actions = {
-  forceUpdate: () => state => ({ updateHack: !state.updateHack }),
-  setColor: value => state => {
-    document.body.style.setProperty('--theme-color', value);
-    document.querySelector('meta[name=theme-color]').content = value;
-    effects.setThemeColor(value);
+  toggleMenu: () => state => ({ panel: !state.panel }),
+  setMenu: value => ({ panel: value }),
+  setLayout: value => ({ mobile: value }),
+  setPage: page => ({ page }),
+  setScrollTop: scrollTop => ({ scrollTop }),
+  setColor: color => {
+    document.body.style.setProperty('--theme-color', color);
+    document.querySelector('meta[name=theme-color]').content = color;
+    return { themeColor: color };
   },
-  toggleMenu: () => state => ({ sideMenu: !state.sideMenu }),
-  setMenu: value => state => ({ sideMenu: value }),
-  setProject: ({ title, image, text }) => state => ({ title, image, text }),
-  getProject: id => state => fetch(projekte)
-    .then(r => r.json())
-    .then(d => {
-      if (!d.hasOwnProperty(id)) return (router.push(id), false);
-      effects.setProject(d[id]);
-    }),
-  allProjects: () => fetch(projekte).then(r => r.json()).then(d => effects.set(d)),
-  setScrollTop: value => state => ({ scrollTop: value }),
-  set: value => state => ({ projekte: value }),
-  setThemeColor: val => state => ({ themeColor: val }),
-  setMobileMode: val => state => ({ isMobile: val }),
-  setPage: val => state => ({ page: val })
+  fetchProjects: () => fetch(projects)
+    .then(response => response.json())
+    .then(projects => effects.storeProjects(projects)),
+  storeProjects: value => ({ projects: value }),
+  requestProject: id => ({ projects }) => {
+    (!projects.hasOwnProperty(id))
+      ? router.push(id) // not found: push to router so relevant 404 is shown
+      : effects.setProject(projects[id]);
+  },
+  setProject: project => ({ project })
 };
