@@ -10,8 +10,8 @@ const menuItems = [
   { text: 'Impressum', route: '/impressum' }
 ];
 
-const view = ({ class: className, mobile }) => (
-  <div class={`side-panel ${className || ''}`} >
+const view = ({ class: className = '', mobile }) => (
+  <div class={`side-panel ${className}`} >
     <div />
     <ProfilePic onclick={() => { mobile && actions.setMenu(false); router.push('/me'); }} />
     {menuItems.map(({ route, text }) => (
