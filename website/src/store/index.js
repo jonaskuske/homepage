@@ -56,6 +56,5 @@ export const actions = {
       effects.requestProject(id),
       wait(750)
     ]);
-  },
-  get: () => state => state
+  }
 };
