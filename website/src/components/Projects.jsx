@@ -1,4 +1,5 @@
 import router from '@/router';
+import { wait } from '@/lib/helpers';
 import actions from '@/main';
 import Thumbnail from './Thumbnail';
 
@@ -6,7 +7,7 @@ const loadThenNavigate = (id, el) => {
   actions.setProject({ image: '', title: '', text: '' });
   el = el.tagName === 'DIV' ? el : el.parentNode;
   el.classList.add('spinner-overlay');
-  setTimeout(() => { router.push(`/detail?id=${id}`); el.classList.remove('spinner-overlay'); }, 1000);
+  wait(1000).then(() => router.push(`/detail?id=${id}`));
 };
 
 const view = ({ projects, color, class: className = '', ...props }) => {

@@ -1,5 +1,6 @@
 import { RouterView } from '@/router';
 import { HTMLColorInput, cssVariables } from '@/lib/browser-support';
+import { wait } from '@/lib/helpers';
 import Button from '@@/Button';
 import NavHeader from '@@/NavHeader';
 import SideMenu from '@@/SideMenu';
@@ -9,7 +10,7 @@ import actions from '@/main';
 const startup = colors => { actions.fetchProjects(); addMobileListener(); setRandomColor(colors); };
 const animate = el => {
   el.classList.add('animate-in');
-  setTimeout(() => el.classList.remove('animate-in'), 15);
+  wait(25).then(() => el.classList.remove('animate-in'));
 };
 const random = max => Math.floor(Math.random() * Math.floor(max));
 const setRandomColor = colors => actions.setColor(colors[random(colors.length)]);
