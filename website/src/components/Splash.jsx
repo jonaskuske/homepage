@@ -3,7 +3,7 @@ import Thumbnail from '@@/Thumbnail';
 import actions from '@/main';
 import router from '@/router';
 
-const view = ({ class: className = '', data: { projects, color }, ...props }) => {
+const view = ({ class: className = '', data: { projects, color, mobile }, ...props }) => {
   let werke = [];
   for (let werk in projects) werke.push(projects[werk]);
   return (
@@ -19,6 +19,7 @@ const view = ({ class: className = '', data: { projects, color }, ...props }) =>
               .then(() => router.push(`/detail?id=${id}`))}
             href={`/detail?id=${id}`}
             color={color}
+            mobile={mobile}
             id={id}
           >
             {title}

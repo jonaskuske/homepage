@@ -1,6 +1,6 @@
 const animation = 'spin 1.6s linear infinite';
 
-const view = ({ color, id = '', ...props }) => {
+const view = ({ color, id = '', mobile, ...props }) => {
   return (
     <svg viewBox="0 0 120 120" fill="transparent" {...props} >
       <circle
@@ -11,7 +11,7 @@ const view = ({ color, id = '', ...props }) => {
         stroke={color || '#f0f0f0'}
         stroke-width={6}
         stroke-dasharray="2 9.5"
-        style={{ animation, transformOrigin: '60px 60px' }}
+        style={{ animation: mobile ? '' : animation, transformOrigin: '60px 60px' }}
       />
       <linearGradient id={`half-circle${id}`}>
         <stop offset="0%" stop-opacity="0" />
