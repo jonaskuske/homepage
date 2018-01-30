@@ -1,5 +1,4 @@
 import welcome from '@/assets/text/welcome.txt';
-import { wait } from '@/lib/helpers';
 import Thumbnail from '@@/Thumbnail';
 import actions from '@/main';
 import router from '@/router';

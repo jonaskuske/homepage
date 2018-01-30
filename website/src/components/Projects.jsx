@@ -1,5 +1,4 @@
 import router from '@/router';
-import { wait } from '@/lib/helpers';
 import actions from '@/main';
 import Thumbnail from './Thumbnail';
 

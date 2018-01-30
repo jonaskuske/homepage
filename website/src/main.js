@@ -7,7 +7,6 @@ import router from '@/router';
 import App from '@/App';
 
 
-
 const vm = app(state, actions, App, document.body);
 export default vm;
 
@@ -17,5 +16,3 @@ const swipeHandler = new Swiper(document);
 swipeHandler
   .right(() => vm.setMenu(true))
   .left(() => vm.setMenu(false));
-
-window.debug = vm;
