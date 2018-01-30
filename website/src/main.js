@@ -11,9 +11,11 @@ import App from '@/App';
 const vm = app(state, actions, App, document.body);
 export default vm;
 
-router.init();
+vm.fetchProjects().then(router.init);
 
 const swipeHandler = new Swiper(document);
 swipeHandler
   .right(() => vm.setMenu(true))
   .left(() => vm.setMenu(false));
+
+window.debug = vm;

@@ -3,14 +3,7 @@ import { wait } from '@/lib/helpers';
 import actions from '@/main';
 import Thumbnail from './Thumbnail';
 
-const loadThenNavigate = (id, el) => {
-  actions.setProject({ image: '', title: '', text: '' });
-  el = el.tagName === 'DIV' ? el : el.parentNode;
-  el.classList.add('spinner-overlay');
-  wait(1000).then(() => router.push(`/detail?id=${id}`));
-};
-
-const view = ({ projects, color, class: className = '', ...props }) => {
+const view = ({ data: { projects, color }, class: className = '', ...props }) => {
   let werke = [];
   for (let werk in projects) werke.push(projects[werk]);
   return (
@@ -21,7 +14,8 @@ const view = ({ projects, color, class: className = '', ...props }) => {
       <div class='projekt-container'>
         {werke.reverse().map(({ title, id, image }) => (
           <Thumbnail
-            onclick={evt => { loadThenNavigate(id, evt.target); }}
+            onclick={evt => actions.loadProject({ id, el: evt.target })
+              .then(() => router.push(`/detail?id=${id}`))}
             href={`/detail?id=${id}`}
             image={image}
             color={color}

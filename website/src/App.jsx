@@ -6,11 +6,12 @@ import NavHeader from '@@/NavHeader';
 import SideMenu from '@@/SideMenu';
 import Color from '@@/ColorPicker';
 import actions from '@/main';
+import Load from '@@/LoadingScreen';
 
-const startup = colors => { actions.fetchProjects(); addMobileListener(); setRandomColor(colors); };
+const startup = colors => { addMobileListener(); setRandomColor(colors); };
 const animate = el => {
   el.classList.add('animate-in');
-  wait(25).then(() => el.classList.remove('animate-in'));
+  wait(20).then(() => el.classList.remove('animate-in'));
 };
 const random = max => Math.floor(Math.random() * Math.floor(max));
 const setRandomColor = colors => actions.setColor(colors[random(colors.length)]);
@@ -24,7 +25,7 @@ const addMobileListener = () => {
   matcher.addListener(handler);
 };
 
-const view = ({ colors, page, panel, scrollTop, mobile, themeColor, ...state }, actions) => (
+const view = ({ colors, page, panel, scrollTop, mobile, themeColor, projects, project, ...state }, actions) => (
   <div id='app' oncreate={() => startup(colors)}>
     <SideMenu class={!panel ? 'slideout' : ''} mobile={mobile} />
     <NavHeader scroll={scrollTop} menu={panel} mobile={mobile} />
@@ -41,9 +42,7 @@ const view = ({ colors, page, panel, scrollTop, mobile, themeColor, ...state }, 
     <RouterView
       class='content-container'
       data-page={page}
-      color={themeColor}
-      projects={state.projects}
-      project={state.project}
+      data={{ color: themeColor, projects, project }}
       oncreate={animate}
       onupdate={(el, old) => page !== old['data-page'] && animate(el)}
     />

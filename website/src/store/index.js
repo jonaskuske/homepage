@@ -1,6 +1,8 @@
 import projects from '@/assets/projekte.json';
 import router from '@/router';
 import effects from '@/main';
+import loadImage from '@/lib/image-loader';
+import { wait } from '@/lib/helpers';
 
 export const state = {
   mobile: false,
@@ -38,10 +40,22 @@ export const actions = {
     .then(response => response.json())
     .then(projects => effects.storeProjects(projects)),
   storeProjects: value => ({ projects: value }),
+  setProject: project => ({ project }),
   requestProject: id => ({ projects }) => {
-    (!projects.hasOwnProperty(id))
-      ? router.push(id) // not found: push to router so relevant 404 is shown
-      : effects.setProject(projects[id]);
+    return new Promise(resolve => {
+      (!projects.hasOwnProperty(id))
+        ? router.push(id) // not found: push to router so relevant 404 is shown
+        : loadImage(projects[id].image)
+          .then(() => { effects.setProject(projects[id]); resolve(); });
+    });
   },
-  setProject: project => ({ project })
+  loadProject: ({ id, el }) => {
+    el = el.tagName === 'DIV' ? el : el.parentNode;
+    el.classList.add('spinner-overlay');
+    return Promise.all([
+      effects.requestProject(id),
+      wait(750)
+    ]);
+  },
+  get: () => state => state
 };

@@ -1,4 +1,4 @@
-const view = ({ project: { title, image, text }, class: className = '', ...props }) => (
+const view = ({ data: { project: { title, image, text } }, class: className = '', ...props }) => (
   <div key='details' class={`${className}`} {...props} >
     <h1>{title.toUpperCase()}</h1>
     <div class='detail-container'>

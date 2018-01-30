@@ -1,7 +1,7 @@
 import codeText from '@/assets/text/code.txt';
 import designText from '@/assets/text/design.txt';
 
-const view = ({ class: className = '', ...props }) => (
+const view = ({ class: className = '', data, ...props }) => (
   <div key='about' class={`${className}`} {...props} >
     <h1>&Uuml;BER MICH</h1>
     <p>-- Skill-Diagramm f&uuml;r Web-Programme --</p>

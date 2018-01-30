@@ -99,6 +99,12 @@ button {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+.content-container {
+  transition: opacity 200ms ease-out, transform 150ms ease-out;
+  margin: 0 3rem 3rem 50%;
+  transform: translateX(-50%);
+  width: 70%;
+}
 .projekt-container {
   display: grid;
   grid-template: auto / repeat(auto-fit, minmax(max-content, 1fr));
@@ -134,6 +140,18 @@ button {
 }
 .thumbnail:hover .overlay {
   opacity: 1;
+}
+.loading-screen {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  margin: 50vh 0 0 50%;
+  transform: translate(-50%, -50%);
+}
+.main-spinner {
+  width: 50%;
+  height: 50%;
+  transform: translateY(-25%)
 }
 .spinner {
   width: 50%;
@@ -181,12 +199,6 @@ button {
 .detail-text {
   height: 100%;
   align-self: center;
-}
-.content-container {
-  transition: opacity 200ms ease-out, transform 150ms ease-out;
-  margin: 0 3rem 3rem 50%;
-  transform: translateX(-50%);
-  width: 70%;
 }
 .btn {
   user-select: none;

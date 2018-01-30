@@ -1,4 +1,4 @@
-const view = ({ class: className = '', ...props }) => (
+const view = ({ class: className = '', data, ...props }) => (
   <div key='imprint' class={`impressum ${className}`} {...props}>
     <h1 class='kern'>IMPRESSUM</h1>
     <div>
