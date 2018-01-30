@@ -9,13 +9,20 @@ export default class Swipe {
       this.xDown = e.touches[0].clientX;
       this.yDown = e.touches[0].clientY;
     }, { passive: true });
+    this.element.addEventListener('touchmove', e => {
+      this.handleTouchMove(e);
+    }, { passive: true });
   }
 
-  dummy() { return; }
-  left(callback) { this.left = callback || this.dummy; return this; }
-  right(callback) { this.right = callback || this.dummy; return this; }
-  up(callback) { this.up = callback || this.dummy; return this; }
-  down(callback) { this.down = callback || this.dummy; return this; }
+  left(callback) { this.actionLeft = callback; return this; }
+  right(callback) { this.actionRight = callback; return this; }
+  up(callback) { this.actionUp = callback; return this; }
+  down(callback) { this.actionDown = callback; return this; }
+
+  actionLeft() { return; }
+  actionRight() { return; }
+  actionUp() { return; }
+  actionDown() { return; }
 
   handleTouchMove(evt) {
     if (!this.xDown || !this.yDown) return;
@@ -25,14 +32,10 @@ export default class Swipe {
     const xDiff = this.xDown - xUp;
     const yDiff = this.yDown - yUp;
 
-    if (Math.abs(xDiff) > Math.abs(yDiff)) xDiff > 0 ? this.left() : this.right();
-    else yDiff > 0 ? this.up() : this.down();
+    if (Math.abs(xDiff) > Math.abs(yDiff)) xDiff > 0 ? this.actionLeft() : this.actionRight();
+    else yDiff > 0 ? this.actionUp() : this.actionDown();
     this.xDown = null;
     this.yDown = null;
-  }
-
-  init() {
-    this.element.addEventListener('touchmove', e => this.handleTouchMove(e), { passive: true });
   }
 
 }

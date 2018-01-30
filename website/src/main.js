@@ -16,5 +16,4 @@ router.init();
 const swipeHandler = new Swiper(document);
 swipeHandler
   .right(() => vm.setMenu(true))
-  .left(() => vm.setMenu(false))
-  .init();
+  .left(() => vm.setMenu(false));
