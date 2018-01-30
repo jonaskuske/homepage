@@ -77,6 +77,10 @@
     .hamburger:hover, .hamburger:hover::before, .hamburger:hover::after {
       border-bottom: 2px solid var(--theme-color);
     }
+    .main-spinner {
+      width: 30%;
+      height: 30%;
+    }
 }
 @media screen and (min-width: 1570px) {
   .detail-image {
