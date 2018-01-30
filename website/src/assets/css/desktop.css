@@ -1,6 +1,7 @@
 @media screen and (min-width: 1000px) {
     body {
       background-attachment: fixed;
+      min-height: initial;
     }
     h1 {
       font-size: 4.5rem;
