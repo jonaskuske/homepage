@@ -13,7 +13,7 @@ const handleScroll = (e) => { actions.setScrollTop(document.documentElement.scro
 const addListener = () => document.addEventListener('scroll', handleScroll, { passive: true });
 const removeListener = () => document.removeEventListener('scroll', handleScroll);
 
-export default ({ scroll, menu, mobile }) => {
+const view = ({ scroll, menu, mobile }) => {
   return (
     <div class='header' oncreate={addListener} ondestroy={removeListener}>
       <Hamburger class='events' onclick={actions.toggleMenu} />
@@ -23,3 +23,5 @@ export default ({ scroll, menu, mobile }) => {
     </div>
   );
 };
+
+export default view;

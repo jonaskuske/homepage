@@ -1,6 +1,6 @@
 const animation = 'spin 1.6s linear infinite';
 
-export default ({ color, id = '', ...props }) => {
+const view = ({ color, id = '', ...props }) => {
   return (
     <svg viewBox="0 0 120 120" fill="transparent" {...props} >
       <circle
@@ -29,3 +29,5 @@ export default ({ color, id = '', ...props }) => {
       />
     </svg>);
 };
+
+export default view;

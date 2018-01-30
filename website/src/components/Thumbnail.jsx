@@ -1,9 +1,8 @@
 import Spinner from '@@/LoadingSpinner';
 
-const view = ({ img, class: className = '', id, href = '#', color, ...props }, child) => (
+const view = ({ image, class: className = '', id, href = '#', color, ...props }, child) => (
   <a href={href} onclick={() => false}>
-    <div class={`thumbnail ${className}`} {...props}>
-      <div style={{ paddingTop: '100%' }} />
+    <div class={`thumbnail ${className}`} style={{ backgroundImage: `url(${image})` }} {...props}>
       <div class='overlay'>
         <Spinner class='spinner' color={color} id={id} />
         <p> {child || 'Projekt'}</p>

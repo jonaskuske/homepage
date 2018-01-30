@@ -59,6 +59,9 @@ p {
 h1, p {
   transition: font-size 300ms;
 }
+input[type=color] {
+  opacity: 0;
+}
 .header {
   position: fixed;
   width: 100%;
@@ -106,6 +109,7 @@ button {
   width: 100%;
   background: #f0f0f0 center / cover no-repeat;
   margin: 0;
+  padding-top: 100%;
   position: relative;
   box-shadow: 0 0 0 4px #585858;
   box-shadow: 0 0 0 4px var(--theme-color, #0b8dc9);
@@ -155,6 +159,9 @@ button {
   margin-left: 50%;
   transform: translateX(-50%);
   width: 70%;
+}
+.color-btn-container .btn:not(:first-child) {
+  margin-left: 15px;
 }
 .btn {
   border: none;

@@ -10,21 +10,20 @@ const loadThenNavigate = (id, el) => {
   setTimeout(() => { router.push(`/detail?id=${id}`); el.classList.remove('spinner-overlay'); }, 1000);
 };
 
-const view = ({ class: className = '', state: { projects, projectLoading, themeColor, page }, ...props }) => {
+const view = ({ class: className = '', projects, themeColor, ...props }) => {
   let werke = [];
   for (let werk in projects) werke.push(projects[werk]);
   return (
-    <div key='welcome' data-page={page} class={`${className}`} {...props} >
+    <div key='welcome' class={`${className}`} {...props} >
       <h1 class='kern'>WILLKOMMEN</h1>
       <p> {welcome} </p>
-      <h2 style={{ marginTop: '2rem' }}> Letzte <span class='pointer' onclick={() => router.push('/projects')}>Projekte</span> </h2>
+      <h2> Letzte <span class='pointer' onclick={() => router.push('/projekte')}>Projekte</span> </h2>
       <div class='projekt-container'>
         {werke.reverse().map(({ title, id, image }, index) => index < 3 && (
           <Thumbnail
-            style={{ backgroundImage: `url(${image})` }}
+            image={image}
             onclick={evt => loadThenNavigate(id, evt.target)}
             href={`/detail?id=${id}`}
-            loading={projectLoading}
             color={themeColor}
             id={id}
           >

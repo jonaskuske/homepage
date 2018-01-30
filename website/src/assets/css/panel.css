@@ -46,6 +46,7 @@
   border: solid 2px #0b8dc9;
   border: solid 2px var(--theme-color);
   cursor: pointer;
+  background: center / cover no-repeat;
 }
 .profile-pic-animation {
   user-select: none;

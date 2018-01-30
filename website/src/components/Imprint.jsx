@@ -1,5 +1,5 @@
-const view = ({ class: className = '', state: { page }, ...props }) => (
-  <div key='imprint' data-page={page} class={`impressum ${className}`} {...props}>
+const view = ({ class: className = '', ...props }) => (
+  <div key='imprint' class={`impressum ${className}`} {...props}>
     <h1 class='kern'>IMPRESSUM</h1>
     <div>
       Angaben gem&auml;ß &sect; 5 TMG<br /><br />

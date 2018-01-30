@@ -8,6 +8,12 @@ export const state = {
   page: '/',
   scrollTop: 0,
   themeColor: '#0b8dc9',
+  colors: [
+    '#77f113',
+    '#b815ef',
+    '#f58b00',
+    '#00ffff'
+  ],
   projects: {},
   project: {
     title: '',
@@ -22,11 +28,12 @@ export const actions = {
   setLayout: value => ({ mobile: value }),
   setPage: page => ({ page }),
   setScrollTop: scrollTop => ({ scrollTop }),
-  setColor: color => {
+  setColor: color => state => {
     document.body.style.setProperty('--theme-color', color);
     document.querySelector('meta[name=theme-color]').content = color;
     return { themeColor: color };
   },
+  addColor: color => ({ colors }) => !colors.includes(color) && ({ colors: [...colors, color] }),
   fetchProjects: () => fetch(projects)
     .then(response => response.json())
     .then(projects => effects.storeProjects(projects)),

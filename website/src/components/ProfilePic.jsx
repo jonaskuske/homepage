@@ -1,12 +1,9 @@
 import profilePic from '@img/Lisbon.jpg';
 
-const style = {
-  background: `url(${profilePic}) center / cover no-repeat`,
-  position: 'relative'
-};
-
-export default ({ ...props }) => (
-  <div class='profile-pic' style={style} {...props}>
+const view = ({ ...props }) => (
+  <div class='profile-pic' style={{ backgroundImage: `url(${profilePic})` }} {...props}>
     <div class='profile-pic-animation' />
   </div>
 );
+
+export default view;

@@ -6,20 +6,13 @@ import SideMenu from '@@/SideMenu';
 import Color from '@@/ColorPicker';
 import actions from '@/main';
 
-const colors = [
-  '#77f113',
-  '#b815ef',
-  '#f58b00',
-  '#00ffff'
-];
-
-const startup = () => { actions.fetchProjects(); setRandomColor(); addMobileListener(); };
+const startup = colors => { actions.fetchProjects(); addMobileListener(); setRandomColor(colors); };
 const animate = el => {
   el.classList.add('animate-in');
   setTimeout(() => el.classList.remove('animate-in'), 15);
 };
 const random = max => Math.floor(Math.random() * Math.floor(max));
-const setRandomColor = () => actions.setColor(colors[random(colors.length)]);
+const setRandomColor = colors => actions.setColor(colors[random(colors.length)]);
 const openColorPicker = color => {
   const el = document.querySelector('input[type=color]'); el.value = color; el.focus(); el.click();
 };
@@ -30,25 +23,30 @@ const addMobileListener = () => {
   matcher.addListener(handler);
 };
 
-export default (state, actions) => (
-  <div id='app' oncreate={startup}>
-    <SideMenu class={!state.panel ? 'slideout' : ''} mobile={state.mobile} />
-    <NavHeader scroll={state.scrollTop} menu={state.panel} mobile={state.mobile} />
+const view = ({ colors, page, panel, scrollTop, mobile, themeColor, ...state }, actions) => (
+  <div id='app' oncreate={() => startup(colors)}>
+    <SideMenu class={!panel ? 'slideout' : ''} mobile={mobile} />
+    <NavHeader scroll={scrollTop} menu={panel} mobile={mobile} />
     <div class='color-btn-container'>
       {cssVariables && [
-        <Button onclick={setRandomColor}> Zufallsfarbe </Button>,
+        <Button onclick={() => setRandomColor(colors)}> Zufallsfarbe </Button>,
         HTMLColorInput && [
-          <Button onclick={() => openColorPicker(state.themeColor)} style={{ marginLeft: '15px' }}>
+          <Button onclick={() => openColorPicker(themeColor)} >
             Farbe ausw&auml;hlen
           </Button>,
-          <Color style={{ opacity: 0 }} />
+          <Color />
         ]]}
     </div>
     <RouterView
-      state={state}
       class='content-container'
+      data-page={page}
+      color={themeColor}
+      projects={state.projects}
+      project={state.project}
       oncreate={animate}
-      onupdate={(el, old) => state.page !== old['data-page'] && animate(el)}
+      onupdate={(el, old) => page !== old['data-page'] && animate(el)}
     />
   </div>
 );
+
+export default view;

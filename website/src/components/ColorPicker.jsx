@@ -1,3 +1,14 @@
 import actions from '@/main';
 
-export default ({ ...props }) => (<input type='color' onchange={e => actions.setColor(e.target.value)} {...props} />);
+const view = props => (
+  <input
+    type='color'
+    onchange={({ target: { value } }) => {
+      actions.setColor(value);
+      actions.addColor(value);
+    }}
+    {...props}
+  />
+);
+
+export default view;
