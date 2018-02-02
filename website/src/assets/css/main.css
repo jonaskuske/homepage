@@ -101,17 +101,17 @@ button {
 .skill-icon {
   margin: 10px;
 }
-.skill-icon image {
+.skill-icon image, .skill-icon-compat .skill-icon image {
   transition: opacity 250ms 200ms ease-in;
 }
-.skill-icon text {
+.skill-icon text, .skill-icon-compat .skill-icon text {
   transition: opacity 200ms ease-in;
 }
-.skill-icon:hover image{
+.skill-icon:hover image, .skill-icon-compat:hover .skill-icon image {
   transition: opacity 200ms ease-out;
   opacity: 0;
 }
-.skill-icon:hover text{
+.skill-icon:hover text, .skill-icon-compat:hover .skill-icon text {
   transition: opacity 200ms 200ms ease-in;
   opacity: 1;
 }
@@ -119,6 +119,30 @@ button {
   transform: rotate(-90deg);
   transform-origin: center;
   animation: circle-load 2s ease-in-out;
+}
+.skill-icon-compat {
+  margin: 10px;
+  width: 150px;
+  height: 150px;
+  display: inline-block;
+  position: relative;
+}
+.skill-icon-compat svg, .skill-icon-compat div {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+}
+.skill-icon-compat div {
+  transform: rotate(-90deg);
+}
+.skill-icon-compat .skill-icon {
+  margin: 0;
+}
+.skill-icon-compat .skill-icon .diagram {
+  transform: none;
 }
 @keyframes circle-load {
   from {

@@ -1,5 +1,6 @@
 import skillList from '@/assets/skillset';
 import Icon from '@@/SkillDiagramIcon';
+import { svgAnimation } from '@/lib/browser-support';
 
 
 const view = ({ class: className = '', data: { color }, ...props }) => (
@@ -8,7 +9,15 @@ const view = ({ class: className = '', data: { color }, ...props }) => (
     {skillList.map(({ type: name, skills, text }) => (
       <section>
         <h5>{name}</h5>
-        {skills.map(skill => <Icon skill={skill} themeColor={color} />)}
+        {svgAnimation
+          ? skills.map(skill => <Icon skill={skill} themeColor={color} />)
+          : <div class="skill-icon-compat-container">
+            {skills.map(skill => (
+              <div class="skill-icon-compat">
+                <Icon skill={skill} compatibilityMode="static" themeColor={color} />
+                <div><Icon skill={skill} compatibilityMode="ring" themeColor={color} /></div>
+              </div>))}
+          </div>}
         <p>{text}</p>
       </section>
     ))}
