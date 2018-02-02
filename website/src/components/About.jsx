@@ -1,6 +1,6 @@
 import skillList from '@/assets/skillset';
 import Icon from '@@/SkillDiagramIcon';
-import { svgAnimation } from '@/lib/browser-support';
+import { svgTransform } from '@/lib/browser-support';
 
 const showHideText = evt => {
   let el;
@@ -14,13 +14,13 @@ const view = ({ class: className = '', data: { color }, ...props }) => (
     {skillList.map(({ type: name, skills, text }) => (
       <section>
         <h5>{name}</h5>
-        {svgAnimation
+        {svgTransform
           ? skills.map(skill => <Icon ontouchstart={e => showHideText(e)} skill={skill} themeColor={color} />)
           : <div class="skill-icon-compat-container">
             {skills.map(skill => (
               <div class="skill-icon-compat">
-                <Icon skill={skill} compatibilityMode="static" themeColor={color} ontouchstart={e => showHideText(e)} />
-                <div style={{ pointerEvents: 'none' }}><Icon skill={skill} compatibilityMode="ring" themeColor={color} /></div>
+                <Icon skill={skill} display="static" themeColor={color} ontouchstart={e => showHideText(e)} />
+                <div style={{ pointerEvents: 'none' }}><Icon skill={skill} display="ring" themeColor={color} /></div>
               </div>))}
           </div>}
         <p>{text}</p>
