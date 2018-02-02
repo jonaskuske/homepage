@@ -1,5 +1,5 @@
-const view = ({ skill: { color, image, percentage, name }, themeColor, compatibilityMode = false }) => (
-  <svg width="150" height="150" viewBox="0 0 33.83098862 33.83098862" class="skill-icon">
+const view = ({ skill: { color, image, percentage, name }, themeColor, compatibilityMode = false, ...props }) => (
+  <svg width="150" height="150" viewBox="0 0 33.83098862 33.83098862" class="skill-icon" {...props}>
     {(!compatibilityMode || compatibilityMode === 'static') && [<circle
       fill="#585858"
       cx="16.91549431"

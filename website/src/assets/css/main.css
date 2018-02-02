@@ -101,17 +101,20 @@ button {
 .skill-icon {
   margin: 10px;
 }
+.skill-icon text {
+  user-select: none;
+}
 .skill-icon image, .skill-icon-compat .skill-icon image {
   transition: opacity 250ms 200ms ease-in;
 }
 .skill-icon text, .skill-icon-compat .skill-icon text {
   transition: opacity 200ms ease-in;
 }
-.skill-icon:hover image, .skill-icon-compat:hover .skill-icon image {
+.skill-icon-show-text image {
   transition: opacity 200ms ease-out;
   opacity: 0;
 }
-.skill-icon:hover text, .skill-icon-compat:hover .skill-icon text {
+.skill-icon-show-text text {
   transition: opacity 200ms 200ms ease-in;
   opacity: 1;
 }

@@ -81,6 +81,14 @@
       width: 30%;
       height: 30%;
     }
+    .skill-icon:hover image, .skill-icon-compat:hover .skill-icon image {
+      transition: opacity 200ms ease-out;
+      opacity: 0;
+    }
+    .skill-icon:hover text, .skill-icon-compat:hover .skill-icon text {
+      transition: opacity 200ms 200ms ease-in;
+      opacity: 1;
+    }
 }
 @media screen and (min-width: 1570px) {
   .detail-image {
