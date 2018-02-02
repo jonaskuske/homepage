@@ -41,7 +41,6 @@ body::before {
 }
 ::-webkit-scrollbar-thumb:hover {
   background: #fff;
-  border-radius: 5px;
 }
 div, p, button, h1, h2, h3, h4 {
   font-family: 'Noto Sans', sans-serif;
@@ -98,6 +97,33 @@ button {
 @keyframes spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+.skill-icon {
+  margin: 10px;
+}
+.skill-icon image {
+  transition: opacity 250ms 200ms ease-in;
+}
+.skill-icon text {
+  transition: opacity 200ms ease-in;
+}
+.skill-icon:hover image{
+  transition: opacity 200ms ease-out;
+  opacity: 0;
+}
+.skill-icon:hover text{
+  transition: opacity 200ms 200ms ease-in;
+  opacity: 1;
+}
+.diagram {
+  transform: rotate(-90deg);
+  transform-origin: center;
+  animation: circle-load 2s ease-in-out;
+}
+@keyframes circle-load {
+  from {
+    stroke-dasharray: 0 100;
+  }
 }
 .content-container {
   transition: opacity 700ms ease-out, transform 20ms ease-out;
