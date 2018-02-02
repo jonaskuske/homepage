@@ -57,6 +57,8 @@ const config = {
     new CleanWebpackPlugin(['dist']),
     new HtmlWebpackPlugin({
       title: 'Portfolio | Jonas Kuske',
+      template: path.resolve(__dirname, './index.html'),
+      inject: true,
       minify: {
         removeComments: true,
         collapseWhitespace: true,
