@@ -36,7 +36,7 @@ export const actions = {
     return { themeColor: color };
   },
   addColor: color => ({ colors }) => !colors.includes(color) && ({ colors: [...colors, color] }),
-  fetchProjects: () => fetch(projects)
+  fetchProjects: () => fetch(projects, { mode: 'cors' })
     .then(response => response.json())
     .then(projects => effects.storeProjects(projects)),
   storeProjects: value => ({ projects: value }),
