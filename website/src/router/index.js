@@ -2,7 +2,7 @@ import routes from './routes';
 import ErrorPage from '@@/404';
 import LoadingScreen from '@@/LoadingScreen';
 import actions from '@/main';
-import { wait, error, log } from '@/lib/helpers';
+import { error, log } from '@/lib/helpers';
 
 let RouterView = LoadingScreen;
 
