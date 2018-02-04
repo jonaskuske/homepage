@@ -8,11 +8,6 @@ import About from '@@/About';
 import ErrorPage from '@@/404';
 import LoadingScreen from '@@/LoadingScreen';
 
-const getProjectTitle = input => {
-  const query = input.includes('?') ? input : window.location.search ? window.location.search : '?title=Fehler';
-  return query.split('?')[1].split('=')[1].replace('/', '');
-};
-
 let RouterView;
 
 const routes = [
@@ -28,7 +23,6 @@ const routes = [
   },
   {
     path: '/detail',
-    name: getProjectTitle,
     component: Details
   },
   {
@@ -49,18 +43,18 @@ const router = {
     component: ErrorPage,
     name: '404'
   },
-  push(target, pushState = true) {
+  push(target, title, pushState = true) {
     const { component, name } = router.match(target.split('?')[0]);
-    const title = typeof name === 'string' ? name : name(target);
+    title = name ? name : title ? title : '';
     RouterView = component;
     document.querySelector('title').textContent = `${title} | Jonas Kuske`;
-    if (pushState) history.pushState({}, title, target);
+    if (pushState) history.pushState({ page: target }, title, target);
     actions.setPage(target);
   },
   init() {
-    window.addEventListener('popstate', state => router.push(state.path[0].location.pathname, false));
-    router.getProjectFromURL().then(() => {
-      router.push(window.location.pathname, false);
+    window.addEventListener('popstate', state => { router.push(state.state.page, '', false); });
+    router.getProjectFromURL().then(title => {
+      router.push(window.location.pathname, title);
     });
   },
   match(route) {
@@ -75,7 +69,7 @@ const router = {
       return Promise.all([
         actions.requestProject(query[1]),
         wait(600)
-      ]).then(resolve);
+      ]).then(res => resolve(res[0].title));
 
     });
 

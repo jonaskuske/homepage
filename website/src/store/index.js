@@ -46,7 +46,7 @@ export const actions = {
       (!projects.hasOwnProperty(id))
         ? router.push(id) // not found: push to router so relevant 404 is shown
         : loadImage(projects[id].image)
-          .then(() => { effects.setProject(projects[id]); resolve(); });
+          .then(() => { effects.setProject(projects[id]); resolve(projects[id]); });
     });
   },
   loadProject: ({ id, el }) => {

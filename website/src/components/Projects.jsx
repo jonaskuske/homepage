@@ -14,7 +14,7 @@ const view = ({ data: { projects, color, mobile }, class: className = '', ...pro
         {werke.reverse().map(({ title, id, image }) => (
           <Thumbnail
             onclick={evt => actions.loadProject({ id, el: evt.target })
-              .then(() => router.push(`/detail?id=${id}`))}
+              .then(res => router.push(`/detail?id=${id}`, res[0].title))}
             href={`/detail?id=${id}`}
             image={image}
             color={color}
