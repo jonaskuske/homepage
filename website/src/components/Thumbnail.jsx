@@ -1,7 +1,7 @@
 import Spinner from '@@/LoadingSpinner';
 import { svgAnimation } from '@/lib/browser-support';
 
-const view = ({ image, class: className = '', id, mobile, href = '#', color, ...props }, child) => (
+const view = ({ image, class: className = '', id, mobile, href = '#', color, ...props }, child = 'Projekt') => (
   <a href={href} onclick={() => false}>
     <div class={`thumbnail ${className}`} style={{ backgroundImage: `url(${image})` }} {...props}>
       <div class='overlay'>
@@ -13,7 +13,7 @@ const view = ({ image, class: className = '', id, mobile, href = '#', color, ...
             </div>
           )}
 
-        <p> {child || 'Projekt'}</p>
+        <p> {child} </p>
       </div>
     </div>
   </a>
