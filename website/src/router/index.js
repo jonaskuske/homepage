@@ -1,41 +1,10 @@
-import actions from '@/main';
-import { wait } from '@/lib/helpers';
-import Imprint from '@@/Imprint';
-import Projects from '@@/Projects';
-import Splash from '@@/Splash';
-import Details from '@@/Details';
-import About from '@@/About';
+import routes from './routes';
 import ErrorPage from '@@/404';
 import LoadingScreen from '@@/LoadingScreen';
+import actions from '@/main';
+import { wait, error, log } from '@/lib/helpers';
 
-let RouterView;
-
-const routes = [
-  {
-    path: '/',
-    name: 'Portfolio',
-    component: Splash
-  },
-  {
-    path: '/projekte',
-    name: 'Projekte',
-    component: Projects
-  },
-  {
-    path: '/detail',
-    component: Details
-  },
-  {
-    path: '/me',
-    name: 'Über mich',
-    component: About
-  },
-  {
-    path: '/impressum',
-    name: 'Impressum',
-    component: Imprint
-  }
-];
+let RouterView = LoadingScreen;
 
 const router = {
   routes,
@@ -43,36 +12,46 @@ const router = {
     component: ErrorPage,
     name: '404'
   },
-  push(target, title, pushState = true) {
-    const { component, name } = router.match(target.split('?')[0]);
-    title = name ? name : title ? title : '';
-    RouterView = component;
+  async push(target, { pushState = true } = {}) {
+    if (!target) return;
+
+    let { component, name } = router.match(target.split('?')[0]);
+    let title;
+
+    if (name === 'Projekt') {
+      try {
+        const { id = error('Keine ID im Querystring') } = router.getQueryParams(target);
+        ({ title } = await actions.requestProject(id));
+      } catch (err) {
+        log(err);
+        console.error(err);
+        ({ component, name } = router.fallback);
+      }
+    }
+
+    title = title ? title : name ? name : '';
     document.querySelector('title').textContent = `${title} | Jonas Kuske`;
+
     if (pushState) history.pushState({ page: target }, title, target);
+
+    RouterView = component;
     actions.setPage(target);
   },
   init() {
-    window.addEventListener('popstate', state => { router.push(state.state.page, '', false); });
-    router.getProjectFromURL().then(title => {
-      router.push(window.location.pathname, title);
-    });
+    window.addEventListener('popstate', ({ state }) => state !== null && state.page ? router.push(state.page, { pushState: false }) : history.back());
+    router.push(window.location.pathname + window.location.search);
   },
   match(route) {
     return router.routes.reduce((a, b) => b.path === route ? b : a, router.fallback);
   },
-  getProjectFromURL() {
-    const source = window.location.search;
-    const query = source.substring(1).split('=');
-    return new Promise(resolve => {
-      if (query[0] !== 'id') return resolve();
-      RouterView = LoadingScreen;
-      return Promise.all([
-        actions.requestProject(query[1]),
-        wait(600)
-      ]).then(res => resolve(res[0].title));
-
-    });
-
+  getQueryParams(target) {
+    const queryString = target.split('?')[1];
+    if (!queryString) error('Kein Querystring angegeben!');
+    const paramStrings = queryString.split('&');
+    const paramPairs = paramStrings.map(str => str.split('='));
+    const queryParams = {};
+    paramPairs.forEach(([key, val]) => queryParams[key] = val);
+    return queryParams;
   }
 };
 
