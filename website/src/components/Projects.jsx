@@ -2,6 +2,8 @@ import router from '@/router';
 import actions from '@/main';
 import Thumbnail from './Thumbnail';
 
+const spin = el => new Promise(r => r((el.tagName === 'DIV' ? el : el.parentNode).classList.add('spinner-overlay')));
+
 const view = ({ data: { projects, color, mobile }, class: className = '', ...props }) => {
   let werke = [];
   for (let werk in projects) werke.push(projects[werk]);
@@ -13,8 +15,7 @@ const view = ({ data: { projects, color, mobile }, class: className = '', ...pro
       <div class='projekt-container'>
         {werke.reverse().map(({ title, id, image }) => (
           <Thumbnail
-            onclick={evt => actions.loadProject({ id, el: evt.target })
-              .then(res => router.push(`/detail?id=${id}`, res[0].title))}
+            onclick={evt => spin(evt.target).then(() => router.push(`/detail?id=${id}`))}
             href={`/detail?id=${id}`}
             image={image}
             color={color}

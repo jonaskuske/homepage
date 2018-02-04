@@ -9,10 +9,10 @@ const WebpackPwaManifest = require('webpack-pwa-manifest');
 const root = dir => path.resolve(__dirname, '../', dir);
 
 config.plugins.push(
+  new webpack.NamedModulesPlugin(),
   new webpack.ProvidePlugin({
     h: ['hyperapp', 'h']
   }),
-  new webpack.NamedModulesPlugin(),
   new HtmlWebpackPlugin({
     title: 'Portfolio | Jonas Kuske',
     template: root('index.html'),

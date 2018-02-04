@@ -1,8 +1,5 @@
 import projects from '@/assets/projekte.json';
-import router from '@/router';
-import effects from '@/main';
 import loadImage from '@/lib/image-loader';
-import { wait } from '@/lib/helpers';
 
 export const state = {
   mobile: false,
@@ -36,25 +33,17 @@ export const actions = {
     return { themeColor: color };
   },
   addColor: color => ({ colors }) => !colors.includes(color) && ({ colors: [...colors, color] }),
-  fetchProjects: () => fetch(projects, { mode: 'cors' })
+  fetchProjects: () => (_, actions) => fetch(projects, { mode: 'cors' })
     .then(response => response.json())
-    .then(projects => effects.storeProjects(projects)),
-  storeProjects: value => ({ projects: value }),
+    .then(projects => actions.setProjects(projects)),
+  setProjects: projects => ({ projects }),
   setProject: project => ({ project }),
-  requestProject: id => ({ projects }) => {
-    return new Promise(resolve => {
-      (!projects.hasOwnProperty(id))
-        ? router.push(id) // not found: push to router so relevant 404 is shown
-        : loadImage(projects[id].image)
-          .then(() => { effects.setProject(projects[id]); resolve(projects[id]); });
+  requestProject: id => ({ projects }, actions) => {
+    return new Promise((resolve, reject) => {
+      projects.hasOwnProperty(id)
+        ? loadImage(projects[id].image)
+          .then(() => { actions.setProject(projects[id]); resolve(projects[id]); })
+        : reject(`Projekt ${id} wurde nicht gefunden.`);
     });
-  },
-  loadProject: ({ id, el }) => {
-    el = el.tagName === 'DIV' ? el : el.parentNode;
-    el.classList.add('spinner-overlay');
-    return Promise.all([
-      effects.requestProject(id),
-      wait(750)
-    ]);
   }
 };

@@ -6,7 +6,7 @@ const path = require('path');
 const root = dir => path.resolve(__dirname, '../', dir);
 
 const config = {
-  entry: ['promise-polyfill/src/polyfill', 'whatwg-fetch', './src/main.js'],
+  entry: ['@babel/polyfill', 'whatwg-fetch', './src/main.js'],
   output: {
     path: root('dist'),
     filename: 'main.[hash].js'
@@ -34,7 +34,7 @@ const config = {
         ]
       },
       {
-        test: /\.jpg$/,
+        test: /\.jpe?g$/,
         loader: 'file-loader?name=assets/images/[name].[ext]'
       },
       {
