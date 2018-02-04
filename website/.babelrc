@@ -1,10 +1,14 @@
 {
   "presets": [
     [
-      "env",
+      "@babel/preset-env",
       {
+        "useBuiltIns": "usage",
         "targets": {
-          "safari": "10.1"
+          "browsers": [
+            "ie >= 10",
+            "last 2 versions"
+          ]
         }
       }
     ]

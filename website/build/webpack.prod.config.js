@@ -3,6 +3,7 @@
 const webpack = require('webpack');
 const path = require('path');
 const config = require('./webpack.config');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const WebpackPwaManifest = require('webpack-pwa-manifest');
@@ -17,6 +18,7 @@ config.plugins.push(
   new webpack.ProvidePlugin({
     h: ['hyperapp', 'h']
   }),
+  new UglifyJsPlugin(),
   new HtmlWebpackPlugin({
     title: 'Portfolio | Jonas Kuske',
     template: root('index.html'),
