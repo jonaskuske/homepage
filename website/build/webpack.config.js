@@ -34,7 +34,7 @@ const config = {
         ]
       },
       {
-        test: /\.jpg$/,
+        test: /\.jpe?g$/,
         loader: 'file-loader?name=assets/images/[name].[ext]'
       },
       {
