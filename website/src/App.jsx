@@ -4,7 +4,7 @@ import { wait } from '@/lib/helpers';
 import Button from '@@/Button';
 import NavHeader from '@@/NavHeader';
 import SideMenu from '@@/SideMenu';
-import Color from '@@/ColorPicker';
+import ColorPicker from '@@/ColorPicker';
 import actions from '@/main';
 import Load from '@@/LoadingScreen';
 
@@ -35,7 +35,7 @@ const view = ({ colors, page, panel, scrollTop, mobile, themeColor, projects, pr
           <Button onclick={() => openColorPicker(themeColor)} >
             Farbe ausw&auml;hlen
           </Button>,
-          <Color />
+          <ColorPicker />
         ]]}
     </div>
     <RouterView
