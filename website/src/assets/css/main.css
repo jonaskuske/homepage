@@ -160,6 +160,7 @@ button {
 }
 .projekt-container {
   display: grid;
+  grid-template: auto / repeat(auto-fit, minmax(350px, 1fr));
   grid-template: auto / repeat(auto-fit, minmax(max-content, 1fr));
   grid-gap: 0.9rem;
 }
