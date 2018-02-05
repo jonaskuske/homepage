@@ -16,10 +16,11 @@ const view = ({ class: className = '', data: { projects, color, mobile }, ...pro
       <div class='projekt-container'>
         {werke.reverse().map(({ title, id, image }, index) => index < 3 && (
           <Thumbnail
-            image={image}
             onclick={evt => spin(evt.target).then(() => router.push(`/detail?id=${id}`))}
-            color={color}
+            href={`/detail?id=${id}`}
             mobile={mobile}
+            image={image}
+            color={color}
             id={id}
           >
             {title}

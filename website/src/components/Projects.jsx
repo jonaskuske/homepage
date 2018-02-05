@@ -17,9 +17,9 @@ const view = ({ data: { projects, color, mobile }, class: className = '', ...pro
           <Thumbnail
             onclick={evt => spin(evt.target).then(() => router.push(`/detail?id=${id}`))}
             href={`/detail?id=${id}`}
+            mobile={mobile}
             image={image}
             color={color}
-            mobile={mobile}
             id={id}
           >
             {title}
