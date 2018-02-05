@@ -22,7 +22,7 @@ body::before {
   background: #0b8dc9;
   background: var(--theme-color);
 }
-#app {
+body > div {
   margin-top: 5rem;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

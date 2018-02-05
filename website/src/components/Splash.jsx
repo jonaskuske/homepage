@@ -9,11 +9,11 @@ const view = ({ class: className = '', data: { projects, color, mobile }, ...pro
   let werke = [];
   for (let werk in projects) werke.push(projects[werk]);
   return (
-    <div key='welcome' class={`${className}`} {...props} >
+    <main key='welcome' class={`${className}`} {...props} >
       <h1 class='kern'>WILLKOMMEN</h1>
       <p> {welcome} </p>
       <h2> Letzte <span class='pointer' onclick={() => router.push('/projekte')}>Projekte</span> </h2>
-      <div class='projekt-container'>
+      <section class='projekt-container'>
         {werke.reverse().map(({ title, id, image }, index) => index < 3 && (
           <Thumbnail
             onclick={evt => spin(evt.target).then(() => router.push(`/detail?id=${id}`))}
@@ -26,8 +26,8 @@ const view = ({ class: className = '', data: { projects, color, mobile }, ...pro
             {title}
           </Thumbnail>
         ))}
-      </div>
-    </div>
+      </section>
+    </main>
   );
 };
 

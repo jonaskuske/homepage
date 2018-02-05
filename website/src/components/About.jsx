@@ -9,7 +9,7 @@ const showHideText = evt => {
 };
 
 const view = ({ class: className = '', data: { color }, ...props }) => (
-  <div key='about' class={`${className} about-page`} {...props} >
+  <main key='about' class={`${className} about-page`} {...props} >
     <h1>&Uuml;BER MICH</h1>
     {skillList.map(({ type: name, skills, text }) => (
       <section>
@@ -26,7 +26,7 @@ const view = ({ class: className = '', data: { color }, ...props }) => (
         <p>{text}</p>
       </section>
     ))}
-  </div>
+  </main>
 );
 
 export default view;

@@ -15,12 +15,12 @@ const removeListener = () => document.removeEventListener('scroll', handleScroll
 
 const view = ({ scroll, menu, mobile }) => {
   return (
-    <div class='header' oncreate={addListener} ondestroy={removeListener}>
+    <header class='header' oncreate={addListener} ondestroy={removeListener}>
       <Hamburger class='events' onclick={actions.toggleMenu} />
-      <div class={`link-container ${scroll > 0 || (menu && mobile) ? 'link-container-change' : ''}`}>
+      <nav class={`link-container ${scroll > 0 || (menu && mobile) ? 'link-container-change' : ''}`}>
         {links.map(({ text, href }) => <HeaderLink class='events' href={href}>{text}</HeaderLink>)}
-      </div>
-    </div>
+      </nav>
+    </header>
   );
 };
 

@@ -25,10 +25,10 @@ const addMobileListener = () => {
 };
 
 const view = ({ colors, page, panel, scrollTop, mobile, themeColor, projects, project, transition, ...state }, actions) => (
-  <div id='app' oncreate={() => startup(colors)}>
+  <div oncreate={() => startup(colors)}>
     <SideMenu class={!panel ? 'slideout' : ''} mobile={mobile} />
     <NavHeader scroll={scrollTop} menu={panel} mobile={mobile} />
-    <div class='color-btn-container'>
+    <section class='color-btn-container'>
       {cssVariables && [
         <Button onclick={() => setRandomColor(colors)}> Zufallsfarbe </Button>,
         HTMLColorInput && [
@@ -37,7 +37,7 @@ const view = ({ colors, page, panel, scrollTop, mobile, themeColor, projects, pr
           </Button>,
           <ColorPicker />
         ]]}
-    </div>
+    </section>
     <RouterView
       class={'content-container animate-in'}
       data-page={page}

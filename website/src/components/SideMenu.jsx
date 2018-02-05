@@ -11,7 +11,7 @@ const menuItems = [
 ];
 
 const view = ({ class: className = '', mobile }) => (
-  <div class={`side-panel ${className}`} >
+  <nav class={`side-panel ${className}`} >
     <div />
     <ProfilePic onclick={() => { mobile && actions.setMenu(false); router.push('/me'); }} />
     {menuItems.map(({ route, text }) => (
@@ -19,7 +19,7 @@ const view = ({ class: className = '', mobile }) => (
         <Button class={'side-btn'} onclick={() => { mobile && actions.setMenu(false); router.push(route); }}> {text} </Button>
       </a>
     ))}
-  </div>
+  </nav>
 );
 
 export default view;
