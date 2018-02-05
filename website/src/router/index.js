@@ -2,7 +2,7 @@ import routes from './routes';
 import ErrorPage from '@@/404';
 import LoadingScreen from '@@/LoadingScreen';
 import actions from '@/main';
-import { error, log } from '@/lib/helpers';
+import { error, log, wait } from '@/lib/helpers';
 
 let RouterView = LoadingScreen;
 
@@ -21,7 +21,7 @@ const router = {
     if (name === 'Projekt') {
       try {
         const { id = error('Keine ID im Querystring') } = router.getQueryParams(target);
-        ({ title } = await actions.requestProject(id));
+        ([{ title }] = await Promise.all([actions.requestProject(id), wait(700)]));
       } catch (err) {
         log(err);
         console.error(err);
