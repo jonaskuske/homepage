@@ -14,13 +14,14 @@ const view = ({ class: className = '', data: { projects, color, mobile }, ...pro
       <p> {welcome} </p>
       <h2> Letzte <span class='pointer' onclick={() => router.push('/projekte')}>Projekte</span> </h2>
       <section class='projekt-container'>
-        {werke.reverse().map(({ title, id, image }, index) => index < 3 && (
+        {werke.reverse().map(({ title, id, image, subtitle }, index) => index < 3 && (
           <Thumbnail
             onclick={evt => spin(evt.target).then(() => router.push(`/detail?id=${id}`))}
             href={`/detail?id=${id}`}
             mobile={mobile}
             image={image}
             color={color}
+            subtitle={subtitle}
             id={id}
           >
             {title}
