@@ -1,6 +1,6 @@
 const view = ({ class: className = '', data, ...props }) => (
   <main key='imprint' class={`impressum ${className}`} {...props}>
-    <h1 class='kern'>IMPRESSUM</h1>
+    <h1>IMPRESSUM</h1>
     <section>
       Angaben gem&auml;ß &sect; 5 TMG<br /><br />
       Jonas Kuske<br />

@@ -49,7 +49,6 @@ div, p, button, h1, h2, h3, h4 {
 h1 {
   font-size: 3rem;
   margin-bottom: 2rem;
-  letter-spacing: 1px;
 }
 p {
   font-size: 1.1rem;
@@ -184,13 +183,20 @@ button {
   top: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0,0,0,0.8);
+  background: rgba(0,0,0,0.85);
   z-index: 10;
   opacity: 0;
   transition: opacity 200ms ease-out;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+.overlay > p {
+  line-height: 2rem;
+  font-weight: 500;
+}
+.overlay > p > span {
+  font-weight: 200;
 }
 .thumbnail:hover .overlay {
   opacity: 1;
@@ -272,9 +278,6 @@ button {
 .animate-in {
   opacity: 0;
   transform: translateX(-50%) scale(0.92);
-}
-.kern::first-letter {
-  margin: 0 3px 0 0;
 }
 .animation-fallback {
   display: flex;
