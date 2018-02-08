@@ -42,20 +42,27 @@ body > div {
 ::-webkit-scrollbar-thumb:hover {
   background: #fff;
 }
-div, p, button, h1, h2, h3, h4 {
+div, p, button, h1, h2, h3 {
   font-family: 'Raleway', sans-serif;
   color: #fff;
+}
+h1, h2, h3, p, button {
+  transition: font-size 300ms, transform 100ms ease-out;
 }
 h1 {
   font-size: 3rem;
   margin-bottom: 2rem;
+  text-transform: uppercase;
+}
+h3 {
+  font-size: 1.7rem;
 }
 p {
   font-size: 1.1rem;
   font-weight: 400;
 }
-h1, p {
-  transition: font-size 300ms;
+.textsquish {
+  transform: scale(1, 0.03);
 }
 input[type=color] {
   opacity: 0;
@@ -197,6 +204,7 @@ button {
 }
 .overlay > p > span {
   font-weight: 200;
+  pointer-events: none;
 }
 .thumbnail:hover .overlay {
   opacity: 1;
@@ -238,18 +246,19 @@ button {
   transform: translateX(-50%);
   width: 70%;
 }
-.color-btn-container .btn:not(:first-child) {
+.color-btn-container span:not(:first-child) {
   margin-left: 15px;
+}
+.color-btn-container span {
+  border-bottom: solid 2px var(--theme-color);
+}
+.color-btn-container span .btn {
+  font-size: 1rem;
 }
 .btn {
   border: none;
   cursor: pointer;
   outline: none;
-}
-.color-btn-container .btn {
-  font-size: 1.1rem;
-  font-weight: lighter;
-  border-bottom: solid 2px var(--theme-color);
 }
 .detail-image {
   width: 100%;

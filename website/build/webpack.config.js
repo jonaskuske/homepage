@@ -9,7 +9,8 @@ const config = {
   entry: ['./src/main.js'],
   output: {
     path: root('dist'),
-    filename: 'main.[hash].js'
+    filename: 'main.[hash].js',
+    chunkFilename: '[name].bundle.js'
   },
   resolve: {
     extensions: ['.js', '.jsx', '.json'],

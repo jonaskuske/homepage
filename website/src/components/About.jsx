@@ -8,12 +8,12 @@ const showHideText = evt => {
   el.classList.toggle('skill-icon-show-text');
 };
 
-const view = ({ class: className = '', data: { color }, ...props }) => (
+const view = ({ class: className = '', data: { color, locales: { About } }, ...props }) => (
   <main key='about' class={`${className} about-page`} {...props} >
-    <h1>&Uuml;BER MICH</h1>
+    <h1>{About.h1}</h1>
     {skillList.map(({ type: name, skills, text }) => (
       <section>
-        <h5>{name}</h5>
+        <h3>{name}</h3>
         {svgTransform
           ? skills.map(skill => <Icon ontouchstart={e => showHideText(e)} skill={skill} themeColor={color} />)
           : <div class="skill-icon-compat-container">
