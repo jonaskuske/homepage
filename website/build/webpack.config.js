@@ -6,7 +6,7 @@ const path = require('path');
 const root = dir => path.resolve(__dirname, '../', dir);
 
 const config = {
-  entry: ['@babel/polyfill', 'whatwg-fetch', './src/main.js'],
+  entry: ['./src/main.js'],
   output: {
     path: root('dist'),
     filename: 'main.[hash].js'

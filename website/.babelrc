@@ -6,8 +6,8 @@
         "useBuiltIns": "usage",
         "targets": {
           "browsers": [
-            "ie >= 10",
-            "last 2 versions"
+            "last 2 versions",
+            "ie >= 10"
           ]
         }
       }
