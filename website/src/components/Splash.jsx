@@ -10,23 +10,32 @@ const view = ({ class: className = '', data: { projects, color, mobile }, ...pro
   for (let werk in projects) werke.push(projects[werk]);
   return (
     <main key='welcome' class={`${className}`} {...props} >
-      <h1 class='kern'>WILLKOMMEN</h1>
+      <h1>WILLKOMMEN</h1>
       <p> {welcome} </p>
-      <h2> Letzte <span class='pointer' onclick={() => router.push('/projekte')}>Projekte</span> </h2>
+      <h2> Highlights </h2>
       <section class='projekt-container'>
-        {werke.reverse().map(({ title, id, image, subtitle }, index) => index < 3 && (
-          <Thumbnail
-            onclick={evt => spin(evt.target).then(() => router.push(`/detail?id=${id}`))}
-            href={`/detail?id=${id}`}
-            mobile={mobile}
-            image={image}
-            color={color}
-            subtitle={subtitle}
-            id={id}
-          >
-            {title}
-          </Thumbnail>
-        ))}
+        {werke.filter(el => el.highlight).map(({ title, id, image, subtitle, category }, index) => {
+          const link = `/detail?project=${id}`;
+          return index < 3 && (
+            <Thumbnail
+              onclick={evt => spin(evt.target).then(() => router.push(link))}
+              href={link}
+              mobile={mobile}
+              image={image}
+              color={color}
+              id={id}
+            >
+              <p>
+                {subtitle}
+                <br />
+                {title}
+                <br />
+                <br />
+                <span>{category}</span>
+              </p>
+            </Thumbnail>
+          );
+        })}
       </section>
     </main>
   );

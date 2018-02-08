@@ -14,7 +14,9 @@ const view = ({ class: className = '', data: { color, mobile }, ...props }) => (
     </section>
     <section style={{ width: '70%', maxWidth: '50vh', margin: '0 auto 0 0' }}>
       <Button onclick={() => router.push('/')} > Zur Startseite </Button>
-      <Thumbnail image={errorImage} color={color} mobile={mobile} href='/' onclick={() => router.push('/')}> Zur Startseite </Thumbnail>
+      <Thumbnail image={errorImage} color={color} mobile={mobile} href='/' onclick={() => router.push('/')}>
+        <p>Zur Startseite</p>
+      </Thumbnail>
     </section>
   </main>
 );
