@@ -281,6 +281,9 @@ button {
   font-size: 0.9rem;
   font-weight: lighter;
 }
+.impressum section h3 {
+  font-size: 1.2rem;
+}
 .link-container-change {
   opacity: 0;
 }

@@ -1,6 +1,6 @@
-const view = (props, children) => (
-  <a class='header-link' target='_blank' rel='noopener' href={props.href || '#'} >
-    <p class={'header-link-text ' + props.class}>
+const view = ({ class: className = '', href = '' }, children) => (
+  <a class='header-link' target={!href.startsWith('mailto') ? '_blank' : ''} rel='noopener' href={href || '#'} >
+    <p class={'header-link-text ' + className}>
       {children || 'Platzhalter'}
     </p>
   </a>

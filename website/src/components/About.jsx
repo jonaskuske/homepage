@@ -1,4 +1,3 @@
-import skillList from '@/assets/skillset';
 import Icon from '@@/SkillDiagramIcon';
 import { svgTransform } from '@/lib/browser-support';
 
@@ -11,7 +10,7 @@ const showHideText = evt => {
 const view = ({ class: className = '', data: { color, locales: { About } }, ...props }) => (
   <main key='about' class={`${className} about-page`} {...props} >
     <h1>{About.h1}</h1>
-    {skillList.map(({ type: name, skills, text }) => (
+    {About.skills.map(({ type: name, skills, text }) => (
       <section>
         <h3>{name}</h3>
         {svgTransform
