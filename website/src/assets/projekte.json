@@ -1,33 +1,37 @@
 {
-  "1": {
+  "serpens-pro": {
     "title": "»Serpens Pro«",
     "subtitle": "Elementarfont",
     "category": "Grafikdesign",
-    "id": "1",
+    "id": "serpens-pro",
+    "highlight": true,
     "image": "https://i.imgur.com/LIuzcUN.jpg",
-    "text": "This font is based upon divided circles and lines in corresponding lengths. For capital letters, individual parts must not overlap, instead gaps are used to achieve appropriate dimensions. For minuscules overlapping is permitted to ensure more compact visuals. The circle elements also give the font its name: »Serpens Pro«."
+    "text": "Ein geometrischer Font, basierend aus geachtelten Kreisen in zwei Radien und Geraden in korrespondierender Länge. Lesbarkeit stand bei diesem Projekt im Hintergrund, viel mehr ging es darum, klare Regeln zu definieren, anhand derer die Schriftarten konstruiert werden sollte, und nicht von diesen abzuweichen, selbst wenn es der Lesbarkeit schadet."
   },
-  "2": {
-    "title": "»Digitale Medienproduktion«",
-    "subtitle": "Portfolio",
-    "category": "Full-Stack Webprojekt",
-    "id": 2,
-    "image": "https://i.imgur.com/4ZBy4so.png"
-  },
-  "4": {
+  "typro": {
     "title": "»typro«",
     "subtitle": "Progressive Web App",
     "category": "Konzept, Design, Development",
-    "id": "4",
+    "id": "typro",
+    "highlight": true,
     "image": "https://i.imgur.com/9mb3md9.png",
-    "text": "App to identify fonts..."
+    "text": "Eine Progressive Web App, die es dem Nutzer erlaubt, mit Hilfe seiner Smartphone-Kamera Schriftarten zu identifizieren und zu speichern. [...]"
   },
-  "5": {
+  "dmp-portfolio": {
+    "title": "»Digitale Medienproduktion«",
+    "subtitle": "Portfolio",
+    "category": "Full-Stack Webprojekt",
+    "id": "dmp-portfolio",
+    "highlight": true,
+    "image": "https://i.imgur.com/RlrdWVK.jpg",
+    "text": "Portfolio Website für den Studiengang »Digitale Medienproduktion« der Hochschule Bremerhaven. Hier werden studentische Arbeiten präsentiert. [...]"
+  },
+  "lsb-homepage": {
     "title": "»Landessportbund Bremen«",
     "subtitle": "Homepage",
     "category": "Webdesign & Prototyp",
-    "id": "5",
+    "id": "lsb-homepage",
     "image": "https://i.imgur.com/4ZBy4so.png",
-    "text": "Website Konzept, entworfen im Rahmen eines CD Entwurfs für den Landessportbund Bremen."
+    "text": "Prototyp einer redesignten Homepage, entworfen im Rahmen eines Corporate Design Konzepts für den Landessportbund Bremen. [...]"
   }
 }
