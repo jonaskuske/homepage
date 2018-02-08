@@ -43,7 +43,7 @@ export const actions = {
       projects.hasOwnProperty(id)
         ? loadImage(projects[id].image)
           .then(() => { actions.setProject(projects[id]); resolve(projects[id]); })
-        : reject(`Projekt ${id} wurde nicht gefunden.`);
+        : reject(`Projekt »${id}« wurde nicht gefunden.`);
     });
   }
 };

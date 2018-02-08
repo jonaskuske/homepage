@@ -20,8 +20,8 @@ const router = {
 
     if (name === 'Projekt') {
       try {
-        const { id = error('Keine ID im Querystring') } = router.getQueryParams(target);
-        ([{ title }] = await Promise.all([actions.requestProject(id), wait(700)]));
+        const { project = error('Keine Projekt-ID im Querystring') } = router.getQueryParams(target);
+        ([{ title }] = await Promise.all([actions.requestProject(project), wait(700)]));
       } catch (err) {
         log(err);
         console.error(err);
