@@ -19,10 +19,10 @@ export default class Swipe {
   up(callback) { this.actionUp = callback; return this; }
   down(callback) { this.actionDown = callback; return this; }
 
-  actionLeft() { return; }
-  actionRight() { return; }
-  actionUp() { return; }
-  actionDown() { return; }
+  actionLeft() { }
+  actionRight() { }
+  actionUp() { }
+  actionDown() { }
 
   handleTouchMove(evt) {
     if (!this.xDown || !this.yDown) return;
