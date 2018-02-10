@@ -15,11 +15,12 @@
   ],
   "plugins": [
     [
-      "transform-react-jsx",
+      "@babel/plugin-transform-react-jsx",
       {
         "pragma": "h"
       }
     ],
-    "transform-object-rest-spread"
+    "@babel/proposal-object-rest-spread",
+    "@babel/plugin-syntax-dynamic-import"
   ]
 }

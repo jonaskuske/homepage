@@ -24,24 +24,24 @@ const addMobileListener = () => {
   matcher.addListener(handler);
 };
 
-const view = ({ colors, page, panel, scrollTop, mobile, themeColor, projects, project, transition, ...state }, actions) => (
+const view = ({ colors, page, panel, scrollTop, mobile, themeColor, projects, locales: { App = {}, ...locales }, project, ...state }, actions) => (
   <div oncreate={() => startup(colors)}>
-    <SideMenu class={!panel ? 'slideout' : ''} mobile={mobile} />
-    <NavHeader scroll={scrollTop} menu={panel} mobile={mobile} />
+    <SideMenu class={!panel ? 'slideout' : ''} mobile={mobile} lang={state.language} panel={App.panel} />
+    <NavHeader scroll={scrollTop} menu={panel} mobile={mobile} links={App.links} />
     <section class='color-btn-container'>
       {cssVariables && [
-        <Button onclick={() => setRandomColor(colors)}> Zufallsfarbe </Button>,
+        <span><Button onclick={() => setRandomColor(colors)}> {App.ColorButton1} </Button></span>,
         HTMLColorInput && [
-          <Button onclick={() => openColorPicker(themeColor)} >
-            Farbe ausw&auml;hlen
-          </Button>,
+          <span><Button onclick={() => openColorPicker(themeColor)} >
+            {App.ColorButton2}
+          </Button></span>,
           <ColorPicker />
         ]]}
     </section>
     <RouterView
       class={'content-container animate-in'}
       data-page={page}
-      data={{ color: themeColor, projects, project, mobile }}
+      data={{ color: themeColor, projects, project, mobile, locales }}
       oncreate={animate}
       onupdate={(el, old) => page !== old['data-page'] && animate(el)}
     />

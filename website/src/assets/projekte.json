@@ -5,7 +5,7 @@
     "category": "Grafikdesign",
     "id": "serpens-pro",
     "highlight": true,
-    "image": "https://i.imgur.com/LIuzcUN.jpg",
+    "image": "http://i.imgur.com/LIuzcUN.jpg",
     "text": "Ein geometrischer Font, basierend aus geachtelten Kreisen in zwei Radien und Geraden in korrespondierender Länge. Lesbarkeit stand bei diesem Projekt im Hintergrund, viel mehr ging es darum, klare Regeln zu definieren, anhand derer die Schriftarten konstruiert werden sollte, und nicht von diesen abzuweichen, selbst wenn es der Lesbarkeit schadet."
   },
   "typro": {
@@ -14,7 +14,7 @@
     "category": "Konzept, Design, Development",
     "id": "typro",
     "highlight": true,
-    "image": "https://i.imgur.com/9mb3md9.png",
+    "image": "http://i.imgur.com/9mb3md9.png",
     "text": "Eine Progressive Web App, die es dem Nutzer erlaubt, mit Hilfe seiner Smartphone-Kamera Schriftarten zu identifizieren und zu speichern. [...]"
   },
   "dmp-portfolio": {
@@ -23,7 +23,7 @@
     "category": "Full-Stack Webprojekt",
     "id": "dmp-portfolio",
     "highlight": true,
-    "image": "https://i.imgur.com/RlrdWVK.jpg",
+    "image": "http://i.imgur.com/RlrdWVK.jpg",
     "text": "Portfolio Website für den Studiengang »Digitale Medienproduktion« der Hochschule Bremerhaven. Hier werden studentische Arbeiten präsentiert. [...]"
   },
   "lsb-homepage": {
@@ -31,7 +31,7 @@
     "subtitle": "Homepage",
     "category": "Webdesign & Prototyp",
     "id": "lsb-homepage",
-    "image": "https://i.imgur.com/4ZBy4so.png",
+    "image": "http://i.imgur.com/4ZBy4so.png",
     "text": "Prototyp einer redesignten Homepage, entworfen im Rahmen eines Corporate Design Konzepts für den Landessportbund Bremen. [...]"
   }
 }

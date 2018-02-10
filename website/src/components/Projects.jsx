@@ -3,14 +3,19 @@ import actions from '@/main';
 import Thumbnail from './Thumbnail';
 
 const spin = el => new Promise(r => r((el.tagName === 'DIV' ? el : el.parentNode).classList.add('spinner-overlay')));
+const innerHTML = (el, text) => el.innerHTML = text;
 
-const view = ({ data: { projects, color, mobile }, class: className = '', ...props }) => {
+const view = ({ data: { projects, color, mobile, locales: { Projects } }, class: className = '', ...props }) => {
   let werke = [];
   for (let werk in projects) werke.push(projects[werk]);
   return (
     <main key='projects' class={className} {...props}>
-      <h1>PROJEKTE</h1>
-      <p> Neben den hier vorgestellten Arbeiten ist natürlich auch die Portfolio-Seite, die Sie gerade betrachten, eines meiner Projekte. Geschrieben ist sie mit Hilfe des JavaScript Frameworks »hyperapp«, einem minimalistischen Framework, das in seiner Funktionsweise React &auml;hnelt. Außerdem wurde sie unter Zuhilfenahme modernster Browser-Technologien wie CSS Variablen oder CSS Grid gebaut. Der Quellcode ist <a href='https://github.com/jonaskuske/portfolio'>hier</a> zu sehen. <br />Viel Spaß beim Erkunden! </p>
+      <h1>{Projects.h1}</h1>
+      <p>
+        {Projects.text[1]}
+        <a href="http://github.com/jonaskuske/portfolio" target="_blank" rel="noopener">{Projects.text.link}</a>
+        {Projects.text[1.1] || ''}
+        <br />{Projects.text[2]}</p>
       <br />
       <section class='projekt-container'>
         {werke.reverse().map(({ title, subtitle, id, category, image }) => {

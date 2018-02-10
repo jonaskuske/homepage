@@ -10,7 +10,13 @@ import App from '@/App';
 const vm = app(state, actions, App, document.body);
 export default vm;
 
-vm.fetchProjects().then(router.init);
+const matchExtension = new RegExp(/\.(?!\.)(?!.+\.).+/);
+const matches = matchExtension.exec(window.location.host);
+const ext = matches ? matches[0].replace('.', '') : 'de';
+
+vm.fetchProjects()
+  .then(() => vm.getLanguage(ext === 'com' ? 'en' : 'de'))
+  .then(router.init);
 
 const swipeHandler = new Swiper(document);
 swipeHandler
