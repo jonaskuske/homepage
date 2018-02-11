@@ -7,13 +7,18 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const WebpackPwaManifest = require('webpack-pwa-manifest');
-const workboxPlugin = require('workbox-webpack-plugin');
+const WorkboxPlugin = require('workbox-webpack-plugin');
+const ManifestPlugin = require('webpack-manifest-plugin');
 
 const root = dir => path.resolve(__dirname, '../', dir);
 
 config.entry.push('./src/lib/sw-config.js');
 
 config.plugins.push(
+  new ManifestPlugin({
+    fileName: 'asset-manifest.json',
+    filter: ({ name }) => !name.includes('htaccess')
+  }),
   new CleanWebpackPlugin(['dist'], { root: root('.') }),
   new webpack.ProvidePlugin({
     h: ['hyperapp', 'h']
@@ -51,7 +56,7 @@ config.plugins.push(
       }
     ]
   }),
-  new workboxPlugin({
+  new WorkboxPlugin({
     globDirectory: root('dist'),
     globPatterns: ['**/*.{html,js,json,jpg}'],
     swDest: root('dist/service-worker.js'),
