@@ -1,6 +1,6 @@
 import projects from '@/assets/projekte.json';
 import loadImage from '@/lib/image-loader';
-import { wait } from '@/lib/helpers';
+import { wait, error, log } from '@/lib/helpers';
 
 const textElements = () => document.querySelectorAll('p,h1,h2,h3,button');
 
@@ -45,7 +45,7 @@ export const actions = {
       const { default: locales } = language === 'de'
         ? await import(/* webpackChunkName: "de-language" */ '@/lib/locales/de-DE.js')
         : await import(/* webpackChunkName: "en-language" */ '@/lib/locales/en-US.js');
-      if (!locales.App) throw 'Error while loading language, please try again';
+      if (!locales.App) error('Error while loading language, please try again');
 
       if (animate) {
         textElements().forEach(el => el.classList.add('textsquish'));
@@ -54,7 +54,7 @@ export const actions = {
 
       actions.setLanguage({ language, locales });
     } catch (e) {
-      console.warn(e);
+      log(e);
     }
   },
   setLanguage: ({ language, locales }) => {

@@ -24,7 +24,6 @@ const router = {
         ([{ title }] = await Promise.all([actions.requestProject(project), wait(700)]));
       } catch (err) {
         log(err);
-        console.error(err);
         ({ component, name } = router.fallback);
       }
     }
