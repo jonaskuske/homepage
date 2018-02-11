@@ -22,3 +22,5 @@ const swipeHandler = new Swiper(document);
 swipeHandler
   .right(() => vm.setMenu(true))
   .left(() => vm.setMenu(false));
+
+window.addEventListener('beforeinstallprompt', e => e.preventDefault());
