@@ -35,7 +35,18 @@ const config = {
         ]
       },
       {
-        test: /\.jpe?g$/,
+        test: /\.(gif|png|jpe?g|svg)$/i,
+        enforce: 'pre',
+        loader: 'image-webpack-loader',
+        options: {
+          mozjpeg: {
+            progressive: true,
+            quality: 80
+          }
+        }
+      },
+      {
+        test: /\.(gif|png|jpe?g)$/i,
         loader: 'file-loader?name=assets/images/[name].[ext]'
       },
       {
