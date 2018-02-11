@@ -38,28 +38,31 @@ export const actions = {
     return { themeColor: color };
   },
   toggleLanguage: () => async (state, actions) => {
-    textElements().forEach(el => el.classList.add('textsquish'));
-    await wait(210);
-    actions.getLanguage(state.language === 'de' ? 'en' : 'de');
+    actions.getLanguage({ language: state.language === 'de' ? 'en' : 'de', animate: true });
   },
-  getLanguage: lang => async (state, actions) => new Promise(async resolve => {
-    actions.setLanguage({
-      lang,
-      pack: lang === 'de'
+  getLanguage: ({ language, animate }) => async (state, actions) => {
+    try {
+      const { default: locales } = language === 'de'
         ? await import(/* webpackChunkName: "de-language" */ '@/lib/locales/de-DE.js')
-        : await import(/* webpackChunkName: "en-language" */ '@/lib/locales/en-US.js')
-    });
-    resolve();
-  }),
-  setLanguage: ({ lang, pack }) => {
+        : await import(/* webpackChunkName: "en-language" */ '@/lib/locales/en-US.js');
+      if (!locales.App) throw 'Error while loading language, please try again';
+
+      if (animate) {
+        textElements().forEach(el => el.classList.add('textsquish'));
+        await wait(210);
+      }
+
+      actions.setLanguage({ language, locales });
+    } catch (e) {
+      console.warn(e);
+    }
+  },
+  setLanguage: ({ language, locales }) => {
     textElements().forEach(el => el.classList.remove('textsquish'));
-    return {
-      locales: pack.default,
-      language: lang
-    };
+    return { locales, language };
   },
   addColor: color => ({ colors }) => !colors.includes(color) && ({ colors: [...colors, color] }),
-  fetchProjects: () => (_, actions) => fetch(projects, { mode: 'cors' })
+  fetchProjects: () => (_, actions) => fetch(projects)
     .then(response => response.json())
     .then(projects => actions.setProjects(projects)),
   setProjects: projects => ({ projects }),

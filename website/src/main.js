@@ -15,7 +15,7 @@ const matches = matchExtension.exec(window.location.host);
 const ext = matches ? matches[0].replace('.', '') : 'de';
 
 vm.fetchProjects()
-  .then(() => vm.getLanguage(ext === 'com' ? 'en' : 'de'))
+  .then(() => vm.getLanguage({ language: ext === 'com' ? 'en' : 'de' }))
   .then(router.init);
 
 const swipeHandler = new Swiper(document);
