@@ -62,6 +62,12 @@ config.plugins.push(
     swDest: root('dist/service-worker.js'),
     clientsClaim: true,
     skipWaiting: true,
+    runtimeCaching: [
+      {
+        urlPattern: /https?:\/\/(i\.imgur\.com|fonts\.gstatic\.com|fonts\.googleapis\.com).+/,
+        handler: 'staleWhileRevalidate'
+      }
+    ]
   })
 );
 
