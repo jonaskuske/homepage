@@ -1,4 +1,3 @@
-import projects from '@/assets/projekte.json';
 import loadImage from '@/lib/image-loader';
 import { wait, error, log } from '@/lib/helpers';
 
@@ -62,9 +61,10 @@ export const actions = {
     return { locales, language };
   },
   addColor: color => ({ colors }) => !colors.includes(color) && ({ colors: [...colors, color] }),
-  fetchProjects: () => (_, actions) => fetch(projects)
-    .then(response => response.json())
-    .then(projects => actions.setProjects(projects)),
+  fetchProjects: () => async (_, actions) => {
+    const { default: projects } = await import(/* webpackChunkName: "de-project" */ '@/assets/projekte.js');
+    actions.setProjects(projects);
+  },
   setProjects: projects => ({ projects }),
   setProject: project => ({ project }),
   requestProject: id => ({ projects }, actions) => {
