@@ -296,3 +296,49 @@ button {
   justify-content: center;
   animation: spin 1.6s linear infinite reverse -0.2s;
 }
+.new-detail-image {
+  width: 100%;
+  height: 100%;
+}
+.new-detail-text {
+  margin: 0;
+  padding: 1rem;
+  text-align: justify;
+  background: rgba(30,30,30,0.3);
+}
+.image-block {
+  box-sizing: border-box;
+  width: 50%;
+  height: 100%;
+}
+.image-text-block {
+  display: flex;
+  justify-content: space-between;
+}
+.text-block {
+  display: flex;
+  align-items: center;
+}
+.text-block-right {
+  margin-left: 2rem;
+  border-left: 2px solid #f0f0f0;
+  justify-content: flex-end;
+}
+.text-block-left {
+  margin-right: 2rem;
+  border-right: 2px solid #f0f0f0;
+  justify-content: flex-start;
+}
+.text-block > p {
+  background: rgba(30,30,30,0.3);
+  margin: 0;
+  width: 75%;
+  padding: 2rem;
+  text-align: justify;
+}
+.detail-container .image-text-block:first-of-type .image-block {
+  padding-top: 2rem;
+}
+.detail-container .image-text-block:last-of-type .image-block {
+  padding-bottom: 2rem;
+}

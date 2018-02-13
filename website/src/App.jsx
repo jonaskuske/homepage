@@ -41,7 +41,7 @@ const view = ({ colors, page, panel, scrollTop, mobile, themeColor, projects, lo
     <RouterView
       class={'content-container animate-in'}
       data-page={page}
-      data={{ color: themeColor, projects, project, mobile, locales }}
+      data={{ color: themeColor, projects, project, mobile, locales, page }}
       oncreate={animate}
       onupdate={(el, old) => page !== old['data-page'] && animate(el)}
     />
