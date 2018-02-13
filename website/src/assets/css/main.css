@@ -342,3 +342,6 @@ button {
 .detail-container .image-text-block:last-of-type .image-block {
   padding-bottom: 2rem;
 }
+img {
+  object-fit: contain;
+}
