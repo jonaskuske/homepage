@@ -235,12 +235,6 @@ button {
 .spinner-overlay .spinner {
   display: initial;
 }
-.detail-container {
-  display: flex;
-  flex-flow: wrap;
-  justify-content: center;
-  height: 100%;
-}
 .color-btn-container {
   margin-left: 50%;
   transform: translateX(-50%);
@@ -295,6 +289,13 @@ button {
   display: flex;
   justify-content: center;
   animation: spin 1.6s linear infinite reverse -0.2s;
+}
+.detail-container {
+  line-height: 1.5rem;
+  display: flex;
+  flex-flow: wrap;
+  justify-content: center;
+  height: 100%;
 }
 .new-detail-image {
   width: 100%;

@@ -20,7 +20,7 @@ const view = ({ data: { project: { title, image, text }, page }, class: classNam
       </ImageText>,
           <ImageText src={img2} mode='left'>typro kann von mehreren Nutzern gleichzeitig genutzt werden, es werden immer nur die Scans des aktuell eingeloggten Nutzers angezeigt. Der Schriftkatalog, die Kamerafunktion und vieles weitere ist voll funktional, lediglich die Schriftidentifizierung wird nur simuliert, da die Umsetzung der optischen Bildanalyse den Rahmen eines Prototyps überstiegen hätte.
       </ImageText>,
-          <p class="new-detail-text">Eine Implementierung dieses Features unter Zuhilfenahme der Open Source Schrifterkennungs-Library „Typefont“ ist jedoch geplant. Da die Schriftanalyse einiges an Rechenleistung und Zeit in Anspruch nimmt, müsste diese serverseitig mit Node.js realisiert werden, um befriedigende Performance sicherzustellen. Auf schwächeren Mobilgeräten kann die Identifizierung (client-seitig) unter Umständen mehrere Minuten dauern, wie erste Tests gezeigt haben – dies bietet sich also, wenn überhaupt, nur als Offline-Fallback an.
+          <p class="new-detail-text">Eine Implementierung dieses Features ist - unter Zuhilfenahme der Open Source Schrifterkennungs-Library „Typefont“ - jedoch bereits geplant. Da die Schriftanalyse einiges an Rechenleistung und Zeit in Anspruch nimmt, müsste diese serverseitig mit Node.js realisiert werden, um befriedigende Performance sicherzustellen. Auf schwächeren Mobilgeräten kann die Identifizierung unter Umständen mehrere Minuten dauern, wie erste Tests gezeigt haben – dies bietet sich also, wenn überhaupt, nur als Offline-Fallback an.
       </p>]
         : [<img class='detail-image' src={image} />, <p class='detail-text'>{text}</p>]
       }
