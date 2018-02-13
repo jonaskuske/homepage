@@ -42,6 +42,10 @@ const config = {
           mozjpeg: {
             progressive: true,
             quality: 80
+          },
+          pngquant: {
+            quality: '55-75',
+            speed: 1
           }
         }
       },
