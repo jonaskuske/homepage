@@ -17,8 +17,9 @@ export const state = {
     '#f58b00',
     '#00ffff'
   ],
-  projects: {},
+  projects: [],
   project: {
+    id: '',
     title: '',
     text: '',
     image: ''
@@ -50,8 +51,8 @@ export const actions = {
         textElements().forEach(el => el.classList.add('textsquish'));
         await wait(210);
       }
-
       actions.setLanguage({ language, locales });
+      if (state.project.id) actions.requestProject(state.project.id);
     } catch (e) {
       log(e);
     }
@@ -67,12 +68,17 @@ export const actions = {
   },
   setProjects: projects => ({ projects }),
   setProject: project => ({ project }),
-  requestProject: id => ({ projects }, actions) => {
+  requestProject: id => async ({ projects, language }, actions) => {
+    const { default: project } = await import(/* webpackChunkName: "projects/[request]" */ `@/assets/projects/${id}/${language}-assets`);
     return new Promise((resolve, reject) => {
-      projects.hasOwnProperty(id)
-        ? loadImage(projects[id].image)
-          .then(() => { actions.setProject(projects[id]); resolve(projects[id]); })
-        : reject(`Projekt »${id}« wurde nicht gefunden.`);
+      actions.setProject({ id, ...project });
+      resolve(project);
     });
+    // return new Promise((resolve, reject) => {
+    //   projects.hasOwnProperty(id)
+    //     ? loadImage(projects[id].image)
+    //       .then(() => { actions.setProject(projects[id]); resolve(projects[id]); })
+    //     : reject(`Projekt »${id}« wurde nicht gefunden.`);
+    // });
   }
 };
