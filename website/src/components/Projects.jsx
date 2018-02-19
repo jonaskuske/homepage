@@ -2,12 +2,10 @@ import router from '@/router';
 import actions from '@/main';
 import Thumbnail from './Thumbnail';
 
+let workaround;
 const spin = el => new Promise(r => r((el.tagName === 'DIV' ? el : el.parentNode).classList.add('spinner-overlay')));
-const innerHTML = (el, text) => el.innerHTML = text;
 
 const view = ({ data: { projects, color, mobile, locales: { Projects } }, class: className = '', ...props }) => {
-  let werke = [];
-  for (let werk in projects) werke.push(projects[werk]);
   return (
     <main key='projects' class={className} {...props}>
       <h1>{Projects.h1}</h1>
@@ -18,7 +16,7 @@ const view = ({ data: { projects, color, mobile, locales: { Projects } }, class:
         <br />{Projects.text[2]}</p>
       <br />
       <section class='projekt-container'>
-        {werke.reverse().map(({ title, subtitle, id, category, image }) => {
+        {(workaround ? workaround : (workaround = projects.reverse())).map(({ title, subtitle, id, category, image }) => {
           const link = `/detail?project=${id}`;
           return (
             <Thumbnail
