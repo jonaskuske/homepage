@@ -5,6 +5,7 @@ import Swiper from '@/lib/swiper';
 import { state, actions } from './store';
 import router from '@/router';
 import App from '@/App';
+import '@/service-worker';
 
 
 const vm = app(state, actions, App, document.body);
@@ -22,5 +23,11 @@ const swipeHandler = new Swiper(document);
 swipeHandler
   .right(() => vm.setMenu(true))
   .left(() => vm.setMenu(false));
+
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/service-worker.js').catch(err => {
+    console.warn('SW registration failed: ', err);
+  });
+}
 
 window.addEventListener('beforeinstallprompt', e => e.preventDefault());

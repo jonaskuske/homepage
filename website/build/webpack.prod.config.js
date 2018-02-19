@@ -12,7 +12,7 @@ const ManifestPlugin = require('webpack-manifest-plugin');
 
 const root = dir => path.resolve(__dirname, '../', dir);
 
-config.entry.push('./src/lib/sw-config.js');
+// config.entry.push('./src/lib/sw-config.js');
 
 config.plugins.push(
   new ManifestPlugin({
@@ -56,19 +56,19 @@ config.plugins.push(
       }
     ]
   }),
-  new WorkboxPlugin({
-    globDirectory: root('dist'),
-    globPatterns: ['**/*.{html,js,json,jpg}'],
-    swDest: root('dist/service-worker.js'),
-    clientsClaim: true,
-    skipWaiting: true,
-    runtimeCaching: [
-      {
-        urlPattern: /https?:\/\/(i\.imgur\.com|fonts\.gstatic\.com|fonts\.googleapis\.com).+/,
-        handler: 'staleWhileRevalidate'
-      }
-    ]
-  })
+  // new WorkboxPlugin({
+  //   globDirectory: root('dist'),
+  //   globPatterns: ['**/*.{html,js,json,jpg}'],
+  //   swDest: root('dist/service-worker.js'),
+  //   clientsClaim: true,
+  //   skipWaiting: true,
+  //   runtimeCaching: [
+  //     {
+  //       urlPattern: /https?:\/\/(i\.imgur\.com|fonts\.gstatic\.com|fonts\.googleapis\.com).+/,
+  //       handler: 'staleWhileRevalidate'
+  //     }
+  //   ]
+  // })
 );
 
 module.exports = config;

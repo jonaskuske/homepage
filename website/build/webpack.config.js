@@ -17,15 +17,21 @@ const config = {
     alias: {
       '@': root('src'),
       '@@': root('src/components'),
-      '@img': root('src/assets/images')
+      '@img': root('src/assets/images'),
+      '@projects': root('src/assets/projects')
     },
   },
   module: {
     rules: [
       {
         test: /\.jsx?$/,
-        exclude: /node_modules/,
+        exclude: /node_modules|service-worker\.js/,
         loader: 'babel-loader'
+      },
+      {
+        test: /service-worker\.js$/,
+        exclude: /node_modules/,
+        loader: 'file-loader?name=[name].[ext]'
       },
       {
         test: /\.css$/,
@@ -41,17 +47,21 @@ const config = {
         options: {
           mozjpeg: {
             progressive: true,
-            quality: 70
+            quality: 75
           },
           pngquant: {
-            quality: '60-80',
+            quality: '70-85',
             speed: 1
           }
         }
       },
       {
         test: /\.(gif|png|jpe?g)$/i,
-        loader: 'file-loader?name=assets/images/[name].[ext]'
+        loader: 'file-loader',
+        options: {
+          context: root('src/assets'),
+          name: 'assets/[path][name].[ext]'
+        }
       },
       {
         test: /\.txt$/,
