@@ -90,14 +90,3 @@
       opacity: 1;
     }
 }
-@media screen and (min-width: 1570px) {
-  .detail-image {
-    padding-right: 2.5rem;
-    max-width: 40%;
-  }
-  .detail-text {
-    padding-left: 2.5rem;
-    box-shadow: -6px 0 0 -2px white;
-    max-width: 40%;
-  }
-}
