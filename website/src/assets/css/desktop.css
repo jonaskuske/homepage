@@ -90,3 +90,42 @@
       opacity: 1;
     }
 }
+@media screen and (min-width: 1570px) {
+  .detail-container {
+    display: flex;
+    flex-flow: wrap;
+    justify-content: center;
+  }
+  .detail-text {
+    padding: 1.5rem;
+    background: rgba(30,30,30,0.3);
+  }
+  .image-text-block {
+    margin: 1rem 0;
+    display: flex;
+    justify-content: space-between;
+  }
+  .image-text-block-right > .image-block {
+    order: 1;
+  }
+  .image-text-block-right > .text-block {
+    justify-content: flex-start;
+  }
+  .image-text-block:last-of-type {
+    margin-bottom: 2rem;
+  }
+  .image-block {
+    box-sizing: border-box;
+    width: 50%;
+    height: 100%;
+  }
+  .text-block {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+  .text-block > p {
+    width: 75%;
+    padding: 1.5rem;
+  }
+}

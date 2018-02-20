@@ -33,14 +33,14 @@ body > div {
 ::-webkit-scrollbar {
   width: 0.7rem;
   height: 1rem;
-  background: #585858;
+  background: #989898;
 }
 ::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.7);
-  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 50px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #fff;
+  background: rgba(255, 255, 255, 0.8);
 }
 div, p, button, h1, h2, h3 {
   font-family: 'Raleway', sans-serif;
@@ -283,61 +283,36 @@ button {
 }
 .detail-container {
   line-height: 1.5rem;
-  display: flex;
-  flex-flow: wrap;
-  justify-content: center;
   height: 100%;
 }
 .detail-image {
   width: 100%;
   height: 100%;
+  display: block;
 }
 .detail-text {
-  margin: 0;
+  padding: 1rem;
+  margin: 0 0 1rem 0;
   text-align: justify;
   hyphens: auto;
   -ms-hyphens: auto;
-  padding: 1rem;
   background: rgba(30,30,30,0.3);
 }
-.image-block {
-  box-sizing: border-box;
-  width: 50%;
-  height: 100%;
-}
 .image-text-block {
-  display: flex;
-  justify-content: space-between;
+  margin-bottom: 2rem;
 }
-.text-block {
-  display: flex;
-  align-items: center;
-}
-.text-block-right {
-  margin-left: 2rem;
-  border-left: 2px solid #f0f0f0;
-  justify-content: flex-end;
-}
-.text-block-left {
-  margin-right: 2rem;
-  border-right: 2px solid #f0f0f0;
-  justify-content: flex-start;
+.image-block {
+  width: 100%;
+  display: block;
+  height: auto;
 }
 .text-block > p {
   background: rgba(30,30,30,0.3);
   margin: 0;
-  width: 75%;
-  padding: 2rem;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 1rem;
   text-align: justify;
   hyphens: auto;
   -ms-hyphens: auto;
-}
-.detail-container .image-text-block:first-of-type .image-block {
-  padding-top: 2rem;
-}
-.detail-container .image-text-block:last-of-type .image-block {
-  padding-bottom: 2rem;
-}
-img {
-  object-fit: contain;
 }
