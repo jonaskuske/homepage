@@ -36,7 +36,7 @@ export default {
     skills: [
       {
         type: 'Web Development',
-        text: 'Moderne Web Technologien, die die Grenzen zwischen Internet und nativen Anwendungen verschwimmen lassen, interessieren mich besonders. Gerne arbeite ich mit modernen JavaScript Frameworks bzw.Libraries, insbesondere Vue und React, und probiere neue, kleinere Tools aus. Trotzdem ist es mir auch wichtig, ein gutes Verständnis von purem JavaScript zu haben - vor allem, weil die Sprache sich meiner Meinung nach spätestens mit ES2015 zu einer vollwertigen(und ab und zu sogar eleganten) Sprache entwickelt hat.',
+        text: 'Moderne Web Technologien, die die Grenzen zwischen Internet und nativen Anwendungen verschwimmen lassen, interessieren mich besonders. Gerne arbeite ich mit modernen JavaScript Frameworks bzw.Libraries, insbesondere Vue und React, und probiere neue, kleinere Tools aus. Trotzdem ist es mir auch wichtig, ein gutes Verständnis von purem JavaScript zu haben - vor allem, weil die Sprache sich meiner Meinung nach spätestens mit ES2015 zu einer vollwertigen (und ab und zu sogar eleganten) Sprache entwickelt hat.',
         skills: [
           {
             name: 'JavaScript',

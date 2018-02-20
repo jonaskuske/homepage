@@ -33,14 +33,14 @@ body > div {
 ::-webkit-scrollbar {
   width: 0.7rem;
   height: 1rem;
-  background: #585858;
+  background: #989898;
 }
 ::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.7);
-  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 50px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #fff;
+  background: rgba(255, 255, 255, 0.8);
 }
 div, p, button, h1, h2, h3 {
   font-family: 'Raleway', sans-serif;
@@ -235,12 +235,6 @@ button {
 .spinner-overlay .spinner {
   display: initial;
 }
-.detail-container {
-  display: flex;
-  flex-flow: wrap;
-  justify-content: center;
-  height: 100%;
-}
 .color-btn-container {
   margin-left: 50%;
   transform: translateX(-50%);
@@ -259,15 +253,6 @@ button {
   border: none;
   cursor: pointer;
   outline: none;
-}
-.detail-image {
-  width: 100%;
-  height: 100%;
-  align-self: center;
-}
-.detail-text {
-  height: 100%;
-  align-self: center;
 }
 .btn {
   user-select: none;
@@ -295,4 +280,39 @@ button {
   display: flex;
   justify-content: center;
   animation: spin 1.6s linear infinite reverse -0.2s;
+}
+.detail-container {
+  line-height: 1.5rem;
+  height: 100%;
+}
+.detail-image {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.detail-text {
+  padding: 1rem;
+  margin: 0 0 1rem 0;
+  text-align: justify;
+  hyphens: auto;
+  -ms-hyphens: auto;
+  background: rgba(30,30,30,0.3);
+}
+.image-text-block {
+  margin-bottom: 2rem;
+}
+.image-block {
+  width: 100%;
+  display: block;
+  height: auto;
+}
+.text-block > p {
+  background: rgba(30,30,30,0.3);
+  margin: 0;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 1rem;
+  text-align: justify;
+  hyphens: auto;
+  -ms-hyphens: auto;
 }
