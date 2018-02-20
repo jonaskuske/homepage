@@ -19,7 +19,7 @@ export const parseText = str => {
     const inner = el.replace(/<a\s|>.+/g, '');
     const pairs = inner.split(' ');
     pairs.forEach(pair => {
-      const [key, val = true] = pair.split('=');
+      const [key, val = true] = pair.split(/=(.+)/);
       attributes[key] = JSON.parse(val);
     });
 
