@@ -2,6 +2,7 @@ import loadImage from '@/lib/image-loader';
 import { wait, error, log } from '@/lib/helpers';
 
 const textElements = () => document.querySelectorAll('p,h1,h2,h3,button');
+const random = max => Math.floor(Math.random() * Math.floor(max));
 
 export const state = {
   mobile: false,
@@ -36,6 +37,11 @@ export const actions = {
     document.body.style.setProperty('--theme-color', color);
     document.querySelector('meta[name=theme-color]').content = color;
     return { themeColor: color };
+  },
+  setRandomColor: () => (state, actions) => {
+    const colorOptions = state.colors.filter(color => color !== state.themeColor);
+    const randomColor = colorOptions[random(colorOptions.length)];
+    actions.setColor(randomColor);
   },
   toggleLanguage: () => async (state, actions) => {
     actions.getLanguage({ language: state.language === 'de' ? 'en' : 'de', animate: true });
