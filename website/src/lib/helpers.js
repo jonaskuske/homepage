@@ -1,5 +1,6 @@
 /* global h */
 export const wait = time => new Promise(resolve => { setTimeout(resolve, time); });
+export const random = max => Math.floor(Math.random() * Math.floor(max));
 export const errorMessages = [];
 export const log = e => {
   errorMessages.push(e);

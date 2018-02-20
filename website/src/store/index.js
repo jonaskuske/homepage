@@ -1,8 +1,7 @@
 import loadImage from '@/lib/image-loader';
-import { wait, error, log } from '@/lib/helpers';
+import { wait, error, log, random } from '@/lib/helpers';
 
 const textElements = () => document.querySelectorAll('p,h1,h2,h3,button');
-const random = max => Math.floor(Math.random() * Math.floor(max));
 
 export const state = {
   mobile: false,
@@ -76,15 +75,11 @@ export const actions = {
   setProject: project => ({ project }),
   requestProject: id => async ({ projects, language }, actions) => {
     const { default: project } = await import(/* webpackChunkName: "projects/[request]" */ `@/assets/projects/${id}/${language}-assets`);
+    const imageArray = [...project.blocks.map(block => block.image), project.showcase.image];
+    await loadImage(imageArray);
     return new Promise((resolve, reject) => {
       actions.setProject({ id, ...project });
       resolve(project);
     });
-    // return new Promise((resolve, reject) => {
-    //   projects.hasOwnProperty(id)
-    //     ? loadImage(projects[id].image)
-    //       .then(() => { actions.setProject(projects[id]); resolve(projects[id]); })
-    //     : reject(`Projekt »${id}« wurde nicht gefunden.`);
-    // });
   }
 };
