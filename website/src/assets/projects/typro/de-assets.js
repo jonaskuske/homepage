@@ -5,7 +5,7 @@ import typroIPhone from './images/block2.png';
 import typroIPhoneX from './images/block3.png';
 
 export default {
-  title: 'typro',
+  title: '»typro«',
   showcase: {
     image: showcase,
     text: `„typro“ ist eine Progressive Web App, die es Nutzern erlaubt, mit Hilfe ihrer Smartphone-Kamera Schriftarten zu identifizieren, die gescannten Schriftarten samt Foto zu speichern und einen Katalog populärer Schriften zu durchsuchen. typro ist eines meiner ersten umfangreicheren Projekte und lässt sich <a href="https://typro.jonaskuske.com" target="_blank" rel="noopener">hier</a> live ausprobieren.`

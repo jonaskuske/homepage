@@ -6,7 +6,7 @@ import typroIPhone from './images/block2.png';
 import typroIPhoneX from './images/block3.png';
 
 export default {
-  title: 'typro',
+  title: '»typro«',
   id: 'typro',
   showcase: {
     image: showcase,
