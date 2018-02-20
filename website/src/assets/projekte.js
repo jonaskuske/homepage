@@ -2,6 +2,7 @@ import serpensPro from '@projects/serpens-pro/serpens-pro.jpg';
 import typro from '@projects/typro/typro.jpg';
 import dmpPortfolio from '@projects/dmp-portfolio/dmp-portfolio.jpg';
 import lsbHomepage from '@projects/lsb-homepage/lsb-homepage.jpg';
+import lsbDesign from '@projects/lsb-design/lsb-design.png';
 
 export default [
   {
@@ -19,6 +20,13 @@ export default [
     id: 'typro',
     highlight: true,
     image: typro
+  },
+  {
+    title: '»Landessportbund Bremen«',
+    subtitle: 'Corporate Design',
+    category: 'Grafikdesign',
+    id: 'lsb-design',
+    image: lsbDesign
   },
   {
     title: '»Digitale Medienproduktion«',
