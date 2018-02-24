@@ -4,8 +4,9 @@
  * Promise that resolves after a given time
  *
  * @param {number} time time in milliseconds
+ *
+ * @returns {Promise} Resolves once time has passed
  */
-
 export const wait = time => new Promise(resolve => { setTimeout(resolve, time); });
 
 /**
@@ -23,7 +24,7 @@ export const random = max => Math.floor(Math.random() * Math.floor(max));
 export const errorMessages = [];
 
 /**
- * Pushes Error to helper "errorMessages" and logs to console
+ * Pushes errors to helper "errorMessages" and logs to console
  *
  * @param {Error} e
  */
@@ -35,7 +36,7 @@ export const log = e => {
 /**
  * Throws a new Error with a given error message
  *
- * @param {string} e error message
+ * @param {string} e The error message
  */
 export const error = e => { throw new Error(e); };
 
@@ -46,6 +47,7 @@ export const error = e => { throw new Error(e); };
  *
  * @param {string} html HTML string, may contain <br/> and <a> tags.
  *
+ * @returns {Array.<string|{children: Array.<string>, name: string, props: Object}>} Array containing strings and VNode objects
  */
 export const parseText = html => {
   const children = html.split(/(?=<a.+<\/a>)|<\/a>|(?=<br)|r\s?\/>/);
