@@ -9,10 +9,10 @@ const view = ({ skill: { color, image, percentage, name }, themeColor, display =
       />,
       < circle
         fill={themeColor}
-        fill-opacity="0.8"
+        fill-opacity="0.65"
         stroke="#f0f0f0"
         stroke-width="2"
-        stroke-opacity="0.9"
+        stroke-opacity="0.8"
         cx="16.91549431"
         cy="16.91549431"
         r="15.91549431"

@@ -4,7 +4,7 @@ import { errorMessages } from '@/lib/helpers';
 import Thumbnail from '@@/Thumbnail';
 import errorImage from '@img/error.jpeg';
 
-const view = ({ class: className = '', data: { color, mobile }, ...props }) => {
+const view = ({ class: className = '', data: { themeColor, mobile }, ...props }) => {
   const errorMessage = errorMessages[errorMessages.length - 1];
   return (
     <main key='404' class={`${className}`} {...props} >
@@ -16,7 +16,7 @@ const view = ({ class: className = '', data: { color, mobile }, ...props }) => {
       </section>
       <section style={{ width: '70%', maxWidth: '50vh', margin: '0 auto 0 0' }}>
         <Button onclick={() => router.push('/')} > Zur Startseite </Button>
-        <Thumbnail image={errorImage} color={color} mobile={mobile} href='/' onclick={() => router.push('/')}>
+        <Thumbnail image={errorImage} color={themeColor} mobile={mobile} href='/' onclick={() => router.push('/')}>
           <p>Zur Startseite</p>
         </Thumbnail>
       </section>

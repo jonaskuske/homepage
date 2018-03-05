@@ -1,0 +1,64 @@
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+.skill-icon-container {
+  display: flex;
+  justify-content: space-between;
+  flex-flow: row wrap;
+}
+.skill-icon {
+  width: 90px;
+  height: 90px;
+  margin: 10px 0;
+}
+.skill-icon text {
+  user-select: none;
+}
+.skill-icon image, .skill-icon-compat .skill-icon image {
+  transition: opacity 250ms 200ms ease-in;
+}
+.skill-icon text, .skill-icon-compat .skill-icon text {
+  transition: opacity 200ms ease-in;
+}
+.skill-icon-show-text image {
+  transition: opacity 200ms ease-out;
+  opacity: 0;
+}
+.skill-icon-show-text text {
+  transition: opacity 200ms 200ms ease-in;
+  opacity: 1;
+}
+.diagram {
+  transform: rotate(-90deg);
+  transform-origin: center;
+  animation: circle-load 2s ease-in-out;
+}
+.skill-icon-compat {
+  position: relative;
+  width: 90px;
+  height: 90px;
+  margin: 10px 0;
+}
+.skill-icon-compat svg, .skill-icon-compat div {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+}
+.skill-icon-compat div {
+  transform: rotate(-90deg);
+}
+.skill-icon-compat .skill-icon {
+  margin: 0;
+}
+.skill-icon-compat .skill-icon .diagram {
+  transform: none;
+}
+@keyframes circle-load {
+  from {
+    stroke-dasharray: 0 100;
+  }
+}

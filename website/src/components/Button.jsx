@@ -1,5 +1,5 @@
-const view = ({ class: className = '', ...props }, children) => (
-  <button {...props} class={`btn ${className}`}>
+const view = (props, children) => (
+  <button {...props}>
     {children || 'Hier klicken'}
   </button>
 );
