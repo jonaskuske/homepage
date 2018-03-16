@@ -8,9 +8,17 @@ const showHideText = evt => {
   el.classList.toggle('skill-icon-show-text');
 };
 
-const view = ({ class: className = '', data: { themeColor, locales: { About } }, ...props }) => (
+const view = ({ class: className = '', data: { themeColor, mobile, locales: { About } }, ...props }) => (
   <main key='about' class={`${className} about-page`} {...props} >
     <h1>{About.h1}</h1>
+    <section>
+      <div class="skill-icon-container skill-icon-legend">
+        {!mobile && <h3>Legende</h3>}
+        <Icon class="skill-icon skill-icon-show-text" themeColor={themeColor} skill={{ percentage: 99, name: 'Advanced', image: '', color: '#282828' }} />
+        <Icon class="skill-icon skill-icon-show-text" themeColor={themeColor} skill={{ percentage: 50, name: 'Proficient', image: '', color: '#282828' }} />
+        <Icon class="skill-icon skill-icon-show-text" themeColor={themeColor} skill={{ percentage: 25, name: 'Familiar', image: '', color: '#282828' }} />
+      </div>
+    </section>
     {About.skills.map(({ type: name, skills, text }) => (
       <section>
         <h3>{name}</h3>

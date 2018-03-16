@@ -89,6 +89,17 @@
     transition: opacity 200ms 200ms ease-in;
     opacity: 1;
   }
+  .skill-icon-legend {
+    justify-content: flex-start;
+    background: rgba(0,0,0,0.4);
+    display: inline-block;
+  }
+  .skill-icon-legend svg {
+    margin: 0.5rem 1rem;
+  }
+  .skill-icon-legend h3 {
+    margin: 0.5rem 0 0 1rem;
+  }
 }
 @media screen and (min-width: 1440px) {
   .detail-container {
