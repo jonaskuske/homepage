@@ -3,8 +3,24 @@ import typro from '@projects/typro/typro.jpg';
 import dmpPortfolio from '@projects/dmp-portfolio/dmp-portfolio.jpg';
 import lsbHomepage from '@projects/lsb-homepage/lsb-homepage.jpg';
 import lsbDesign from '@projects/lsb-design/lsb-design.png';
+import codeProjects from '@projects/code-projects/code-projects.jpg';
 
 export default [
+  {
+    title: '»Code Projekte«',
+    subtitle: '',
+    category: 'Libraries & mehr',
+    id: 'code-projects',
+    image: codeProjects
+  },
+  {
+    title: '»Digitale Medienproduktion«',
+    subtitle: 'Portfolio',
+    category: 'Full-Stack Webprojekt',
+    id: 'dmp-portfolio',
+    highlight: true,
+    image: dmpPortfolio
+  },
   {
     title: '»Serpens Pro«',
     subtitle: 'Elementarfont',
@@ -27,14 +43,6 @@ export default [
     category: 'Grafikdesign',
     id: 'lsb-design',
     image: lsbDesign
-  },
-  {
-    title: '»Digitale Medienproduktion«',
-    subtitle: 'Portfolio',
-    category: 'Full-Stack Webprojekt',
-    id: 'dmp-portfolio',
-    highlight: true,
-    image: dmpPortfolio
   },
   {
     title: '»Landessportbund Bremen«',

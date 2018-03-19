@@ -13,7 +13,7 @@ export default {
     },
     {
       image: dmpPortfolio,
-      text: 'Für die Realisierung als SPA entschied sich unser Team für das JavaScript Framework Vue.js und einen modernen Build-Workflow basierend auf Webpack 2. Das Frontend ist bereits weit fortgeschritten, eine nonfinale Testversion lässt sich <a href="http://dmp-portfolio.jonaskuske.com" rel="noopener" target="_blank">hier</a> begutachten. <br/> Was das Backend betrifft, evaluieren Team & Management aktuell noch die Vor- und Nachteile von  selbstgeschriebenem Backend und der Verwendung eines Headless CMS.'
+      text: 'Für die Realisierung als SPA entschied sich unser Team für das JavaScript Framework Vue.js und einen modernen Build-Workflow basierend auf Webpack 2. Das Frontend ist bereits weit fortgeschritten, eine nonfinale Testversion lässt sich <a href="http://dmp-portfolio.jonaskuske.com" rel="noopener" target="_blank">hier</a> begutachten. <br/> Was das Backend betrifft, evaluieren Team & Management aktuell noch die Vor- und Nachteile von selbstgeschriebenem Backend (Node oder PHP) und der Verwendung eines Headless CMS.'
     }
   ],
   footer: 'Sobald das Projekt fertiggestellt ist, werden nicht nur die dargestellten Inhalte ein Gefühl für die Ausrichtung des Studiengangs vermitteln. Dank Einsatz modernster Technologien und Tools wie CSS Grid, Vue.js (+ Vuex & Vue Router), Server Side Rendering in Node.js und durch Webpack optimierte Code Bundles wird auch die Website als solche die moderne und branchennahe Ausrichtung des Studiengangs zur Schau stellen.'
