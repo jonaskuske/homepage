@@ -10,9 +10,6 @@
 .hamburger, .hamburger::before, .hamburger::after {
 border-bottom: 2px solid white;
 }
-.hamburger:hover, .hamburger:hover::before, .hamburger:hover::after {
-border-bottom: 2px solid var(--theme-color);
-}
 .hamburger::before, .hamburger::after {
   content: "";
   position: absolute;

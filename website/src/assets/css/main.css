@@ -2,6 +2,7 @@
 
 html, body {
   margin: 0;
+  min-height: 100%;
 }
 body {
   -webkit-font-smoothing: antialiased;
@@ -28,7 +29,7 @@ h1, h2, h3, p, button, div, a {
   font-family: 'Raleway', sans-serif;
   color: #fff;
 }
-h1, h2, h3, p, button {
+h1, h2, h3, p, button, a {
   transition: font-size 300ms, transform 100ms ease-out;
 }
 h1 {
@@ -71,22 +72,6 @@ input[type=color] {
 .events {
   pointer-events: initial;
 }
-.animate-in {
-  opacity: 0;
-  transform: translateX(-50%) scale(0.92);
-}
-::-webkit-scrollbar {
-  width: 0.7rem;
-  height: 1rem;
-  background: #989898;
-}
-::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.5);
-  border-radius: 50px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.8);
-}
 .header {
   position: fixed;
   width: 100%;
@@ -106,7 +91,7 @@ input[type=color] {
   opacity: 0;
 }
 .header-link-text {
-  font-size: 0.6rem;
+  font-size: 0.7rem;
 }
 .header-link-text:hover {
   color: var(--theme-color);
@@ -118,10 +103,14 @@ input[type=color] {
   text-decoration: none;
 }
 .content-container {
-  transition: opacity 700ms ease-out, transform 20ms ease-out;
+  transition: opacity 700ms ease-out;
   margin: 0 3rem 3rem 50%;
   transform: translateX(-50%);
   width: 70%;
+}
+.animate-in {
+  opacity: 0;
+  transform: translateX(-50%) scale(0.92);
 }
 .color-btn-container {
   margin-left: 50%;
@@ -136,7 +125,7 @@ input[type=color] {
 }
 .projekt-container {
   display: grid;
-  grid-template: auto / repeat(auto-fit, minmax(150px, 1fr));
+  grid-template: auto / repeat(auto-fit, minmax(230px, 1fr));
   grid-gap: 0.9rem;
 }
 .thumbnail {

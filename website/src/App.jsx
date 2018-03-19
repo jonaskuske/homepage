@@ -14,7 +14,7 @@ const openColorPicker = color => {
   const el = document.querySelector('input[type=color]'); el.value = color; el.focus(); el.click();
 };
 const addMobileListener = () => {
-  const matcher = window.matchMedia('(min-width: 1000px)');
+  const matcher = window.matchMedia('(min-width: 900px)');
   const handler = query => actions.setLayout(query.matches ? false : true);
   handler(matcher);
   matcher.addListener(handler);
@@ -35,7 +35,7 @@ const view = ({ page, mobile, locales: { App = {}, ...locales }, ...state }, act
         ]]}
     </section>
     <RouterView
-      class={'content-container animate-in'}
+      class={'content-container animate-in '}
       data-page={page}
       data={{ mobile, locales, ...state }}
       oncreate={animate}

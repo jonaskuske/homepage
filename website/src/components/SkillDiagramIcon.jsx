@@ -42,7 +42,7 @@ const view = ({ skill: { color, image, percentage, name }, themeColor, display =
       <text
         fill="#f0f0f0"
         opacity="0"
-        font-size="4"
+        font-size="3.8"
         text-anchor="middle"
         alignment-baseline="central"
         x="16.91549431"

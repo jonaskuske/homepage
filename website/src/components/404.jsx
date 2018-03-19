@@ -15,7 +15,7 @@ const view = ({ class: className = '', data: { themeColor, mobile }, ...props })
           : <p>Die aufgerufene Seite » {window.location.pathname.substring(1)} « existiert leider nicht. :(</p>}
       </section>
       <section style={{ width: '70%', maxWidth: '50vh', margin: '0 auto 0 0' }}>
-        <Button onclick={() => router.push('/')} > Zur Startseite </Button>
+        <Button style={{ marginBottom: '0.5rem' }} onclick={() => router.push('/')} > Zur Startseite </Button>
         <Thumbnail image={errorImage} color={themeColor} mobile={mobile} href='/' onclick={() => router.push('/')}>
           <p>Zur Startseite</p>
         </Thumbnail>
