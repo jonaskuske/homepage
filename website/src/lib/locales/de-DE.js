@@ -33,6 +33,7 @@ export default {
   },
   About: {
     h1: 'Über Mich',
+    skillLegend: 'Legende',
     skills: [
       {
         type: 'Web Development',
