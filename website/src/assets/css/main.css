@@ -30,7 +30,7 @@ h1, h2, h3, p, button, div, a {
   color: #fff;
 }
 h1, h2, h3, p, button, a {
-  transition: font-size 300ms, transform 100ms ease-out;
+  transition: font-size 300ms, transform 100ms ease-out, color 150ms ease-in-out;
 }
 h1 {
   font-size: 1.6rem;
@@ -47,6 +47,9 @@ p {
   font-size: 0.9rem;
   font-weight: 400;
 }
+.textsquish:not(.textsquish-blocker) {
+  transform: scale(1, 0.03);
+}
 button {
   font-size: 0.7rem;
   background: none;
@@ -60,14 +63,14 @@ button {
 a {
   text-decoration: underline;
 }
+.textsquish.textsquish-blocker, .textsquish.textsquish-blocker a  {
+  color: transparent;
+}
 input[type=color] {
   opacity: 0;
 }
 .pointer {
   cursor: pointer;
-}
-.textsquish {
-  transform: scaleY(0.03);
 }
 .events {
   pointer-events: initial;
