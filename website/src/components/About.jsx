@@ -38,7 +38,7 @@ const view = ({ class: className = '', data: { themeColor, mobile, locales: { Ab
         <div class="skill-icon-container skill-icon-legend">
           {!mobile && <h3>{About.skillLegend}</h3>}
           {svgTransform
-            ? legendData(isEnglish).map((skill) => < Icon class="skill-icon skill-icon-show-text" themeColor={'#989898'} skill={skill} />)
+            ? legendData(isEnglish).map((skill) => < Icon class="skill-icon skill-icon-show-text" themeColor={themeColor} skill={skill} />)
             : <div class="skill-icon-container skill-icon-compat-legend"> {legendData(isEnglish).map(skill => <div class="skill-icon-compat">
               <Icon skill={skill} class="skill-icon skill-icon-show-text" display="static" themeColor={themeColor} />
               <div style={{ pointerEvents: 'none' }}><Icon skill={skill} display="ring" themeColor={themeColor} /></div>
