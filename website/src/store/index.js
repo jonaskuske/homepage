@@ -1,7 +1,7 @@
 import loadImage from '@/lib/image-loader';
 import { wait, error, log, random } from '@/lib/helpers';
 
-const textElements = () => document.querySelectorAll('p,h1,h2,h3,button');
+const textElements = () => document.querySelectorAll('p,h1,h2,h3,button,.side-link');
 
 export const state = {
   mobile: false,

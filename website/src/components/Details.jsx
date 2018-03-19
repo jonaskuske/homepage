@@ -1,7 +1,7 @@
 import ImageText from '@@/ImageTextBlock';
 import { parseText } from '@/lib/helpers';
 
-const view = ({ data: { project: { title, image, text, showcase, blocks, footer }, page }, class: className = '', ...props }) => (
+const view = ({ data: { project: { title, image, text, showcase, blocks, footer } }, class: className = '', ...props }) => (
   <main key='details' class={`${className}`} {...props} >
     <h1>{title.toUpperCase()}</h1>
     <section class='detail-container'>

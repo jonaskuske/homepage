@@ -6,7 +6,7 @@ const view = ({ class: className = '', data: { locales: { Imprint } }, ...props 
       <p>Jonas Kuske</p>
       <p>An der Allee 36</p>
       <p>27568 Bremerhaven</p>
-      <br /><br />
+      <br />
       <h2>{Imprint.details.title}</h2>
       <p>{Imprint.details.phone}</p>
       <p>Mail: <a href="mailto:joku49@gmail.com">joku49@gmail.com</a></p>
