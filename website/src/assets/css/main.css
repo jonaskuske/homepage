@@ -46,8 +46,8 @@ div, p, button, h1, h2, h3 {
   font-family: 'Raleway', sans-serif;
   color: #fff;
 }
-h1, h2, h3, p, button {
-  transition: font-size 300ms, transform 100ms ease-out;
+h1, h2, h3, p, button, a {
+  transition: font-size 300ms, transform 100ms ease-out, opacity 200ms, color 220ms ease-in-out;
 }
 h1 {
   font-size: 3rem;
@@ -61,8 +61,11 @@ p {
   font-size: 1.1rem;
   font-weight: 400;
 }
-.textsquish {
+.textsquish:not(.textsquish-blocker) {
   transform: scale(1, 0.03);
+}
+.textsquish.textsquish-blocker, .textsquish.textsquish-blocker a  {
+  color: transparent;
 }
 input[type=color] {
   opacity: 0;

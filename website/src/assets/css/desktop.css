@@ -36,7 +36,7 @@
       font-weight: 200;
     }
     .projekt-container {
-      grid-template: auto / repeat(auto-fit, minmax(50px, 300px));
+      grid-template: auto / repeat(auto-fit, minmax(250px, 1fr));
     }
     html {
       font-size: initial;
