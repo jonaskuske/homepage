@@ -2,6 +2,7 @@
 
 const webpack = require('webpack');
 const path = require('path');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const root = dir => path.resolve(__dirname, '../', dir);
 
@@ -77,7 +78,9 @@ const config = {
       }
     ]
   },
-  plugins: [],
+  plugins: [
+    new CopyWebpackPlugin([{ from: root('static/*'), to: root('dist'), flatten: true }])
+  ],
   devServer: {
     historyApiFallback: true
   }

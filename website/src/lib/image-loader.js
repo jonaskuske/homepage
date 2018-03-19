@@ -1,11 +1,9 @@
 /**
- * Waits for an image or multiple images to load before resolving, then resolves to the loaded image(s)
- *
- * @param {string|Array.<string>} images A single image URI as string or multiple URIs in an Array
- * @param {boolean} strict Pass {true} to enable strict mode -> Promise rejects if there's an error while loading an image
- *
- * @returns {Image|Array.<Image>} The loaded Image or an Array containing all loaded Images.
- *                                Can also contain Errors, if strict mode is off!
+ * Waits for an image or multiple images to load before resolving, then resolves to the loaded image(s).
+ * @param {string|Array.<string>} images A single image URI as string or multiple URIs in an Array.
+ * @param {boolean} strict Pass {true} to enable strict mode -> Promise rejects if there's an error while loading an image.
+ * @returns {Promise.<Image|Array.<Image>>} The loaded Image or an Array containing all loaded Images.
+ * Can also contain Errors, if strict mode is off!
  */
 const imageLoader = (images, strict = false) => new Promise((resolve, reject) => {
   if (typeof images === 'undefined') return resolve();

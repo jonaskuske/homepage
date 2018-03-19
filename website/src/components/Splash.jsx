@@ -4,7 +4,7 @@ import router from '@/router';
 
 const spin = el => new Promise(r => r((el.tagName === 'DIV' ? el : el.parentNode).classList.add('spinner-overlay')));
 
-const view = ({ class: className = '', data: { projects, color, mobile, locales: { Splash } }, ...props }) => {
+const view = ({ class: className = '', data: { projects, themeColor, mobile, locales: { Splash } }, ...props }) => {
   return (
     <main key='welcome' class={`${className}`} {...props} >
       <h1>{Splash.h1}</h1>
@@ -19,7 +19,7 @@ const view = ({ class: className = '', data: { projects, color, mobile, locales:
               href={link}
               mobile={mobile}
               image={image}
-              color={color}
+              color={themeColor}
               id={id}
             >
               <p>
