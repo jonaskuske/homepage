@@ -5,7 +5,7 @@
   top: 0;
   left: 0;
   bottom: 0;
-  transition: width 200ms, transform 350ms ease-in-out;
+  transition: width 200ms, transform 270ms ease-in-out;
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
@@ -40,7 +40,7 @@
   width: 150px;
   height: 150px;
   border-radius: 50%;
-  margin: 5rem 0 0.75rem 0;
+  margin: 5rem 0 0 0;
   padding: 0;
   box-shadow: 0 0 6px 1px rgba(0,0,0,0.3);
   border: solid 2px var(--theme-color);
@@ -89,7 +89,7 @@
 .language-toggle {
   z-index: 6;
   align-self: flex-end;
-  margin: 3.5rem 0 1.2rem 0;
+  margin: 3rem 0 1.2rem 0;
   text-decoration: none;
   border: none;
   cursor: pointer;
