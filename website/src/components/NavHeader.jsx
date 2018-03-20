@@ -8,7 +8,7 @@ const removeListener = () => document.removeEventListener('scroll', handleScroll
 
 const view = ({ scroll, menu, mobile, links = [] }) => (
   <header class='header' oncreate={addListener} ondestroy={removeListener}>
-    <Hamburger class='events' onclick={actions.toggleMenu} />
+    <Hamburger class='events' onclick={() => { actions.toggleMenu(); document.body.scrollTop = 0; }} />
     <nav class={`link-container ${scroll > 0 || (menu && mobile) ? 'link-container-change' : ''}`}>
       {links.map(({ text, href }) => <HeaderLink class='events' href={href}>{text}</HeaderLink>)}
     </nav>
