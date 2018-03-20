@@ -6,7 +6,7 @@ export default {
       { text: 'GitHub', href: 'https://github.com/jonaskuske' },
       { text: 'LinkedIn', href: 'https://www.linkedin.com/in/jonaskuske/' },
       { text: 'Adobe Portfolio', href: 'https://jonaskuske.myportfolio.com' },
-      { text: 'Kontakt', href: 'mailto:joku49@gmail.com' },
+      { text: 'Kontakt', href: 'mailto:mail@jonaskuske.com' },
     ],
     panel: {
       nav: [
