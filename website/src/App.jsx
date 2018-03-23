@@ -22,7 +22,7 @@ const addMobileListener = () => {
 
 const view = ({ page, mobile, locales: { App = {}, ...locales }, ...state }, actions) => (
   <div oncreate={startup}>
-    <SideMenu class={!state.panel ? 'slideout' : ''} mobile={mobile} lang={state.language} panel={App.panel} />
+    <SideMenu class={`${!state.panel ? 'slideout' : ''} ${state.disableGlass ? 'disable-glass' : ''}`} mobile={mobile} lang={state.language} panel={App.panel} />
     <NavHeader scroll={state.scrollTop} menu={state.panel} mobile={mobile} links={App.links} />
     <section class='color-btn-container'>
       {cssVariables && [

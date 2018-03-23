@@ -105,7 +105,6 @@
   .side-panel::before {
     position: absolute;
     background: url(../images/bg.jpg) center / cover fixed;
-    opacity: 0.5;
     width: 110%;
   }
   .side-link-container {
@@ -200,4 +199,16 @@
     width: 120px;
     height: 120px;
   }
+}
+.disable-glass.side-panel {
+  transition: width 200ms, transform 270ms ease-in-out;
+}
+.disable-glass.side-panel::before {
+  position: fixed;
+  background: url(../images/bg.jpg) center / cover no-repeat;
+  width: 230px;
+}
+.disable-glass.slideout {
+  left: auto;
+  transform: translateX(-280px);
 }
