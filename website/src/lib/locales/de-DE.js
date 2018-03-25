@@ -33,11 +33,12 @@ export default {
   },
   About: {
     h1: 'Über Mich',
+    introduction: 'Ich bin Jonas, kreativer Geist und passionierter Entwickler. <br /> Schon als Kind habe ich mich sehr für Technik  interessiert, und als dann gegen Ende der Schulzeit noch eine Liebe zu Design hinzu kam, entschloss ich mich dazu, "Digitale Medienproduktion" zu studieren. Dort erlernte ich Grundkenntnisse in unterschiedlichsten Gebieten - Filmproduktion, 3D Modellierung, Prototyping - doch das erschaffen interaktiver Anwendungen fasziniert mich nach wie vor am meisten.<br /> Deshalb habe ich mich auf moderne Web Entwicklung und Design spezialisiert, und begonnen, mich schon während des Studiums in diese Richtungen weiterzubilden. Beispielsweise absolviere ich aktuell eine Fortbildung zum "Mobile Web Specialist", an der ich dank eines Google-Stipendiums teilnehmen kann, besuche Konferenzen und Hackathons und bin stets damit beschäftigt, mich zu verbessern und weiterzuentwickeln - denn die Branche schläft nicht.',
     skillLegend: 'Legende',
     skills: [
       {
         type: 'Web Development',
-        text: 'Moderne Web Technologien, die die Grenzen zwischen Internet und nativen Anwendungen verschwimmen lassen, interessieren mich besonders. Gerne arbeite ich mit modernen JavaScript Frameworks bzw.Libraries, insbesondere Vue und React, und probiere neue, kleinere Tools aus. Trotzdem ist es mir auch wichtig, ein gutes Verständnis von purem JavaScript zu haben - vor allem, weil die Sprache sich meiner Meinung nach spätestens mit ES2015 zu einer vollwertigen (und ab und zu sogar eleganten) Sprache entwickelt hat.',
+        text: 'Moderne Web Technologien, die die Grenzen zwischen Internet und nativen Anwendungen verschwimmen lassen, interessieren mich besonders. Gerne arbeite ich mit modernen JavaScript Frameworks bzw.Libraries, insbesondere Vue und React, und probiere neue, kleinere Tools aus. Trotzdem ist es mir auch wichtig, ein gutes Verständnis von purem JavaScript zu haben - vor allem, weil die Sprache sich meiner Meinung nach spätestens mit ES2015 zu einer vollwertigen (und ab und zu sogar eleganten?) Sprache entwickelt hat.',
         skills: [
           {
             name: 'JavaScript',

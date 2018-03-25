@@ -1,5 +1,6 @@
 import Icon from '@@/SkillDiagramIcon';
 import { svgTransform } from '@/lib/browser-support';
+import { parseText } from '@/lib/helpers';
 import GoogleBadge from '@img/Google-badge.png';
 
 const showHideText = evt => {
@@ -34,6 +35,10 @@ const view = ({ class: className = '', data: { themeColor, mobile, locales: { Ab
   return (
     <main key='about' class={`${className} about-page`} {...props} >
       <h1>{About.h1}</h1>
+      <section>
+        <p>{parseText(About.introduction)}</p>
+      </section>
+      <br />
       <section>
         <div class="skill-icon-container skill-icon-legend">
           {!mobile && <h3>{About.skillLegend}</h3>}

@@ -54,8 +54,11 @@
   h2 {
     font-size: 1.4rem;
   }
-  button, .header-link-text {
+  button {
     font-size: 0.9rem;
+  }
+  .header-link-text {
+    font-size: 1rem;
   }
   .content-container, .color-btn-container {
     width: 65%;
@@ -85,7 +88,7 @@
     width: 100%;
   }
   .link-container-change > a > .header-link-text {
-    font-size: 1rem;
+    font-size: 0.9rem;
     font-weight: 300;
   }
   .link-container-change {

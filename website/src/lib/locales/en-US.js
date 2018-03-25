@@ -32,6 +32,7 @@ export default {
   },
   About: {
     h1: 'About Me',
+    introduction: 'I am Jonas Kuske, creative mind and passionate developer. <br /> I\'ve been into tech ever since I was a kid and when I fell in love with design during my final years in school, I decided to study "digital media production". The first semesters of my studies tought me skills from many different fields of media - video production, 3D modelling, prototyping - but creating interactive experiences always fascinated me the most. <br /> Because of this, I now put all my focus on modern web development and design and try to grow my skillset in parallel to my studies. For example I am working my way towards a Nanodegree as a "Mobile Web Specialist", courtesy of a Google Scholarship, I attend conferences and hackathons and always look for new ways to improve myself - because this line of work never sleeps.',
     skillLegend: 'Legend',
     skills: [
       {
