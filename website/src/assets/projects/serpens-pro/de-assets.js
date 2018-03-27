@@ -1,5 +1,6 @@
-import serpensShowcase from './images/serpens_showcase.png';
-import serpensPro from './images/showcase.jpg';
+import serpensShowcase from './images/serpens-showcase.jpg';
+import serpens1 from './images/serpens1.jpg';
+import serpens2 from './images/serpens2.jpg';
 
 export default {
   title: '»Serpens Pro«',
@@ -9,11 +10,11 @@ export default {
   },
   blocks: [
     {
-      image: serpensPro,
+      image: serpens1,
       text: 'Die Grundelemente, aus denen die Buchstaben des Fonts gebildet werden, bestehen aus zwei geachtelten Kreisen mit unterschiedlichem Radius und Geraden in korrespondierender Länge. Bei den Majuskeln der Schriftart dürfen sich die Grundelemente nicht überlappen, stattdessen werden Abstände zwischen den Einzelteilen verwendet, um einheitliche Abmessungen zu erreichen. Bei Minuskeln ist das Überlappen der Basiselemente gestattet, um eine kompaktere Optik zu erzielen.'
     },
     {
-      image: serpensPro,
+      image: serpens2,
       text: 'Die Schrift wurde zur Gestaltung von zwei Plakaten genutzt - das eine zeigt alle Majuskeln des Alphabets und stellt diese kontrastreich auf einem Schachbrett-ähnlichen Raster zur Schau. Das andere Plakat konzentriert sich auf die verschiedenen Grundformen, aus denen die Lettern von »Serpens Pro« zusammen gesetzt werden, und verdeutlicht so die technisch-abstrakte Konstruktionsweise, die dem Font zu Grunde liegt.'
     },
 

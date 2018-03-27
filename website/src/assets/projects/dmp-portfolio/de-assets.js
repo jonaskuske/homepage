@@ -1,6 +1,6 @@
 import dmpShowcase from './images/dmp-showcase.jpg';
 import dmpThree from './images/dmpThree.jpg';
-import dmpTwo from './images/dmpTwo.png';
+import dmpTwo from './images/dmpTwo.jpg';
 
 export default {
   title: '»Digitale Medienproduktion«',

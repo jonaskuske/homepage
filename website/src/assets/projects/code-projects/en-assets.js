@@ -1,4 +1,4 @@
-import codeShowcase from './images/code_showcase-edit.jpg';
+import codeShowcase from './images/code_showcase.jpg';
 
 export default {
   title: '»Code Projects«',

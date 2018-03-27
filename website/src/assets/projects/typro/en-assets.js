@@ -1,9 +1,9 @@
 /* eslint-disable quotes */
 
-import showcase from './images/showcase.png';
-import typroPixel from './images/block1.png';
-import typroIPhone from './images/block2.png';
-import typroIPhoneX from './images/block3.png';
+import showcase from './images/showcase.jpg';
+import typroPixel from './images/block1.jpg';
+import typroIPhone from './images/block2.jpg';
+import typroIPhoneX from './images/block3.jpg';
 
 export default {
   title: '»typro«',
