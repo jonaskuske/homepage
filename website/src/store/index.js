@@ -6,6 +6,7 @@ const textElements = () => document.querySelectorAll('p,h1,h2,h3,button,.side-li
 export const state = {
   mobile: false,
   panel: false,
+  overlay: false,
   language: 'de',
   locales: '',
   page: '/',
@@ -18,6 +19,7 @@ export const state = {
     '#f58b00',
     '#00ffff'
   ],
+  overlayImage: '',
   projects: [],
   project: {
     id: '',
@@ -33,6 +35,15 @@ export const actions = {
   setLayout: value => ({ mobile: value }),
   setPage: page => ({ page }),
   setScrollTop: scrollTop => ({ scrollTop }),
+  setOverlayImage: overlayImage => ({ overlayImage }),
+  showOverlay: () => {
+    document.body.classList.add('no-overflow');
+    return { overlay: true };
+  },
+  hideOverlay: () => {
+    document.body.classList.remove('no-overflow');
+    return { overlay: false };
+  },
   setColor: color => state => {
     document.body.style.setProperty('--theme-color', color);
     document.querySelector('meta[name=theme-color]').content = color;
