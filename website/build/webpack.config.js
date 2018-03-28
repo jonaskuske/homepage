@@ -30,11 +30,6 @@ const config = {
         loader: 'babel-loader'
       },
       {
-        test: /service-worker\.js$/,
-        exclude: /node_modules/,
-        loader: 'file-loader?name=[name].[ext]'
-      },
-      {
         test: /\.css$/,
         use: [
           { loader: 'style-loader' },
@@ -48,7 +43,7 @@ const config = {
         options: {
           mozjpeg: {
             progressive: true,
-            quality: 75
+            quality: 90
           },
           pngquant: {
             quality: '70-85',
@@ -65,16 +60,8 @@ const config = {
         }
       },
       {
-        test: /\.txt$/,
-        loader: 'raw-loader'
-      },
-      {
         test: /\.json/,
         loader: 'file-loader?name=[name].[hash].[ext]'
-      },
-      {
-        test: /\.htaccess$/,
-        loader: 'file-loader?name=[name]'
       }
     ]
   },
