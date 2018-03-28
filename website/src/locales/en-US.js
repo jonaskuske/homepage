@@ -25,15 +25,20 @@ export default {
   Projects: {
     h1: 'Projects',
     text: {
-      1: 'Next to the works displayed below, the portfolio site you\'re looking at is one of my projects as well. It is written in JSX and rendered by the JavaScript framework »hyperapp«, a minimalistic framework that works similar to React. Additionally, the site is built using state-of-the-art web technologies like CSS variables, code splitting or CSS grid. The source code can be found ',
+      1: 'Next to the works displayed below, the portfolio site you\'re looking at is one of my projects as well. It is written in JSX and rendered by the JavaScript framework »hyperapp«, a minimalistic framework that works similar to React. Additionally, the site is built using state-of-the-art web technologies like CSS variables, code splitting and CSS grid. The source code can be found ',
       link: 'here.',
       2: 'Have fun discovering my projects!'
     }
   },
   About: {
     h1: 'About Me',
-    introduction: 'I am Jonas Kuske, creative mind and passionate developer. <br /> I\'ve been into tech ever since I was a kid and when I fell in love with design during my final years in school, I decided to study "digital media production". The first semesters of my studies tought me skills from many different fields of media - video production, 3D modelling, prototyping - but creating interactive experiences always fascinated me the most. <br /> Because of this, I now put all my focus on modern web development and design and try to grow my skillset in parallel to my studies. For example I am working my way towards a Nanodegree as a "Mobile Web Specialist", courtesy of a Google Scholarship, I attend conferences and hackathons and always look for new ways to improve myself - because this line of work never sleeps.',
-    skillLegend: 'Legend',
+    introduction: {
+      1: `
+      I am Jonas Kuske, creative mind and passionate developer. <br />
+      I've been into tech ever since I was a kid and when I fell in love with design during my final years in school, I decided to study "digital media production". The first semesters of my studies tought me skills from many different fields of media - video production, 3D modelling, prototyping - but creating interactive experiences always fascinated me the most.`,
+      2: 'Because of this, I now put all my focus on modern web development and design and try to grow my skillset in parallel to my studies. For example I am working my way towards a Nanodegree as a "Mobile Web Specialist" courtesy of a Google Scholarship, I attend conferences and hackathons and always look for new ways to improve myself - because this line of work is ever-changing.'
+    },
+    skillLegend: 'Legend ⬇',
     skills: [
       {
         type: 'Web Development',
@@ -136,7 +141,8 @@ export default {
     },
     copyright: {
       title: 'Copyright',
-      text: 'Our web pages and their contents are subject to German copyright law. Unless expressly permitted by law (§ 44a et seq. of the copyright law), every form of utilizing, reproducing or processing works subject to copyright protection on our web pages requires the prior consent of the respective owner of the rights. Individual reproductions of a work are allowed only for private use, so must not serve either directly or indirectly for earnings. Unauthorized utilization of copyrighted works is punishable (§ 106 of the copyright law).'
+      text: 'Our web pages and their contents are subject to German copyright law. Unless expressly permitted by law (§ 44a et seq. of the copyright law), every form of utilizing, reproducing or processing works subject to copyright protection on our web pages requires the prior consent of the respective owner of the rights. Individual reproductions of a work are allowed only for private use, so must not serve either directly or indirectly for earnings. Unauthorized utilization of copyrighted works is punishable (§ 106 of the copyright law).',
+      usageNotice: 'The header image and the second regular image of project "DMP Portfolio" are based upon mockups created by Anthony Boyd. The showcase mockup can be found <a href="https://www.anthonyboyd.graphics/mockups/2017/modern-responsive-showcase-mockup/" rel="noopener" target="_blank">here</a>, the other mockup can be found <a href="https://www.anthonyboyd.graphics/mockups/2017/modern-iphone-x-macbook-pro-mockup-vol-2/" rel="noopener" target="_blank">here</a>.'
     }
   }
 };

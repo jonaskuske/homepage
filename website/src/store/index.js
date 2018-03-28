@@ -55,13 +55,14 @@ export const actions = {
     actions.setColor(randomColor);
   },
   toggleLanguage: () => async (state, actions) => {
-    actions.getLanguage({ language: state.language === 'de' ? 'en' : 'de', animate: true });
+    await actions.getLanguage({ language: state.language === 'de' ? 'en' : 'de', animate: true });
+    actions.fetchProjects();
   },
   getLanguage: ({ language, animate }) => async (state, actions) => {
     try {
       const { default: locales } = language === 'de'
-        ? await import(/* webpackChunkName: "de-language" */ '@/lib/locales/de-DE.js')
-        : await import(/* webpackChunkName: "en-language" */ '@/lib/locales/en-US.js');
+        ? await import(/* webpackChunkName: "de-language" */ '@/locales/de-DE.js')
+        : await import(/* webpackChunkName: "en-language" */ '@/locales/en-US.js');
       if (!locales.App) error('Error while loading language, please try again');
 
       if (animate) {
@@ -79,8 +80,8 @@ export const actions = {
     return { locales, language };
   },
   addColor: color => ({ colors }) => !colors.includes(color) && ({ colors: [...colors, color] }),
-  fetchProjects: () => async (_, actions) => {
-    const { default: projects } = await import(/* webpackChunkName: "de-project" */ '@/assets/projekte.js');
+  fetchProjects: () => async ({ language }, actions) => {
+    const { default: projects } = await import(/* webpackChunkName: "projects/[request]" */ `@/assets/${language}-projectlist.js`);
     actions.setProjects(projects);
   },
   setProjects: projects => ({ projects }),

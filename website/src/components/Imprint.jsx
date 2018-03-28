@@ -1,3 +1,5 @@
+import { parseText } from '@/lib/helpers';
+
 const view = ({ class: className = '', data: { locales: { Imprint } }, ...props }) => (
   <main key='imprint' class={`impressum ${className}`} {...props}>
     <h1>{Imprint.h1}</h1>
@@ -22,6 +24,7 @@ const view = ({ class: className = '', data: { locales: { Imprint } }, ...props 
       <p>{Imprint.links.text}</p>
       <br />
       <h3>{Imprint.copyright.title}</h3>
+      <p>{parseText(Imprint.copyright.usageNotice)}</p>
       <p>{Imprint.copyright.text}</p>
     </section>
   </main>

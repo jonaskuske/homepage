@@ -2,7 +2,6 @@ import router from '@/router';
 import actions from '@/main';
 import Thumbnail from './Thumbnail';
 
-let reversedProjects = null; // reverse only once, not on every DOM render/patch
 const spin = el => new Promise(r => r((el.tagName === 'DIV' ? el : el.parentNode).classList.add('spinner-overlay')));
 
 const view = ({ data: { projects, themeColor, mobile, locales: { Projects } }, class: className = '', ...props }) => {
@@ -16,7 +15,7 @@ const view = ({ data: { projects, themeColor, mobile, locales: { Projects } }, c
         <br />{Projects.text[2]}</p>
       <br />
       <section class='projekt-container'>
-        {(reversedProjects ? reversedProjects : (reversedProjects = projects.reverse())).map(({ title, subtitle, id, category, image }) => {
+        {projects.map(({ title, subtitle, id, category, image }) => {
           const link = `/detail?project=${id}`;
           return (
             <Thumbnail

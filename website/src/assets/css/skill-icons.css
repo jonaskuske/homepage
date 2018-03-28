@@ -69,6 +69,9 @@
 .skill-icon-compat-legend > div {
   margin: 10px 1rem;
 }
+.skill-icon-legend {
+    background: rgba(0,0,0,0.3);
+}
 @keyframes circle-load {
   from {
     stroke-dasharray: 0 100;

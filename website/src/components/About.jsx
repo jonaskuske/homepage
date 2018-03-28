@@ -36,7 +36,8 @@ const view = ({ class: className = '', data: { themeColor, mobile, locales: { Ab
     <main key='about' class={`${className} about-page`} {...props} >
       <h1>{About.h1}</h1>
       <section>
-        <p>{parseText(About.introduction)}</p>
+        <p>{parseText(About.introduction['1'])}</p>
+        <p>{parseText(About.introduction['2'])}</p>
       </section>
       <br />
       <section>

@@ -29,7 +29,6 @@
   }
   .skill-icon-legend {
     justify-content: flex-start;
-    background: rgba(0,0,0,0.3);
     display: inline-block;
   }
   .skill-icon-legend svg {

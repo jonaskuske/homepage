@@ -33,12 +33,17 @@ export default {
   },
   About: {
     h1: 'Über Mich',
-    introduction: 'Ich bin Jonas, kreativer Geist und passionierter Entwickler. <br /> Schon als Kind habe ich mich sehr für Technik  interessiert, und als dann gegen Ende der Schulzeit noch eine Liebe zu Design hinzu kam, entschloss ich mich dazu, "Digitale Medienproduktion" zu studieren. Dort erlernte ich Grundkenntnisse in unterschiedlichsten Gebieten - Filmproduktion, 3D Modellierung, Prototyping - doch das erschaffen interaktiver Anwendungen fasziniert mich nach wie vor am meisten.<br /> Deshalb habe ich mich auf moderne Web Entwicklung und Design spezialisiert, und begonnen, mich schon während des Studiums in diese Richtungen weiterzubilden. Beispielsweise absolviere ich aktuell eine Fortbildung zum "Mobile Web Specialist", an der ich dank eines Google-Stipendiums teilnehmen kann, besuche Konferenzen und Hackathons und bin stets damit beschäftigt, mich zu verbessern und weiterzuentwickeln - denn die Branche schläft nicht.',
-    skillLegend: 'Legende',
+    introduction: {
+      1: `
+    Ich bin Jonas, kreativer Geist und passionierter Entwickler. <br />
+    Schon als Kind habe ich mich sehr für Technik  interessiert, und als dann gegen Ende der Schulzeit noch eine Liebe zu Design hinzu kam, entschloss ich mich dazu, "Digitale Medienproduktion" zu studieren. Dort erlernte ich Grundkenntnisse in unterschiedlichsten Gebieten - Filmproduktion, 3D Modellierung, Prototyping - doch das erschaffen interaktiver Anwendungen fasziniert mich nach wie vor am meisten.`,
+      2: 'Deshalb habe ich mich auf moderne Web Entwicklung und Design spezialisiert, und begonnen, mich schon während des Studiums in diese Richtungen weiterzubilden. Beispielsweise absolviere ich aktuell eine Fortbildung zum "Mobile Web Specialist", an der ich dank eines Google-Stipendiums teilnehmen kann, besuche Konferenzen und Hackathons und bin stets damit beschäftigt, mich zu verbessern und weiterzuentwickeln - denn die Branche ist stets im Wandel.'
+    },
+    skillLegend: 'Legende ⬇',
     skills: [
       {
         type: 'Web Development',
-        text: 'Moderne Web Technologien, die die Grenzen zwischen Internet und nativen Anwendungen verschwimmen lassen, interessieren mich besonders. Gerne arbeite ich mit modernen JavaScript Frameworks bzw.Libraries, insbesondere Vue und React, und probiere neue, kleinere Tools aus. Trotzdem ist es mir auch wichtig, ein gutes Verständnis von purem JavaScript zu haben - vor allem, weil die Sprache sich meiner Meinung nach spätestens mit ES2015 zu einer vollwertigen (und ab und zu sogar eleganten?) Sprache entwickelt hat.',
+        text: 'Moderne Web Technologien, die die Grenzen zwischen Internet und nativen Anwendungen verschwimmen lassen, interessieren mich besonders - von offline-fähigen Progressive Web Apps bis zu komplexen Anwendungen, die ganze Desktop-Programme ersetzen können. Gerne arbeite ich mit modernen JavaScript Frameworks bzw.Libraries, insbesondere Vue und React, und probiere neue, kleinere Tools aus. Trotzdem ist es mir auch wichtig, ein gutes Verständnis von purem JavaScript zu haben - vor allem, weil die Sprache sich meiner Meinung nach spätestens mit ES2015 zu einer vollwertigen (und ab und zu sogar eleganten?) Sprache entwickelt hat.',
         skills: [
           {
             name: 'JavaScript',
@@ -55,20 +60,20 @@ export default {
           {
             name: 'Vue',
             image: 'https://upload.wikimedia.org/wikipedia/commons/f/f1/Vue.png',
-            percentage: 81,
+            percentage: 84,
             color: '#41b883'
           },
           {
             name: 'React',
             image: 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9Ii0xMS41IC0xMC4yMzE3NCAyMyAyMC40NjM0OCI+CiAgPHRpdGxlPlJlYWN0IExvZ288L3RpdGxlPgogIDxjaXJjbGUgY3g9IjAiIGN5PSIwIiByPSIyLjA1IiBmaWxsPSIjNjFkYWZiIi8+CiAgPGcgc3Ryb2tlPSIjNjFkYWZiIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiPgogICAgPGVsbGlwc2Ugcng9IjExIiByeT0iNC4yIi8+CiAgICA8ZWxsaXBzZSByeD0iMTEiIHJ5PSI0LjIiIHRyYW5zZm9ybT0icm90YXRlKDYwKSIvPgogICAgPGVsbGlwc2Ugcng9IjExIiByeT0iNC4yIiB0cmFuc2Zvcm09InJvdGF0ZSgxMjApIi8+CiAgPC9nPgo8L3N2Zz4K',
-            percentage: 41,
+            percentage: 39,
             color: '#61dbfb'
           },
           { name: 'GitHub', image: 'https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg', percentage: 72, color: 'black' },
           {
             name: 'Webpack',
             image: 'https://camo.githubusercontent.com/d18f4a7a64244f703efcb322bf298dcb4ca38856/68747470733a2f2f7765627061636b2e6a732e6f72672f6173736574732f69636f6e2d7371756172652d6269672e737667',
-            percentage: 69,
+            percentage: 59,
             color: 'blue'
           }
         ]
@@ -137,7 +142,8 @@ export default {
     },
     copyright: {
       title: 'Urheberrecht',
-      text: 'Die durch die Seitenbetreiber erstellten bzw. verwendeten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der Zustimmung des jeweiligen Autors bzw. Erstellers. Downloads und Kopien dieser Seite sind nur für den privaten, nicht kommerziellen Gebrauch gestattet. Soweit die Inhalte auf dieser Seite nicht vom Betreiber erstellt wurden, werden die Urheberrechte Dritter beachtet. Insbesondere werden Inhalte Dritter als solche gekennzeichnet. Sollten Sie trotzdem auf eine Urheberrechtsverletzung aufmerksam werden, bitten wir um einen entsprechenden Hinweis. Bei Bekanntwerden von Rechtsverletzungen werden wir derartige Inhalte umgehend entfernen.'
+      text: 'Die durch die Seitenbetreiber erstellten bzw. verwendeten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der Zustimmung des jeweiligen Autors bzw. Erstellers. Downloads und Kopien dieser Seite sind nur für den privaten, nicht kommerziellen Gebrauch gestattet. Soweit die Inhalte auf dieser Seite nicht vom Betreiber erstellt wurden, werden die Urheberrechte Dritter beachtet. Insbesondere werden Inhalte Dritter als solche gekennzeichnet. Sollten Sie trotzdem auf eine Urheberrechtsverletzung aufmerksam werden, bitten wir um einen entsprechenden Hinweis. Bei Bekanntwerden von Rechtsverletzungen werden wir derartige Inhalte umgehend entfernen.',
+      usageNotice: 'Das Showcase-Bild und das zweite reguläre Bild des Projekts "DMP Portfolio" basieren auf Mockups von Anthony Boyd. Das Showcase-Mockup findet man <a href="https://www.anthonyboyd.graphics/mockups/2017/modern-responsive-showcase-mockup/" rel="noopener" target="_blank">hier</a>, das andere Mockup <a href="https://www.anthonyboyd.graphics/mockups/2017/modern-iphone-x-macbook-pro-mockup-vol-2/" rel="noopener" target="_blank">hier</a>.'
     }
   }
 };
