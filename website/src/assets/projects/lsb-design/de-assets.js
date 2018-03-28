@@ -1,4 +1,4 @@
-import lsbDesign from './images/showcase.png';
+import lsbDesign from './images/showcase.jpg';
 
 export default {
   title: '»Landessportbund Bremen«',
