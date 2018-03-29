@@ -1,18 +1,20 @@
-import lsbDesign from './images/showcase.jpg';
+import lsbShowcase from './images/showcase.jpg';
+import logo from './images/lsb-logo.jpg';
+import businessCards from './images/businessCards.jpg';
 
 export default {
   title: '»Landessportbund Bremen«',
   showcase: {
-    image: lsbDesign,
+    image: lsbShowcase,
     text: 'A brand new corporate design created for the »Landessportbund Bremen« (LSB) , the sports association of the state of Bremen. As its mission is to „ensure that the requirements for a diverse offering of physical activities and an attractive, self-determined membership in a sports club are met“, the design has to highlight the connection to sports while looking modern and reliable at the same time to help with the association’s important management tasks. Thus, my design is based on clean and modern geometric shapes and combines these with different hues of red – colors famous in the state of Bremen.'
   },
   blocks: [
     {
-      image: lsbDesign,
+      image: logo,
       text: 'The logo is made of squares in different shades of red which are combined to form a staircase – a hint at the shape of a winner’s podium. The red colors remind of the historical flag of Bremen – home of the »Landessportbund«. Its clean and streamlined looks support the association’s important management and negotiation tasks while the pieced-together shape is supposed to resemble community and diversity, essential aspects of sports.'
     },
     {
-      image: lsbDesign,
+      image: businessCards,
       text: 'To ensure a consistent and uniform appearance of the »Landessportbund«, general design guidelines were defined in addition to the new logo. These were outlined in a corporate design manual with special focus on typography and color schemes. The manual itself is built from the same principles as the sport association’s new logo - its layout is based on a square 3x3 grid.'
     },
 

@@ -1,18 +1,20 @@
-import lsbDesign from './images/showcase.jpg';
+import lsbShowcase from './images/showcase.jpg';
+import logo from './images/lsb-logo.jpg';
+import businessCards from './images/businessCards.jpg';
 
 export default {
   title: '»Landessportbund Bremen«',
   showcase: {
-    image: lsbDesign,
+    image: lsbShowcase,
     text: 'Ein brandneues Corporate Design, entworfen für den »Landessportbund Bremen« (LSB). Dessen Aufgabe ist es, „die Voraussetzungen für ein umfangreiches Angebot an sportlichen Aktivitäten und für ein attraktives, selbstbestimmtes Vereinsleben zu gewährleisten“, das Design muss also zum einen die Verbindung zum Sport zum Ausdruck bringen, zum anderen aber auch seriös und modern wirken, damit der LSB bei seinen Verwaltungsaufgaben als verlässlicher Partner auftritt. Um dem gerecht zu werden, setzt mein Designvorschlag auf saubere, geometrische Grundformen und kombiniert diese mit den für Bremen bekannten Rottönen.'
   },
   blocks: [
     {
-      image: lsbDesign,
+      image: logo,
       text: 'Das Logo besteht aus Quadraten in unterschiedlichen Rottönen, die zu einer Treppe zusammengesetzt sind – eine Anlehnung an das im Bereich des Sports ikonische Siegertreppchen. Die verschiedenen Rottöne stellen eine Verbindung zur Bremer Speckflagge – und somit auch zur Heimat des LSB – her. Gleichzeitig wirkt es modern und geradlinig, während die zusammengesetzte Form auf Vielfalt und Gemeinschaft, essentielle Komponenten des Sports, hindeutet.'
     },
     {
-      image: lsbDesign,
+      image: businessCards,
       text: 'In Zusatz zu dem neuen Logo wurden allgemeine Designvorgaben erarbeitet, die sicherstellen, dass der Landessportbund bei seiner Kommunikation ein einheitliches und konsistentes Auftreten hat. Diese wurden in einem Design Manual zusammengefasst, das unter anderem Vorgaben für Typografie und Farbgestaltung sowie diverse Anwendungsbeispiele enthält. Das Manual selbst ist nach denselben Prinzipien gestaltet wie das Logo; es basiert auf einem quadratischen 3x3 Raster.'
     },
   ],
