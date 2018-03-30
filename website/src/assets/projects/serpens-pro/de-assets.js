@@ -6,7 +6,7 @@ export default {
   title: '»Serpens Pro«',
   showcase: {
     image: serpensShowcase,
-    text: 'Ein Elementarfont, bei dem alle Buchstaben aus Einzelteilen zusammengesetzt sind, die durch das Zerteilen geometrischer Grundformen entstanden sind. Lesbarkeit stand bei diesem Projekt im Hintergrund, viel mehr ging es darum, klare Regeln zu definieren, anhand derer die Schriftart konstruiert werden sollte, und nicht von diesen abzuweichen. Die geschwungenen Linien geben dem Font seinen Namen: »Serpens Pro«.'
+    text: 'Ein Elementarfont, bei dem alle Buchstaben aus Einzelteilen zusammengesetzt sind, die durch das Zerteilen geometrischer Grundformen entstanden. Lesbarkeit stand bei diesem Projekt im Hintergrund, viel mehr ging es darum, klare Regeln zu definieren, anhand derer die Schriftart konstruiert werden sollte, und nicht von diesen abzuweichen. Die geschwungenen Linien geben dem Font seinen Namen: »Serpens Pro«.'
   },
   blocks: [
     {
@@ -15,9 +15,9 @@ export default {
     },
     {
       image: serpens2,
-      text: 'Die Schrift wurde zur Gestaltung von zwei Plakaten genutzt - das eine zeigt alle Majuskeln des Alphabets und stellt diese kontrastreich auf einem Schachbrett-ähnlichen Raster zur Schau. Das andere Plakat konzentriert sich auf die verschiedenen Grundformen, aus denen die Lettern von »Serpens Pro« zusammen gesetzt werden, und verdeutlicht so die technisch-abstrakte Konstruktionsweise, die dem Font zu Grunde liegt.'
+      text: 'Die Schrift wurde zur Gestaltung von zwei Plakaten genutzt: Das eine zeigt alle Majuskeln des Alphabets und stellt diese kontrastreich auf einem Schachbrett-ähnlichen Raster zur Schau. Die Gestaltung des anderen Plakates konzentriert sich auf die verschiedenen Grundformen, aus denen die Lettern von »Serpens Pro« zusammengesetzt werden, und verdeutlicht so die technisch-abstrakte Konstruktionsweise, die dem Font zu Grunde liegt.'
     },
 
   ],
-  footer: 'Außerdem habe ich ein kurzes Video erstellt, das die Konstruktion der Schrift mit Hilfe einer Animation, in der sich die Grundformen zu Lettern zusammen setzen und so einen Schriftzug bilden, darstellt. Dieses ist auf meinem <a href="https://jonaskuske.myportfolio.com/serpens-pro" rel="noopener" target="_blank">Adobe Portfolio</a> zu finden.'
+  footer: 'Außerdem habe ich ein kurzes Video erstellt, das die Konstruktion der Schrift mit Hilfe einer Animation darstellt, in der sich die Grundformen zu Lettern zusammensetzen und so einen Schriftzug bilden. Dieses ist auf meinem <a href="https://jonaskuske.myportfolio.com/serpens-pro" rel="noopener" target="_blank">Adobe Portfolio</a> zu finden.'
 };

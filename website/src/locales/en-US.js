@@ -19,7 +19,7 @@ export default {
   },
   Splash: {
     h1: 'Welcome',
-    text: 'I\'m Jonas Kuske, designer and developer in the making. I study »digital media production« at the University of Applied Sciences Bremerhaven. Due to my university course’s approach of teaching a broad spectrum of digital media, I have experience in many different areas, ranging from video production to computer animation - but my main focus clearly is web development and graphics design.',
+    text: 'I\'m Jonas Kuske, designer and developer in the making. I\'m studying »digital media production« at the University of Applied Sciences Bremerhaven. Due to my university course’s approach of teaching a broad spectrum of digital media, I have experience in many different areas, ranging from video production to computer animation - but my main focus clearly is web development and graphics design.',
     h2: 'Showcase'
   },
   Projects: {
