@@ -12,8 +12,12 @@ const router = {
     component: ErrorPage,
     name: '404'
   },
-  async push(target, { pushState = true } = {}) {
+  async push(target, { pushState = true, restoreScrollPos = false } = {}) {
     if (!target) return;
+
+    const scroll = document.documentElement.scrollTop || document.body.scrollTop;
+    actions.saveScrollPosition({ pos: scroll });
+    if (restoreScrollPos) actions.setRestoreScroll(true);
 
     let { component, name } = router.match(target.split('?')[0]);
     let title;
@@ -37,7 +41,7 @@ const router = {
     actions.setPage(target);
   },
   init() {
-    window.addEventListener('popstate', ({ state }) => state !== null && state.page ? router.push(state.page, { pushState: false }) : history.back());
+    window.addEventListener('popstate', ({ state }) => state !== null && state.page ? router.push(state.page, { pushState: false, restoreScrollPos: true }) : history.back());
     router.push(window.location.pathname + window.location.search);
   },
   match(route) {

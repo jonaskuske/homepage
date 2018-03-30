@@ -13,6 +13,9 @@ export const state = {
   scrollTop: 0,
   disableGlass: navigator.platform.indexOf('Mac') != -1 && !!window.chrome,
   themeColor: '#0b8dc9',
+  scrollPositions: {
+    restore: false
+  },
   colors: [
     '#77f113',
     '#b815ef',
@@ -94,5 +97,7 @@ export const actions = {
       actions.setProject({ id, ...project });
       resolve(project);
     });
-  }
+  },
+  saveScrollPosition: ({ pos }) => ({ scrollPositions, page }) => ({ scrollPositions: { ...scrollPositions, [page]: pos } }),
+  setRestoreScroll: val => ({ scrollPositions }) => ({ scrollPositions: { ...scrollPositions, restore: val } }),
 };

@@ -10,7 +10,10 @@ import Load from '@@/LoadingScreen';
 import ImageOverlay from '@@/ImageOverlay';
 
 const startup = () => { addMobileListener(); actions.setRandomColor(); };
-const animate = el => wait(30).then(() => { el.classList.remove('animate-in'); document.documentElement.scrollIntoView(true); });
+const animate = el => wait(30).then(() => {
+  el.classList.remove('animate-in');
+  // document.documentElement.scrollIntoView(true);
+});
 const openColorPicker = color => {
   const el = document.querySelector('input[type=color]'); el.value = color; el.focus(); el.click();
 };
@@ -20,8 +23,13 @@ const addMobileListener = () => {
   handler(matcher);
   matcher.addListener(handler);
 };
+const handleScrollPosition = (page, positions) => {
+  if (!(positions.restore && positions[page])) return document.documentElement.scrollIntoView(true);
+  document.documentElement.scrollTop = positions[page];
+  actions.setRestoreScroll(false);
+};
 
-const view = ({ page, mobile, locales: { App = {}, ...locales }, ...state }, actions) => (
+const view = ({ page, mobile, scrollPositions, locales: { App = {}, ...locales }, ...state }, actions) => (
   <div oncreate={startup}>
     {state.overlay && <ImageOverlay src={state.overlayImage} />}
     <SideMenu class={`${!state.panel ? 'slideout' : ''} ${state.disableGlass ? 'disable-glass' : ''}`} mobile={mobile} lang={state.language} panel={App.panel} />
@@ -40,7 +48,7 @@ const view = ({ page, mobile, locales: { App = {}, ...locales }, ...state }, act
       class={'content-container animate-in '}
       data-page={page}
       data={{ mobile, locales, ...state }}
-      oncreate={animate}
+      oncreate={el => { animate(el); handleScrollPosition(page, scrollPositions); }}
       onupdate={(el, old) => page !== old['data-page'] && animate(el)}
     />
   </div>
