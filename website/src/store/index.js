@@ -48,7 +48,18 @@ export const actions = {
     return { overlay: false };
   },
   setColor: color => state => {
-    document.body.style.setProperty('--theme-color', color);
+    let themeColor = color;
+
+    /* see https://stackoverflow.com/questions/12043187/how-to-check-if-hex-color-is-too-black */
+    const rgb = parseInt(color.substring(1), 16);   // convert #rrggbb to decimal
+    const r = (rgb >> 16) & 0xff;  // extract red
+    const g = (rgb >> 8) & 0xff;  // extract green
+    const b = (rgb >> 0) & 0xff;  // extract blue
+    const brightness = 0.2126 * r + 0.7152 * g + 0.0722 * b;
+    if (brightness < 60) themeColor = '#ffffff';
+
+    document.body.style.setProperty('--bg-color', color);
+    document.body.style.setProperty('--theme-color', themeColor);
     document.querySelector('meta[name=theme-color]').content = color;
     return { themeColor: color };
   },
