@@ -15,7 +15,7 @@
     font-size: 0.8rem;
   }
   .content-container {
-    transition: opacity 450ms ease-out, transform 350ms ease-in-out, width 350ms ease-in-out;
+    transition: opacity 350ms 150ms ease-out, transform 350ms ease-in-out, width 350ms ease-in-out;
   }
   .main-spinner {
     width: 30%;
@@ -62,8 +62,6 @@
   .content-container, .color-btn-container {
     width: 70%;
   }
-}
-@media screen and (min-width: 1200px) {
   .header {
     align-items: unset;
   }
@@ -91,9 +89,6 @@
   }
   body {
     background-attachment: fixed;
-  }
-  h1 {
-    font-size: 3.7rem;
   }
   .side-panel {
     transition: left 350ms ease-in-out, width 200ms;
@@ -147,18 +142,54 @@
   }
   .menu-aside {
     transform: translateX(calc(-50% + 110px));
+    width: 45%;
+  }
+  .menu-aside > h1 {
+    font-size: 2.3rem;
+  }
+}
+@media screen and (min-width: 1050px) {
+  .menu-aside {
+    width: 52%;
+  }
+  .menu-aside > h1 {
+    font-size: 3rem;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .content-container > h1 {
+    font-size: 3.7rem;
+  }
+  .menu-aside {
     width: 55%;
   }
 }
  @media screen and (min-width: 1400px) {
-   h1 {
+   .content-container h1 {
      font-size: 4.3rem;
    }
    .content-container, .color-btn-container {
     width: 65%;
     max-width: 1300px;
   }
-  .detail-container {
+  .skill-icon {
+    width: 120px;
+    height: 120px;
+  }
+  .skill-icon-compat {
+    position: relative;
+    width: 120px;
+    height: 120px;
+  }
+  .menu-aside {
+    width: 63%;
+  }
+}
+@media screen and (min-width: 1550px) {
+  .content-container, .color-btn-container {
+    width: 70%;
+  }
+    .detail-container {
     display: flex;
     flex-flow: wrap;
     justify-content: center;
@@ -194,23 +225,6 @@
   .text-block > p {
     width: 75%;
     padding: 1.5rem;
-  }
-  .skill-icon {
-  width: 120px;
-  height: 120px;
-  }
-  .skill-icon-compat {
-    position: relative;
-    width: 120px;
-    height: 120px;
-  }
-  .menu-aside {
-    width: 55%;
-  }
-}
-@media screen and (min-width: 1550px) {
-  .content-container, .color-btn-container {
-    width: 70%;
   }
   .menu-aside {
     width: 65%;

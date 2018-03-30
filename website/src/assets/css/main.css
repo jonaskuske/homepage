@@ -29,7 +29,7 @@ h1, h2, h3, p, button, div, a {
   color: #fff;
 }
 h1, h2, h3, p, button, a {
-  transition: font-size 300ms, transform 100ms ease-out, color 150ms ease-in-out;
+  transition: font-size 350ms ease-in-out, transform 100ms ease-out, color 150ms ease-in-out;
 }
 h1 {
   font-size: 1.6rem;
@@ -45,6 +45,9 @@ h3 {
 p {
   font-size: 0.8rem;
   font-weight: 400;
+}
+img {
+  object-fit: contain;
 }
 .textsquish:not(.textsquish-blocker) {
   transform: scale(1, 0.03);
@@ -142,7 +145,6 @@ input[type=color] {
 }
 .animate-in {
   opacity: 0;
-  transform: translateX(-50%) scale(0.92);
 }
 .color-btn-container {
   margin-left: 50%;

@@ -8,8 +8,11 @@ const view = ({ class: className = '', mobile, lang, panel: { nav = [] } = {} })
     <ProfilePic onclick={() => { mobile && actions.setMenu(false); router.push('/me'); }} />
     <div class='side-link-container'>
       {nav.map(({ route, text }) => (
-        <a class='side-link' href={route} onclick={() => { mobile && actions.setMenu(false); router.push(route); return false; }}>{text}
-          {/*<Button class={'side-btn'} onclick={() => { mobile && actions.setMenu(false); router.push(route); }}> {text} </Button>*/}
+        <a class='side-link' href={route} onclick={() => {
+          !window.matchMedia('(min-width: 1550px)').matches && actions.setMenu(false);
+          router.push(route);
+          return false;
+        }}>{text}
         </a>
       ))}
     </div>

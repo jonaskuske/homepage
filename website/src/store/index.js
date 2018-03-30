@@ -5,7 +5,7 @@ const textElements = () => document.querySelectorAll('p,h1,h2,h3,button,.side-li
 
 export const state = {
   mobile: false,
-  panel: window.matchMedia('(min-width: 1200px)').matches,
+  panel: window.matchMedia('(min-width: 1550px)').matches,
   overlay: false,
   language: 'de',
   locales: '',
