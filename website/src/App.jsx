@@ -10,7 +10,7 @@ import Load from '@@/LoadingScreen';
 import ImageOverlay from '@@/ImageOverlay';
 
 const startup = () => { addMobileListener(); actions.setRandomColor(); };
-const animate = el => wait(30).then(() => el.classList.remove('animate-in'));
+const animate = el => (el.classList.add('animate-in'), wait(30).then(() => el.classList.remove('animate-in')));
 const openColorPicker = color => {
   const el = document.querySelector('input[type=color]'); el.value = color; el.focus(); el.click();
 };
@@ -31,7 +31,7 @@ const view = ({ page, mobile, scrollPositions, locales: { App = {}, ...locales }
     {state.overlay && <ImageOverlay src={state.overlayImage} />}
     <SideMenu class={`${!state.panel ? 'slideout' : ''} ${state.disableGlass ? 'disable-glass' : ''}`} mobile={mobile} lang={state.language} panel={App.panel} />
     <NavHeader scroll={state.scrollTop} menu={state.panel} mobile={mobile} links={App.links} />
-    <section class='color-btn-container'>
+    <section class={`color-btn-container ${state.panel ? 'menu-aside' : ''}`}>
       {cssVariables && [
         <span><Button onclick={actions.setRandomColor}> {App.ColorButton1} </Button></span>,
         HTMLColorInput && [
@@ -42,7 +42,7 @@ const view = ({ page, mobile, scrollPositions, locales: { App = {}, ...locales }
         ]]}
     </section>
     <RouterView
-      class={'content-container animate-in '}
+      class={`content-container ${state.panel ? 'menu-aside' : ''}`}
       data-page={page}
       data={{ mobile, locales, ...state }}
       oncreate={el => { animate(el); handleScrollPosition(page, scrollPositions); }}
