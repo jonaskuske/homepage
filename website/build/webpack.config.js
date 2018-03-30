@@ -43,7 +43,7 @@ const config = {
         options: {
           mozjpeg: {
             progressive: true,
-            quality: 90
+            quality: 100
           },
           pngquant: {
             quality: '70-85',

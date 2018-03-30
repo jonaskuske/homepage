@@ -10,10 +10,7 @@ import Load from '@@/LoadingScreen';
 import ImageOverlay from '@@/ImageOverlay';
 
 const startup = () => { addMobileListener(); actions.setRandomColor(); };
-const animate = el => wait(30).then(() => {
-  el.classList.remove('animate-in');
-  // document.documentElement.scrollIntoView(true);
-});
+const animate = el => wait(30).then(() => el.classList.remove('animate-in'));
 const openColorPicker = color => {
   const el = document.querySelector('input[type=color]'); el.value = color; el.focus(); el.click();
 };
