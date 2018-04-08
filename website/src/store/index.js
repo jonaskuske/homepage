@@ -47,21 +47,23 @@ export const actions = {
     document.body.classList.remove('no-overflow');
     return { overlay: false };
   },
-  setColor: color => state => {
-    let themeColor = color;
+  setColor: themeColor => state => {
 
     /* see https://stackoverflow.com/questions/12043187/how-to-check-if-hex-color-is-too-black */
-    const rgb = parseInt(color.substring(1), 16);   // convert #rrggbb to decimal
-    const r = (rgb >> 16) & 0xff;  // extract red
-    const g = (rgb >> 8) & 0xff;  // extract green
-    const b = (rgb >> 0) & 0xff;  // extract blue
+    const dec = parseInt(themeColor.substring(1), 16);   // convert #rrggbb to decimal
+    const r = (dec >> 16) & 0xff;  // extract red
+    const g = (dec >> 8) & 0xff;  // extract green
+    const b = (dec >> 0) & 0xff;  // extract blue
     const brightness = 0.2126 * r + 0.7152 * g + 0.0722 * b;
+
+    const bgColor = `rgba(${r},${g},${b}, 0.6)`;
     if (brightness < 60) themeColor = '#ffffff';
 
-    document.body.style.setProperty('--bg-color', color);
+    document.body.style.setProperty('--bg-color', bgColor);
     document.body.style.setProperty('--theme-color', themeColor);
-    document.querySelector('meta[name=theme-color]').content = color;
-    return { themeColor: color };
+    document.querySelector('meta[name=theme-color]').content = themeColor;
+
+    return { themeColor };
   },
   setRandomColor: () => (state, actions) => {
     const colorOptions = state.colors.filter(color => color !== state.themeColor);
