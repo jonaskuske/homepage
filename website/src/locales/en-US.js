@@ -113,7 +113,7 @@ export default {
           },
           {
             name: 'Adobe XD',
-            image: 'https://upload.wikimedia.org/wikipedia/commons/1/1d/Adobe_XD_CC_logo.svg',
+            image: 'https://upload.wikimedia.org/wikipedia/commons/d/dc/Adobe_Experience_Design_logo.svg',
             percentage: 74,
             color: '#ff21bf'
           }
