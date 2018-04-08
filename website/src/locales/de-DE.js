@@ -5,7 +5,7 @@ export default {
     links: [
       { text: 'GitHub', href: 'https://github.com/jonaskuske' },
       { text: 'LinkedIn', href: 'https://www.linkedin.com/in/jonaskuske/' },
-      { text: 'Adobe Portfolio', href: 'https://jonaskuske.myportfolio.com' },
+      { text: 'XING', href: 'https://www.xing.com/profile/Jonas_Kuske' },
       { text: 'Kontakt', href: 'mailto:mail@jonaskuske.com' },
     ],
     panel: {
