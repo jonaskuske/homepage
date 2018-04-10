@@ -4,6 +4,7 @@ import Swiper from '@/lib/swiper';
 import { state, actions } from './store';
 import router from './router';
 import App from '@/App';
+import Miniswipe from 'miniswipe';
 
 
 const vm = app(state, actions, App, document.body);
@@ -17,10 +18,12 @@ vm.getLanguage({ language: ext === 'com' ? 'en' : 'de' })
   .then(() => vm.fetchProjects())
   .then(router.init);
 
-const swipeHandler = new Swiper(document);
+const swipeHandler = new Miniswipe(document);
 swipeHandler
   .right(() => vm.setMenu(true))
-  .left(() => vm.setMenu(false));
+  .left(() => vm.setMenu(false))
+  .start();
+
 
 if ('serviceWorker' in navigator) {
   navigator.serviceWorker.register('/service-worker.js').catch(err => {
