@@ -39,7 +39,7 @@
   "dependencies": {
     "@babel/polyfill": "^7.0.0-beta.39",
     "hyperapp": "^1.0.2",
-    "miniswipe": "^0.1.1",
+    "miniswipe": "^0.1.5",
     "whatwg-fetch": "^2.0.3"
   }
 }
