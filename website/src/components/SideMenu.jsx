@@ -5,7 +5,7 @@ import actions from '@/main';
 
 const view = ({ class: className = '', mobile, lang, panel: { nav = [] } = {} }) => (
   <nav class={`side-panel ${className}`} >
-    <ProfilePic onclick={() => { mobile && actions.setMenu(false); router.push('/me'); }} />
+    <ProfilePic onclick={() => { !window.matchMedia('(min-width: 1550px)').matches && actions.setMenu(false); router.push('/me'); }} />
     <div class='side-link-container'>
       {nav.map(({ route, text }) => (
         <a class='side-link' href={route} onclick={() => {

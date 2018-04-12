@@ -11,14 +11,22 @@
   flex-flow: row wrap;
 }
 .skill-icon {
-  width: 90px;
-  height: 90px;
+  width: 80px;
+  height: 80px;
   margin: 10px 0;
+}
+.skill-icon-legend > .skill-icon:last-of-type{
+  margin-left: 50%;
+  transform: translateX(-50%);
+}
+.skill-icon-compat-legend > .skill-icon-compat:last-of-type{
+  margin-left: 50%;
+  transform: translateX(-50%);
 }
 .skill-icon-compat {
   position: relative;
-  width: 90px;
-  height: 90px;
+  width: 80px;
+  height: 80px;
   margin: 10px 0;
 }
 .skill-icon text {
@@ -42,12 +50,6 @@
   transform: rotate(-90deg);
   transform-origin: center;
   animation: circle-load 2s ease-in-out;
-}
-.skill-icon-compat {
-  position: relative;
-  width: 90px;
-  height: 90px;
-  margin: 10px 0;
 }
 .skill-icon-compat svg, .skill-icon-compat div {
   position: absolute;

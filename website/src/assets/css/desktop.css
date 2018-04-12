@@ -1,7 +1,31 @@
+@media screen and (min-width: 360px) {
+
+  .skill-icon-legend > .skill-icon:last-of-type {
+    margin-left: initial;
+    transform: initial;
+  }
+}
+@media screen and (min-width: 410px) {
+  .skill-icon {
+    width: 90px;
+    height: 90px;
+  }
+  .skill-icon-compat {
+    width: 90px;
+    height: 90px;
+  }
+}
+@media screen and (min-width: 540px) {
+  .skill-icon-compat-legend > .skill-icon-compat:last-of-type{
+    margin-left: 1rem;
+    transform: none;
+  }
+}
 @media screen and (min-width: 600px) {
   html {
     font-size: initial;
   }
+
   h1 {
     font-size: 2.4rem;
   }
@@ -99,6 +123,12 @@
     position: absolute;
     background: linear-gradient(var(--bg-color), var(--bg-color)), url(../images/bg.jpg) center / cover fixed;
     width: 110%;
+  }
+  @supports (-webkit-backdrop-filter: blur(4px)) {
+    .side-panel::before {
+      background: none;
+      -webkit-backdrop-filter: blur(4px);
+    }
   }
   .side-link-container {
     margin-bottom: 6rem;
