@@ -11,7 +11,6 @@ export const state = {
   locales: '',
   page: '/',
   scrollTop: 0,
-  disableGlass: navigator.platform.indexOf('Mac') != -1 && !!window.chrome,
   themeColor: '#0b8dc9',
   safeThemeColor: '#0b8dc9',
   scrollPositions: {

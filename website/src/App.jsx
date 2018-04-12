@@ -29,7 +29,7 @@ const handleScrollPosition = (page, positions) => {
 const view = ({ page, mobile, scrollPositions, locales: { App = {}, ...locales }, ...state }, actions) => (
   <div oncreate={startup}>
     {state.overlay && <ImageOverlay src={state.overlayImage} />}
-    <SideMenu class={`${!state.panel ? 'slideout' : ''} ${state.disableGlass ? 'disable-glass' : ''}`} mobile={mobile} lang={state.language} panel={App.panel} />
+    <SideMenu class={`${!state.panel ? 'slideout' : ''}`} mobile={mobile} lang={state.language} panel={App.panel} />
     <NavHeader scroll={state.scrollTop} menu={state.panel} mobile={mobile} links={App.links} />
     <section class={`color-btn-container ${state.panel ? 'menu-aside' : ''}`}>
       {cssVariables && [
