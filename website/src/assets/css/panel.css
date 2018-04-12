@@ -28,6 +28,7 @@
   left: -5px;
   right: 0;
   filter: blur(4px);
+  transform: translateZ(0); /* force render in GPU composite layer */
 }
 .slideout {
   transform: translateX(-280px);
