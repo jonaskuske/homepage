@@ -1,20 +1,21 @@
 import '@/assets/css';
 import { app } from 'hyperapp';
-import Swiper from '@/lib/swiper';
 import { state, actions } from './store';
 import router from './router';
 import App from '@/App';
 import Miniswipe from 'miniswipe';
 
-
 const vm = app(state, actions, App, document.body);
 export default vm;
 
-const matchExtension = new RegExp(/\.(?!\.)(?!.+\.).+/);
-const matches = matchExtension.exec(window.location.host);
-const ext = matches ? matches[0].replace('.', '') : 'de';
+const domainExtRegEx = new RegExp(/\.(?!\.)(?!.+\.).+/);
+const domainExtMatch = domainExtRegEx.exec(window.location.host);
+const ext = domainExtMatch && domainExtMatch[0].replace('.', '');
 
-vm.getLanguage({ language: ext === 'com' ? 'en' : 'de' })
+const { lang } = window.location.href.includes('?') && router.getQueryParams(window.location.href);
+const language = lang === 'de' || ext !== 'com' ? 'de' : 'en';
+
+vm.getLanguage({ language })
   .then(() => vm.fetchProjects())
   .then(router.init);
 
