@@ -13,6 +13,7 @@ export const state = {
   scrollTop: 0,
   disableGlass: navigator.platform.indexOf('Mac') != -1 && !!window.chrome,
   themeColor: '#0b8dc9',
+  safeThemeColor: '#0b8dc9',
   scrollPositions: {
     restore: false
   },
@@ -48,6 +49,7 @@ export const actions = {
     return { overlay: false };
   },
   setColor: themeColor => state => {
+    let safeThemeColor = themeColor;
 
     /* see https://stackoverflow.com/questions/12043187/how-to-check-if-hex-color-is-too-black */
     const dec = parseInt(themeColor.substring(1), 16);   // convert #rrggbb to decimal
@@ -57,13 +59,13 @@ export const actions = {
     const brightness = 0.2126 * r + 0.7152 * g + 0.0722 * b;
 
     const bgColor = `rgba(${r},${g},${b}, 0.6)`;
-    if (brightness < 60) themeColor = '#ffffff';
+    if (brightness < 60) safeThemeColor = '#ffffff';
 
     document.body.style.setProperty('--bg-color', bgColor);
-    document.body.style.setProperty('--theme-color', themeColor);
+    document.body.style.setProperty('--theme-color', safeThemeColor);
     document.querySelector('meta[name=theme-color]').content = themeColor;
 
-    return { themeColor };
+    return { safeThemeColor, themeColor };
   },
   setRandomColor: () => (state, actions) => {
     const colorOptions = state.colors.filter(color => color !== state.themeColor);
