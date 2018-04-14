@@ -1,3 +1,4 @@
+import actions from '@/main';
 import Icon from '@@/SkillDiagramIcon';
 import { svgTransform } from '@/lib/browser-support';
 import { parseText } from '@/lib/helpers';
@@ -29,7 +30,7 @@ const legendData = lang => {
     }];
 };
 
-const view = ({ class: className = '', data: { themeColor, mobile, locales: { About }, language }, ...props }) => {
+const view = ({ class: className = '', data: { themeColor, mobile, iconLegend, locales: { About }, language }, ...props }) => {
   const isEnglish = language === 'en';
 
   return (
@@ -41,8 +42,8 @@ const view = ({ class: className = '', data: { themeColor, mobile, locales: { Ab
       </section>
       <br />
       <section>
-        <h3>{About.skillLegend}</h3>
-        <div class="skill-icon-container skill-icon-legend">
+        <h3 class='icon-legend-title' onclick={actions.toggleIconLegend}>{iconLegend ? About.iconLegendClose : About.iconLegendShow}</h3>
+        <div class={`skill-icon-container skill-icon-legend ${!iconLegend ? 'skill-icon-legend-hide' : ''}`}>
           {svgTransform
             ? legendData(isEnglish).map((skill) => < Icon class="skill-icon skill-icon-show-text" themeColor={themeColor} skill={skill} />)
             : <div class="skill-icon-container skill-icon-compat-legend"> {legendData(isEnglish).map(skill => <div class="skill-icon-compat">

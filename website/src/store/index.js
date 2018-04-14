@@ -7,6 +7,7 @@ export const state = {
   mobile: false,
   panel: window.matchMedia('(min-width: 1550px)').matches,
   overlay: false,
+  iconLegend: false,
   language: 'de',
   locales: '',
   page: '/',
@@ -35,6 +36,7 @@ export const state = {
 export const actions = {
   toggleMenu: () => state => ({ panel: !state.panel }),
   setMenu: value => ({ panel: value }),
+  toggleIconLegend: () => state => ({ iconLegend: !state.iconLegend }),
   setLayout: value => ({ mobile: value }),
   setPage: page => ({ page }),
   setScrollTop: scrollTop => ({ scrollTop }),
@@ -104,7 +106,13 @@ export const actions = {
   setProjects: projects => ({ projects }),
   setProject: project => ({ project }),
   requestProject: id => async ({ projects, language }, actions) => {
-    const { default: project } = await import(/* webpackChunkName: "projects/[request]" */ `@/assets/projects/${id}/${language}-assets`);
+    const { default: project } = await import(
+      /* webpackChunkName: "projects/[request]" */
+      `@/assets/projects/${id}/${language}-assets`
+    ).catch(e => {
+      log(e);
+      error(`Couldn't find requested project » ${id} «.`);
+    });
     const imageArray = [...project.blocks.map(block => block.image), project.showcase.image];
     await loadImage(imageArray);
     return new Promise((resolve, reject) => {

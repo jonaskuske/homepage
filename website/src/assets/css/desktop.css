@@ -1,7 +1,6 @@
 @media screen and (min-width: 360px) {
-
   .skill-icon-legend > .skill-icon:last-of-type {
-    margin-left: initial;
+    margin-left: 0;
     transform: initial;
   }
 }
@@ -54,6 +53,9 @@
   .skill-icon-legend {
     justify-content: flex-start;
     display: inline-block;
+  }
+  .skill-icon-legend > .skill-icon:last-of-type {
+    margin-left: 1rem;
   }
   .skill-icon-legend svg {
     margin: 1rem 1rem;

@@ -73,6 +73,22 @@
 }
 .skill-icon-legend {
     background: rgba(0,0,0,0.3);
+    max-height: 200px;
+    transition: opacity 300ms ease-out;
+}
+.skill-icon-legend-hide {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 300ms ease-in-out, opacity 350ms ease-out;
+}
+.icon-legend-title {
+  cursor: pointer;
+  font-weight: 300;
+  font-size: 90%;
+}
+.icon-legend-title:hover {
+  text-decoration: underline;
 }
 @keyframes circle-load {
   from {

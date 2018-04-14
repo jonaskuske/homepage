@@ -39,7 +39,8 @@ export default {
     Schon als Kind habe ich mich sehr für Technik  interessiert, und als dann gegen Ende der Schulzeit noch eine Liebe zu Design hinzu kam, entschloss ich mich dazu, "Digitale Medienproduktion" zu studieren. Dort erlernte ich Grundkenntnisse in unterschiedlichsten Gebieten - Filmproduktion, 3D Modellierung, Prototyping - doch das Erschaffen interaktiver Anwendungen fasziniert mich nach wie vor am meisten.`,
       2: 'Deshalb habe ich mich auf moderne Web Entwicklung und Design spezialisiert und begonnen, mich auch außerhalb des Studiums in diese Richtung weiterzubilden. Beispielsweise absolviere ich aktuell eine Fortbildung zum "Mobile Web Specialist", an der ich dank eines Google-Stipendiums teilnehmen kann, besuche Konferenzen und Hackathons und bin stets damit beschäftigt, mich zu verbessern und weiterzuentwickeln - denn die Branche ist stets im Wandel.'
     },
-    skillLegend: 'Legende ⬇',
+    iconLegendShow: 'Icon-Legende ausklappen ⬇',
+    iconLegendClose: 'Icon-Legende schließen ⬆',
     skills: [
       {
         type: 'Web Development',
@@ -145,5 +146,10 @@ export default {
       text: 'Die durch die Seitenbetreiber erstellten bzw. verwendeten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der Zustimmung des jeweiligen Autors bzw. Erstellers. Downloads und Kopien dieser Seite sind nur für den privaten, nicht kommerziellen Gebrauch gestattet. Soweit die Inhalte auf dieser Seite nicht vom Betreiber erstellt wurden, werden die Urheberrechte Dritter beachtet. Insbesondere werden Inhalte Dritter als solche gekennzeichnet. Sollten Sie trotzdem auf eine Urheberrechtsverletzung aufmerksam werden, bitte ich um einen entsprechenden Hinweis. Bei Bekanntwerden von Rechtsverletzungen werde ich derartige Inhalte umgehend entfernen.',
       usageNotice: 'Das Showcase-Bild und das zweite reguläre Bild des Projekts "DMP Portfolio" basieren auf Mockups von Anthony Boyd. Das Showcase-Mockup findet man <a href="https://www.anthonyboyd.graphics/mockups/2017/modern-responsive-showcase-mockup/" rel="noopener" target="_blank">hier</a>, das andere Mockup <a href="https://www.anthonyboyd.graphics/mockups/2017/modern-iphone-x-macbook-pro-mockup-vol-2/" rel="noopener" target="_blank">hier</a>.'
     }
+  },
+  Error: {
+    toStart: 'Zur Startseite',
+    notFound1: 'Die aufgerufene Seite » ',
+    notFound2: ' « existiert leider nicht. :('
   }
 };
