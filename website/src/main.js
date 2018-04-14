@@ -20,7 +20,7 @@ const language = lang === 'de' || ext !== 'com' ? 'de' : 'en';
 
 // fetch localized text and project assets, then init router -> move to page specified in URL
 vm.getLanguage({ language })
-  .then(() => vm.fetchProjects())
+  .then(vm.fetchProjects)
   .then(router.init);
 
 // init Miniswipe: open Menu with swipe gestures on touch devices

@@ -19,6 +19,7 @@ export default [
     subtitle: 'Corporate Design',
     category: 'graphics design',
     id: 'lsb-design',
+    highlight: true,
     image: lsbDesign
   },
   {
@@ -26,7 +27,6 @@ export default [
     subtitle: 'Typeface',
     category: 'graphics design',
     id: 'serpens-pro',
-    highlight: true,
     image: serpensPro
   },
   {
