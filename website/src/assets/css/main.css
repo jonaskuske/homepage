@@ -258,3 +258,11 @@ input[type=color] {
   hyphens: auto;
   -ms-hyphens: auto;
 }
+.error-section {
+  width: 70%;
+  max-width: 50vh;
+  margin: 0 auto 0 0;
+}
+.error-section > button {
+  margin-bottom: 0.5rem;
+}

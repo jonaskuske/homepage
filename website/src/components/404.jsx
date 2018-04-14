@@ -4,20 +4,26 @@ import { errorMessages } from '@/lib/helpers';
 import Thumbnail from '@@/Thumbnail';
 import errorImage from '@img/error.jpeg';
 
-const view = ({ class: className = '', data: { themeColor, mobile }, ...props }) => {
+const view = ({ data: { safeThemeColor, mobile, locales: { Error } }, ...props }) => {
   const errorMessage = errorMessages[errorMessages.length - 1];
   return (
-    <main key='404' class={`${className}`} {...props} >
+    <main key='404' {...props} >
       <section>
-        <h1> {errorMessage ? 'Fehler' : 404} </h1>
+        <h1> {errorMessage ? 'Error' : 404} </h1>
         {errorMessage
           ? <p>{errorMessage.toString()}</p>
-          : <p>Die aufgerufene Seite » {window.location.pathname.substring(1)} « existiert leider nicht. :(</p>}
+          : <p>{Error.notFound1 + window.location.pathname.substring(1) + Error.notFound2}</p>}
       </section>
-      <section style={{ width: '70%', maxWidth: '50vh', margin: '0 auto 0 0' }}>
-        <Button style={{ marginBottom: '0.5rem' }} onclick={() => router.push('/')} > Zur Startseite </Button>
-        <Thumbnail image={errorImage} color={themeColor} mobile={mobile} href='/' onclick={() => router.push('/')}>
-          <p>Zur Startseite</p>
+      <section class='error-section'>
+        <Button onclick={() => router.push('/')} > {Error.toStart} </Button>
+        <Thumbnail
+          image={errorImage}
+          color={safeThemeColor}
+          mobile={mobile}
+          href='/'
+          onclick={() => router.push('/')}
+        >
+          <p>{Error.toStart}</p>
         </Thumbnail>
       </section>
     </main>
