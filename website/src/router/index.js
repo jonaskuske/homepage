@@ -10,7 +10,7 @@ const router = {
   routes,
   fallback: {
     component: ErrorPage,
-    name: '404'
+    name: 'Error'
   },
   async push(target, { pushState = true, restoreScrollPos = false } = {}) {
     if (!target) return;
@@ -24,7 +24,7 @@ const router = {
 
     if (name === 'Projekt') {
       try {
-        const { project = error('Keine Projekt-ID im Querystring') } = router.getQueryParams(target);
+        const { project = error('No project-ID found in querystring.') } = router.getQueryParams(target);
         ([{ title }] = await Promise.all([actions.requestProject(project), wait(700)]));
       } catch (err) {
         log(err);
@@ -49,7 +49,7 @@ const router = {
   },
   getQueryParams(target) {
     const queryString = target.split('?')[1];
-    if (!queryString) error('Kein Querystring angegeben!');
+    if (!queryString) error('No querystring found.');
     const paramStrings = queryString.split('&');
     const paramPairs = paramStrings.map(str => str.split('='));
     const queryParams = {};
