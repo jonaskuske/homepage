@@ -11,7 +11,8 @@ const config = {
   output: {
     path: root('dist'),
     filename: 'main.[hash].js',
-    chunkFilename: '[name].bundle.[hash].js'
+    chunkFilename: '[name].bundle.[hash].js',
+    publicPath: '/'
   },
   resolve: {
     extensions: ['.js', '.jsx', '.json'],
