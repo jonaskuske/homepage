@@ -95,15 +95,15 @@
     margin-right: 2rem;
   }
   .link-container-change {
-    width: 155px;
+    width: 6rem;
     flex-flow: row wrap;
     text-align: right;
     position: absolute;
+    justify-content: flex-end;
     right: 0;
     top: 50%;
   }
   .link-container-change > a {
-    width: 100%;
     height: 2.25rem;
   }
   .link-container-change > a > .header-link-text {

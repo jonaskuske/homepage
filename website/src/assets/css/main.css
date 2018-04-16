@@ -114,17 +114,29 @@ input[type=color] {
 .link-container-change {
   opacity: 0;
 }
-.header-link-text {
-  font-size: 0.7rem;
-}
-.header-link-text:hover {
-  color: var(--theme-color);
-  text-shadow: 0 0 2px #585858;
-}
 .header-link {
   align-self: right;
   margin-left: 1rem;
   text-decoration: none;
+}
+.header-link-text {
+  font-size: 0.7rem;
+  direction: rtl;
+  position: relative;
+}
+.header-link-text::before {
+  content: "";
+  width: 0;
+  height: 100%;
+  position: absolute;
+  transition: width 350ms ease-in-out;
+  border-bottom: 2px solid var(--theme-color);
+}
+.header-link-text:hover{
+  direction: ltr;
+}
+.header-link-text:hover::before {
+  width: 100%;
 }
 .content-container {
   transition: opacity 700ms ease-out;
