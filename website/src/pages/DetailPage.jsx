@@ -1,16 +1,15 @@
-import ImageText from '@@/ImageTextBlock';
-import Image from '@@/Image';
 import { parseText } from '@/lib/helpers';
+import { ImageClickable, ImageTextBlock } from '@/components';
 
 const view = ({ data: { project: { title, image, text, showcase, blocks, footer } }, class: className = '', ...props }) => (
   <main key='details' class={`${className}`} {...props} >
     <h1>{title.toUpperCase()}</h1>
     <section class='detail-container'>
-      <Image class='detail-image' src={showcase.image} />
+      <ImageClickable class='detail-image' src={showcase.image} />
       <p class='detail-text showcase textsquish-blocker'> {parseText(showcase.text)} </p>
       {blocks.map(({ image, text }, index) => {
         const mode = index % 2 === 0 ? 'left' : 'right';
-        return <ImageText src={image} mode={mode}>{text}</ImageText>;
+        return <ImageTextBlock src={image} mode={mode}>{text}</ImageTextBlock>;
       })}
       {footer && <p class="detail-text textsquish-blocker"> {parseText(footer)} </p>}
     </section>

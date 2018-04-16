@@ -1,19 +1,23 @@
-import Thumbnail from '@@/Thumbnail';
-import actions from '@/main';
 import router from '@/router';
+import actions from '@/main';
+import { Thumbnail } from '@/components';
 
 const spin = el => new Promise(r => r((el.tagName === 'DIV' ? el : el.parentNode).classList.add('spinner-overlay')));
 
-const view = ({ class: className = '', data: { projects, safeThemeColor, mobile, locales: { Splash } }, ...props }) => {
+const view = ({ data: { projects, safeThemeColor, mobile, locales: { Projects } }, class: className = '', ...props }) => {
   return (
-    <main key='welcome' class={`${className}`} {...props} >
-      <h1>{Splash.h1}</h1>
-      <p> {Splash.text} </p>
-      <h2> {Splash.h2} </h2>
+    <main key='projects' class={className} {...props}>
+      <h1>{Projects.h1}</h1>
+      <p>
+        {Projects.text[1]}
+        <a href="http://github.com/jonaskuske/portfolio" target="_blank" rel="noopener">{Projects.text.link}</a>
+        {Projects.text[1.1] || ''}
+        <br />{Projects.text[2]}</p>
+      <br />
       <section class='projekt-container'>
-        {projects.filter(el => el.highlight).map(({ title, id, image, subtitle, category }, index) => {
+        {projects.map(({ title, subtitle, id, category, image }) => {
           const link = `/detail?project=${id}`;
-          return index < 3 && (
+          return (
             <Thumbnail
               onclick={evt => spin(evt.target).then(() => router.push(link))}
               href={link}

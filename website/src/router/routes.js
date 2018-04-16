@@ -1,33 +1,29 @@
-import Imprint from '@@/Imprint';
-import Projects from '@@/Projects';
-import Splash from '@@/Splash';
-import Details from '@@/Details';
-import About from '@@/About';
+import { WelcomePage, ProjectsPage, DetailPage, AboutPage, ImprintPage } from '@/pages';
 
 export default [
   {
     path: '/',
     name: 'Portfolio',
-    component: Splash
+    component: WelcomePage
   },
   {
     path: '/projekte',
     name: 'Projekte',
-    component: Projects
+    component: ProjectsPage
   },
   {
     path: '/detail',
     name: 'Projekt',
-    component: Details
+    component: DetailPage
   },
   {
     path: '/me',
     name: 'Über mich',
-    component: About
+    component: AboutPage
   },
   {
     path: '/impressum',
     name: 'Impressum',
-    component: Imprint
+    component: ImprintPage
   }
 ];

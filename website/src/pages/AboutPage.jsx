@@ -1,7 +1,7 @@
 import actions from '@/main';
-import Icon from '@@/SkillDiagramIcon';
 import { svgTransform } from '@/lib/browser-support';
 import { parseText } from '@/lib/helpers';
+import { SkillDiagramIcon as Icon } from '@/components';
 import GoogleBadge from '@img/Google-badge.png';
 
 const showHideText = evt => {
@@ -45,7 +45,7 @@ const view = ({ class: className = '', data: { themeColor, mobile, iconLegend, l
         <h3 class='icon-legend-title' onclick={actions.toggleIconLegend}>{iconLegend ? About.iconLegendClose : About.iconLegendShow}</h3>
         <div class={`skill-icon-container skill-icon-legend ${!iconLegend ? 'skill-icon-legend-hide' : ''}`}>
           {svgTransform
-            ? legendData(isEnglish).map((skill) => < Icon class="skill-icon skill-icon-show-text" themeColor={themeColor} skill={skill} />)
+            ? legendData(isEnglish).map((skill) => <Icon class="skill-icon skill-icon-show-text" themeColor={themeColor} skill={skill} />)
             : <div class="skill-icon-container skill-icon-compat-legend"> {legendData(isEnglish).map(skill => <div class="skill-icon-compat">
               <Icon skill={skill} class="skill-icon skill-icon-show-text" display="static" themeColor={themeColor} />
               <div style={{ pointerEvents: 'none' }}><Icon skill={skill} display="ring" themeColor={themeColor} /></div>

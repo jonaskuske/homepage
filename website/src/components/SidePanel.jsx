@@ -1,11 +1,10 @@
-import Button from '@@/Button';
-import ProfilePic from '@@/ProfilePic';
-import router from '@/router';
 import actions from '@/main';
+import router from '@/router';
+import { Button, ProfilePicture } from '@/components';
 
 const view = ({ class: className = '', mobile, lang, panel: { nav = [] } = {} }) => (
   <nav class={`side-panel ${className}`} >
-    <ProfilePic onclick={() => { !window.matchMedia('(min-width: 1550px)').matches && actions.setMenu(false); router.push('/me'); }} />
+    <ProfilePicture onclick={() => { !window.matchMedia('(min-width: 1550px)').matches && actions.setMenu(false); router.push('/me'); }} />
     <div class='side-link-container'>
       {nav.map(({ route, text }) => (
         <a class='side-link' href={route} onclick={() => {

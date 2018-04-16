@@ -1,10 +1,9 @@
-import routes from './routes';
-import ErrorPage from '@@/404';
-import LoadingScreen from '@@/LoadingScreen';
 import actions from '@/main';
+import routes from './routes';
+import { ErrorPage, LoadingPage } from '@/pages';
 import { error, log, wait } from '@/lib/helpers';
 
-let RouterView = LoadingScreen;
+let RouterView = LoadingPage;
 
 const router = {
   routes,

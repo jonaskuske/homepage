@@ -18,6 +18,15 @@ const { lang } = window.location.href.includes('?') && router.getQueryParams(win
 // set language to German if lang is set to "de" or site isn't using .com domain
 const language = lang === 'de' || ext !== 'com' ? 'de' : 'en';
 
+// Keep 'mobile' prop in store in sync with media query
+const mediaQuery = window.matchMedia('(min-width: 900px)');
+const queryHandler = query => vm.setLayout(query.matches ? false : true);
+queryHandler(mediaQuery);
+mediaQuery.addListener(queryHandler);
+
+// Set a random color as site theme color
+vm.setRandomColor();
+
 // fetch localized text and project assets, then init router -> move to page specified in URL
 vm.getLanguage({ language })
   .then(vm.fetchProjects)

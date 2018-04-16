@@ -1,7 +1,6 @@
 import router from '@/router';
-import Button from '@@/Button';
 import { errorMessages } from '@/lib/helpers';
-import Thumbnail from '@@/Thumbnail';
+import { Button, Thumbnail } from '@/components';
 import errorImage from '@img/error.jpeg';
 
 const view = ({ data: { safeThemeColor, mobile, locales: { Error } }, ...props }) => {

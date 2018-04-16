@@ -1,6 +1,5 @@
-import HeaderLink from '@@/HeaderLink';
-import Hamburger from '@@/Hamburger';
 import actions from '@/main';
+import { Hamburger, HeaderLink } from '@/components';
 
 const handleScroll = (e) => { actions.setScrollTop(document.documentElement.scrollTop || document.body.scrollTop); };
 const addListener = () => document.addEventListener('scroll', handleScroll, { passive: true });
