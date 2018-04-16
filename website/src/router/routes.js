@@ -7,23 +7,41 @@ export default [
     component: WelcomePage
   },
   {
-    path: '/projekte',
-    name: 'Projekte',
+    path: {
+      de: '/projekte',
+      en: '/projects'
+    },
+    name: {
+      de: 'Projekte',
+      en: 'Projects'
+    },
     component: ProjectsPage
   },
   {
     path: '/detail',
-    name: 'Projekt',
+    name: {
+      de: 'Projekt',
+      en: 'Project'
+    },
     component: DetailPage
   },
   {
     path: '/me',
-    name: 'Über mich',
+    name: {
+      de: 'Über mich',
+      en: 'About Me'
+    },
     component: AboutPage
   },
   {
-    path: '/impressum',
-    name: 'Impressum',
+    path: {
+      de: '/impressum',
+      en: '/imprint'
+    },
+    name: {
+      de: 'Impressum',
+      en: 'Imprint'
+    },
     component: ImprintPage
   }
 ];

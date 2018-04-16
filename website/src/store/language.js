@@ -38,5 +38,6 @@ export const languageActions = {
   setLanguage: ({ language, locales }) => {
     textElements().forEach(el => el.classList.remove('textsquish'));
     return { locales, language };
-  }
+  },
+  currentLanguage: () => state => state.language
 };

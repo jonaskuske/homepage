@@ -3,49 +3,86 @@ import routes from './routes';
 import { ErrorPage, LoadingPage } from '@/pages';
 import { error, log, wait } from '@/lib/helpers';
 
+const matchesPath = (path, route) => {
+  if (typeof path === 'string') return path === route;
+
+  const paths = Object.values(path);
+  for (const path of paths) {
+    if (path === route) return true;
+  }
+  return false;
+};
+
+/* Reference to current component - set to LoadingPage inititally, mutated by router.push() method */
 let RouterView = LoadingPage;
 
 const router = {
   routes,
   fallback: {
+    path: '',
     component: ErrorPage,
     name: 'Error'
   },
-  async push(target, { pushState = true, restoreScrollPos = false } = {}) {
-    if (!target) return;
+  /* Navigates to a page associated with a URL */
+  async push(targetURL, { pushState = true, restoreScrollPos = false } = {}) {
+    if (!targetURL) return;
 
+    /* Save new scroll position */
     const scroll = document.documentElement.scrollTop || document.body.scrollTop;
     actions.saveScrollPosition({ pos: scroll });
+    /* Instruct site to restore previously set scroll position for page -> handled in App.jsx */
     if (restoreScrollPos) actions.setRestoreScroll(true);
 
-    let { component, name } = router.match(target.split('?')[0]);
+    const language = actions.currentLanguage();
+
+    let { component, name, path } = router.match(targetURL.split('?')[0]);
+    name = name[language] || name;
     let title;
 
-    if (name === 'Projekt') {
+    /* If visiting detail page: Request project details specified in query string, if unavailable go to error page */
+    if (name === 'Projekt' || name === 'Project') {
       try {
-        const { project = error('No project-ID found in querystring.') } = router.getQueryParams(target);
-        ([{ title }] = await Promise.all([actions.requestProject(project), wait(700)]));
+        /* Get projectID from query string, error if none specified there */
+        const { project: projectId } = router.getQueryParams(targetURL);
+        if (!projectId) error('No project-ID found in querystring.');
+
+        /* Load project details + forced loading time for design purposes */
+        const [details] = await Promise.all([actions.requestProject(projectId), wait(700)]);
+        title = details.title;
       } catch (err) {
         log(err);
         ({ component, name } = router.fallback);
       }
     }
 
-    title = title ? title : name ? name : '';
+    /* Update HTML title with project title or component name */
+    title = title || name || '';
     document.querySelector('title').textContent = `${title} | Jonas Kuske`;
 
-    if (pushState) history.pushState({ page: target }, title, target);
+    /* Create new entry in history stack and save page there */
+    if (pushState) history.pushState({ page: targetURL }, title, path[language] || targetURL);
 
+    /* Set page reference and update store to trigger re-render */
     RouterView = component;
-    actions.setPage(target);
+    actions.setPage(targetURL);
   },
+  /* Matches window.location to keep view in sync with visited URL on pageload and sets up handler for popstate event */
   init() {
-    window.addEventListener('popstate', ({ state }) => state !== null && state.page ? router.push(state.page, { pushState: false, restoreScrollPos: true }) : history.back());
+    window.addEventListener('popstate', ({ state }) => state !== null && state.page
+      ? router.push(state.page,
+        {
+          pushState: false, // history stack updated by browser itself, don't interfere
+          restoreScrollPos: true // restore scroll position if possible -> handled in App.jsx
+        })
+      : history.back() // Beginning of artificial history stack reached: navigate back again to leave site
+    );
     router.push(window.location.pathname + window.location.search);
   },
+  /* Returns component object from router.routes[] if path matches or router.fallback if there's no match */
   match(route) {
-    return router.routes.reduce((a, b) => b.path === route ? b : a, router.fallback);
+    return router.routes.reduce((base, current) => matchesPath(current.path, route) ? current : base, router.fallback);
   },
+  /* Returns object with key value pairs for a parameters in a query string */
   getQueryParams(target) {
     const queryString = target.split('?')[1];
     if (!queryString) error('No querystring found.');
