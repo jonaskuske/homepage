@@ -9,15 +9,6 @@ import Miniswipe from 'miniswipe';
 const vm = app(state, actions, App, document.body);
 export default vm;
 
-// find domain extension
-const domainExtRegEx = new RegExp(/\.(?!\.)(?!.+\.).+/);
-const domainExtMatch = domainExtRegEx.exec(window.location.host);
-const ext = domainExtMatch && domainExtMatch[0].replace('.', '');
-// look for "lang" in query string
-const { lang } = window.location.href.includes('?') && router.getQueryParams(window.location.href);
-// set language to German if lang is set to "de" or site isn't using .com domain
-const language = lang === 'de' || ext !== 'com' ? 'de' : 'en';
-
 // Keep 'mobile' prop in store in sync with media query
 const mediaQuery = window.matchMedia('(min-width: 900px)');
 const queryHandler = query => vm.setLayout(query.matches ? false : true);
@@ -26,6 +17,15 @@ mediaQuery.addListener(queryHandler);
 
 // Set a random color as site theme color
 vm.setRandomColor();
+
+// find domain extension
+const domainExtRegEx = new RegExp(/\.(?!\.)(?!.+\.).+/);
+const domainExtMatch = domainExtRegEx.exec(window.location.host);
+const ext = domainExtMatch && domainExtMatch[0].replace('.', '');
+// look for "lang" in query string
+const { lang } = window.location.href.includes('?') && router.getQueryParams(window.location.href);
+// set language to German if lang is set to "de" or site isn't using .com domain
+const language = lang === 'de' || ext !== 'com' ? 'de' : 'en';
 
 // fetch localized text and project assets, then init router -> move to page specified in URL
 vm.getLanguage({ language })
