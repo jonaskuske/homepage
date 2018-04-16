@@ -38,6 +38,8 @@ export const actions = {
     document.body.classList.remove('no-overflow');
     return { overlay: false };
   },
+  /* Save the scroll position of the current page, called before navigating away from a page */
   saveScrollPosition: ({ pos }) => ({ scrollPositions, page }) => ({ scrollPositions: { ...scrollPositions, [page]: pos } }),
+  /* Set the restore prop for the scroll positions to the given value (true or false) */
   setRestoreScroll: val => ({ scrollPositions }) => ({ scrollPositions: { ...scrollPositions, restore: val } }),
 };

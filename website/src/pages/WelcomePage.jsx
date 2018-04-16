@@ -2,7 +2,7 @@ import actions from '@/main';
 import router from '@/router';
 import { Thumbnail } from '@/components';
 
-const spin = el => new Promise(r => r((el.tagName === 'DIV' ? el : el.parentNode).classList.add('spinner-overlay')));
+const spin = el => Promise.resolve((el.tagName === 'DIV' ? el : el.parentNode).classList.add('spinner-overlay'));
 
 const view = ({ class: className = '', data: { projects, safeThemeColor, mobile, locales: { Splash } }, ...props }) => {
   return (
