@@ -11,7 +11,7 @@ const view = ({ class: className = '', data: { locales: { Imprint } }, ...props 
       <br />
       <h2>{Imprint.details.title}</h2>
       <p>{Imprint.details.phone}</p>
-      <p>Mail: <a href="mailto:joku49@gmail.com">joku49@gmail.com</a></p>
+      <p>Mail: <a href="mailto:mail@jonaskuske.com">mail@jonaskuske.com</a></p>
       <br />
       <h2>{Imprint.responsibility}</h2>
       <p>Jonas Kuske, Sielstraße 5 27568 Bremerhaven</p>
