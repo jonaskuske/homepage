@@ -3,12 +3,12 @@ import routes from './routes';
 import { ErrorPage, LoadingPage } from '@/pages';
 import { error, log, wait } from '@/lib/helpers';
 
-const matchesPath = (path, route) => {
-  if (typeof path === 'string') return path === route;
+const matchesPath = (paths, route) => {
+  if (typeof paths === 'string') paths = [paths];
+  else paths = Object.values(paths);
 
-  const paths = Object.values(path);
   for (const path of paths) {
-    if (path === route) return true;
+    if (new RegExp(path + '/?').test(route)) return true; // regexp: allow trailing slash
   }
   return false;
 };
@@ -97,3 +97,5 @@ const router = {
 export { RouterView };
 
 export default router;
+
+window.test = router;
