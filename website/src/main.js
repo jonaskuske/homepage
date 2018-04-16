@@ -24,8 +24,8 @@ const domainExtMatch = domainExtRegEx.exec(window.location.host);
 const ext = domainExtMatch && domainExtMatch[0].replace('.', '');
 // look for "lang" in query string
 const { lang } = window.location.href.includes('?') && router.getQueryParams(window.location.href);
-// set language to German if lang is set to "de" or site isn't using .com domain
-const language = lang === 'de' || ext !== 'com' ? 'de' : 'en';
+// set language to German if lang is set to "de" or site isn't using .com domain and hasn't English specified in lang
+const language = lang === 'de' || (ext !== 'com' && lang !== 'en') ? 'de' : 'en';
 
 // fetch localized text and project assets, then init router -> move to page specified in URL
 vm.getLanguage({ language })
