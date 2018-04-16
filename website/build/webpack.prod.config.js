@@ -47,6 +47,7 @@ config.plugins.push(
     background_color: '#f0f0f0',
     dir: 'ltr',
     ios: true,
+    fingerprints: false,
     icons: [
       {
         src: root('src/assets/images/Logo.png'),
