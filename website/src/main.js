@@ -62,7 +62,7 @@ window.addEventListener('beforeinstallprompt', e => e.preventDefault());
 
 
 
-/*   Hmm, what is this... :P   */
+/*   Hmm, what is this... :P  🔮✨  */
 
 const KEY_UP = 38;
 const KEY_DOWN = 40;
@@ -73,14 +73,23 @@ const KEY_B = 66;
 const KEY_ENTER = 13;
 const KEY_SHIFT = 16;
 
+const noRickroll = document.createElement('audio'); noRickroll.loop = true;
+const mp3 = document.createElement('source'); mp3.type = 'audio/mpeg';
+mp3.src = 'https://ia800605.us.archive.org/8/items/NeverGonnaGiveYouUp/jocofullinterview41.mp3';
+const ogg = document.createElement('source'); ogg.type = 'audio/ogg';
+ogg.src = 'https://ia800605.us.archive.org/8/items/NeverGonnaGiveYouUp/jocofullinterview41.ogg';
+noRickroll.appendChild(ogg); noRickroll.appendChild(mp3);
+document.body.appendChild(noRickroll);
+
 (() => {
-  console.log('Konamiparty? Yes.'); // eslint-disable-line
+  let audioIsPlaying = false;
+  console.log('%cKonami%cparty? %cYes.', 'color: red', 'color: gold', 'color: rebeccapurple'); // eslint-disable-line
 
   const konamiCode = [KEY_UP, KEY_UP, KEY_DOWN, KEY_DOWN, KEY_LEFT, KEY_RIGHT, KEY_LEFT, KEY_RIGHT, KEY_B, KEY_A, KEY_ENTER];
   const keyPresses = [];
   keyPresses.empty = function () { while (this.length) this.pop(); };
 
-  const handleKeyPress = key => {
+  const handleKeyPress = (key, requiresConfirmation) => {
     key = key.keyCode || key;
     if (key === KEY_SHIFT) return;
     if (!konamiCode.includes(key)) return keyPresses.empty();
@@ -88,8 +97,15 @@ const KEY_SHIFT = 16;
     keyPresses.push(key);
 
     if (containsArray(keyPresses, konamiCode)) {
-      vm.toggleEasteregg();
       keyPresses.empty();
+      vm.setMenu(false);
+      const startTheShow = () => {
+        vm.toggleEasteregg();
+        audioIsPlaying ? (noRickroll.pause(), noRickroll.currentTime = 0) : noRickroll.play();
+        audioIsPlaying = !audioIsPlaying;
+      };
+      if (requiresConfirmation && !audioIsPlaying) createModal(startTheShow);
+      else startTheShow();
     }
   };
 
@@ -103,6 +119,24 @@ const KEY_SHIFT = 16;
   window.addEventListener('shake', () => {
     handleKeyPress(KEY_B);
     handleKeyPress(KEY_A);
-    handleKeyPress(KEY_ENTER);
+    handleKeyPress(KEY_ENTER, true);
   }, false);
 })();
+
+const createModal = (fn) => {
+  const modal = document.createElement('div');
+  const text = document.createElement('p');
+  const button = document.createElement('button');
+  modal.id = 'no-rickroll';
+  modal.appendChild(text);
+  modal.appendChild(button);
+  text.textContent = 'Party time?';
+  button.textContent = 'Turn it up!';
+  button.addEventListener('click', () => {
+    fn && fn();
+    document.body.classList.remove('no-overflow');
+    document.body.removeChild(modal);
+  });
+  document.body.classList.add('no-overflow');
+  document.body.insertBefore(modal, document.body.firstChild);
+};
