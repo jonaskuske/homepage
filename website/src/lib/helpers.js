@@ -63,3 +63,17 @@ export const parseText = html => {
 
   return parsed;
 };
+
+/**
+ * Checks whether one array is contained in another array.
+ * @param {Array} baseArr The base array to search in.
+ * @param {Array} queryArr The query array to look for inside the base array.
+ * @returns {boolean} True if query array was found inside the base array
+ */
+export const containsArray = (baseArr, queryArr) => {
+  return JSON.stringify(baseArr)
+    .replace(/^\[|\]$/g, '')
+    .includes(JSON.stringify(queryArr)
+      .replace(/^\[|\]$/g, '')
+    );
+};

@@ -1,5 +1,7 @@
 import { random } from '@/lib/helpers';
 
+const colorMetaTag = document.querySelector('meta[name=theme-color]');
+
 export const colorState = {
   themeColor: '#0b8dc9',
   safeThemeColor: '#0b8dc9',
@@ -8,7 +10,8 @@ export const colorState = {
     '#b815ef',
     '#f58b00',
     '#00ffff'
-  ]
+  ],
+  updateMetaTagColor: true
 };
 
 export const colorActions = {
@@ -33,7 +36,7 @@ export const colorActions = {
 
     document.body.style.setProperty('--bg-color', bgColor);
     document.body.style.setProperty('--theme-color', safeThemeColor);
-    document.querySelector('meta[name=theme-color]').content = themeColor;
+    if (state.updateMetaTagColor) colorMetaTag.content = themeColor;
 
     return { safeThemeColor, themeColor };
   },
@@ -48,5 +51,6 @@ export const colorActions = {
     !colors.includes(newColor)
     && newColor.includes('#')
     && newColor.length === 7)
-    && ({ colors: [...colors, newColor] })
+    && ({ colors: [...colors, newColor] }),
+  setMetaTagColor: val => ({ updateMetaTagColor: val })
 };

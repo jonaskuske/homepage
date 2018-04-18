@@ -3,7 +3,14 @@ import { app } from 'hyperapp';
 import { state, actions } from './store';
 import router from './router';
 import App from '@/App';
+import { containsArray } from '@/lib/helpers';
 import Miniswipe from 'miniswipe';
+import Shake from 'shake.js';
+
+const SHAKE_LISTENER = new Shake({ threshold: 15, timeout: 1000 });
+SHAKE_LISTENER.start();
+const SWIPE_LISTENER = new Miniswipe(document, { debug: false });
+SWIPE_LISTENER.start();
 
 // init new hyperapp and export the initialized actions
 const vm = app(state, actions, App, document.body);
@@ -35,12 +42,10 @@ vm.getLanguage({ language })
   .then(vm.fetchProjects)
   .then(router.init);
 
-// init Miniswipe: open Menu with swipe gestures on touch devices
-const swipeHandler = new Miniswipe(document);
-swipeHandler
+// open Menu with swipe gestures on touch devices
+SWIPE_LISTENER
   .right(() => vm.setMenu(true))
-  .left(() => vm.setMenu(false))
-  .start();
+  .left(() => vm.setMenu(false));
 
 
 if ('serviceWorker' in navigator) {
@@ -53,30 +58,51 @@ if ('serviceWorker' in navigator) {
 window.addEventListener('beforeinstallprompt', e => e.preventDefault());
 
 
-// Hmm... :P
+
+
+
+
+/*   Hmm, what is this... :P   */
+
+const KEY_UP = 38;
+const KEY_DOWN = 40;
+const KEY_LEFT = 37;
+const KEY_RIGHT = 39;
+const KEY_A = 65;
+const KEY_B = 66;
+const KEY_ENTER = 13;
+const KEY_SHIFT = 16;
+
 (() => {
   console.log('Konamiparty? Yes.'); // eslint-disable-line
 
-  const konamiCode = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65, 13];
+  const konamiCode = [KEY_UP, KEY_UP, KEY_DOWN, KEY_DOWN, KEY_LEFT, KEY_RIGHT, KEY_LEFT, KEY_RIGHT, KEY_B, KEY_A, KEY_ENTER];
   const keyPresses = [];
   keyPresses.empty = function () { while (this.length) this.pop(); };
 
-  const containsArray = (baseArr, queryArr) => {
-    return JSON.stringify(baseArr)
-      .replace(/^\[|\]$/g, '')
-      .includes(JSON.stringify(queryArr)
-        .replace(/^\[|\]$/g, '')
-      );
-  };
+  const handleKeyPress = key => {
+    key = key.keyCode || key;
+    if (key === KEY_SHIFT) return;
+    if (!konamiCode.includes(key)) return keyPresses.empty();
 
-  document.addEventListener('keyup', (e) => {
-    if (!konamiCode.includes(e.keyCode)) return keyPresses.empty();
-
-    keyPresses.push(e.keyCode);
+    keyPresses.push(key);
 
     if (containsArray(keyPresses, konamiCode)) {
       vm.toggleEasteregg();
       keyPresses.empty();
     }
-  });
+  };
+
+  // listen for konami-relevant events
+  document.addEventListener('keyup', handleKeyPress);
+  SWIPE_LISTENER
+    .left(() => handleKeyPress(KEY_LEFT))
+    .right(() => handleKeyPress(KEY_RIGHT))
+    .up(() => handleKeyPress(KEY_UP))
+    .down(() => handleKeyPress(KEY_DOWN));
+  window.addEventListener('shake', () => {
+    handleKeyPress(KEY_B);
+    handleKeyPress(KEY_A);
+    handleKeyPress(KEY_ENTER);
+  }, false);
 })();
