@@ -2,11 +2,13 @@ import { wait, error, log, random } from '@/lib/helpers';
 import { colorState, colorActions } from './colors';
 import { projectState, projectActions } from './projects';
 import { languageState, languageActions } from './language';
+import { eastereggState, eastereggActions } from './easteregg';
 
 export const state = {
   ...colorState,
   ...projectState,
   ...languageState,
+  ...eastereggState,
   mobile: false,
   panel: window.matchMedia('(min-width: 1550px)').matches,
   overlay: false,
@@ -23,6 +25,7 @@ export const actions = {
   ...colorActions,
   ...projectActions,
   ...languageActions,
+  ...eastereggActions,
   toggleMenu: () => state => ({ panel: !state.panel }),
   setMenu: value => ({ panel: value }),
   toggleIconLegend: () => state => ({ iconLegend: !state.iconLegend }),

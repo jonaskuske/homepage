@@ -48,3 +48,32 @@ if ('serviceWorker' in navigator) {
 
 // If deployed as PWA: hide web app install banner (inappropriate for portfolio site)
 window.addEventListener('beforeinstallprompt', e => e.preventDefault());
+
+
+// Hmm... :P
+(() => {
+  console.log('Konamiparty? Yes.'); // eslint-disable-line
+
+  const konamiCode = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65, 13];
+  const keyPresses = [];
+  keyPresses.empty = function () { while (this.length) this.pop(); };
+
+  const containsArray = (baseArr, queryArr) => {
+    return JSON.stringify(baseArr)
+      .replace(/^\[|\]$/g, '')
+      .includes(JSON.stringify(queryArr)
+        .replace(/^\[|\]$/g, '')
+      );
+  };
+
+  document.addEventListener('keyup', (e) => {
+    if (!konamiCode.includes(e.keyCode)) return keyPresses.empty();
+
+    keyPresses.push(e.keyCode);
+
+    if (containsArray(keyPresses, konamiCode)) {
+      vm.toggleEasteregg();
+      keyPresses.empty();
+    }
+  });
+})();
