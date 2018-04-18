@@ -15,17 +15,20 @@ const queryHandler = query => vm.setLayout(query.matches ? false : true);
 queryHandler(mediaQuery);
 mediaQuery.addListener(queryHandler);
 
-// Set a random color as site theme color
-vm.setRandomColor();
+// get query parameters
+const { lang, color } = window.location.href.includes('?') && router.getQueryParams(window.location.href);
 
 // find domain extension
 const domainExtRegEx = new RegExp(/\.(?!\.)(?!.+\.).+/);
 const domainExtMatch = domainExtRegEx.exec(window.location.host);
 const ext = domainExtMatch && domainExtMatch[0].replace('.', '');
-// look for "lang" in query string
-const { lang } = window.location.href.includes('?') && router.getQueryParams(window.location.href);
-// set language to German if lang is set to "de" or site isn't using .com domain and hasn't English specified in lang
+
+// set language to English if lang is 'en' or using .com, else German
 const language = lang === 'de' || (ext !== 'com' && lang !== 'en') ? 'de' : 'en';
+
+// set site color
+if (color) { vm.setColor(color); vm.addColor(color); }
+else vm.setRandomColor();
 
 // fetch localized text and project assets, then init router -> move to page specified in URL
 vm.getLanguage({ language })

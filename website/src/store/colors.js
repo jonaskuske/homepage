@@ -13,7 +13,9 @@ export const colorState = {
 
 export const colorActions = {
   /* Update CSS variables, HTML meta tag and store with the new theme color */
-  setColor: themeColor => state => {
+  setColor: themeColor => (state, actions) => {
+    if (!(themeColor.includes('#') && themeColor.length === 7)) return actions.setRandomColor();
+
     let safeThemeColor = themeColor;
 
     /* see https://stackoverflow.com/questions/12043187/how-to-check-if-hex-color-is-too-black */
@@ -42,5 +44,9 @@ export const colorActions = {
     actions.setColor(randomColor);
   },
   /* Add color to colors array if it isn't included already */
-  addColor: newColor => ({ colors }) => !colors.includes(newColor) && ({ colors: [...colors, newColor] })
+  addColor: newColor => ({ colors }) => (
+    !colors.includes(newColor)
+    && newColor.includes('#')
+    && newColor.length === 7)
+    && ({ colors: [...colors, newColor] })
 };
