@@ -3,7 +3,7 @@ import { app } from 'hyperapp';
 import { state, actions } from './store';
 import router from './router';
 import App from '@/App';
-import { containsArray } from '@/lib/helpers';
+import { containsArray, createModal } from '@/lib/helpers';
 import Miniswipe from 'miniswipe';
 import Shake from 'shake.js';
 
@@ -91,21 +91,26 @@ document.body.appendChild(noRickroll);
 
   const handleKeyPress = (key, requiresConfirmation) => {
     key = key.keyCode || key;
-    if (key === KEY_SHIFT) return;
-    if (!konamiCode.includes(key)) return keyPresses.empty();
+    if (key === KEY_SHIFT || !konamiCode.includes(key)) return;
 
     keyPresses.push(key);
-
     if (containsArray(keyPresses, konamiCode)) {
       keyPresses.empty();
-      vm.setMenu(false);
       const startTheShow = () => {
         vm.toggleEasteregg();
         audioIsPlaying ? (noRickroll.pause(), noRickroll.currentTime = 0) : noRickroll.play();
         audioIsPlaying = !audioIsPlaying;
       };
-      if (requiresConfirmation && !audioIsPlaying) createModal(startTheShow);
-      else startTheShow();
+
+      if (requiresConfirmation && !audioIsPlaying) {
+        vm.setMenu(false);
+        createModal({ // mobile: ask before playing audio (required by browsers)
+          callback: startTheShow,
+          message: 'Party time?',
+          confirmText: 'Turn it up!',
+          allowCancel: false
+        });
+      } else startTheShow();
     }
   };
 
@@ -122,21 +127,3 @@ document.body.appendChild(noRickroll);
     handleKeyPress(KEY_ENTER, true);
   }, false);
 })();
-
-const createModal = (fn) => {
-  const modal = document.createElement('div');
-  const text = document.createElement('p');
-  const button = document.createElement('button');
-  modal.id = 'no-rickroll';
-  modal.appendChild(text);
-  modal.appendChild(button);
-  text.textContent = 'Party time?';
-  button.textContent = 'Turn it up!';
-  button.addEventListener('click', () => {
-    fn && fn();
-    document.body.classList.remove('no-overflow');
-    document.body.removeChild(modal);
-  });
-  document.body.classList.add('no-overflow');
-  document.body.insertBefore(modal, document.body.firstChild);
-};

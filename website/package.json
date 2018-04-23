@@ -41,7 +41,9 @@
     "@babel/polyfill": "^7.0.0-beta.39",
     "hyperapp": "^1.0.2",
     "miniswipe": "^0.1.5",
+    "qrcode": "^1.2.0",
     "shake.js": "^1.2.2",
+    "socket.io": "^2.1.0",
     "whatwg-fetch": "^2.0.3"
   }
 }

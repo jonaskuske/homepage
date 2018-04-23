@@ -1,14 +1,20 @@
 @import url('https://fonts.googleapis.com/css?family=Raleway:200,300,400,500,600');
 
+html {
+  background: url(../images/bg.jpg) center / cover no-repeat
+}
 html, body {
   margin: 0;
-  min-height: 100%;
 }
 body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: linear-gradient(var(--bg-color), var(--bg-color)), url(../images/bg.jpg) center / cover no-repeat;
+  background: var(--bg-color) center / cover no-repeat;
   overflow-x: hidden;
+  height: 100%;
+  min-height: 100vh;
+  padding-bottom: 2rem;
+  box-sizing: border-box;
 }
 body > div {
   padding-top: 5rem;
@@ -59,6 +65,7 @@ a {
 }
 input[type=color] {
   opacity: 0;
+  width: 0;
 }
 .pointer {
   cursor: pointer;
@@ -140,7 +147,7 @@ input[type=color] {
 }
 .content-container {
   transition: opacity 700ms ease-out;
-  margin: 0 3rem 3rem 50%;
+  margin: 0 3rem 0 50%;
   transform: translateX(-50%);
   width: 70%;
 }
@@ -152,8 +159,8 @@ input[type=color] {
   transform: translateX(-50%);
   width: 70%;
 }
-.color-btn-container span:not(:first-child) {
-  margin-left: 15px;
+.color-btn-container span {
+  margin-right: 15px;
 }
 .color-btn-container span {
   border-bottom: solid 2px var(--theme-color);
@@ -277,4 +284,65 @@ input[type=color] {
 }
 .error-section > button {
   margin-bottom: 0.5rem;
+}
+#the-modal {
+  position: fixed;
+  width: 50vw;
+  max-width: 300px;
+  height: 15vw;
+  max-height: 80px;
+  background: var(--bg-color);
+  box-shadow: inset 0 0 10px 500px rgba(0,0,0,0.6);
+  border: 8px solid #282828;
+  margin: 50vh 0 0 50%;
+  padding: 0.7rem;
+  transform: translate(-50%, -50%);
+  z-index: 3000;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  animation: fade-in 200ms;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+#the-modal > p {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  font-size: 0.95rem;
+  font-style: italic;
+  z-index: 3000;
+}
+#the-modal > button {
+  font-size: 1.3rem;
+  font-weight: 600;
+  padding-top: 5px;
+  z-index: 3000;
+  border-bottom: 2px solid var(--theme-color);
+}
+#the-modal > button.cancel-btn {
+  font-size: 1rem;
+  font-weight: 200;
+  width: 100%;
+  border: none;
+}
+#the-modal::before {
+  content: '';
+  position: fixed;
+  z-index: -1;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  background: rgba(0,0,0,0.65);
+  animation: fade-in 200ms;
+}
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }

@@ -1,5 +1,6 @@
 export { default as Button } from './Button';
 export { default as ColorPicker } from './ColorPicker';
+export { default as ColorSelection } from './ColorSelection';
 export { default as Hamburger } from './Hamburger';
 export { default as HeaderLink } from './HeaderLink';
 export { default as ImageClickable } from './ImageClickable';

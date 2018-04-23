@@ -5,3 +5,4 @@ export { default as ImprintPage } from './ImprintPage';
 export { default as LoadingPage } from './LoadingPage';
 export { default as ProjectsPage } from './ProjectsPage';
 export { default as WelcomePage } from './WelcomePage';
+export { default as PhonePairPage } from './PhonePairPage';

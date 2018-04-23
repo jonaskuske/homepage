@@ -1,7 +1,12 @@
 export default {
   App: {
-    ColorButton1: 'Zufallsfarbe',
-    ColorButton2: 'Farbe auswählen',
+    ColorSelection: {
+      ColorButtonRandom: 'Zufallsfarbe',
+      ColorButtonSelect: 'Farbe auswählen',
+      ColorButtonDevice: 'Auf diesem Gerät',
+      ColorButtonPhone: 'Auf dem Telefon',
+      ColorButtonPhoneOnly: 'Farbe per Smartphone fernsteuern'
+    },
     links: [
       { text: 'GitHub', href: 'https://github.com/jonaskuske' },
       { text: 'LinkedIn', href: 'https://www.linkedin.com/in/jonaskuske/' },
@@ -151,5 +156,11 @@ export default {
     toStart: 'Zur Startseite',
     notFound1: 'Die aufgerufene Seite » ',
     notFound2: ' « existiert leider nicht. :('
+  },
+  PairYourPhone: {
+    h1: 'Telefon verbinden',
+    connecting: 'Es wird versucht eine Verbindung zum Farb-Server herzustellen...',
+    description: 'Auf dem Telefon unter data.jonaskuske.com den QR-Code scannen oder die ID eingeben.',
+    sessionID: 'Die einzigartige Sitzungs-ID ist: '
   }
 };

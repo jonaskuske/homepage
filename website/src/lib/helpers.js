@@ -77,3 +77,35 @@ export const containsArray = (baseArr, queryArr) => {
       .replace(/^\[|\]$/g, '')
     );
 };
+
+export const createModal = ({ callback, message = 'Are you sure?', confirmText = 'Confirm', cancelText = 'Cancel', allowCancel = true }) => {
+
+  const modal = document.createElement('div');
+  const text = document.createElement('p');
+  const button = document.createElement('button');
+  const cancelButton = document.createElement('button');
+
+  modal.id = 'the-modal';
+  cancelButton.className = 'cancel-btn';
+
+  modal.appendChild(text);
+  modal.appendChild(button);
+  if (allowCancel) modal.appendChild(cancelButton);
+
+  text.textContent = message;
+  button.textContent = confirmText;
+  cancelButton.textContent = cancelText;
+
+  button.addEventListener('click', () => {
+    callback && callback();
+    document.body.classList.remove('no-overflow');
+    document.body.removeChild(modal);
+  });
+  cancelButton.addEventListener('click', () => {
+    document.body.classList.remove('no-overflow');
+    document.body.removeChild(modal);
+  });
+
+  document.body.classList.add('no-overflow');
+  document.body.insertBefore(modal, document.body.firstChild);
+};

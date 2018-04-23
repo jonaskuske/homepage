@@ -1,4 +1,4 @@
-import { WelcomePage, ProjectsPage, DetailPage, AboutPage, ImprintPage } from '@/pages';
+import { WelcomePage, ProjectsPage, DetailPage, AboutPage, ImprintPage, PhonePairPage } from '@/pages';
 
 export default [
   {
@@ -19,10 +19,7 @@ export default [
   },
   {
     path: '/detail',
-    name: {
-      de: 'Projekt',
-      en: 'Project'
-    },
+    name: 'Project',
     component: DetailPage
   },
   {
@@ -43,5 +40,13 @@ export default [
       en: 'Imprint'
     },
     component: ImprintPage
+  },
+  {
+    path: '/connect',
+    name: {
+      de: 'Telefon verbinden',
+      en: 'Pair your Phone'
+    },
+    component: PhonePairPage
   }
 ];
