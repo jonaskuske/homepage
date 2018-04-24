@@ -5,20 +5,21 @@
   top: 0;
   left: 0;
   bottom: 0;
-  transition: width 200ms, transform 270ms ease-in-out;
+  transition: width 200ms, transform 270ms ease-in-out, background-color 350ms ease-out;
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
   align-items: flex-start;
   z-index: 99;
   box-shadow: 0 0 5px 4px rgba(0,0,0,0.3);
+  background-color: var(--menu-color);
   overflow-x: hidden;
   overflow-y: auto;
 }
 .side-panel::before {
   content: '';
   position: fixed;
-  background: linear-gradient(var(--bg-color), var(--bg-color)), url(../images/bg.jpg) left / cover no-repeat;
+  background: url(../images/bg.jpg) left / cover no-repeat;
   height: 100%;
   width: 260px;
   top: 0;
@@ -26,7 +27,8 @@
   margin: 0;
   padding: 0;
   left: -5px;
-  right: 0;
+  right: -5px;
+  opacity: 0.4;
   filter: blur(4px);
   transform: translateZ(0); /* force render in GPU composite layer */
 }

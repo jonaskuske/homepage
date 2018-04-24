@@ -10,6 +10,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background: var(--bg-color) center / cover no-repeat;
+  transition: background-color 350ms ease-out;
   overflow-x: hidden;
   height: 100%;
   min-height: 100vh;

@@ -117,16 +117,19 @@
     background-attachment: fixed;
   }
   .side-panel {
-    transition: left 350ms ease-in-out, width 200ms;
+    transition: left 350ms ease-in-out, width 200ms, background-color 350ms ease-out;
     width: 220px;
     box-shadow: 1px 3px 4px 3px rgba(0,0,0,0.2);
   }
   .side-panel::before {
     position: absolute;
-    background: linear-gradient(var(--bg-color), var(--bg-color)), url(../images/bg.jpg) center / cover fixed;
-    width: 110%;
+    background: url(../images/bg.jpg) center / cover fixed;
+    width: 150%;
   }
   @supports (-webkit-backdrop-filter: blur(4px)) {
+    .side-panel {
+      background: none;
+    }
     .side-panel::before {
       background: none;
       -webkit-backdrop-filter: blur(4px);

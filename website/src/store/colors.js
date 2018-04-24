@@ -35,6 +35,7 @@ export const colorActions = {
     if (brightness < 60) safeThemeColor = '#ffffff';
 
     document.body.style.setProperty('--bg-color', bgColor);
+    document.body.style.setProperty('--menu-color', themeColor);
     document.body.style.setProperty('--theme-color', safeThemeColor);
     if (state.updateMetaTagColor) colorMetaTag.content = themeColor;
 
