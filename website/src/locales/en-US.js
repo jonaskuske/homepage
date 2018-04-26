@@ -159,7 +159,7 @@ export default {
   PairYourPhone: {
     h1: 'Pair your Phone',
     connecting: 'Trying to connect to the color server...',
-    description: 'Visit data.jonaskuske.com on your phone and scan the QR Code or enter your ID.',
+    description: 'Visit jonaskuske.com/colorpicker on your phone and scan the QR Code or enter your ID.',
     sessionID: 'Your unique session ID is: '
   }
 };

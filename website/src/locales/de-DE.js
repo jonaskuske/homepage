@@ -160,7 +160,7 @@ export default {
   PairYourPhone: {
     h1: 'Telefon verbinden',
     connecting: 'Es wird versucht eine Verbindung zum Farb-Server herzustellen...',
-    description: 'Auf dem Telefon unter data.jonaskuske.com den QR-Code scannen oder die ID eingeben.',
+    description: 'Auf dem Telefon unter jonaskuske.de/colorpicker den QR-Code scannen oder die ID eingeben.',
     sessionID: 'Die einzigartige Sitzungs-ID ist: '
   }
 };
