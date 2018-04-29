@@ -77,3 +77,70 @@ export const containsArray = (baseArr, queryArr) => {
       .replace(/^\[|\]$/g, '')
     );
 };
+
+export const createModal = ({ callback, message = 'Are you sure?', confirmText = 'Confirm', cancelText = 'Cancel', allowCancel = true }) => {
+
+  const modal = document.createElement('div');
+  const text = document.createElement('p');
+  const button = document.createElement('button');
+  const cancelButton = document.createElement('button');
+
+  modal.id = 'the-modal';
+  cancelButton.className = 'cancel-btn';
+
+  modal.appendChild(text);
+  modal.appendChild(button);
+  if (allowCancel) modal.appendChild(cancelButton);
+
+  text.textContent = message;
+  button.textContent = confirmText;
+  cancelButton.textContent = cancelText;
+
+  button.addEventListener('click', () => {
+    callback && callback();
+    document.body.classList.remove('no-overflow');
+    document.body.removeChild(modal);
+  });
+  cancelButton.addEventListener('click', () => {
+    document.body.classList.remove('no-overflow');
+    document.body.removeChild(modal);
+  });
+
+  document.body.classList.add('no-overflow');
+  document.body.insertBefore(modal, document.body.firstChild);
+};
+/**
+ * Creates a function that only executes once every given interval.
+ * @param {Function} fn The function to throttle.
+ * @param {number} threshold The time in ms that has to pass between executions of fn.
+ * @returns {Function} The throttled version of the passed function.
+ */
+export const throttle = (fn, threshold) => {
+  threshold || (threshold = 250);
+  var last, deferTimer;
+
+  return function () {
+    var now = +new Date, args = arguments;
+
+    if (last && now < last + threshold) {
+      clearTimeout(deferTimer);
+      deferTimer = setTimeout(() => {
+        last = now;
+        fn.apply(this, args);
+      }, threshold);
+    } else {
+      last = now;
+      fn.apply(this, args);
+    }
+  };
+};
+
+
+// find domain extension
+const domainExtRegEx = new RegExp(/\.(?!\.)(?!.+\.).+/);
+const domainExtMatch = domainExtRegEx.exec(window.location.host);
+/**
+ * The gTLD of the website, without the dot. (like com, org, de)
+ */
+const ext = domainExtMatch && domainExtMatch[0].replace('.', '');
+export { ext as domainExtension };

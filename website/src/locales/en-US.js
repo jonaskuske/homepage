@@ -1,7 +1,12 @@
 export default {
   App: {
-    ColorButton1: 'Random color',
-    ColorButton2: 'Select color',
+    ColorSelection: {
+      ColorButtonRandom: 'Random color',
+      ColorButtonSelect: 'Select color',
+      ColorButtonDevice: 'On device',
+      ColorButtonPhone: 'On phone',
+      ColorButtonPhoneOnly: 'Control colors remotely using your phone'
+    },
     links: [
       { text: 'GitHub', href: 'https://github.com/jonaskuske' },
       { text: 'LinkedIn', href: 'https://www.linkedin.com/in/jonaskuske/' },
@@ -69,7 +74,7 @@ export default {
             percentage: 41,
             color: '#61dbfb'
           },
-          { name: 'GitHub', image: 'https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg', percentage: 72, color: 'black' },
+          { name: 'GitHub', image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Octicons-mark-github.svg/480px-Octicons-mark-github.svg.png', percentage: 72, color: 'black' },
           {
             name: 'Webpack',
             image: 'https://camo.githubusercontent.com/d18f4a7a64244f703efcb322bf298dcb4ca38856/68747470733a2f2f7765627061636b2e6a732e6f72672f6173736574732f69636f6e2d7371756172652d6269672e737667',
@@ -150,5 +155,11 @@ export default {
     toStart: 'Back to Start',
     notFound1: 'Unfortunately, the requested page » ',
     notFound2: ' « does not exist on this site. :('
+  },
+  PairYourPhone: {
+    h1: 'Pair your Phone',
+    connecting: 'Trying to connect to the color server...',
+    description: 'Visit jonaskuske.com/colorpicker on your phone and scan the QR Code or enter your ID.',
+    sessionID: 'Your unique session ID is: '
   }
 };

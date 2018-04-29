@@ -3,7 +3,8 @@ import { app } from 'hyperapp';
 import { state, actions } from './store';
 import router from './router';
 import App from '@/App';
-import { containsArray } from '@/lib/helpers';
+import { containsArray, createModal, domainExtension } from '@/lib/helpers';
+import { consoleStyling } from '@/lib/browser-support';
 import Miniswipe from 'miniswipe';
 import Shake from 'shake.js';
 
@@ -25,13 +26,8 @@ mediaQuery.addListener(queryHandler);
 // get query parameters
 const { lang, color } = window.location.href.includes('?') && router.getQueryParams(window.location.href);
 
-// find domain extension
-const domainExtRegEx = new RegExp(/\.(?!\.)(?!.+\.).+/);
-const domainExtMatch = domainExtRegEx.exec(window.location.host);
-const ext = domainExtMatch && domainExtMatch[0].replace('.', '');
-
 // set language to English if lang is 'en' or using .com, else German
-const language = lang === 'de' || (ext !== 'com' && lang !== 'en') ? 'de' : 'en';
+const language = lang === 'de' || (domainExtension !== 'com' && lang !== 'en') ? 'de' : 'en';
 
 // set site color
 if (color) { vm.setColor(color); vm.addColor(color); }
@@ -83,7 +79,9 @@ document.body.appendChild(noRickroll);
 
 (() => {
   let audioIsPlaying = false;
-  console.log('%cKonami%cparty? %cYes.', 'color: red', 'color: gold', 'color: rebeccapurple'); // eslint-disable-line
+  consoleStyling
+    ? console.info('%cKonami%cparty? %cYes.', 'color: red', 'color: gold', 'color: rebeccapurple')
+    : console.info('Konamiparty? Yes.');
 
   const konamiCode = [KEY_UP, KEY_UP, KEY_DOWN, KEY_DOWN, KEY_LEFT, KEY_RIGHT, KEY_LEFT, KEY_RIGHT, KEY_B, KEY_A, KEY_ENTER];
   const keyPresses = [];
@@ -91,21 +89,26 @@ document.body.appendChild(noRickroll);
 
   const handleKeyPress = (key, requiresConfirmation) => {
     key = key.keyCode || key;
-    if (key === KEY_SHIFT) return;
-    if (!konamiCode.includes(key)) return keyPresses.empty();
+    if (key === KEY_SHIFT || !konamiCode.includes(key)) return;
 
     keyPresses.push(key);
-
     if (containsArray(keyPresses, konamiCode)) {
       keyPresses.empty();
-      vm.setMenu(false);
       const startTheShow = () => {
         vm.toggleEasteregg();
         audioIsPlaying ? (noRickroll.pause(), noRickroll.currentTime = 0) : noRickroll.play();
         audioIsPlaying = !audioIsPlaying;
       };
-      if (requiresConfirmation && !audioIsPlaying) createModal(startTheShow);
-      else startTheShow();
+
+      if (requiresConfirmation && !audioIsPlaying) {
+        vm.setMenu(false);
+        createModal({ // mobile: ask before playing audio (required by browsers)
+          callback: startTheShow,
+          message: 'Party time?',
+          confirmText: 'Turn it up!',
+          allowCancel: false
+        });
+      } else startTheShow();
     }
   };
 
@@ -122,21 +125,3 @@ document.body.appendChild(noRickroll);
     handleKeyPress(KEY_ENTER, true);
   }, false);
 })();
-
-const createModal = (fn) => {
-  const modal = document.createElement('div');
-  const text = document.createElement('p');
-  const button = document.createElement('button');
-  modal.id = 'no-rickroll';
-  modal.appendChild(text);
-  modal.appendChild(button);
-  text.textContent = 'Party time?';
-  button.textContent = 'Turn it up!';
-  button.addEventListener('click', () => {
-    fn && fn();
-    document.body.classList.remove('no-overflow');
-    document.body.removeChild(modal);
-  });
-  document.body.classList.add('no-overflow');
-  document.body.insertBefore(modal, document.body.firstChild);
-};

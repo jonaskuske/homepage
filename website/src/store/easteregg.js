@@ -32,7 +32,7 @@ export const eastereggActions = {
       actions.setMetaTagColor(false);
       return {
         eastereggActive: true,
-        eastereggInterval: setInterval(actions.setRandomColor, 185)
+        eastereggInterval: setInterval(actions.setRandomColor, 400)
       };
     }
   }

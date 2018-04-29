@@ -18,7 +18,9 @@ export const state = {
   scrollPositions: {
     restore: false
   },
-  overlayImage: ''
+  overlayImage: '',
+  sessionID: '',
+  colorSelection: false
 };
 
 export const actions = {
@@ -45,4 +47,6 @@ export const actions = {
   saveScrollPosition: ({ pos }) => ({ scrollPositions, page }) => ({ scrollPositions: { ...scrollPositions, [page]: pos } }),
   /* Set the restore prop for the scroll positions to the given value (true or false) */
   setRestoreScroll: val => ({ scrollPositions }) => ({ scrollPositions: { ...scrollPositions, restore: val } }),
+  setSessionID: sessionID => ({ sessionID }),
+  toggleColorSelection: () => state => ({ colorSelection: !state.colorSelection })
 };

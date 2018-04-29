@@ -1,9 +1,10 @@
 import actions from '@/main';
 import router from '@/router';
 import { Button, ProfilePicture } from '@/components';
+import { isIE } from '@/lib/browser-support';
 
 const view = ({ class: className = '', mobile, lang, panel: { nav = [] } = {} }) => (
-  <nav class={`side-panel ${className}`} >
+  <nav class={`side-panel ${isIE ? 'ie' : ''} ${className}`} >
     <ProfilePicture onclick={() => { !window.matchMedia('(min-width: 1550px)').matches && actions.setMenu(false); router.push('/me'); }} />
     <div class='side-link-container'>
       {nav.map(({ route, text }) => (

@@ -1,10 +1,12 @@
 /* eslint-disable no-undef, no-unused-vars */
 
-const webpack = require('webpack');
 const path = require('path');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
+const fs = require('fs');
+const webpack = require('webpack');
 
 const root = dir => path.resolve(__dirname, '../', dir);
+
+const babelConfig = JSON.parse(fs.readFileSync(root('.babelrc')));
 
 const config = {
   entry: ['./src/main.js'],
@@ -27,14 +29,24 @@ const config = {
     rules: [
       {
         test: /\.jsx?$/,
-        exclude: /node_modules|service-worker\.js/,
-        loader: 'babel-loader'
+        exclude: /node_modules(?!\\miniswipe)/,
+        loader: 'babel-loader',
+        options: { ...babelConfig, cacheDirectory: true }
       },
       {
         test: /\.css$/,
         use: [
           { loader: 'style-loader' },
-          { loader: 'css-loader' }
+          {
+            loader: 'css-loader',
+            options: {
+              importLoaders: 1,
+              minimize: true
+            }
+          },
+          {
+            loader: 'postcss-loader'
+          }
         ]
       },
       {
@@ -67,7 +79,9 @@ const config = {
     ]
   },
   plugins: [
-    new CopyWebpackPlugin([{ from: root('static/*'), to: root('dist'), flatten: true }])
+    new webpack.ProvidePlugin({
+      h: ['hyperapp', 'h']
+    }),
   ],
   devServer: {
     historyApiFallback: true

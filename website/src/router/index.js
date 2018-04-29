@@ -8,7 +8,7 @@ const matchesPath = (paths, route) => {
   else paths = Object.values(paths);
 
   for (const path of paths) {
-    if (new RegExp(path + '/?').test(route)) return true; // regexp: allow trailing slash
+    if (new RegExp(path + '/?$').test(route)) return true; // regexp: allow trailing slash
   }
   return false;
 };
@@ -40,10 +40,10 @@ const router = {
     let title;
 
     /* If visiting detail page: Request project details specified in query string, if unavailable go to error page */
-    if (name === 'Projekt' || name === 'Project') {
+    if (name === 'Project') {
       try {
         /* Get projectID from query string, error if none specified there */
-        const { project: projectId } = router.getQueryParams(targetURL);
+        const { project: projectId } = router.getQueryParams(targetURL, { strict: true });
         if (!projectId) error('No project-ID found in querystring.');
 
         /* Load project details + forced loading time for design purposes */
@@ -82,10 +82,11 @@ const router = {
   match(route) {
     return router.routes.reduce((base, current) => matchesPath(current.path, route) ? current : base, router.fallback);
   },
-  /* Returns object with key value pairs for a parameters in a query string */
-  getQueryParams(target) {
+  /* Returns object with key value pairs for a parameters in a query string; strict: throws if no query string passed */
+  getQueryParams(target, { strict } = {}) {
     const queryString = target.split('?')[1];
-    if (!queryString) error('No querystring found.');
+    if (!queryString) return strict ? error('No querystring found.') : {};
+
     const paramStrings = queryString.split('&');
     const paramPairs = paramStrings.map(str => str.split('='));
     const queryParams = {};

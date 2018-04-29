@@ -3,7 +3,7 @@ import { errorMessages } from '@/lib/helpers';
 import { Button, Thumbnail } from '@/components';
 import errorImage from '@img/error.jpeg';
 
-const view = ({ data: { safeThemeColor, mobile, locales: { Error } }, ...props }) => {
+const view = ({ data: { safeThemeColor, mobile, locales: { Error = {} } }, ...props }) => {
   const errorMessage = errorMessages[errorMessages.length - 1];
   return (
     <main key='404' {...props} >
