@@ -30,7 +30,7 @@ const legendData = lang => {
     }];
 };
 
-const view = ({ class: className = '', data: { themeColor, mobile, iconLegend, locales: { About }, language }, ...props }) => {
+const view = ({ class: className = '', data: { themeColor, mobile, iconLegend, locales: { About = {} }, language }, ...props }) => {
   const isEnglish = language === 'en';
 
   return (
@@ -68,7 +68,7 @@ const view = ({ class: className = '', data: { themeColor, mobile, iconLegend, l
           <p>{text}</p>
         </section>
       ))}
-      <img src={GoogleBadge} alt="Google Scholarship recipient" style={{ width: '100%', maxWidth: '400px', marginTop: '3rem', marginLeft: '50%', boxShadow: '0 0 0 4px var(--theme-color)', contain: 'strict', transform: 'translateX(-50%)' }} />
+      <img src={GoogleBadge} alt="Google Scholarship recipient" id='google-badge' />
     </main>
   );
 };

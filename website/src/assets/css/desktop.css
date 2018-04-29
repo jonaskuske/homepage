@@ -119,20 +119,22 @@
   .side-panel {
     transition: left 350ms ease-in-out, width 200ms, background-color 350ms ease-out;
     width: 220px;
-    box-shadow: 1px 3px 4px 3px rgba(0,0,0,0.2);
+    box-shadow: 2px 7px 13px 3px rgba(0,0,0,0.1);
   }
   .side-panel::before {
     position: absolute;
-    background: url(../images/bg.jpg) center / cover fixed;
-    width: 150%;
+    background: linear-gradient(var(--transparent-color), var(--transparent-color)), url(../images/bg.jpg) center / cover fixed;
+    width: calc(150% + 15px);
   }
-  @supports (-webkit-backdrop-filter: blur(4px)) {
+  @supports (-webkit-backdrop-filter: blur(4px)) or (backdrop-filter: blur(4px)) {
     .side-panel {
       background: none;
     }
     .side-panel::before {
       background: none;
-      -webkit-backdrop-filter: blur(4px);
+      filter: none;
+      backdrop-filter: blur(3px) brightness(110%);
+      -webkit-backdrop-filter: blur(3px);
     }
   }
   .side-link-container {
@@ -176,7 +178,7 @@
     height: 100px;
   }
   .menu-aside {
-    transform: translateX(calc(-50% + 110px));
+    transform: translateX(-50%) translateX(110px);
     width: 45%;
   }
   .menu-aside > h1 {

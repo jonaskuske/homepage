@@ -29,11 +29,16 @@
   left: -5px;
   right: -5px;
   opacity: 0.4;
-  filter: blur(4px);
+  filter: blur(5px) brightness(120%);
   transform: translateZ(0); /* force render in GPU composite layer */
+  transition: transform 270ms ease-in-out;
 }
 .slideout {
   transform: translateX(-280px);
+}
+.ie.slideout::before {
+  transform: translateX(-280px);
+
 }
 .profile-pic {
   position: relative;
