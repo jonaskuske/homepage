@@ -109,3 +109,38 @@ export const createModal = ({ callback, message = 'Are you sure?', confirmText =
   document.body.classList.add('no-overflow');
   document.body.insertBefore(modal, document.body.firstChild);
 };
+/**
+ * Creates a function that only executes once every given interval.
+ * @param {Function} fn The function to throttle.
+ * @param {number} threshold The time in ms that has to pass between executions of fn.
+ * @returns {Function} The throttled version of the passed function.
+ */
+export const throttle = (fn, threshold) => {
+  threshold || (threshold = 250);
+  var last, deferTimer;
+
+  return function () {
+    var now = +new Date, args = arguments;
+
+    if (last && now < last + threshold) {
+      clearTimeout(deferTimer);
+      deferTimer = setTimeout(() => {
+        last = now;
+        fn.apply(this, args);
+      }, threshold);
+    } else {
+      last = now;
+      fn.apply(this, args);
+    }
+  };
+};
+
+
+// find domain extension
+const domainExtRegEx = new RegExp(/\.(?!\.)(?!.+\.).+/);
+const domainExtMatch = domainExtRegEx.exec(window.location.host);
+/**
+ * The gTLD of the website, without the dot. (like com, org, de)
+ */
+const ext = domainExtMatch && domainExtMatch[0].replace('.', '');
+export { ext as domainExtension };

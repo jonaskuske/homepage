@@ -3,7 +3,8 @@ import { app } from 'hyperapp';
 import { state, actions } from './store';
 import router from './router';
 import App from '@/App';
-import { containsArray, createModal } from '@/lib/helpers';
+import { containsArray, createModal, domainExtension } from '@/lib/helpers';
+import { consoleStyling } from '@/lib/browser-support';
 import Miniswipe from 'miniswipe';
 import Shake from 'shake.js';
 
@@ -25,13 +26,8 @@ mediaQuery.addListener(queryHandler);
 // get query parameters
 const { lang, color } = window.location.href.includes('?') && router.getQueryParams(window.location.href);
 
-// find domain extension
-const domainExtRegEx = new RegExp(/\.(?!\.)(?!.+\.).+/);
-const domainExtMatch = domainExtRegEx.exec(window.location.host);
-const ext = domainExtMatch && domainExtMatch[0].replace('.', '');
-
 // set language to English if lang is 'en' or using .com, else German
-const language = lang === 'de' || (ext !== 'com' && lang !== 'en') ? 'de' : 'en';
+const language = lang === 'de' || (domainExtension !== 'com' && lang !== 'en') ? 'de' : 'en';
 
 // set site color
 if (color) { vm.setColor(color); vm.addColor(color); }
@@ -83,7 +79,9 @@ document.body.appendChild(noRickroll);
 
 (() => {
   let audioIsPlaying = false;
-  console.log('%cKonami%cparty? %cYes.', 'color: red', 'color: gold', 'color: rebeccapurple'); // eslint-disable-line
+  consoleStyling
+    ? console.info('%cKonami%cparty? %cYes.', 'color: red', 'color: gold', 'color: rebeccapurple')
+    : console.info('Konamiparty? Yes.');
 
   const konamiCode = [KEY_UP, KEY_UP, KEY_DOWN, KEY_DOWN, KEY_LEFT, KEY_RIGHT, KEY_LEFT, KEY_RIGHT, KEY_B, KEY_A, KEY_ENTER];
   const keyPresses = [];
