@@ -22,7 +22,7 @@ const socket = (() => {
 
 const createQRCode = (el, text, mobile) => QRCode.toCanvas(el, text, { margin: 2, width: mobile ? 200 : 400 });
 
-const view = ({ data: { locales: { PairYourPhone }, sessionID: id, mobile }, ...props }) => (
+const view = ({ data: { locales: { PairYourPhone = {} }, sessionID: id, mobile }, ...props }) => (
   <main {...props} key="pair" oncreate={socket}>
     <h1>{PairYourPhone.h1}</h1>
     {!id

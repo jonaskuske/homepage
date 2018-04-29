@@ -4,7 +4,7 @@ import { Thumbnail } from '@/components';
 
 const spin = el => new Promise(r => r((el.tagName === 'DIV' ? el : el.parentNode).classList.add('spinner-overlay')));
 
-const view = ({ data: { projects, safeThemeColor, mobile, locales: { Projects } }, class: className = '', ...props }) => {
+const view = ({ data: { projects, safeThemeColor, mobile, locales: { Projects = {} } }, class: className = '', ...props }) => {
   return (
     <main key='projects' class={className} {...props}>
       <h1>{Projects.h1}</h1>

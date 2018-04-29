@@ -1,6 +1,6 @@
 import { parseText } from '@/lib/helpers';
 
-const view = ({ class: className = '', data: { locales: { Imprint } }, ...props }) => (
+const view = ({ class: className = '', data: { locales: { Imprint = {} } }, ...props }) => (
   <main key='imprint' class={`impressum ${className}`} {...props}>
     <h1>{Imprint.h1}</h1>
     <section>
