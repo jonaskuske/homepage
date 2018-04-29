@@ -8,10 +8,10 @@ const view = ({ class: className = '', mobile, lang, panel: { nav = [] } = {} })
     <ProfilePicture onclick={() => { !window.matchMedia('(min-width: 1550px)').matches && actions.setMenu(false); router.push('/me'); }} />
     <div class='side-link-container'>
       {nav.map(({ route, text }) => (
-        <a class='side-link' href={route} onclick={() => {
+        <a class='side-link' href={route} onclick={e => {
+          e.preventDefault();
           !window.matchMedia('(min-width: 1550px)').matches && actions.setMenu(false);
           router.push(route);
-          return false;
         }}>{text}
         </a>
       ))}

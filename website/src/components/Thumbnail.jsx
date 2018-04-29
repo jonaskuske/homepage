@@ -2,7 +2,7 @@ import { svgAnimation } from '@/lib/browser-support';
 import { LoadingSpinner } from '@/components';
 
 const view = ({ image, class: className = '', id, mobile, href = '#', color, ...props }, child = 'Projekt') => (
-  <a href={href} onclick={() => false}>
+  <a href={href} onclick={e => e.preventDefault()}>
     <div class={`thumbnail ${className}`} style={{ backgroundImage: `url(${image})` }} {...props}>
       <div class='overlay'>
         {svgAnimation
