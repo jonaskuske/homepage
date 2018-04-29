@@ -1,30 +1,25 @@
 /* eslint-disable no-undef, no-unused-vars */
 
-const webpack = require('webpack');
 const path = require('path');
-const config = require('./webpack.config');
+const config = require('./webpack.base');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const WebpackPwaManifest = require('webpack-pwa-manifest');
-const WorkboxPlugin = require('workbox-webpack-plugin');
 const ManifestPlugin = require('webpack-manifest-plugin');
 const CompressionWebpackPlugin = require('compression-webpack-plugin');
 
 const root = dir => path.resolve(__dirname, '../', dir);
-
-// config.entry.push('./src/lib/sw-config.js');
 
 config.plugins.push(
   new ManifestPlugin({
     fileName: 'asset-manifest.json',
     filter: ({ name }) => !name.includes('htaccess')
   }),
-  new CleanWebpackPlugin(['dist'], { root: root('.') }),
-  new webpack.ProvidePlugin({
-    h: ['hyperapp', 'h']
-  }),
-  new UglifyJsPlugin(),
+  new CleanWebpackPlugin(['dist'], { root: root('.'), verbose: false }),
+  new CopyWebpackPlugin([{ from: root('static/*'), to: root('dist'), flatten: true }]),
+  new UglifyJsPlugin({ parallel: true }),
   new HtmlWebpackPlugin({
     title: 'Portfolio | Jonas Kuske',
     template: root('index.html'),
@@ -54,7 +49,7 @@ config.plugins.push(
         src: root('src/assets/images/Logo.png'),
         sizes: [96, 128, 192, 256, 512],
         destination: path.join('assets', 'icons'),
-        ios: true
+        ios: false
       }
     ]
   }),
@@ -65,19 +60,6 @@ config.plugins.push(
     threshold: 3000,
     minRatio: 0.8
   })
-  // new WorkboxPlugin({
-  //   globDirectory: root('dist'),
-  //   globPatterns: ['**/*.{html,js,json,jpg}'],
-  //   swDest: root('dist/service-worker.js'),
-  //   clientsClaim: true,
-  //   skipWaiting: true,
-  //   runtimeCaching: [
-  //     {
-  //       urlPattern: /https?:\/\/(i\.imgur\.com|fonts\.gstatic\.com|fonts\.googleapis\.com).+/,
-  //       handler: 'staleWhileRevalidate'
-  //     }
-  //   ]
-  // })
 );
 
 module.exports = config;

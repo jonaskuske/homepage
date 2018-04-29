@@ -2,7 +2,7 @@
 
 const webpack = require('webpack');
 const path = require('path');
-const config = require('./webpack.config');
+const config = require('./webpack.base');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const WebpackPwaManifest = require('webpack-pwa-manifest');
 

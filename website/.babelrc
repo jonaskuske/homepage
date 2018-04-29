@@ -3,13 +3,7 @@
     [
       "@babel/preset-env",
       {
-        "useBuiltIns": "usage",
-        "targets": {
-          "browsers": [
-            "last 2 versions"
-          ]
-        },
-        "modules": false
+        "useBuiltIns": "usage"
       }
     ]
   ],
@@ -20,7 +14,6 @@
         "pragma": "h"
       }
     ],
-    "@babel/proposal-object-rest-spread",
     "@babel/plugin-syntax-dynamic-import"
   ]
 }
