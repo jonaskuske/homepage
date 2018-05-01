@@ -38,11 +38,6 @@ vm.getLanguage({ language })
   .then(vm.fetchProjects)
   .then(router.init);
 
-// open Menu with swipe gestures on touch devices
-SWIPE_LISTENER
-  .right(() => vm.setMenu(true))
-  .left(() => vm.setMenu(false));
-
 
 if ('serviceWorker' in navigator) {
   navigator.serviceWorker.register('/service-worker.js').catch(err => {
