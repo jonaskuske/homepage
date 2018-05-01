@@ -20,7 +20,7 @@ const view = ({ class: className = '', mobile, lang, panel: { nav = [] } = {} })
         </a>
       ))}
     </div>
-    <button class='language-toggle' onclick={actions.toggleLanguage}>
+    <button class='language-toggle' onclick={e => { e.stopPropagation(); actions.toggleLanguage(); }}>
       <span>{lang === 'de' ? 'Deutsch' : 'English'}</span>
       /{lang === 'de' ? 'English' : 'Deutsch'}
     </button>
