@@ -49,7 +49,7 @@
     "@babel/polyfill": "^7.0.0-beta.46",
     "css-vars-ponyfill": "^1.4.0",
     "hyperapp": "^1.2.5",
-    "miniswipe": "^0.1.5",
+    "miniswipe": "^0.3.2",
     "object-fit-images": "^3.2.3",
     "qrcode": "^1.2.0",
     "shake.js": "^1.2.2",
