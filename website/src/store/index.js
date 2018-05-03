@@ -28,8 +28,18 @@ export const actions = {
   ...projectActions,
   ...languageActions,
   ...eastereggActions,
-  toggleMenu: () => state => ({ panel: !state.panel }),
-  setMenu: value => ({ panel: value }),
+  toggleMenu: () => state => {
+    state.mobile && !state.panel
+      ? document.body.classList.add('no-overflow')
+      : document.body.classList.remove('no-overflow');
+    return { panel: !state.panel };
+  },
+  setMenu: value => state => {
+    state.mobile && value
+      ? document.body.classList.add('no-overflow')
+      : document.body.classList.remove('no-overflow');
+    return { panel: value };
+  },
   toggleIconLegend: () => state => ({ iconLegend: !state.iconLegend }),
   setLayout: value => ({ mobile: value }),
   setPage: page => ({ page }),

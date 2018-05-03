@@ -8,6 +8,7 @@ const view = ({ class: className = '', mobile, lang, panel: { nav = [] } = {} })
   <nav
     class={`side-panel ${isIE ? 'ie' : ''} ${className}`}
     oncreate={el => new Miniswipe(el).left(() => actions.setMenu(false)).start()}
+    onclick={e => e.stopPropagation()}
   >
     <ProfilePicture onclick={() => { !window.matchMedia('(min-width: 1550px)').matches && actions.setMenu(false); router.push('/me'); }} />
     <div class='side-link-container'>
@@ -20,7 +21,7 @@ const view = ({ class: className = '', mobile, lang, panel: { nav = [] } = {} })
         </a>
       ))}
     </div>
-    <button class='language-toggle' onclick={e => { e.stopPropagation(); actions.toggleLanguage(); }}>
+    <button class='language-toggle' onclick={e => { actions.toggleLanguage(); }}>
       <span>{lang === 'de' ? 'Deutsch' : 'English'}</span>
       /{lang === 'de' ? 'English' : 'Deutsch'}
     </button>
