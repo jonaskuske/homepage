@@ -14,7 +14,12 @@ export const colorState = {
     '#77f113',
     '#b815ef',
     '#f58b00',
-    '#00ffff'
+    '#00ffff',
+    '#3EA4C0',
+    '#CB1633',
+    '#871177',
+    '#0B66F3',
+    '#81957D'
   ],
   updateMetaTagColor: true
 };
