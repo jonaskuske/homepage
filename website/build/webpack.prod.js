@@ -12,6 +12,8 @@ const CompressionWebpackPlugin = require('compression-webpack-plugin');
 
 const root = dir => path.resolve(__dirname, '../', dir);
 
+config.entry.push(root('src/registerServiceWorker.js'));
+
 config.plugins.push(
   new ManifestPlugin({
     fileName: 'asset-manifest.json',
@@ -46,8 +48,8 @@ config.plugins.push(
     fingerprints: false,
     icons: [
       {
-        src: root('src/assets/images/Logo.png'),
-        sizes: [96, 128, 192, 256, 512],
+        src: root('src/assets/icons/icon.png'),
+        sizes: [36, 48, 72, 96, 128, 144, 192, 256, 512, 1024],
         destination: path.join('assets', 'icons'),
         ios: false
       }

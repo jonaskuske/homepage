@@ -22,6 +22,7 @@ const config = {
       '@': root('src'),
       '@@': root('src/components'),
       '@img': root('src/assets/images'),
+      '@icon': root('src/assets/icons'),
       '@projects': root('src/assets/projects')
     },
   },
