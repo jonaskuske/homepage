@@ -17,7 +17,7 @@ queryHandler(mediaQuery);
 mediaQuery.addListener(queryHandler);
 
 // get query parameters
-const { lang, color } = window.location.href.includes('?') && router.getQueryParams(window.location.href);
+const { lang, color } = router.getQueryParams(window.location.href);
 
 // set language to English if lang is 'en' or using .com, else German
 const language = lang === 'de' || (domainExtension !== 'com' && lang !== 'en') ? 'de' : 'en';
