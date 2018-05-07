@@ -19,7 +19,6 @@ export const colorState = {
     '#CB1633',
     '#871177',
     '#0B66F3',
-    '#81957D'
   ],
   updateMetaTagColor: true
 };
