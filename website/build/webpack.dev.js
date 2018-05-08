@@ -1,24 +1,14 @@
-/* eslint-disable no-undef, no-unused-vars */
-
-const webpack = require('webpack');
-const path = require('path');
 const config = require('./webpack.base');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const WebpackPwaManifest = require('webpack-pwa-manifest');
 
-const root = dir => path.resolve(__dirname, '../', dir);
-
 config.plugins.push(
-  new webpack.NamedModulesPlugin(),
-  new webpack.ProvidePlugin({
-    h: ['hyperapp', 'h']
-  }),
   new HtmlWebpackPlugin({
     title: 'Portfolio | Jonas Kuske',
-    template: root('index.html'),
+    template: './index.html',
     inject: true,
     minify: false,
-    favicon: root('src/assets/images/favicon.ico')
+    favicon: './src/assets/images/favicon.ico'
   }),
   new WebpackPwaManifest({
     short_name: 'Portfolio',

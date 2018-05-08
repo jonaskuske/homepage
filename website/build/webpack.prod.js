@@ -2,7 +2,6 @@
 
 const path = require('path');
 const config = require('./webpack.base');
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
@@ -21,7 +20,6 @@ config.plugins.push(
   }),
   new CleanWebpackPlugin(['dist'], { root: root('.'), verbose: false }),
   new CopyWebpackPlugin([{ from: root('static/*'), to: root('dist'), flatten: true }]),
-  new UglifyJsPlugin({ parallel: true }),
   new HtmlWebpackPlugin({
     title: 'Portfolio | Jonas Kuske',
     template: root('index.html'),
