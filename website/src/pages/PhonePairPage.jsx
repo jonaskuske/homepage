@@ -1,5 +1,6 @@
 import actions from '@/main';
 import router from '@/router';
+import { domainExtension } from '@/lib/helpers';
 import QRCode from 'qrcode';
 import io from 'socket.io-client';
 
@@ -20,7 +21,7 @@ const socket = (() => {
   };
 })();
 
-const createQRCode = (el, text, mobile) => QRCode.toCanvas(el, text, { margin: 2, width: mobile ? 200 : 400 });
+const createQRCode = (el, id, mobile) => QRCode.toCanvas(el, `https://jonaskuske.${domainExtension || 'com'}/colorpicker?session=${id}`, { margin: 2, width: mobile ? 200 : 400 });
 
 const view = ({ data: { locales: { PairYourPhone = {} }, sessionID: id, mobile }, ...props }) => (
   <main {...props} key="pair" oncreate={socket}>
@@ -29,7 +30,10 @@ const view = ({ data: { locales: { PairYourPhone = {} }, sessionID: id, mobile }
       ? <p>{PairYourPhone.connecting}</p>
       : [
         <p>{PairYourPhone.description}</p>,
-        <canvas oncreate={el => createQRCode(el, id, mobile)} onupdate={el => createQRCode(el, id, mobile)} />,
+        <canvas
+          oncreate={el => createQRCode(el, id, mobile)}
+          onupdate={el => createQRCode(el, id, mobile)}
+        />,
         <p>{PairYourPhone.sessionID}<span style={{ fontWeight: 600 }}>{id}</span></p>
       ]}
   </main>
