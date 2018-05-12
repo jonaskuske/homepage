@@ -20,7 +20,7 @@ const view = ({ data: { safeThemeColor, mobile, locales: { Error = {} } }, ...pr
           color={safeThemeColor}
           mobile={mobile}
           href='/'
-          onclick={() => router.push('/')}
+          fn={() => router.push('/')}
         >
           <p>{Error.toStart}</p>
         </Thumbnail>

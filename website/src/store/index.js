@@ -3,6 +3,7 @@ import { colorState, colorActions } from './colors';
 import { projectState, projectActions } from './projects';
 import { languageState, languageActions } from './language';
 import { eastereggState, eastereggActions } from './easteregg';
+import { objectFitSupported } from '@/lib/browser-support';
 
 export const state = {
   ...colorState,
@@ -49,8 +50,22 @@ export const actions = {
     document.body.classList.add('no-overflow');
     return { overlay: true };
   },
-  hideOverlay: () => {
+  hideOverlay: src => {
     document.body.classList.remove('no-overflow');
+
+    if (typeof src === 'string') {
+      let originImage;
+      if (objectFitSupported) {
+        src = src.replace(window.location.origin, ''); // relative URL for original preview images
+        originImage = document.querySelector(`img.clickable-img[src="${src}"]`);
+      } else {
+        // absolute URL for images created by objectFitPolyfill
+        originImage = document.querySelector(`img.clickable-img[data-ofi-src="${src}"]`);
+      }
+      // revert focus to preview image that triggered the fullscreen overlay
+      wait(30).then(() => originImage && originImage.focus());
+    }
+
     return { overlay: false };
   },
   /* Save the scroll position of the current page, called before navigating away from a page */

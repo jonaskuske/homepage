@@ -1,5 +1,6 @@
 import actions from '@/main';
 import { objectFitSupported, isFirefox } from '@/lib/browser-support';
+import { withBlur } from '@/lib/helpers';
 import objectFitPolyfill from 'object-fit-images';
 
 const openOverlay = evt => {
@@ -10,10 +11,17 @@ const openOverlay = evt => {
 
 const view = ({ class: className = '', mobile, ...props }) => (
   <img
-    class={`pointer ${className}`}
+    class={`pointer clickable-img ${className}`}
     style={!mobile && (isFirefox || !objectFitSupported) && { minWidth: '500px' }}
     oncreate={!objectFitSupported && objectFitPolyfill}
-    onclick={openOverlay}
+    tabindex={0}
+    onclick={withBlur(openOverlay)}
+    onkeydown={e => {
+      if (e.keyCode === 13 || e.keyCode === 32) {
+        e.preventDefault();
+        openOverlay(e);
+      }
+    }}
     {...props}
   />
 );

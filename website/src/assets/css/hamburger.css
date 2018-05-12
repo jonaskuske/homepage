@@ -20,3 +20,10 @@ border-bottom: 2px solid white;
 .hamburger::before {
   margin-top: 8px;
 }
+.hamburger:focus, .hamburger:focus::before, .hamburger:focus::after {
+  border-bottom: 3px solid var(--theme-color);
+}
+.hamburger:focus {
+  outline: currentColor dotted thin;
+  outline: -webkit-focus-ring-color 5px auto;
+}

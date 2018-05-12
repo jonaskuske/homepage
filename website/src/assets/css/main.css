@@ -53,6 +53,12 @@ p {
 img {
   object-fit: contain;
 }
+img.pointer:focus {
+  box-shadow: 0 0 14px 1px rgba(0,0,0,0.6);
+}
+img.pointer:focus:not(:focus-visible) {
+  box-shadow: none;
+}
 .textsquish:not(.textsquish-blocker) {
   transform: scale(1, 0.03);
 }
@@ -66,8 +72,20 @@ button {
   outline: none;
   user-select: none;
 }
+button:focus {
+  border-bottom: 2px solid white;
+  outline: currentColor dotted thin;
+  outline: -webkit-focus-ring-color auto 5px;
+}
+button:focus:not(:focus-visible) {
+  border-bottom: none;
+  outline: none;
+}
 a {
   text-decoration: underline;
+}
+a:focus {
+  font-weight: bolder;
 }
 .textsquish.textsquish-blocker, .textsquish.textsquish-blocker a  {
   color: transparent;
@@ -95,7 +113,7 @@ input[type=color] {
   height: 100%;
   top: 0;
   left: 0;
-  z-index: 100;
+  z-index: 101;
   padding: 1.2rem;
   box-sizing: border-box;
   transition: opacity 200ms ease-out;
@@ -117,7 +135,7 @@ input[type=color] {
   width: 100%;
   top: 1.5rem;
   display: flex;
-  z-index: 99;
+  z-index: 100;
   justify-content: space-between;
   align-items: center;
   pointer-events: none;
@@ -148,10 +166,10 @@ input[type=color] {
   transition: width 350ms ease-in-out;
   border-bottom: 2px solid var(--theme-color);
 }
-.header-link-text:hover{
+.header-link-text:hover, .header-link:focus .header-link-text{
   direction: ltr;
 }
-.header-link-text:hover::before {
+.header-link-text:hover::before, .header-link:focus .header-link-text::before {
   width: 100%;
 }
 .content-container {
@@ -269,7 +287,7 @@ input[type=color] {
   font-weight: 300;
   pointer-events: none;
 }
-.thumbnail:hover .overlay {
+.thumbnail:hover .overlay, a:focus .thumbnail .overlay {
   opacity: 1;
 }
 .loading-screen {
