@@ -21,6 +21,9 @@ border-bottom: 2px solid white;
   margin-top: 8px;
 }
 .hamburger:focus, .hamburger:focus::before, .hamburger:focus::after {
+  border-bottom: 2px solid var(--theme-color);
+}
+.hamburger:focus-visible, .hamburger:focus-visible::before, .hamburger:focus-visible::after {
   border-bottom: 3px solid var(--theme-color);
 }
 .hamburger:focus {
