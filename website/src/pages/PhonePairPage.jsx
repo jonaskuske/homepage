@@ -21,7 +21,11 @@ const socket = (() => {
   };
 })();
 
-const createQRCode = (el, id, mobile) => QRCode.toCanvas(el, `https://jonaskuske.${domainExtension || 'com'}/colorpicker?session=${id}`, { margin: 2, width: mobile ? 200 : 400 });
+const createQRCode = (el, id, mobile) => QRCode.toCanvas(
+  el,
+  `https://jonaskuske.${domainExtension || 'com'}/colorpicker?session=${id}`,
+  { margin: 2, width: mobile ? 200 : 400 }
+);
 
 const view = ({ data: { locales: { PairYourPhone = {} }, sessionID: id, mobile }, ...props }) => (
   <main {...props} key="pair" oncreate={socket}>
