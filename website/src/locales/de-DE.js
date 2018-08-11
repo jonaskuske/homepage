@@ -18,7 +18,7 @@ export default {
         { text: 'Start', route: '/' },
         { text: 'Projekte', route: '/projekte' },
         { text: 'Über mich', route: '/me' },
-        { text: 'Impressum', route: '/impressum' }
+        { text: 'Rechtliches', route: '/rechtliches' }
       ]
     }
   },
@@ -129,27 +129,36 @@ export default {
 
     ]
   },
-  Imprint: {
-    h1: 'Impressum',
-    law: 'Angaben gemäß §5 TMG',
-    details: {
-      title: 'Kontakt',
-      phone: 'Telefon: +491603336948'
+  Legal: {
+    h1: 'Rechtliches',
+    Imprint: {
+      h1: 'Impressum',
+      law: 'Angaben gemäß §5 TMG',
+      details: {
+        title: 'Kontakt',
+        phone: 'Telefon: +491603336948'
+      },
+      responsibility: 'Verantwortlich für Inhalte gemäß 55 Abs. 2 RStV:',
+      h2: 'Haftungsauschluss',
+      contents: {
+        title: 'Haftung für Inhalte',
+        text: 'Die Inhalte dieser Seite wurden mit größter Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte kann ich jedoch keine Gewähr übernehmen. Als Diensteanbieter bin ich gemäß § 7 Abs.1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG bin ich als Diensteanbieter jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen. Verpflichtungen zur Entfernung oder Sperrung der Nutzung von Informationen nach den allgemeinen Gesetzen bleiben hiervon unberührt. Eine diesbezügliche Haftung ist jedoch erst ab dem Zeitpunkt der Kenntnis einer konkreten Rechtsverletzung möglich. Bei Bekanntwerden von entsprechenden Rechtsverletzungen werde ich diese Inhalte umgehend entfernen.'
+      },
+      links: {
+        title: 'Haftung für Links',
+        text: 'Mein Angebot enthält Links zu externen Webseiten Dritter, auf deren Inhalte ich keinen Einfluss habe. Deshalb kann ich für diese fremden Inhalte auch keine Gewähr übernehmen. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich. Die verlinkten Seiten wurden zum Zeitpunkt der Verlinkung auf mögliche Rechtsverstöße überprüft. Rechtswidrige Inhalte waren zum Zeitpunkt der Verlinkung nicht erkennbar. Eine permanente inhaltliche Kontrolle der verlinkten Seiten ist jedoch ohne konkrete Anhaltspunkte einer Rechtsverletzung nicht zumutbar. Bei Bekanntwerden von Rechtsverletzungen werde ich derartige Links umgehend entfernen.'
+      },
+      copyright: {
+        title: 'Urheberrecht',
+        text: 'Die durch die Seitenbetreiber erstellten bzw. verwendeten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der Zustimmung des jeweiligen Autors bzw. Erstellers. Downloads und Kopien dieser Seite sind nur für den privaten, nicht kommerziellen Gebrauch gestattet. Soweit die Inhalte auf dieser Seite nicht vom Betreiber erstellt wurden, werden die Urheberrechte Dritter beachtet. Insbesondere werden Inhalte Dritter als solche gekennzeichnet. Sollten Sie trotzdem auf eine Urheberrechtsverletzung aufmerksam werden, bitte ich um einen entsprechenden Hinweis. Bei Bekanntwerden von Rechtsverletzungen werde ich derartige Inhalte umgehend entfernen.',
+        usageNotice: 'Das Showcase-Bild und das zweite reguläre Bild des Projekts "DMP Portfolio" basieren auf Mockups von Anthony Boyd. Das Showcase-Mockup findet man <a href="https://www.anthonyboyd.graphics/mockups/2017/modern-responsive-showcase-mockup/" rel="noopener" target="_blank">hier</a>, das andere Mockup <a href="https://www.anthonyboyd.graphics/mockups/2017/modern-iphone-x-macbook-pro-mockup-vol-2/" rel="noopener" target="_blank">hier</a>.'
+      }
     },
-    responsibility: 'Verantwortlich für Inhalte gemäß 55 Abs. 2 RStV:',
-    h2: 'Haftungsauschluss',
-    contents: {
-      title: 'Haftung für Inhalte',
-      text: 'Die Inhalte dieser Seite wurden mit größter Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte kann ich jedoch keine Gewähr übernehmen. Als Diensteanbieter bin ich gemäß § 7 Abs.1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG bin ich als Diensteanbieter jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen. Verpflichtungen zur Entfernung oder Sperrung der Nutzung von Informationen nach den allgemeinen Gesetzen bleiben hiervon unberührt. Eine diesbezügliche Haftung ist jedoch erst ab dem Zeitpunkt der Kenntnis einer konkreten Rechtsverletzung möglich. Bei Bekanntwerden von entsprechenden Rechtsverletzungen werde ich diese Inhalte umgehend entfernen.'
-    },
-    links: {
-      title: 'Haftung für Links',
-      text: 'Mein Angebot enthält Links zu externen Webseiten Dritter, auf deren Inhalte ich keinen Einfluss habe. Deshalb kann ich für diese fremden Inhalte auch keine Gewähr übernehmen. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich. Die verlinkten Seiten wurden zum Zeitpunkt der Verlinkung auf mögliche Rechtsverstöße überprüft. Rechtswidrige Inhalte waren zum Zeitpunkt der Verlinkung nicht erkennbar. Eine permanente inhaltliche Kontrolle der verlinkten Seiten ist jedoch ohne konkrete Anhaltspunkte einer Rechtsverletzung nicht zumutbar. Bei Bekanntwerden von Rechtsverletzungen werde ich derartige Links umgehend entfernen.'
-    },
-    copyright: {
-      title: 'Urheberrecht',
-      text: 'Die durch die Seitenbetreiber erstellten bzw. verwendeten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der Zustimmung des jeweiligen Autors bzw. Erstellers. Downloads und Kopien dieser Seite sind nur für den privaten, nicht kommerziellen Gebrauch gestattet. Soweit die Inhalte auf dieser Seite nicht vom Betreiber erstellt wurden, werden die Urheberrechte Dritter beachtet. Insbesondere werden Inhalte Dritter als solche gekennzeichnet. Sollten Sie trotzdem auf eine Urheberrechtsverletzung aufmerksam werden, bitte ich um einen entsprechenden Hinweis. Bei Bekanntwerden von Rechtsverletzungen werde ich derartige Inhalte umgehend entfernen.',
-      usageNotice: 'Das Showcase-Bild und das zweite reguläre Bild des Projekts "DMP Portfolio" basieren auf Mockups von Anthony Boyd. Das Showcase-Mockup findet man <a href="https://www.anthonyboyd.graphics/mockups/2017/modern-responsive-showcase-mockup/" rel="noopener" target="_blank">hier</a>, das andere Mockup <a href="https://www.anthonyboyd.graphics/mockups/2017/modern-iphone-x-macbook-pro-mockup-vol-2/" rel="noopener" target="_blank">hier</a>.'
+    Privacy: {
+      h1: 'Datenschutz',
+      contactData: 'Falls sie die im Impressum gennanten Daten zur Kontaktaufnahme nutzen, so verwenden wir Ihre Kontaktdaten, die wir der Absenderadresse entnehmen können, ausschließlich zur Beantwortung Ihrer Anfrage; auf Wunsch löschen wir diese selbstverständlich wieder.',
+      colorSync: 'Bei Verwendung der Farb-Fernsteuerungs-Funktion erstellt die Seite eine einzigartige ID, die an den Farbserver übertragen und dort gespeichert wird, sodass dieser eine Verbindung zwischen Portfolio-Seite und Farb-Fernsteuerung herstellen kann. Diese ID wird zufällig generiert, enthält keine privaten Daten und wird nach Schließen der Seite wieder vom Server gelöscht.',
+      end: 'Ansonsten verwendet und verarbeitet diese Seite keine persönlichen Daten.'
     }
   },
   Error: {

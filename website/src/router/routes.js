@@ -32,12 +32,12 @@ export default [
   },
   {
     path: {
-      de: '/impressum',
-      en: '/imprint'
+      de: '/rechtliches',
+      en: '/legal'
     },
     name: {
-      de: 'Impressum',
-      en: 'Imprint'
+      de: 'Rechtliches',
+      en: 'Legal Notice'
     },
     component: ImprintPage
   },
