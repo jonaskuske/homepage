@@ -28,6 +28,9 @@
   h1 {
     font-size: 2.4rem;
   }
+  section h1 {
+    font-size: 1.8rem;
+  }
   h2 {
     font-size: 1.3rem;
   }
@@ -75,6 +78,9 @@
 @media screen and (min-width: 900px) {
   h1 {
     font-size: 3.5rem;
+  }
+  section h1 {
+    font-size: 2rem;
   }
   h2 {
     font-size: 1.4rem;
@@ -184,6 +190,9 @@
   .menu-aside > h1 {
     font-size: 2.3rem;
   }
+  .menu-aside > section h1 {
+    font-size: 1.7rem;
+  }
 }
 @media screen and (min-width: 1050px) {
   .menu-aside {
@@ -192,10 +201,16 @@
   .menu-aside > h1 {
     font-size: 3rem;
   }
+  .menu-aside > section h1 {
+    font-size: 2rem;
+  }
 }
 @media screen and (min-width: 1200px) {
   .content-container > h1 {
     font-size: 3.7rem;
+  }
+  .content-container > section h1 {
+    font-size: 2.5rem;
   }
   .menu-aside {
     width: 55%;
@@ -207,6 +222,9 @@
  @media screen and (min-width: 1400px) {
    .content-container h1 {
      font-size: 4.3rem;
+   }
+   .content-container section h1 {
+     font-size: 2.8rem;
    }
    .content-container, .color-btn-container {
     width: 65%;

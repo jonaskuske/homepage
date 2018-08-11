@@ -40,8 +40,11 @@ h1 {
   margin-bottom: 1rem;
   text-transform: uppercase;
 }
+section h1 {
+  font-size: 1.4rem;
+}
 h2 {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
 }
 h3 {
   font-size: 1rem;
@@ -301,7 +304,7 @@ input[type=color] {
 .spinner-overlay .animation-fallback {
   width: 100%;
 }
-.impressum section h2 {
+.legal section h2 {
   margin: 0;
 }
 .animation-fallback {
@@ -414,12 +417,14 @@ input[type=color] {
     opacity: 1;
   }
 }
+.about-page {
+  display: flex;
+  flex-direction: column;
+}
 #google-badge {
   width: 100%;
   max-width: 400px;
   margin-top: 3rem;
-  margin-left: 50%;
+  align-self: center;
   box-shadow: 0 0 0 4px var(--theme-color);
-  contain: strict;
-  transform: translateX(-50%);
 }
