@@ -9,8 +9,11 @@
     "> 1% in us"
   ],
   "scripts": {
-    "build": "SET NODE_ENV=production & webpack --mode=production --config=build/webpack.prod.js",
-    "dev": "webpack-dev-server --config=build/webpack.dev.js --mode=development --hot --watch"
+    "build:win": "SET NODE_ENV=production & webpack --mode=production --config=build/webpack.prod.js",
+    "build": "NODE_ENV=production & webpack --mode=production --config=build/webpack.prod.js",
+    "dev": "webpack-dev-server --config=build/webpack.dev.js --mode=development --hot --watch",
+    "start": "npm run dev",
+    "serve": "npm run dev"
   },
   "keywords": [
     "portfolio",
