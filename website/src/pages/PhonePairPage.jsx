@@ -21,6 +21,7 @@ const socket = (() => {
 })();
 
 const createQRCode = (el, text, mobile) => QRCode.toCanvas(el, text, { margin: 2, width: mobile ? 200 : 400 });
+const getSessionUrl = id => `https://jonaskuske.com/colorpicker?session=${id}`;
 
 const view = ({ data: { locales: { PairYourPhone = {} }, sessionID: id, mobile }, ...props }) => (
   <main {...props} key="pair" oncreate={socket}>
@@ -29,7 +30,7 @@ const view = ({ data: { locales: { PairYourPhone = {} }, sessionID: id, mobile }
       ? <p>{PairYourPhone.connecting}</p>
       : [
         <p>{PairYourPhone.description}</p>,
-        <canvas oncreate={el => createQRCode(el, id, mobile)} onupdate={el => createQRCode(el, id, mobile)} />,
+        <canvas oncreate={el => createQRCode(el, getSessionUrl(id), mobile)} onupdate={el => createQRCode(el, getSessionUrl(id), mobile)} />,
         <p>{PairYourPhone.sessionID}<span style={{ fontWeight: 600 }}>{id}</span></p>
       ]}
   </main>
