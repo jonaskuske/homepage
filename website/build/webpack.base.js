@@ -50,21 +50,6 @@ const config = {
           }
         ]
       },
-      // {
-      //   test: /\.(gif|png|jpe?g|svg)$/i,
-      //   enforce: 'pre',
-      //   loader: 'image-webpack-loader',
-      //   options: {
-      //     mozjpeg: {
-      //       progressive: true,
-      //       quality: 100
-      //     },
-      //     pngquant: {
-      //       quality: '70-85',
-      //       speed: 1
-      //     }
-      //   }
-      // },
       {
         test: /\.(gif|png|jpe?g)$/i,
         loader: 'file-loader',
