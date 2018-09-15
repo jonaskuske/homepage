@@ -1,5 +1,3 @@
-/* eslint-disable no-undef, no-unused-vars */
-
 const path = require('path')
 const config = require('./webpack.base')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
