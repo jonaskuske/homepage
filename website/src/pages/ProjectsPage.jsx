@@ -19,7 +19,7 @@ const view = ({ data: { projects, safeThemeColor, mobile, locales: { Projects = 
           const link = `/detail?project=${id}`;
           return (
             <Thumbnail
-              onclick={evt => spin(evt.target).then(() => router.push(link))}
+              fn={evt => spin(evt.target).then(() => router.push(link))}
               href={link}
               mobile={mobile}
               image={image}

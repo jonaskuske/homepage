@@ -3,6 +3,7 @@ import { colorState, colorActions } from './colors';
 import { projectState, projectActions } from './projects';
 import { languageState, languageActions } from './language';
 import { eastereggState, eastereggActions } from './easteregg';
+import { objectFitSupported } from '@/lib/browser-support';
 
 export const state = {
   ...colorState,

@@ -144,3 +144,9 @@ const domainExtMatch = domainExtRegEx.exec(window.location.host);
  */
 const ext = domainExtMatch && domainExtMatch[0].replace('.', '');
 export { ext as domainExtension };
+
+/**
+ * Takes in a function and returns a function that calls the passed function, then blurs focus of the event target that triggered it.
+ * @param {function} fn The function to be called before bluring focus.
+ */
+export const withBlur = fn => e => { const res = fn(e); e.currentTarget.blur(); return res; };

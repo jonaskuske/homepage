@@ -17,6 +17,7 @@ const handleScrollPosition = (page, positions) => {
 const view = ({ page, mobile, scrollPositions, colorSelection, locales: { App = {}, ...locales }, ...state }, actions) => (
   <div onclick={el => mobile && state.panel && actions.setMenu(false)}>
     {state.overlay && <ImageOverlay src={state.overlayImage} />}
+    <NavHeader scroll={state.scrollTop} menu={state.panel} mobile={mobile} links={App.links} />
     <SidePanel class={`${!state.panel ? 'slideout' : ''}`} mobile={mobile} lang={state.language} panel={App.panel} />
     <div
       id='menu-touchtarget'
@@ -25,7 +26,6 @@ const view = ({ page, mobile, scrollPositions, colorSelection, locales: { App = 
         .start()}
     >
     </div>
-    <NavHeader scroll={state.scrollTop} menu={state.panel} mobile={mobile} links={App.links} />
     <ColorSelection
       panel={state.panel}
       color={state.themeColor}

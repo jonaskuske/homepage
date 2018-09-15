@@ -1,5 +1,5 @@
 import actions from '@/main';
-import router from '@/router';
+import { domainExtension, parseText } from '@/lib/helpers';
 import QRCode from 'qrcode';
 import io from 'socket.io-client';
 
@@ -20,17 +20,23 @@ const socket = (() => {
   };
 })();
 
-const createQRCode = (el, text, mobile) => QRCode.toCanvas(el, text, { margin: 2, width: mobile ? 200 : 400 });
-const getSessionUrl = id => `https://jonaskuske.com/colorpicker?session=${id}`;
+const createQRCode = (el, id, mobile) => QRCode.toCanvas(
+  el,
+  `https://jonaskuske.${domainExtension || 'com'}/colorpicker?session=${id}`,
+  { margin: 2, width: mobile ? 200 : 400 }
+);
 
-const view = ({ data: { locales: { PairYourPhone = {} }, sessionID: id, mobile }, ...props }) => (
-  <main {...props} key="pair" oncreate={socket}>
+const view = ({ data: { locales: { PairYourPhone = {} }, sessionID: id, mobile }, class: className = '', ...props }) => (
+  <main {...props} class={`phone-pair-page ${className}`} key="pair" oncreate={socket}>
     <h1>{PairYourPhone.h1}</h1>
     {!id
       ? <p>{PairYourPhone.connecting}</p>
       : [
-        <p>{PairYourPhone.description}</p>,
-        <canvas oncreate={el => createQRCode(el, getSessionUrl(id), mobile)} onupdate={el => createQRCode(el, getSessionUrl(id), mobile)} />,
+        <p>{parseText(PairYourPhone.description)}</p>,
+        <canvas
+          oncreate={el => createQRCode(el, id, mobile)}
+          onupdate={el => createQRCode(el, id, mobile)}
+        />,
         <p>{PairYourPhone.sessionID}<span style={{ fontWeight: 600 }}>{id}</span></p>
       ]}
   </main>

@@ -1,6 +1,7 @@
 {
   "name": "portfolio",
   "version": "1.0.0",
+  "private": true,
   "description": "My personal portfolio website, maybe a little overengineered.",
   "main": "src/main.js",
   "browserslist": [
@@ -9,9 +10,8 @@
     "> 1% in us"
   ],
   "scripts": {
-    "build:win": "SET NODE_ENV=production & webpack --mode=production --config=build/webpack.prod.js",
-    "build": "NODE_ENV=production & webpack --mode=production --config=build/webpack.prod.js",
-    "dev": "webpack-dev-server --config=build/webpack.dev.js --mode=development --hot --watch",
+    "build": "webpack --mode=production --config=build/webpack.prod.js",
+    "dev": "webpack-dev-server --mode=development --config=build/webpack.dev.js --hot --watch",
     "start": "npm run dev",
     "serve": "npm run dev"
   },

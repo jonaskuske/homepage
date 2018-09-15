@@ -56,6 +56,9 @@ p {
 img {
   object-fit: contain;
 }
+img.pointer:focus-visible {
+  box-shadow: 0 0 14px 1px rgba(0,0,0,0.6);
+}
 .textsquish:not(.textsquish-blocker) {
   transform: scale(1, 0.03);
 }
@@ -69,8 +72,25 @@ button {
   outline: none;
   user-select: none;
 }
+button:focus {
+  outline: currentColor dotted thin;
+  outline: -webkit-focus-ring-color auto 5px;
+}
+button:focus:not(:focus-visible) {
+  border-bottom: none;
+  outline: none;
+}
+button:focus-visible {
+  border-bottom: 2px solid white;
+}
 a {
   text-decoration: underline;
+}
+a:focus {
+  font-weight: bolder;
+}
+a:focus:not(:focus-visible) {
+  font-weight: normal;
 }
 .textsquish.textsquish-blocker, .textsquish.textsquish-blocker a  {
   color: transparent;
@@ -98,7 +118,7 @@ input[type=color] {
   height: 100%;
   top: 0;
   left: 0;
-  z-index: 100;
+  z-index: 101;
   padding: 1.2rem;
   box-sizing: border-box;
   transition: opacity 200ms ease-out;
@@ -120,7 +140,7 @@ input[type=color] {
   width: 100%;
   top: 1.5rem;
   display: flex;
-  z-index: 99;
+  z-index: 100;
   justify-content: space-between;
   align-items: center;
   pointer-events: none;
@@ -151,10 +171,10 @@ input[type=color] {
   transition: width 350ms ease-in-out;
   border-bottom: 2px solid var(--theme-color);
 }
-.header-link-text:hover{
+.header-link-text:hover, .header-link:focus .header-link-text{
   direction: ltr;
 }
-.header-link-text:hover::before {
+.header-link-text:hover::before, .header-link:focus .header-link-text::before {
   width: 100%;
 }
 .content-container {
@@ -272,7 +292,7 @@ input[type=color] {
   font-weight: 300;
   pointer-events: none;
 }
-.thumbnail:hover .overlay {
+.thumbnail:hover .overlay, a:focus .thumbnail .overlay {
   opacity: 1;
 }
 .loading-screen {
@@ -420,6 +440,9 @@ input[type=color] {
 .about-page {
   display: flex;
   flex-direction: column;
+}
+.phone-pair-page a {
+  text-decoration: none;
 }
 #google-badge {
   width: 100%;

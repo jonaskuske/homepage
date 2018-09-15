@@ -15,7 +15,7 @@ const view = ({ class: className = '', data: { projects, safeThemeColor, mobile,
           const link = `/detail?project=${id}`;
           return index < 3 && (
             <Thumbnail
-              onclick={evt => spin(evt.target).then(() => router.push(link))}
+              fn={evt => spin(evt.target).then(() => router.push(link))}
               href={link}
               mobile={mobile}
               image={image}
