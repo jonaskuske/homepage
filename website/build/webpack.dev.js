@@ -1,6 +1,6 @@
-const config = require('./webpack.base');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const WebpackPwaManifest = require('webpack-pwa-manifest');
+const config = require('./webpack.base')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const WebpackPwaManifest = require('webpack-pwa-manifest')
 
 config.plugins.push(
   new HtmlWebpackPlugin({
@@ -8,7 +8,7 @@ config.plugins.push(
     template: './index.html',
     inject: true,
     minify: false,
-    favicon: './src/assets/images/favicon.ico'
+    favicon: './src/assets/images/favicon.ico',
   }),
   new WebpackPwaManifest({
     short_name: 'Portfolio',
@@ -17,8 +17,8 @@ config.plugins.push(
     start_url: '/?utm_source=homescreen',
     display: 'standalone',
     theme_color: '#585858',
-    background_color: '#f0f0f0'
-  })
-);
+    background_color: '#f0f0f0',
+  }),
+)
 
-module.exports = config;
+module.exports = config

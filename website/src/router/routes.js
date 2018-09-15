@@ -1,52 +1,59 @@
-import { WelcomePage, ProjectsPage, DetailPage, AboutPage, ImprintPage, PhonePairPage } from '@/pages';
+import {
+  WelcomePage,
+  ProjectsPage,
+  DetailPage,
+  AboutPage,
+  ImprintPage,
+  PhonePairPage,
+} from '@/pages'
 
 export default [
   {
     path: '/',
     name: 'Portfolio',
-    component: WelcomePage
+    component: WelcomePage,
   },
   {
     path: {
       de: '/projekte',
-      en: '/projects'
+      en: '/projects',
     },
     name: {
       de: 'Projekte',
-      en: 'Projects'
+      en: 'Projects',
     },
-    component: ProjectsPage
+    component: ProjectsPage,
   },
   {
     path: '/detail',
     name: 'Project',
-    component: DetailPage
+    component: DetailPage,
   },
   {
     path: '/me',
     name: {
       de: 'Über mich',
-      en: 'About Me'
+      en: 'About Me',
     },
-    component: AboutPage
+    component: AboutPage,
   },
   {
     path: {
       de: '/rechtliches',
-      en: '/legal'
+      en: '/legal',
     },
     name: {
       de: 'Rechtliches',
-      en: 'Legal Notice'
+      en: 'Legal Notice',
     },
-    component: ImprintPage
+    component: ImprintPage,
   },
   {
     path: '/connect',
     name: {
       de: 'Telefon verbinden',
-      en: 'Pair your Phone'
+      en: 'Pair your Phone',
     },
-    component: PhonePairPage
-  }
-];
+    component: PhonePairPage,
+  },
+]

@@ -1,4 +1,4 @@
-self.oninstall = _ => self.skipWaiting();
+self.oninstall = _ => self.skipWaiting()
 self.onactivate = _ => {
-  self.registration.unregister();
-};
+  self.registration.unregister()
+}

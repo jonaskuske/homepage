@@ -1,9 +1,9 @@
-import serpensPro from '@projects/serpens-pro/serpens-pro.jpg';
-import typro from '@projects/typro/typro.jpg';
-import dmpPortfolio from '@projects/dmp-portfolio/dmp-portfolio.jpg';
-import lsbHomepage from '@projects/lsb-homepage/lsb-homepage.jpg';
-import lsbDesign from '@projects/lsb-design/lsb-design.jpg';
-import codeProjects from '@projects/code-projects/code-projects.jpg';
+import serpensPro from '@projects/serpens-pro/serpens-pro.jpg'
+import typro from '@projects/typro/typro.jpg'
+import dmpPortfolio from '@projects/dmp-portfolio/dmp-portfolio.jpg'
+import lsbHomepage from '@projects/lsb-homepage/lsb-homepage.jpg'
+import lsbDesign from '@projects/lsb-design/lsb-design.jpg'
+import codeProjects from '@projects/code-projects/code-projects.jpg'
 
 export default [
   {
@@ -12,7 +12,7 @@ export default [
     category: 'Full-Stack Webprojekt',
     id: 'dmp-portfolio',
     highlight: true,
-    image: dmpPortfolio
+    image: dmpPortfolio,
   },
   {
     title: '»Landessportbund Bremen«',
@@ -20,21 +20,21 @@ export default [
     category: 'Grafikdesign',
     id: 'lsb-design',
     highlight: true,
-    image: lsbDesign
+    image: lsbDesign,
   },
   {
     title: '»Serpens Pro«',
     subtitle: 'Elementarfont',
     category: 'Grafikdesign',
     id: 'serpens-pro',
-    image: serpensPro
+    image: serpensPro,
   },
   {
     title: '»Landessportbund Bremen«',
     subtitle: 'Homepage',
     category: 'Webdesign & Prototyp',
     id: 'lsb-homepage',
-    image: lsbHomepage
+    image: lsbHomepage,
   },
   {
     title: '»typro«',
@@ -42,13 +42,13 @@ export default [
     category: 'Konzept, Design, Development',
     id: 'typro',
     highlight: true,
-    image: typro
+    image: typro,
   },
   {
     title: '»Code Projekte«',
     subtitle: '',
     category: 'Libraries & mehr',
     id: 'code-projects',
-    image: codeProjects
-  }
-];
+    image: codeProjects,
+  },
+]

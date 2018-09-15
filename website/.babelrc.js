@@ -1,19 +1,19 @@
 module.exports = {
-  "presets": [
+  presets: [
     [
-      "@babel/preset-env",
+      '@babel/preset-env',
       {
-        "useBuiltIns": "usage"
-      }
-    ]
-  ],
-  "plugins": [
-    [
-      "@babel/plugin-transform-react-jsx",
-      {
-        "pragma": "h"
-      }
+        useBuiltIns: 'usage',
+      },
     ],
-    "@babel/plugin-syntax-dynamic-import"
-  ]
+  ],
+  plugins: [
+    [
+      '@babel/plugin-transform-react-jsx',
+      {
+        pragma: 'h',
+      },
+    ],
+    '@babel/plugin-syntax-dynamic-import',
+  ],
 }

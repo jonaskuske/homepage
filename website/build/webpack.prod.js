@@ -1,22 +1,22 @@
 /* eslint-disable no-undef, no-unused-vars */
 
-const path = require('path');
-const config = require('./webpack.base');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
-const WebpackPwaManifest = require('webpack-pwa-manifest');
-const ManifestPlugin = require('webpack-manifest-plugin');
-const CompressionWebpackPlugin = require('compression-webpack-plugin');
+const path = require('path')
+const config = require('./webpack.base')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const CleanWebpackPlugin = require('clean-webpack-plugin')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
+const WebpackPwaManifest = require('webpack-pwa-manifest')
+const ManifestPlugin = require('webpack-manifest-plugin')
+const CompressionWebpackPlugin = require('compression-webpack-plugin')
 
-const root = dir => path.resolve(__dirname, '../', dir);
+const root = dir => path.resolve(__dirname, '../', dir)
 
-config.entry.push(root('src/registerServiceWorker.js'));
+config.entry.push(root('src/registerServiceWorker.js'))
 
 config.plugins.push(
   new ManifestPlugin({
     fileName: 'asset-manifest.json',
-    filter: ({ name }) => !name.includes('htaccess') && !name.endsWith('gz')
+    filter: ({ name }) => !name.includes('htaccess') && !name.endsWith('gz'),
   }),
   new CleanWebpackPlugin(['dist'], { root: root('.'), verbose: false }),
   new CopyWebpackPlugin([{ from: root('static/*'), to: root('dist'), flatten: true }]),
@@ -29,9 +29,9 @@ config.plugins.push(
       removeComments: true,
       removeStyleLinkTypeAttributes: true,
       removeScriptTypeAttributes: true,
-      removeAttributeQuotes: true
+      removeAttributeQuotes: true,
     },
-    favicon: root('src/assets/images/favicon.ico')
+    favicon: root('src/assets/images/favicon.ico'),
   }),
   new WebpackPwaManifest({
     short_name: 'Portfolio',
@@ -49,17 +49,17 @@ config.plugins.push(
         src: root('src/assets/icons/icon.png'),
         sizes: [36, 48, 72, 96, 128, 144, 192, 256, 512, 1024],
         destination: path.join('assets', 'icons'),
-        ios: false
-      }
-    ]
+        ios: false,
+      },
+    ],
   }),
   new CompressionWebpackPlugin({
     asset: '[path].gz[query]',
     algorithm: 'gzip',
     test: /\.(js|css)$/,
     threshold: 3000,
-    minRatio: 0.8
-  })
-);
+    minRatio: 0.8,
+  }),
+)
 
-module.exports = config;
+module.exports = config
