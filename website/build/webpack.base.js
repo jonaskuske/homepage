@@ -6,14 +6,12 @@ const webpack = require('webpack');
 
 const root = dir => path.resolve(__dirname, '../', dir);
 
-const babelConfig = JSON.parse(fs.readFileSync(root('.babelrc')));
-
 const config = {
   entry: ['./src/main.js'],
   output: {
     path: root('dist'),
-    filename: 'main.[hash].js',
-    chunkFilename: '[name].bundle.[hash].js',
+    filename: 'main.[hash:6].js',
+    chunkFilename: '[name].bundle.[chunkhash:6].js',
     publicPath: '/'
   },
   resolve: {
@@ -30,9 +28,9 @@ const config = {
     rules: [
       {
         test: /\.jsx?$/,
-        exclude: /node_modules(?!\\miniswipe)/,
+        exclude: /node_modules/,
         loader: 'babel-loader',
-        options: { ...babelConfig, cacheDirectory: true }
+        options: { cacheDirectory: true }
       },
       {
         test: /\.css$/,

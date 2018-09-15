@@ -16,7 +16,7 @@ config.entry.push(root('src/registerServiceWorker.js'));
 config.plugins.push(
   new ManifestPlugin({
     fileName: 'asset-manifest.json',
-    filter: ({ name }) => !name.includes('htaccess')
+    filter: ({ name }) => !name.includes('htaccess') && !name.endsWith('gz')
   }),
   new CleanWebpackPlugin(['dist'], { root: root('.'), verbose: false }),
   new CopyWebpackPlugin([{ from: root('static/*'), to: root('dist'), flatten: true }]),
