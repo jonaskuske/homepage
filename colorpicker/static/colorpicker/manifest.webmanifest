@@ -1,0 +1,43 @@
+{
+  "short_name": "Colorpicker",
+  "name": "Colorpicker | Jonas Kuske",
+  "description": "Echtzeit-Farbauswahl der Themecolor von jonaskuske.de",
+  "start_url": "/colorpicker/?utm_source=homescreen",
+  "icons": [
+    {
+      "src": "./icon-48.png",
+      "type": "image/png",
+      "sizes": "48x48"
+    },
+    {
+      "src": "./icon-96.png",
+      "type": "image/png",
+      "sizes": "96x96"
+    },
+    {
+      "src": "./icon-128.png",
+      "type": "image/png",
+      "sizes": "128x128"
+    },
+    {
+      "src": "./icon-192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "./icon-256.png",
+      "type": "image/png",
+      "sizes": "256x256"
+    },
+    {
+      "src": "./icon-512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "orientation": "portrait",
+  "display": "standalone",
+  "theme_color": "#c8bb00",
+  "background_color": "#f0f0f0",
+  "dir": "ltr"
+}

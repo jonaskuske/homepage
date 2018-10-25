@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Colorpicker | Jonas Kuske</title>
+    <meta name="theme-color" content="#c8bb00">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+      .js-cloak {
+        opacity: 0;
+      }
+
+      .fade-in {
+        transition: opacity 500ms ease-out;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header class="js-cloak fade-in">
+      <a href="/colorpicker/" class="textlink">
+        <h1>Colorpicker</h1>
+      </a>
+      <p>
+        <span data-de="Echtzeit-Farbauswahl für ">
+          Live color selection for
+        </span>
+        <span>&nbsp;</span> <!-- Creates a space -->
+        <a data-de="jonaskuske.de" href="../" class="textlink to-portfolio">
+          jonaskuske.com
+        </a>
+      </p>
+      <br>
+    </header>
+
+    <main class="js-cloak fade-in">
+      <br>
+      <section>
+        <h2 data-de="QR Code scannen">Scan the QR Code</h2>
+
+        <div class="video-wrapper hidden bounce-in">
+          <section class="video-overlay invisible">
+            <h3>Offline</h3>
+            <p class="video-overlay__tagline" data-de="Warten auf Internetverbindung...">Waiting
+              for reconnection...</p>
+            <p data-de="Der Colorpicker benötigt Internetzugang, um die Farbauswahl in Echtzeit mit der Portfolio-Seite synchronisieren zu können.">The
+              colorpicker needs internet access to connect to the
+              portfolio and synchronize the color selection.</p>
+          </section>
+
+          <video playsinline muted></video>
+        </div>
+
+        <!-- Loading Spinner-->
+        <svg viewBox="0 0 120 120" fill="transparent" class="loading-spinner">
+          <circle r="42" cx="60" cy="60" fill="transparent" stroke="#282828"
+            stroke-width="6" stroke-dasharray="2 9.5" style="animation: spin 3.2s linear infinite, colorcircle 1s linear infinite; transform-origin: 60px 60px;">
+          </circle>
+          <linearGradient id="half-circle">
+            <stop offset="0%" stop-opacity="0"></stop>
+            <stop offset="49.99%" stop-opacity="0"></stop>
+            <stop offset="49.99%" stop-opacity="0"></stop>
+            <stop offset="50%" stop-color="#f0f0f0"></stop>
+            <stop offset="100%" stop-color="#f0f0f0"></stop>
+          </linearGradient>
+          <circle r="36" cx="60" cy="60" fill="transparent" stroke="url(#half-circle)"
+            stroke-width="2" style="animation: spin 2.4s linear infinite reverse -0.2s; transform-origin: 60px 60px;">
+          </circle>
+        </svg>
+        <!-- End Loading Spinner -->
+      </section>
+
+      <br>
+      <br>
+
+      <div class="reconnect hidden">
+        <section class="reconnect-warn">
+          <p data-de="Verbindung unterbrochen!">Connection lost!</p>
+        </section>
+        <section class="reconnect-prompt">
+          <button class="btn-reconnect">
+            <span data-de="Letzte Verbindung wiederherstellen?">Reconnect last
+              session?</button>
+        </section>
+        <br>
+        <br>
+      </div>
+
+      <section>
+        <h2 data-de="Oder ID manuell eingeben">Or enter the ID manually</h2>
+        <form action="submit" autocomplete="off">
+          <label for="id" data-de="Sitzungs-ID:">Unique site ID:</label>
+          <input type="text" id="id" autocomplete="off">
+          <br>
+          <br>
+          <button data-de="Verbinden">Connect</button>
+        </form>
+      </section>
+
+      <br>
+      <br>
+
+      <section>
+        <button class="language-toggle" data-de="Sprache wechseln">Switch
+          Language</button>
+      </section>
+    </main>
+
+    <footer>
+      <br>
+      <br>
+      <p>© 2018 Jonas Kuske</p>
+      <a href="/legal" rel="noopener" data-de="Datenschutz & Impressum" class="to-portfolio">
+        Legal Notice
+      </a>
+    </footer>
+  </body>
+
+</html>
