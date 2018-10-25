@@ -1,5 +1,7 @@
 # jonaskuske.com / jonaskuske.de
 
+> ! This repo will be deprecated soon, as I'll move all parts of the portfolio (this repo, [jonaskuske/portfolio-colorpicker](https://github.com/jonaskuske/portfolio-colorpicker) and the backend handling the colorsync) into a monorepo. This will go hand-in-hand with a redesign and refactoring the code. Stay tuned!
+
 My personal website, built as an SPA and rendered client-side using the microframework [hyperapp](https://hyperapp.js.org/).
 
 The site is available both from https://jonaskuske.com and https://jonaskuske.de, English will automatically be set as default language if accessed through the `.com` domain, while German will be set if accessed through `.de`.  
