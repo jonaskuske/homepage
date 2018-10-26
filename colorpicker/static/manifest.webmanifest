@@ -2,7 +2,7 @@
   "short_name": "Colorpicker",
   "name": "Colorpicker | Jonas Kuske",
   "description": "Echtzeit-Farbauswahl der Themecolor von jonaskuske.de",
-  "start_url": "/colorpicker/?utm_source=homescreen",
+  "start_url": "./",
   "icons": [
     {
       "src": "./icon-48.png",

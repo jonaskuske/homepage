@@ -8,6 +8,7 @@ const ProgressPlugin = require('progress-webpack-plugin')
 const root = dir => path.resolve(__dirname, '../', dir)
 
 const config = {
+  mode: 'production',
   node: {
     fs: 'empty',
   },
@@ -23,7 +24,6 @@ const config = {
   output: {
     filename: 'main.[hash:6].js',
     chunkFilename: '[name].[chunkhash:6].js',
-    publicPath: '/colorpicker/',
   },
   resolve: {
     extensions: ['.js', '.css'],
@@ -64,11 +64,6 @@ const config = {
     new ProgressPlugin(),
     new FriendlyErrorsWebpackPlugin(),
   ],
-  devServer: {
-    contentBase: root('static'),
-    quiet: true,
-    port: 8081,
-  },
 }
 
 module.exports = config

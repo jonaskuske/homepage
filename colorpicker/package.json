@@ -1,13 +1,11 @@
 {
-  "name": "portfolio-colorpicker",
+  "name": "colorpicker",
   "version": "1.0.0",
   "description": "The live colorpicker to select colors remotely for my portfolio",
   "main": "main.js",
   "scripts": {
-    "build": "webpack --mode=production --config=build/webpack.config.prod.js",
-    "start": "webpack-dev-server --hot --watch --mode=development --config=build/webpack.config.js",
-    "serve": "npm start",
-    "dev": "npm start",
+    "build": "webpack --config=build/webpack.prod.js",
+    "serve": "webpack-dev-server --config=build/webpack.dev.js --hot --watch",
     "lint": "eslint ./ --fix"
   },
   "author": "Jonas Kuske",
@@ -25,6 +23,7 @@
     "compression-webpack-plugin": "^1.1.12",
     "copy-webpack-plugin": "^4.5.2",
     "css-loader": "^0.28.11",
+    "dotenv-webpack": "^1.5.7",
     "eslint": "^4.19.1",
     "eslint-config-prettier": "^3.0.1",
     "eslint-plugin-prettier": "^2.6.2",

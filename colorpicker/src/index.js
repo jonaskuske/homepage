@@ -14,7 +14,9 @@ import './registerManifest'
 import './registerServiceWorker'
 import '../assets/styles/style.css'
 
-const SOCKET = io.connect('https://data.jonaskuske.com/colorservice')
+console.log(process.env.SERVER_URL)
+
+const SOCKET = io.connect(process.env.SERVER_URL)
 let QR_SCANNER = undefined // QR code scanner, set as soon as instascan code is downloaded and executed
 let USER_CAMERA // set once Instascan has detected the device's cameras
 let TARGET_ID = undefined // is set as soon as an entered client id is confirmed by the server

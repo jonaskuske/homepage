@@ -7,7 +7,7 @@ self.addEventListener('install', event => {
     caches
       .open(CACHE_NAME)
       .then(cache =>
-        fetch('/colorpicker/build-manifest.json')
+        fetch('./build-manifest.json')
           .then(response => response.json())
           .then(assets => {
             const hashedAssets = Object.entries(assets)
