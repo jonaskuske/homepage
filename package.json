@@ -1,0 +1,47 @@
+{
+  "name": "homepage",
+  "version": "1.0.0",
+  "description": "Personal homepage of Jonas Kuske",
+  "main": "website/src/main.js",
+  "private": true,
+  "scripts": {
+    "serve:server": "node server/server.js",
+    "serve:website": "cd website && npm run serve",
+    "serve:colorpicker": "cd colorpicker && npm run serve",
+    "serve": "concurrently \"npm run serve:server\" \"npm run serve:website\" \"npm run serve:colorpicker\" ",
+    "build:website": "cd website && npm run build && cd ..",
+    "build:colorpicker": "cd colorpicker && npm run build && cd ..",
+    "build": "npm run build:website && npm run build:colorpicker && npm run clean-dist && npm run build-dist",
+    "install:server": "cd server && npm i && cd ..",
+    "install:website": "cd website && npm i && cd ..",
+    "install:colorpicker": "cd colorpicker && npm i && cd ..",
+    "install": "npm run install:server && npm run install:website && npm run install:colorpicker",
+    "clean-dist": "del-cli dist",
+    "build-dist": "copyfiles website/dist/{,**/}* dist -a -u 2 && copyfiles colorpicker/dist/{,**/}* dist/colorpicker -a -u 2",
+    "test": "node test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jonaskuske/homepage.git"
+  },
+  "keywords": [
+    "website",
+    "portfolio",
+    "homepage",
+    "colorpicker",
+    "websockets",
+    "socket.io",
+    "themecolor"
+  ],
+  "author": "Jonas Kuske",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jonaskuske/homepage/issues"
+  },
+  "homepage": "https://github.com/jonaskuske/homepage#readme",
+  "devDependencies": {
+    "concurrently": "^4.0.1",
+    "copyfiles-cli": "^0.1.0",
+    "del-cli": "^1.1.0"
+  }
+}
