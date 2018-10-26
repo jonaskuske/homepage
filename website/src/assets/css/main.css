@@ -352,6 +352,10 @@ input[type=color] {
 }
 .image-text-block {
   margin-bottom: 2rem;
+  width: 100%;
+}
+.image-block, .text-block {
+  flex: 1;
 }
 .image-block {
   width: 100%;
