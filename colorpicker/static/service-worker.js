@@ -1,4 +1,4 @@
-const CACHE_NAME = 'portfolio-colorpicker-v6'
+const CACHE_NAME = 'portfolio-colorpicker-v7'
 
 const staticAssets = ['.']
 
