@@ -9,4 +9,4 @@ const server = http.createServer(app)
 const io = socketIo(server)
 require('./colorservice')(io)
 
-server.listen(8085, 'localhost')
+server.listen(8082, 'localhost')
