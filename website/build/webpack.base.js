@@ -7,6 +7,7 @@ const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin')
 const root = dir => path.resolve(__dirname, '../', dir)
 
 const config = {
+  mode: 'production',
   node: {
     fs: 'empty',
   },

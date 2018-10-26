@@ -1,5 +1,5 @@
 {
-  "name": "portfolio",
+  "name": "website",
   "version": "1.0.0",
   "private": true,
   "description": "My personal portfolio website, maybe a little overengineered.",
@@ -11,10 +11,8 @@
     "ie > 10"
   ],
   "scripts": {
-    "build": "webpack --mode=production --config=build/webpack.prod.js",
-    "dev": "webpack-dev-server --mode=development --config=build/webpack.dev.js --hot --watch",
-    "start": "npm run dev",
-    "serve": "npm run dev",
+    "build": "webpack --config=build/webpack.prod.js",
+    "serve": "webpack-dev-server --config=build/webpack.dev.js --hot --watch",
     "lint": "eslint ./ --fix"
   },
   "keywords": [
@@ -25,7 +23,6 @@
   ],
   "author": "Jonas Kuske",
   "license": "ISC",
-  "repository": "https://github.com/jonaskuske/portfolio",
   "devDependencies": {
     "@babel/core": "^7.0.1",
     "@babel/plugin-syntax-dynamic-import": "^7.0.0",
@@ -37,6 +34,7 @@
     "compression-webpack-plugin": "^1.1.12",
     "copy-webpack-plugin": "^4.5.2",
     "css-loader": "^0.28.11",
+    "dotenv-webpack": "^1.5.7",
     "eslint": "^4.19.1",
     "eslint-config-prettier": "^3.0.1",
     "eslint-plugin-prettier": "^2.6.2",

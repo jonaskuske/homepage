@@ -6,8 +6,11 @@ const CopyWebpackPlugin = require('copy-webpack-plugin')
 const WebpackPwaManifest = require('webpack-pwa-manifest')
 const ManifestPlugin = require('webpack-manifest-plugin')
 const CompressionWebpackPlugin = require('compression-webpack-plugin')
+const dotenvWebpack = require('dotenv-webpack')
 
 const root = dir => path.resolve(__dirname, '../', dir)
+
+config.mode = 'production'
 
 config.entry.push(root('src/registerServiceWorker.js'))
 
@@ -58,6 +61,7 @@ config.plugins.push(
     threshold: 3000,
     minRatio: 0.8,
   }),
+  new dotenvWebpack({ path: root('../.env') })
 )
 
 module.exports = config

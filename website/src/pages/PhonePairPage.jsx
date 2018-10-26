@@ -8,7 +8,7 @@ const socket = (() => {
   return () => {
     if (webSocket) return webSocket
     else {
-      const socket = io('https://data.jonaskuske.com/colorservice')
+      const socket = io(process.env.SERVER_URL)
       socket.on('connection_established', () => {
         actions.setSessionID(socket.id)
       })
@@ -42,24 +42,24 @@ const view = ({
   class: className = '',
   ...props
 }) => (
-  <main {...props} class={`phone-pair-page ${className}`} key="pair" oncreate={socket}>
-    <h1>{PairYourPhone.h1}</h1>
-    {!id ? (
-      <p>{PairYourPhone.connecting}</p>
-    ) : (
-      [
-        <p>{parseText(PairYourPhone.description)}</p>,
-        <canvas
-          oncreate={el => createQRCode(el, id, mobile)}
-          onupdate={el => createQRCode(el, id, mobile)}
-        />,
-        <p>
-          {PairYourPhone.sessionID}
-          <span style={{ fontWeight: 600 }}>{id.replace('/colorservice#', '')}</span>
-        </p>,
-      ]
-    )}
-  </main>
-)
+    <main {...props} class={`phone-pair-page ${className}`} key="pair" oncreate={socket}>
+      <h1>{PairYourPhone.h1}</h1>
+      {!id ? (
+        <p>{PairYourPhone.connecting}</p>
+      ) : (
+          [
+            <p>{parseText(PairYourPhone.description)}</p>,
+            <canvas
+              oncreate={el => createQRCode(el, id, mobile)}
+              onupdate={el => createQRCode(el, id, mobile)}
+            />,
+            <p>
+              {PairYourPhone.sessionID}
+              <span style={{ fontWeight: 600 }}>{id.replace('/colorservice#', '')}</span>
+            </p>,
+          ]
+        )}
+    </main>
+  )
 
 export default view
