@@ -20,7 +20,7 @@ config.plugins.push(
     filter: ({ name }) => !name.includes('htaccess') && !name.endsWith('gz'),
   }),
   new CleanWebpackPlugin(['dist'], { root: root('.'), verbose: false }),
-  new CopyWebpackPlugin([{ from: root('static/*'), to: root('dist'), flatten: true }]),
+  new CopyWebpackPlugin([{ from: root('static'), to: root('dist') }]),
   new HtmlWebpackPlugin({
     title: 'Portfolio | Jonas Kuske',
     template: root('index.html'),
@@ -61,7 +61,7 @@ config.plugins.push(
     threshold: 3000,
     minRatio: 0.8,
   }),
-  new dotenvWebpack({ path: root('../.env') })
+  new dotenvWebpack({ path: root('../.env') }),
 )
 
 module.exports = config
