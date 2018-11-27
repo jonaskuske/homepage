@@ -1,9 +1,10 @@
 @media screen and (min-width: 360px) {
-  .skill-icon-legend > .skill-icon:last-of-type {
+  .skill-icon-legend>.skill-icon:last-of-type {
     margin-left: 0;
     transform: initial;
   }
 }
+
 @media screen and (min-width: 410px) {
   .skill-icon {
     width: 90px;
@@ -14,17 +15,18 @@
     height: 90px;
   }
 }
+
 @media screen and (min-width: 540px) {
-  .skill-icon-compat-legend > .skill-icon-compat:last-of-type{
+  .skill-icon-compat-legend>.skill-icon-compat:last-of-type {
     margin-left: 1rem;
     transform: none;
   }
 }
+
 @media screen and (min-width: 600px) {
   html {
     font-size: initial;
   }
-
   h1 {
     font-size: 2.4rem;
   }
@@ -51,13 +53,13 @@
     margin-top: 6rem;
   }
   .hamburger:hover, .hamburger:hover::before, .hamburger:hover::after {
-  border-bottom: 2px solid var(--theme-color);
+    border-bottom: 2px solid var(--theme-color);
   }
   .skill-icon-legend {
     justify-content: flex-start;
     display: inline-block;
   }
-  .skill-icon-legend > .skill-icon:last-of-type {
+  .skill-icon-legend>.skill-icon:last-of-type {
     margin-left: 1rem;
   }
   .skill-icon-legend svg {
@@ -75,6 +77,7 @@
     opacity: 1;
   }
 }
+
 @media screen and (min-width: 900px) {
   h1 {
     font-size: 3.5rem;
@@ -109,10 +112,10 @@
     right: 0;
     top: 50%;
   }
-  .link-container-change > a {
+  .link-container-change>a {
     height: 2.25rem;
   }
-  .link-container-change > a > .header-link-text {
+  .link-container-change>a>.header-link-text {
     font-size: 0.85rem;
     font-weight: 300;
   }
@@ -125,7 +128,7 @@
   .side-panel {
     transition: left 350ms ease-in-out, width 200ms, background-color 350ms ease-out;
     width: 220px;
-    box-shadow: 2px 7px 13px 3px rgba(0,0,0,0.1);
+    box-shadow: 2px 7px 13px 3px rgba(0, 0, 0, 0.1);
   }
   .side-panel::before {
     position: absolute;
@@ -139,8 +142,8 @@
     .side-panel::before {
       background: none;
       filter: none;
-      backdrop-filter: blur(3px) brightness(110%);
-      -webkit-backdrop-filter: blur(3px);
+      backdrop-filter: blur(4px) brightness(110%);
+      -webkit-backdrop-filter: blur(4px);
     }
   }
   .side-link-container {
@@ -187,29 +190,31 @@
     transform: translateX(-50%) translateX(110px);
     width: 45%;
   }
-  .menu-aside > h1 {
+  .menu-aside>h1 {
     font-size: 2.3rem;
   }
-  .menu-aside > section h1 {
+  .menu-aside>section h1 {
     font-size: 1.7rem;
   }
 }
+
 @media screen and (min-width: 1050px) {
   .menu-aside {
     width: 52%;
   }
-  .menu-aside > h1 {
+  .menu-aside>h1 {
     font-size: 3rem;
   }
-  .menu-aside > section h1 {
+  .menu-aside>section h1 {
     font-size: 2rem;
   }
 }
+
 @media screen and (min-width: 1200px) {
-  .content-container > h1 {
+  .content-container>h1 {
     font-size: 3.7rem;
   }
-  .content-container > section h1 {
+  .content-container>section h1 {
     font-size: 2.5rem;
   }
   .menu-aside {
@@ -219,14 +224,15 @@
     display: none;
   }
 }
- @media screen and (min-width: 1400px) {
-   .content-container h1 {
-     font-size: 4.3rem;
-   }
-   .content-container section h1 {
-     font-size: 2.8rem;
-   }
-   .content-container, .color-btn-container {
+
+@media screen and (min-width: 1400px) {
+  .content-container h1 {
+    font-size: 4.3rem;
+  }
+  .content-container section h1 {
+    font-size: 2.8rem;
+  }
+  .content-container, .color-btn-container {
     width: 65%;
     max-width: 1300px;
   }
@@ -243,28 +249,29 @@
     width: 63%;
   }
 }
+
 @media screen and (min-width: 1550px) {
   .content-container, .color-btn-container {
     width: 70%;
   }
-    .detail-container {
+  .detail-container {
     display: flex;
     flex-flow: wrap;
     justify-content: center;
   }
   .detail-text {
     padding: 1.5rem;
-    background: rgba(30,30,30,0.3);
+    background: rgba(30, 30, 30, 0.3);
   }
   .image-text-block {
     margin: 1rem 0;
     display: flex;
     justify-content: space-between;
   }
-  .image-text-block-right > .image-block {
+  .image-text-block-right>.image-block {
     order: 1;
   }
-  .image-text-block-right > .text-block {
+  .image-text-block-right>.text-block {
     justify-content: flex-start;
   }
   .image-text-block:last-of-type {
@@ -280,7 +287,7 @@
     justify-content: flex-end;
     align-items: center;
   }
-  .text-block > p {
+  .text-block>p {
     width: 75%;
     padding: 1.5rem;
   }
@@ -288,6 +295,7 @@
     width: 65%;
   }
 }
+
 @media screen and (min-width: 1800px) {
   .content-container, .color-btn-container {
     width: 80%;
@@ -296,8 +304,9 @@
     width: 65%;
   }
 }
+
 @media screen and (min-width: 2100px) {
-  .menu-aside{
+  .menu-aside {
     transform: translateX(-50%);
   }
 }

@@ -11,12 +11,13 @@
   justify-content: center;
   align-items: flex-start;
   z-index: 99;
-  box-shadow: 0 0 5px 4px rgba(0,0,0,0.3);
+  box-shadow: 0 0 5px 4px rgba(0, 0, 0, 0.3);
   background-color: var(--menu-color);
   overflow-x: hidden;
   overflow-y: auto;
   outline: none;
 }
+
 .side-panel::before {
   content: '';
   position: fixed;
@@ -30,17 +31,20 @@
   left: -5px;
   right: -5px;
   opacity: 0.4;
-  filter: blur(5px) brightness(120%);
-  transform: translateZ(0); /* force render in GPU composite layer */
+  filter: blur(6px) brightness(120%);
+  transform: translateZ(0);
+  /* force render in GPU composite layer */
   transition: transform 270ms ease-in-out;
 }
+
 .slideout {
   transform: translateX(-280px);
 }
+
 .ie.slideout::before {
   transform: translateX(-280px);
-
 }
+
 .profile-pic {
   position: relative;
   align-self: flex-start;
@@ -49,12 +53,13 @@
   border-radius: 50%;
   margin: 5rem 0 0 0;
   padding: 0;
-  box-shadow: 0 0 6px 1px rgba(0,0,0,0.3);
+  box-shadow: 0 0 6px 1px rgba(0, 0, 0, 0.3);
   border: solid 2px var(--theme-color);
   cursor: pointer;
   user-select: none;
   background: center / cover no-repeat;
 }
+
 .profile-pic::before {
   content: '';
   position: absolute;
@@ -69,10 +74,12 @@
   background-color: rgba(8, 8, 8, 0.2);
   transition: transform 350ms ease-out, opacity 400ms ease-out;
 }
+
 .profile-pic:active::before {
   opacity: 1;
   transform: initial;
 }
+
 .side-link-container {
   display: flex;
   flex-flow: row wrap;
@@ -81,6 +88,7 @@
   text-align: center;
   z-index: 6;
 }
+
 .side-link {
   width: 70%;
   text-decoration: none;
@@ -88,16 +96,19 @@
   padding: 0.8rem 0;
   font-size: 1.1rem;
 }
+
 .side-link:focus {
-  box-shadow: inset 0 0 70px 7px rgba(0,0,0,0.3);
+  box-shadow: inset 0 0 70px 7px rgba(0, 0, 0, 0.3);
   border-radius: 40px;
-  color: rgba(240,240,240,0.95);
+  color: rgba(240, 240, 240, 0.95);
 }
+
 .side-link:hover {
-  box-shadow: inset 0 0 70px 7px rgba(0,0,0,0.3);
+  box-shadow: inset 0 0 70px 7px rgba(0, 0, 0, 0.3);
   border-radius: 40px;
-  color: rgba(240,240,240,0.95);
+  color: rgba(240, 240, 240, 0.95);
 }
+
 .language-toggle {
   z-index: 6;
   align-self: flex-end;
@@ -110,15 +121,19 @@
   box-sizing: border-box;
   padding-bottom: 2px;
 }
+
 .language-toggle:focus {
   padding-bottom: 0;
 }
+
 .language-toggle:focus:not(:focus-visible) {
   padding-bottom: 2px;
 }
+
 .language-toggle span {
   font-weight: bold;
 }
+
 #menu-touchtarget {
   position: fixed;
   height: 100%;

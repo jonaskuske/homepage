@@ -2,15 +2,17 @@ import { random, throttle } from '@/lib/helpers'
 import { cssVariables } from '@/lib/browser-support'
 import cssVarPolyfill from 'css-vars-ponyfill'
 
+const additonalColors = ['#77f113', '#ffff00', '#f58b00', '#800080', '#CB1633', '#b815ef']
+let additionalColorsAdded = false
+
 !cssVariables && cssVarPolyfill()
 
 const colorMetaTag = document.querySelector('meta[name=theme-color]')
 const throttledCssVarPolyfill = throttle(cssVarPolyfill, 1200)
-
 export const colorState = {
-  themeColor: '#77f113',
-  safeThemeColor: '#77f113',
-  colors: ['#77f113', '#b815ef', '#f58b00', '#00ffff', '#3EA4C0', '#CB1633', '#871177', '#0B66F3'],
+  themeColor: '#1529b5',
+  safeThemeColor: '#ffffff',
+  colors: ['#1529b5', '#00ffff', '#3EA4C0', '#0B66F3'],
   updateMetaTagColor: true,
 }
 
@@ -56,6 +58,10 @@ export const colorActions = {
     const colorOptions = state.colors.filter(color => color !== state.themeColor)
     const randomColor = colorOptions[random(colorOptions.length)]
     actions.setColor(randomColor)
+    if (!additionalColorsAdded) {
+      additonalColors.forEach(actions.addColor)
+      additionalColorsAdded = true
+    }
   },
   /* Add color to colors array if it isn't included already */
   addColor: newColor => ({ colors }) =>
