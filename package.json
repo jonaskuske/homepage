@@ -40,7 +40,7 @@
   },
   "homepage": "https://github.com/jonaskuske/homepage#readme",
   "devDependencies": {
-    "concurrently": "^4.0.1",
+    "concurrently": "^4.1.0",
     "copyfiles-cli": "^0.1.0",
     "del-cli": "^1.1.0"
   }
