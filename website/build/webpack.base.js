@@ -56,14 +56,9 @@ const config = {
           { loader: 'style-loader' },
           {
             loader: 'css-loader',
-            options: {
-              importLoaders: 1,
-              minimize: true,
-            },
+            options: { importLoaders: 1 },
           },
-          {
-            loader: 'postcss-loader',
-          },
+          { loader: 'postcss-loader' },
         ],
       },
       {

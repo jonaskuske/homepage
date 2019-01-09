@@ -20,7 +20,7 @@ config.plugins.push(
     { from: root('static'), to: root('dist'), flatten: true },
   ]),
   new CompressionWebpackPlugin({
-    asset: '[path].gz[query]',
+    filename: '[path].gz[query]',
     algorithm: 'gzip',
     test: /\.(js|css)$/,
     threshold: 3000,
