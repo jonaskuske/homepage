@@ -10,9 +10,9 @@ if (!supportsCssVariables) cssVarPolyfill()
 const colorMetaTag = document.querySelector('meta[name=theme-color]')
 const throttledCssVarPolyfill = throttle(cssVarPolyfill, 1200)
 export const colorState = {
-  themeColor: '#1529b5',
+  themeColor: '#00ff00',
   safeThemeColor: '#ffffff',
-  colors: ['#1529b5', '#00ffff', '#3EA4C0', '#0B66F3'],
+  colors: ['#3EA4C0', '#1529b5', '#0B66F3'],
   updateMetaTagColor: true,
 }
 

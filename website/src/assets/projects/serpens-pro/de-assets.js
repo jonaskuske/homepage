@@ -21,6 +21,4 @@ export default {
         'Die Schrift wurde zur Gestaltung von zwei Plakaten genutzt: Das eine zeigt alle Majuskeln des Alphabets und stellt diese kontrastreich auf einem Schachbrett-ähnlichen Raster zur Schau. Die Gestaltung des anderen Plakates konzentriert sich auf die verschiedenen Grundformen, aus denen die Lettern von »Serpens Pro« zusammengesetzt werden, und verdeutlicht so die technisch-abstrakte Konstruktionsweise, die dem Font zu Grunde liegt.',
     },
   ],
-  footer:
-    'Außerdem habe ich ein kurzes Video erstellt, das die Konstruktion der Schrift mit Hilfe einer Animation darstellt, in der sich die Grundformen zu Lettern zusammensetzen und so einen Schriftzug bilden. Dieses ist auf meinem <a href="https://jonaskuske.myportfolio.com/serpens-pro" rel="noopener" target="_blank">Adobe Portfolio</a> zu finden.',
 }

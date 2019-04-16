@@ -7,7 +7,7 @@ export default {
   showcase: {
     image: dmpShowcase,
     text:
-      'Um den Studiengang „Digitale Medienproduktion" der Hochschule Bremerhaven zu repräsentieren und klar zu kommunizieren, welche Inhalte der Studiengang umfasst, beauftragte die Hochschule mich als Teil eines kleinen studentischen Teams, eine Portfolio-Website für den Studiengang zu entwickeln und umzusetzen. Diese soll verschiedenste studentische Arbeiten veröffentlichen, sodass Bewerber und Interessenten sehen können, welche Kenntnisse und Fähigkeiten in „Digitale Medienproduktion“ vermittelt werden.',
+      'Um den Studiengang „Digitale Medienproduktion" der Hochschule Bremerhaven zu repräsentieren und klar zu kommunizieren, welche Inhalte der Studiengang umfasst, beauftragte die Hochschule mich als Teil eines kleinen studentischen Teams, eine Portfolio-Website für den Studiengang zu entwickeln und umzusetzen. Diese zeigt verschiedene studentische Arbeiten, sodass Bewerber und Interessenten sehen können, welche Kenntnisse und Fähigkeiten in „Digitale Medienproduktion“ vermittelt werden.',
   },
   blocks: [
     {
@@ -18,9 +18,9 @@ export default {
     {
       image: dmpTwo,
       text:
-        'Für die Realisierung als SPA entschied sich unser Team für das JavaScript Framework Vue.js und einen modernen Build-Workflow basierend auf Webpack 3. Das Frontend ist bereits weit fortgeschritten, eine nonfinale Testversion lässt sich <a href="http://dmp-portfolio.jonaskuske.com" rel="noopener" target="_blank">hier</a> begutachten. <br/> Was das Backend betrifft, evaluieren Team & Management aktuell noch die Vor- und Nachteile von selbstgeschriebenem Backend (Node oder PHP) und der Verwendung eines Headless CMS.',
+        'Für die Realisierung als SPA entschied sich unser Team für das JavaScript Framework Vue.js und einem modernen Build-Workflow basierend auf der Vue CLI/Webpack. Die Inhalte der Website werden in einem "Headless CMS", einer speziell für diesen Use Case angepassten WordPress-Installation, verwaltet. Dort können die Studierenden selbst Projekte einreichen, die dann nach Überprüfung veröffentlicht werden.',
     },
   ],
   footer:
-    'Sobald das Projekt fertiggestellt ist, werden nicht nur die dargestellten Inhalte ein Gefühl für die Ausrichtung des Studiengangs vermitteln. Dank Einsatz modernster Technologien und Tools wie CSS Grid, Vue.js (+ Vuex & Vue Router), Server Side Rendering in Node.js und durch Webpack optimierte Code Bundles wird auch die Website als solche die moderne und branchennahe Ausrichtung des Studiengangs veranschaulichen.',
+    'Die vielfältigen ausgestellten Arbeiten und die individuelle, zeitgemäße Webanwendung sollen die moderne und branchennahe Ausrichtung des Studiengangs veranschaulichen. Zu finden ist die Website unter <a href="https://dmp-bremerhaven.de" target="_blank" rel="noopener">dmp-bremerhaven.de</a>.',
 }

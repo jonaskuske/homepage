@@ -21,6 +21,4 @@ export default {
         "I designed two posters to showcase the font. One displays all capital letters of the alphabet on a chessboard-like pattern. The other poster displays the geometric elements the typeface's letters are made out of. This shows the technical and abstract construction principles of »Serpens Pro«.",
     },
   ],
-  footer:
-    'I also created a video showcasing the construction of the font. There, the basic elements morph into letters to form a lettering. This video can be found on my <a href="https://jonaskuske.myportfolio.com/serpens-pro" rel="noopener" target="_blank">Adobe Portfolio</a>.',
 }

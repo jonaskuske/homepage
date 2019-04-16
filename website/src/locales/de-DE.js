@@ -10,7 +10,7 @@ export default {
     links: [
       { text: 'GitHub', href: 'https://github.com/jonaskuske' },
       { text: 'LinkedIn', href: 'https://www.linkedin.com/in/jonaskuske/' },
-      { text: 'XING', href: 'https://www.xing.com/profile/Jonas_Kuske' },
+      { text: 'Twitter', href: 'https://twitter.com/JonasKuske' },
       { text: 'Kontakt', href: 'mailto:mail@jonaskuske.com' },
     ],
     panel: {

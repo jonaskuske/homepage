@@ -13,14 +13,14 @@ export default {
     {
       image: dmpThree,
       text:
-        'After a long design and conception phase, we settled for a design built around a tab-based navigation where the various content will be displayed within different tabs, yet all on a single (HTML) page. This gives users a blazingly fast experience and navigation - but requires the website to be a JavaScript-driven Single Page Application (SPA).',
+        'After a long design and conception phase, we settled for a design built around a tab-based navigation where the various content will be displayed within different tabs, yet all on a single (HTML) page. This gives users a blazingly fast experience and navigation – but requires the website to be a JavaScript-driven Single Page Application (SPA).',
     },
     {
       image: dmpTwo,
       text:
-        'My team and I decided to use the JavaScript framework Vue.js combined with a modern build workflow powered by Webpack to implement the site as a SPA. The frontend has already made a lot of progress, a non-final version can be found <a href="http://dmp-portfolio.jonaskuske.com" rel="noopener" target="_blank">here</a>. <br/> In terms of backend, team and management are still evaluting the pros and cons of using a self written backend solution (PHP or Node) versus relying on a Headless CMS for content management.',
+        'My team and I decided to use the JavaScript framework Vue.js combined with a modern build workflow powered by Webpack to implement the site as a SPA. The content for the application is managed through a "Headless CMS", a WordPress install customized for this use case. There, students can submit their work themselves – once a submitted project passes review, it is published and can be found on the website.',
     },
   ],
   footer:
-    "Once the project is done, not only the presented content will show the focus of the university course »digital media production«. Thanks to the use of state-of-the-art technologies and tools like CSS Grid, Vue.js (+ Vuex & Vue Router), server side rendering in Node.js and Webpack code bundling the website itself will highlight the course's modern and practical orientation.",
+    'The diverse showcased projects and the distinct state-of-the-art web application are meant to highlight the course\'s modern and practical orientation. The site can be found at <a href="https://dmp-bremerhaven.de" target="_blank" rel="noopener">dmp-bremerhaven.de</a>.',
 }
