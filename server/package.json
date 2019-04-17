@@ -13,6 +13,10 @@
   ],
   "author": "Jonas Kuske",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jonaskuske/homepage.git"
+  },
   "dependencies": {
     "express": "^4.16.4",
     "socket.io": "^2.2.0"

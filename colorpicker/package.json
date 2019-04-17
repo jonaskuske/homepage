@@ -10,6 +10,10 @@
   },
   "author": "Jonas Kuske",
   "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jonaskuske/homepage.git"
+  },
   "dependencies": {
     "socket.io": "^2.2.0"
   },
