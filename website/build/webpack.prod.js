@@ -19,7 +19,7 @@ config.plugins.push(
     fileName: 'asset-manifest.json',
     filter: ({ name }) => !name.includes('htaccess') && !name.endsWith('gz'),
   }),
-  new CleanWebpackPlugin(['dist'], { root: root('.'), verbose: false }),
+  new CleanWebpackPlugin(),
   new CopyWebpackPlugin([{ from: root('static'), to: root('dist') }]),
   new HtmlWebpackPlugin({
     title: 'Portfolio | Jonas Kuske',

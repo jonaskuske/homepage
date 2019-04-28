@@ -25,7 +25,7 @@ config.plugins.push(
     theme_color: '#585858',
     background_color: '#f0f0f0',
   }),
-  new dotenvWebpack({ path: root('../.env.dev') })
+  new dotenvWebpack({ path: root('../.env.dev') }),
 )
 
 module.exports = config
