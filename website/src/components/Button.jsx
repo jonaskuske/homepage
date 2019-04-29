@@ -1,7 +1,3 @@
-const view = (props, children) => (
-  <button {...props}>
-    {children || 'Hier klicken'}
-  </button>
-);
+const Button = (props, children) => <button {...props}>{children || 'Hier klicken'}</button>
 
-export default view;
+export default Button

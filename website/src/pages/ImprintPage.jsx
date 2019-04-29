@@ -1,11 +1,14 @@
-import { parseText } from '@/lib/helpers';
+import { parseText } from '@/lib/helpers'
 
-const view = ({ class: className = '', data: { locales: { Legal = {} } }, ...props }) => {
-  const { Imprint, Privacy } = Legal;
+const ImprintPage = ({ data, ...props }) => {
+  const { locales } = data
+  const { h1: title, Imprint, Privacy } = locales.Legal || {}
+
+  const className = 'legal ' + props.class || ''
 
   return (
-    <main key='legal' class={`legal ${className}`} {...props}>
-      <h1>{Legal.h1}</h1>
+    <main key="legal" class={className} {...props}>
+      <h1>{title}</h1>
       <section>
         <h1>{Imprint.h1}</h1>
         <h2>{Imprint.law}</h2>
@@ -15,7 +18,9 @@ const view = ({ class: className = '', data: { locales: { Legal = {} } }, ...pro
         <br />
         <h2>{Imprint.details.title}</h2>
         <p>{Imprint.details.phone}</p>
-        <p>Mail: <a href="mailto:mail@jonaskuske.com">mail@jonaskuske.com</a></p>
+        <p>
+          Mail: <a href="mailto:mail@jonaskuske.com">mail@jonaskuske.com</a>
+        </p>
         <br />
         <h2>{Imprint.responsibility}</h2>
         <p>Jonas Kuske, Sielstraße 5 27568 Bremerhaven</p>
@@ -38,7 +43,7 @@ const view = ({ class: className = '', data: { locales: { Legal = {} } }, ...pro
         <p>{Privacy.end}</p>
       </section>
     </main>
-  );
-};
+  )
+}
 
-export default view;
+export default ImprintPage

@@ -1,32 +1,38 @@
-import router from '@/router';
-import { errorMessages } from '@/lib/helpers';
-import { Button, Thumbnail } from '@/components';
-import errorImage from '@img/error.jpeg';
+import router from '@/router'
+import { Button, Thumbnail } from '@/components'
+import { errorMessages } from '@/lib/helpers'
+import errorImage from '@img/error.jpeg'
 
-const view = ({ data: { safeThemeColor, mobile, locales: { Error = {} } }, ...props }) => {
-  const errorMessage = errorMessages[errorMessages.length - 1];
+const ErrorPage = ({ data, ...props }) => {
+  const { safeThemeColor, mobile, locales } = data
+  const translations = locales.Error || {}
+
+  const error = errorMessages[errorMessages.length - 1]
+
+  const ErrorMessage = error && [<h1>Error</h1>, <p>{error.toString()}</p>]
+  const NotFoundError = !error && [
+    <h1>404</h1>,
+    <p>{translations.notFound1 + location.pathname.substring(1) + translations.notFound2}</p>,
+  ]
+
   return (
-    <main key='404' {...props} >
-      <section>
-        <h1> {errorMessage ? 'Error' : 404} </h1>
-        {errorMessage
-          ? <p>{errorMessage.toString()}</p>
-          : <p>{Error.notFound1 + window.location.pathname.substring(1) + Error.notFound2}</p>}
-      </section>
-      <section class='error-section'>
-        <Button onclick={() => router.push('/')} > {Error.toStart} </Button>
+    <main key="404" {...props}>
+      <section>{error ? ErrorMessage : NotFoundError}</section>
+
+      <section class="error-section">
+        <Button onclick={() => router.push('/')}> {translations.toStart} </Button>
         <Thumbnail
           image={errorImage}
           color={safeThemeColor}
           mobile={mobile}
-          href='/'
+          href="/"
           fn={() => router.push('/')}
         >
-          <p>{Error.toStart}</p>
+          <p>{translations.toStart}</p>
         </Thumbnail>
       </section>
     </main>
-  );
-};
+  )
+}
 
-export default view;
+export default ErrorPage

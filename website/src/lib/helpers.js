@@ -39,6 +39,9 @@ export const error = e => {
   throw new Error(e)
 }
 
+export const isEven = num => num % 2 === 0
+export const isOdd = num => !isEven(num)
+
 /**
  * Transforms simple HTML strings to arrays, where inlined linebreaks and links
  * in the form of <a>...</a> and <br/> (needs closing slash!) are replaced by VNodes returned from h().

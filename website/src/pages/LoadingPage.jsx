@@ -1,16 +1,18 @@
-import { svgAnimation } from '@/lib/browser-support';
-import { LoadingSpinner } from '@/components';
+import { LoadingSpinner } from '@/components'
 
-const view = ({ data: { safeThemeColor }, class: className = '', ...props }) => (
-  <main class={`${className} loading-screen `} {...props}>
-    {svgAnimation
-      ? < LoadingSpinner class='main-spinner' color={{ stroke: safeThemeColor }} />
-      : (
-        < div class='animation-fallback main-spinner'>
-          <LoadingSpinner animation={{ inner: false, outer: false }} color={{ stroke: safeThemeColor }} />
-        </div>)
-    }
-  </main>
-);
+const LoadingPage = ({ data, ...props }) => {
+  const { safeThemeColor } = data
+  const className = 'loading-screen ' + props.class || ''
 
-export default view;
+  return (
+    <main {...props} class={className}>
+      <LoadingSpinner
+        class="main-spinner"
+        fallbackClassOn="container"
+        color={{ stroke: safeThemeColor }}
+      />
+    </main>
+  )
+}
+
+export default LoadingPage

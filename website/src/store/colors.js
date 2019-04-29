@@ -8,7 +8,7 @@ let additionalColorsAdded = false
 if (!supportsCssVariables) cssVarPolyfill()
 
 const colorMetaTag = document.querySelector('meta[name=theme-color]')
-const throttledCssVarPolyfill = throttle(cssVarPolyfill, 1200)
+const throttledCssVarPolyfill = throttle(cssVarPolyfill, 200)
 export const colorState = {
   themeColor: '#00ff00',
   safeThemeColor: '#ffffff',
@@ -50,7 +50,6 @@ export const colorActions = {
           'theme-color': safeThemeColor,
           'menu-color': themeColor,
         },
-        onlyVars: true,
       })
     }
     return { safeThemeColor, themeColor }

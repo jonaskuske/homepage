@@ -1,13 +1,13 @@
-const view = ({ skill: { color, image, percentage, name }, themeColor, display = false, ...props }) => (
+const SkillDiagramIcon = ({
+  skill: { color, image, percentage, name },
+  themeColor,
+  display = false,
+  ...props
+}) => (
   <svg width="150" height="150" viewBox="0 0 33.83098862 33.83098862" class="skill-icon" {...props}>
     {(!display || display === 'static') && [
+      <circle fill="#585858" cx="16.91549431" cy="16.91549431" r="15.91549431" />,
       <circle
-        fill="#585858"
-        cx="16.91549431"
-        cy="16.91549431"
-        r="15.91549431"
-      />,
-      < circle
         fill={themeColor}
         fill-opacity="0.65"
         stroke="#f0f0f0"
@@ -16,20 +16,21 @@ const view = ({ skill: { color, image, percentage, name }, themeColor, display =
         cx="16.91549431"
         cy="16.91549431"
         r="15.91549431"
-      />
+      />,
     ]}
-    {(!display || display === 'ring') &&
+    {(!display || display === 'ring') && (
       <circle
         class="diagram"
         fill="none"
         stroke={color || themeColor}
-        stroke-width="2" stroke-linecap="round"
+        stroke-width="2"
+        stroke-linecap="round"
         stroke-dasharray={`${percentage || '0'}, 100`}
         cx="16.91549431"
         cy="16.91549431"
         r="15.91549431"
       />
-    }
+    )}
     {(!display || display === 'static') && [
       <image
         href={image}
@@ -49,10 +50,9 @@ const view = ({ skill: { color, image, percentage, name }, themeColor, display =
         y="17"
       >
         {name}
-      </text>
+      </text>,
     ]}
   </svg>
+)
 
-);
-
-export default view;
+export default SkillDiagramIcon

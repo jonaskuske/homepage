@@ -1,15 +1,13 @@
-const view = ({ class: className = '', href = '', hide }, children) => (
+const HeaderLink = ({ class: className = '', href = '', hide }, children) => (
   <a
-    class='header-link'
+    class="header-link"
     target={!href.startsWith('mailto') ? '_blank' : ''}
     tabindex={hide ? -1 : 0}
-    rel='noopener'
+    rel="noopener"
     href={href || '#'}
   >
-    <p class={'header-link-text ' + className}>
-      {children || 'Platzhalter'}
-    </p>
+    <p class={'header-link-text ' + className}>{children || 'Platzhalter'}</p>
   </a>
-);
+)
 
-export default view;
+export default HeaderLink

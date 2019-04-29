@@ -1,7 +1,7 @@
-import profilePicImage from '@img/profilepic.jpg';
+import profilePicImage from '@img/profilepic.jpg'
 
-const view = ({ ...props }) => (
-  <div class='profile-pic' style={{ backgroundImage: `url(${profilePicImage})` }} {...props} />
-);
+const ProfilePicture = ({ ...props }) => (
+  <div class="profile-pic" style={{ backgroundImage: `url(${profilePicImage})` }} {...props} />
+)
 
-export default view;
+export default ProfilePicture

@@ -1,16 +1,16 @@
-import actions from '@/main';
+import actions from '@/main'
 
-const view = props => (
+const ColorPicker = props => (
   <input
-    type='color'
-    aria-label='Select theme color for the site'
+    type="color"
+    aria-label="Select theme color for the site"
     tabindex={-1}
     onchange={({ target: { value } }) => {
-      actions.setColor(value);
-      actions.addColor(value);
+      actions.setColor(value)
+      actions.addColor(value)
     }}
     {...props}
   />
-);
+)
 
-export default view;
+export default ColorPicker

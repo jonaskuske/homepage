@@ -9,7 +9,7 @@ const openOverlay = evt => {
   actions.showOverlay()
 }
 
-const view = ({ class: className = '', mobile, ...props }) => (
+const ImageClickable = ({ class: className = '', mobile, ...props }) => (
   <img
     class={`pointer clickable-img ${className}`}
     oncreate={!objectFitSupported && objectFitPolyfill}
@@ -25,4 +25,4 @@ const view = ({ class: className = '', mobile, ...props }) => (
   />
 )
 
-export default view
+export default ImageClickable
