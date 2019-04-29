@@ -15,7 +15,7 @@ config.output.publicPath = '/colorpicker/'
 config.mode = 'production'
 
 config.plugins.push(
-  new CleanWebpackPlugin([root('dist')], { root: root('.'), verbose: false }),
+  new CleanWebpackPlugin(),
   new CopyWebpackPlugin([
     { from: root('static'), to: root('dist'), flatten: true },
   ]),
