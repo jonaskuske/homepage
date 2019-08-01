@@ -1,34 +1,38 @@
 import router from '@/router'
 import { Button, Thumbnail } from '@/components'
 import { errorMessages } from '@/lib/helpers'
-import errorImage from '@img/error.jpeg'
+import errorImage from '@/assets/images/error.jpeg'
 
-const ErrorPage = ({ data, ...props }) => {
-  const { safeThemeColor, mobile, locales } = data
-  const translations = locales.Error || {}
+const ErrorPage = ({ state: { ui, i18n }, ...props }) => {
+  const t = i18n.t.forNamespace('ErrorPage')
 
   const error = errorMessages[errorMessages.length - 1]
 
-  const ErrorMessage = error && [<h1>Error</h1>, <p>{error.toString()}</p>]
-  const NotFoundError = !error && [
-    <h1>404</h1>,
-    <p>{translations.notFound1 + location.pathname.substring(1) + translations.notFound2}</p>,
-  ]
+  const getErrorMessage = message => [<h1>Error</h1>, <p>{message}</p>]
+  const getNotFoundError = () => {
+    const page = location.pathname.substring(1)
+    return [
+      <h1>404</h1>,
+      <p>{t.inline(
+        'notFound',
+      )`Unfortunately, the requested page » ${page} « does not exist on this site. :(`}</p>,
+    ]
+  }
 
   return (
     <main key="404" {...props}>
-      <section>{error ? ErrorMessage : NotFoundError}</section>
+      <section>{error ? getErrorMessage(error.message) : getNotFoundError()}</section>
 
       <section class="error-section">
-        <Button onclick={() => router.push('/')}> {translations.toStart} </Button>
+        <Button onclick={() => router.push('/')}>{t.inline('goBack')`Back to Start`}</Button>
         <Thumbnail
           image={errorImage}
-          color={safeThemeColor}
-          mobile={mobile}
+          color={ui.safeThemeColor}
+          mobile={ui.useMobileLayout}
           href="/"
           fn={() => router.push('/')}
         >
-          <p>{translations.toStart}</p>
+          <p>{t('goBack')}</p>
         </Thumbnail>
       </section>
     </main>

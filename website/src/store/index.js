@@ -1,59 +1,60 @@
-import { wait, error, log, random } from '@/lib/helpers'
-import { colorState, colorActions } from './colors'
-import { projectState, projectActions } from './projects'
-import { languageState, languageActions } from './language'
-import { eastereggState, eastereggActions } from './easteregg'
-import { objectFitSupported } from '@/lib/browser-support'
+import { createI18n } from '@/lib/i18n'
+import * as ui from './ui'
+import * as theme from './theme'
+import * as projects from './projects'
+import { wait, getQueryParams, domainExtension } from '@/lib/helpers'
 
-export const state = {
-  ...colorState,
-  ...projectState,
-  ...languageState,
-  ...eastereggState,
-  mobile: false,
-  panel: window.matchMedia('(min-width: 1550px)').matches,
-  overlay: false,
-  iconLegend: false,
-  page: '/',
-  scrollTop: 0,
-  scrollPositions: {
-    restore: false,
+const textElements = () => document.querySelectorAll('p,h1,h2,h3,button,.side-link')
+
+const { lang } = getQueryParams(window.location.href)
+const useGerman = domainExtension === 'de' || lang === 'de'
+const initialLanguage = lang === 'en' || !useGerman ? 'en' : 'de'
+
+const i18nOptions = {
+  initialLanguage,
+  locales: {
+    en: { /* Added through inline translations */ }, // prettier-ignore
+    de: () => import(/* webpackChunkName: 'locales/de-DE' */ '../locales/de-DE.json'),
   },
-  overlayImage: '',
+}
+const i18n = createI18n(i18nOptions)
+
+const init = () => i18n.resolveInitialLanguage()
+
+const state = {
+  page: '/',
+  scrollPositions: { restore: false },
   sessionID: '',
-  colorSelection: false,
+  ui: ui.state,
+  i18n: i18n.state,
+  theme: theme.state,
+  projects: projects.state,
 }
 
-export const actions = {
-  ...colorActions,
-  ...projectActions,
-  ...languageActions,
-  ...eastereggActions,
-  toggleMenu: () => state => {
-    state.mobile && !state.panel
-      ? document.body.classList.add('no-overflow')
-      : document.body.classList.remove('no-overflow')
-    return { panel: !state.panel }
+const actions = {
+  setLanguage: langKey => async (state, actions) => {
+    textElements().forEach(el => el.classList.add('textsquish'))
+    await wait(210)
+
+    await Promise.all([
+      actions.i18n.setLanguage(langKey),
+      actions.getProjectList(langKey),
+      state.projects.project.id && actions.getProjectById({ language: langKey }),
+    ])
+
+    textElements().forEach(el => el.classList.remove('textsquish'))
   },
-  setMenu: value => state => {
-    state.mobile && value
-      ? document.body.classList.add('no-overflow')
-      : document.body.classList.remove('no-overflow')
-    return { panel: value }
+  toggleLanguage: () => (state, actions) => {
+    const next = state.i18n.language === 'de' ? 'en' : 'de'
+    return actions.setLanguage(next)
   },
-  toggleIconLegend: () => state => ({ iconLegend: !state.iconLegend }),
-  setLayout: value => ({ mobile: value }),
+  getProjectList: langKey => (state, actions) => {
+    return actions.projects.getProjectList(langKey || state.i18n.language)
+  },
+  getProjectById: ({ id, language }) => (state, actions) => {
+    return actions.projects.getProjectById({ id, language: language || state.i18n.language })
+  },
   setPage: page => ({ page }),
-  setScrollTop: scrollTop => ({ scrollTop }),
-  setOverlayImage: overlayImage => ({ overlayImage }),
-  showOverlay: () => {
-    document.body.classList.add('no-overflow')
-    return { overlay: true }
-  },
-  hideOverlay: () => {
-    document.body.classList.remove('no-overflow')
-    return { overlay: false }
-  },
   /* Save the scroll position of the current page, called before navigating away from a page */
   saveScrollPosition: ({ pos }) => ({ scrollPositions, page }) => ({
     scrollPositions: { ...scrollPositions, [page]: pos },
@@ -63,5 +64,11 @@ export const actions = {
     scrollPositions: { ...scrollPositions, restore: val },
   }),
   setSessionID: sessionID => ({ sessionID }),
-  toggleColorSelection: () => state => ({ colorSelection: !state.colorSelection }),
+  ui: ui.actions,
+  i18n: i18n.actions,
+  theme: theme.actions,
+  projects: projects.actions,
+  getState: () => state => state,
 }
+
+export { state, actions, init }

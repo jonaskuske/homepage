@@ -5,10 +5,7 @@
  * @param {number} time The time to wait in milliseconds.
  * @returns {Promise.<void>} Promise that resolves once the time has passed.
  */
-export const wait = time =>
-  new Promise(resolve => {
-    setTimeout(resolve, time)
-  })
+export const wait = time => new Promise(resolve => setTimeout(resolve, time))
 
 /**
  * Takes a max value and returns a random integer between 0 and that value.
@@ -35,40 +32,41 @@ export const log = e => {
  * Throws a new Error with a given error message.
  * @param {string} e The error message
  */
-export const error = e => {
+export const throwError = e => {
   throw new Error(e)
 }
 
+export const isDef = val => val != null
 export const isEven = num => num % 2 === 0
 export const isOdd = num => !isEven(num)
+export const isBrowser = typeof window !== 'undefined'
+
+export const rgbFromhex = hex => {
+  /* see https://stackoverflow.com/questions/12043187/how-to-check-if-hex-color-is-too-black */
+  const dec = parseInt(hex.substring(1), 16) // convert #rrggbb to decimal
+  const r = (dec >> 16) & 0xff // extract red
+  const g = (dec >> 8) & 0xff // extract green
+  const b = (dec >> 0) & 0xff // extract blue
+  const brightness = 0.2126 * r + 0.7152 * g + 0.0722 * b
+
+  return { r, g, b, brightness }
+}
 
 /**
- * Transforms simple HTML strings to arrays, where inlined linebreaks and links
- * in the form of <a>...</a> and <br/> (needs closing slash!) are replaced by VNodes returned from h().
- * @param {string} html HTML string, may contain <br/> and <a> tags.
- * @returns {Array.<string|{children: Array.<string>, name: string, props: Object}>} Array containing strings and VNode objects.
+ * Returns object with key value pairs for parameters in a querystring;
+ * strict: throws if no query string passed
+ * @param {string} target
+ * @param {{ strict?: boolean }} options
  */
-export const parseText = html => {
-  const children = html.split(/(?=<a.+<\/a>)|<\/a>|(?=<br)|r\s?\/>/)
+export const getQueryParams = (target, { strict } = {}) => {
+  const queryString = target.split('?')[1]
+  if (!queryString) return strict ? throwError('No querystring found.') : {}
 
-  const parsed = children.map(el => {
-    if (el.indexOf('<b') === 0) return h('br')
-    if (el.indexOf('<a ') !== 0) return el
-
-    const attributes = {}
-    const text = el.split('>')[1] || ''
-
-    const inner = el.replace(/<a\s|>.+/g, '')
-    const pairs = inner.split(' ')
-    pairs.forEach(pair => {
-      const [key, val = 'true'] = pair.split(/=(.+)/)
-      attributes[key] = JSON.parse(val)
-    })
-
-    return h('a', attributes, text)
-  })
-
-  return parsed
+  const paramStrings = queryString.split('&')
+  const paramPairs = paramStrings.map(str => str.split('='))
+  const queryParams = {}
+  paramPairs.forEach(([key, val]) => (queryParams[key] = val))
+  return queryParams
 }
 
 /**
@@ -119,19 +117,18 @@ export const createModal = ({
   document.body.classList.add('no-overflow')
   document.body.insertBefore(modal, document.body.firstChild)
 }
+
 /**
  * Creates a function that only executes once every given interval.
  * @param {Function} fn The function to throttle.
  * @param {number} threshold The time in ms that has to pass between executions of fn.
  * @returns {Function} The throttled version of the passed function.
  */
-export const throttle = (fn, threshold) => {
-  threshold || (threshold = 250)
+export const throttle = (fn, threshold = 250) => {
   var last, deferTimer
 
-  return function() {
-    var now = +new Date(),
-      args = arguments
+  return function(...args) {
+    var now = +new Date()
 
     if (last && now < last + threshold) {
       clearTimeout(deferTimer)
@@ -146,6 +143,18 @@ export const throttle = (fn, threshold) => {
   }
 }
 
+export const debounce = (fn, wait = 200) => {
+  let timeout
+  return function(...args) {
+    const later = () => {
+      timeout = null
+      fn.apply(this, args)
+    }
+    clearTimeout(timeout)
+    timeout = setTimeout(later, wait)
+  }
+}
+
 // find domain extension
 const domainExtRegEx = new RegExp(/\.(?!\.)(?!.+\.).+/)
 const domainExtMatch = domainExtRegEx.exec(window.location.host)
@@ -154,13 +163,3 @@ const domainExtMatch = domainExtRegEx.exec(window.location.host)
  */
 const ext = domainExtMatch && domainExtMatch[0].replace('.', '')
 export { ext as domainExtension }
-
-/**
- * Takes in a function and returns a function that calls the passed function, then blurs focus of the event target that triggered it.
- * @param {function} fn The function to be called before bluring focus.
- */
-export const withBlur = fn => e => {
-  const res = fn(e)
-  e.currentTarget.blur()
-  return res
-}

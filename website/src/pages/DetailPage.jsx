@@ -1,23 +1,23 @@
-import { parseText, isEven } from '@/lib/helpers'
+import { isEven } from '@/lib/helpers'
 import { ImageClickable, ImageTextBlock } from '@/components'
 
-const DetailPage = ({ data, ...props }) => {
-  const { project, mobile } = data
-  const { title, showcase, blocks, footer } = project
+const DetailPage = ({ state, ...props }) => {
+  const { title, showcase, blocks, footer } = state.projects.project
+  const mobile = state.ui.useMobileLayout
 
   const ImageTextBlocks = blocks.map((block, index) => (
     <ImageTextBlock src={block.image} mode={isEven(index) ? 'left' : 'right'} mobile={mobile}>
       {block.text}
     </ImageTextBlock>
   ))
-  const Footer = footer && <p class="detail-text textsquish-blocker"> {parseText(footer)} </p>
+  const Footer = footer && <p class="detail-text textsquish-blocker" innerHTML={footer} />
 
   return (
-    <main key={'details' + title} {...props}>
+    <main key={'details'} {...props}>
       <h1>{title}</h1>
       <section class="detail-container">
         <ImageClickable class="detail-image" mobile={mobile} src={showcase.image} />
-        <p class="detail-text showcase textsquish-blocker"> {parseText(showcase.text)} </p>
+        <p class="detail-text showcase textsquish-blocker" innerHTML={showcase.text} />
         {ImageTextBlocks}
         {Footer}
       </section>

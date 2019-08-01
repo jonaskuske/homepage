@@ -2,16 +2,19 @@
   margin: 0 0 0 1rem;
   position: relative;
   width: 29px;
-  height: 16px;
+  height: 18px;
   cursor: pointer;
   outline: none;
   user-select: none;
 }
-.hamburger, .hamburger::before, .hamburger::after {
-border-bottom: 2px solid white;
+.hamburger,
+.hamburger::before,
+.hamburger::after {
+  border-bottom: 2px solid white;
 }
-.hamburger::before, .hamburger::after {
-  content: "";
+.hamburger::before,
+.hamburger::after {
+  content: '';
   position: absolute;
   width: inherit;
   top: 0;
@@ -20,13 +23,17 @@ border-bottom: 2px solid white;
 .hamburger::before {
   margin-top: 8px;
 }
-.hamburger:focus, .hamburger:focus::before, .hamburger:focus::after {
+/* .hamburger:focus,
+.hamburger:focus::before,
+.hamburger:focus::after {
   border-bottom: 2px solid var(--theme-color);
 }
-.hamburger:focus-visible, .hamburger:focus-visible::before, .hamburger:focus-visible::after {
+.hamburger:focus-visible,
+.hamburger:focus-visible::before,
+.hamburger:focus-visible::after {
   border-bottom: 3px solid var(--theme-color);
-}
-.hamburger:focus {
+} */
+/* .hamburger:focus {
   outline: currentColor dotted thin;
   outline: -webkit-focus-ring-color 5px auto;
-}
+} */

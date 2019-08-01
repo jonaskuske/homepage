@@ -1,43 +1,57 @@
-import actions from '@/main'
 import router from '@/router'
-import { Button, ProfilePicture } from '@/components'
+import { ProfilePicture } from '@/components'
 import { isIE } from '@/lib/browser-support'
-import { withBlur } from '@/lib/helpers'
 import Miniswipe from 'miniswipe'
 
-const SidePanel = ({ class: className = '', mobile, lang, panel: { nav = [] } = {} }) => (
-  <nav
-    class={`side-panel ${isIE ? 'ie' : ''} ${className}`}
-    oncreate={el => new Miniswipe(el).left(() => actions.setMenu(false)).start()}
-    onclick={e => e.stopPropagation()}
-    tabindex={-1}
-  >
-    <ProfilePicture
-      onclick={() => {
-        !window.matchMedia('(min-width: 1550px)').matches && actions.setMenu(false)
-        router.push('/me')
-      }}
-    />
-    <div class="side-link-container">
-      {nav.map(({ route, text }) => (
-        <a
-          class="side-link"
-          href={route}
-          onfocus={() => actions.setMenu(true)}
-          onclick={withBlur(e => {
-            e.preventDefault()
-            !window.matchMedia('(min-width: 1550px)').matches && actions.setMenu(false)
-            router.push(route)
-          })}
-        >
-          {text}
-        </a>
-      ))}
-    </div>
-    <button class="language-toggle" onclick={withBlur(actions.toggleLanguage)}>
-      <span>{lang === 'de' ? 'Deutsch' : 'English'}</span>/{lang === 'de' ? 'English' : 'Deutsch'}
-    </button>
-  </nav>
-)
+let swipeHandler
+const addSwipeHandler = (el, cb) => (swipeHandler = new Miniswipe(el).left(cb).start())
+const removeSwipeHandler = () => {
+  if (swipeHandler && swipeHandler.active) swipeHandler.stop()
+  swipeHandler = null
+}
+
+const SidePanel = props => (_, actions) => {
+  const { i18n } = props
+  const t = i18n.t.forNamespace('App')
+
+  const openMenu = () => actions.ui.setMenu(true)
+  const closeMenu = () => actions.ui.setMenu(false)
+  const navigate = path => evt => {
+    if (evt && evt.preventDefault) evt.preventDefault()
+    if (!window.matchMedia('(min-width: 1550px)').matches) closeMenu()
+    router.push(path)
+  }
+
+  const className = (isIE ? 'ie ' : '') + (props.class || '')
+  const links = [
+    { text: 'Start', href: '/' },
+    { text: t.inline('menu.projects')`Projects`, href: '/projects' },
+    { text: t.inline('menu.aboutMe')`About Me`, href: '/me' },
+    { text: t.inline('menu.legalNotice')`Legal Notice`, href: '/legal' },
+  ]
+
+  return (
+    <nav
+      class={`side-panel ${className}`}
+      tabindex={-1}
+      onclick={e => e.stopPropagation()}
+      oncreate={el => addSwipeHandler(el, () => actions.ui.setMenu(false))}
+      ondestroy={removeSwipeHandler}
+    >
+      <ProfilePicture onclick={navigate('/me')} />
+      <div class="side-link-container">
+        {links.map(link => (
+          <a class="side-link" href={link.href} onclick={navigate(link.href)} onfocus={openMenu}>
+            {link.text}
+          </a>
+        ))}
+      </div>
+      <button class="language-toggle" onclick={actions.toggleLanguage}>
+        <span>{i18n.language === 'en' ? 'English' : 'Deutsch'}</span>/
+        {i18n.language === 'en' ? 'Deutsch' : 'English'}
+      </button>
+    </nav>
+  )
+}
 
 export default SidePanel

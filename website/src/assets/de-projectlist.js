@@ -1,9 +1,9 @@
-import serpensPro from '@projects/serpens-pro/serpens-pro.jpg'
-import typro from '@projects/typro/typro.jpg'
-import dmpPortfolio from '@projects/dmp-portfolio/dmp-portfolio.jpg'
-import lsbHomepage from '@projects/lsb-homepage/lsb-homepage.jpg'
-import lsbDesign from '@projects/lsb-design/lsb-design.jpg'
-import codeProjects from '@projects/code-opensource/code-projects.jpg'
+import serpensPro from '@/assets/projects/serpens-pro/serpens-pro.jpg'
+import typro from '@/assets/projects/typro/typro.jpg'
+import dmpPortfolio from '@/assets/projects/dmp-portfolio/dmp-portfolio.jpg'
+import lsbHomepage from '@/assets/projects/lsb-homepage/lsb-homepage.jpg'
+import lsbDesign from '@/assets/projects/lsb-design/lsb-design.jpg'
+import codeProjects from '@/assets/projects/code-opensource/code-projects.jpg'
 
 export default [
   {

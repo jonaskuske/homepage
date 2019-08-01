@@ -1,5 +1,4 @@
-const path = require('path')
-const config = require('./webpack.base')
+const { config, fromRoot } = require('./webpack.base')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
@@ -8,22 +7,25 @@ const ManifestPlugin = require('webpack-manifest-plugin')
 const CompressionWebpackPlugin = require('compression-webpack-plugin')
 const dotenvWebpack = require('dotenv-webpack')
 
-const root = dir => path.resolve(__dirname, '../', dir)
+const analyze = process.env.WEBPACK_ANALYZE === 'true'
 
 config.mode = 'production'
 
-config.entry.push(root('src/registerServiceWorker.js'))
-
+config.entry.push(fromRoot('src/registerServiceWorker.js'))
+if (!analyze) config.plugins.push(new CleanWebpackPlugin())
 config.plugins.push(
   new ManifestPlugin({
     fileName: 'asset-manifest.json',
-    filter: ({ name }) => !name.includes('htaccess') && !name.endsWith('gz'),
+    filter: ({ name }) => {
+      if (!name) name = ''
+      const shouldExclude = name.includes('htaccess') || name.endsWith('gz')
+      return !shouldExclude
+    },
   }),
-  new CleanWebpackPlugin(),
-  new CopyWebpackPlugin([{ from: root('static'), to: root('dist') }]),
+  new CopyWebpackPlugin([{ from: fromRoot('static'), to: fromRoot('dist') }]),
   new HtmlWebpackPlugin({
     title: 'Portfolio | Jonas Kuske',
-    template: root('index.html'),
+    template: fromRoot('index.html'),
     inject: true,
     minify: {
       collapseWhitespace: true,
@@ -32,7 +34,7 @@ config.plugins.push(
       removeScriptTypeAttributes: true,
       removeAttributeQuotes: true,
     },
-    favicon: root('src/assets/images/favicon.ico'),
+    favicon: fromRoot('src/assets/images/favicon.ico'),
   }),
   new WebpackPwaManifest({
     short_name: 'Portfolio',
@@ -47,9 +49,9 @@ config.plugins.push(
     fingerprints: false,
     icons: [
       {
-        src: root('src/assets/icons/icon.png'),
+        src: fromRoot('src/assets/icons/icon.png'),
         sizes: [36, 48, 72, 96, 128, 144, 192, 256, 512, 1024],
-        destination: path.join('assets', 'icons'),
+        destination: 'assets/icons',
         ios: false,
       },
     ],
@@ -61,7 +63,7 @@ config.plugins.push(
     threshold: 3000,
     minRatio: 0.8,
   }),
-  new dotenvWebpack({ path: root('../.env') }),
+  new dotenvWebpack({ path: fromRoot('../.env') }),
 )
 
 module.exports = config

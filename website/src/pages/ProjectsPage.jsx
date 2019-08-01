@@ -1,5 +1,4 @@
 import router from '@/router'
-import actions from '@/main'
 import { Thumbnail } from '@/components'
 
 const spin = el => {
@@ -8,19 +7,19 @@ const spin = el => {
   )
 }
 
-const view = ({ data, ...props }) => {
-  const { projects, safeThemeColor, mobile, locales } = data
-  const translations = locales.Projects || {}
+const view = ({ state, ...props }) => {
+  const { projects, ui, i18n } = state
+  const t = i18n.t.forNamespace('ProjectsPage')
 
-  const Thumbnails = projects.map(({ title, subtitle, id, category, image }) => {
+  const Thumbnails = projects.projectList.map(({ title, subtitle, id, category, image }) => {
     const link = `/detail?project=${id}`
     return (
       <Thumbnail
         fn={evt => spin(evt.target).then(() => router.push(link))}
         href={link}
-        mobile={mobile}
+        mobile={ui.useMobileLayout}
         image={image}
-        color={safeThemeColor}
+        color={ui.safeThemeColor}
         id={id}
       >
         <p>
@@ -37,15 +36,15 @@ const view = ({ data, ...props }) => {
 
   return (
     <main key="projects" {...props}>
-      <h1>{translations.h1}</h1>
+      <h1>{t.inline('title')`Projects`}</h1>
       <p>
-        {translations.text[1]}
+        {t.inline(
+          'descriptionStart',
+        )`Next to the works displayed below, the portfolio site you're looking at is one of my projects as well. It is written in JSX and rendered by the JavaScript framework »hyperapp«, a minimalistic framework that works similar to React. Additionally, the site is built using state-of-the-art web technologies like CSS variables, code splitting and CSS grid. The source code can be found `}
         <a href="http://github.com/jonaskuske/homepage" target="_blank" rel="noopener">
-          {translations.text.link}
+          {t.inline('descriptionLink')`here`}
         </a>
-        {translations.text[1.1] || ''}
-        <br />
-        {translations.text[2]}
+        {t.inline('descriptionEnd')`.<br>Have fun discovering my projects!`}
       </p>
       <br />
       <section class="projekt-container">{Thumbnails}</section>

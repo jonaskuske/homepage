@@ -1,4 +1,3 @@
-import actions from '@/main'
 import { wait } from '@/lib/helpers'
 import { RouterView } from '@/router'
 import { ColorSelection, SidePanel, NavHeader, ImageOverlay } from '@/components'
@@ -8,51 +7,50 @@ const animate = el => {
   el.classList.add('animate-in')
   return wait(30).then(() => el.classList.remove('animate-in'))
 }
-const addSwipeHandler = el => new Miniswipe(el).right(() => actions.setMenu(true)).start()
-/* If restore = true and a previous scroll position for the page is saved, restore it. Else scroll to top. */
-const handleScrollPosition = (page, positions) => {
+
+let swipeHandler
+const addHandler = (el, callback) => (swipeHandler = new Miniswipe(el).right(callback).start())
+const removeHandler = () => {
+  if (swipeHandler && swipeHandler.active) swipeHandler.stop()
+  swipeHandler = null
+}
+
+/* If restore = true and a previous scroll position for the page is saved, restore it.
+   Else scroll to top. */
+const handleScrollPosition = (page, positions, actions) => {
   if (positions.restore && positions[page]) {
     document.documentElement.scrollTop = positions[page]
     actions.setRestoreScroll(false)
   } else document.documentElement.scrollIntoView(true)
 }
 
-const App = ({ page, scrollPositions, colorSelection, ...state }, actions) => {
-  const translations = state.locales.App || {}
-  const FullscreenImagePopup = state.overlay && <ImageOverlay src={state.overlayImage} />
+const App = ({ page, scrollPositions, ...state }, actions) => {
+  const { ui, i18n } = state
+  const openMenu = () => actions.ui.setMenu(true)
+  const closeMenuOnMobile = () => {
+    if (ui.useMobileLayout && ui.menuIsOpen) actions.ui.setMenu(false)
+  }
 
   return (
-    <div onclick={() => state.mobile && state.panel && actions.setMenu(false)}>
-      {FullscreenImagePopup}
+    <div onclick={closeMenuOnMobile}>
+      <ImageOverlay showFullsizeImage={ui.showFullsizeImage} />
 
-      <NavHeader
-        scroll={state.scrollTop}
-        menu={state.panel}
-        mobile={state.mobile}
-        links={translations.links}
-      />
-
-      <SidePanel
-        class={state.panel ? '' : 'slideout'}
-        mobile={state.mobile}
-        lang={state.language}
-        panel={translations.panel}
-      />
-
-      <div id="menu-touchtarget" oncreate={addSwipeHandler} />
+      <NavHeader menu={ui.menuIsOpen} mobile={ui.useMobileLayout} i18n={i18n} />
+      <SidePanel class={ui.menuIsOpen ? '' : 'slideout'} i18n={i18n} />
+      <div id="m-touchtarget" oncreate={el => addHandler(el, openMenu)} ondestroy={removeHandler} />
 
       <ColorSelection
-        panel={state.panel}
-        color={state.themeColor}
-        open={colorSelection}
-        mobile={state.mobile}
-        text={translations.ColorSelection}
+        panel={ui.menuIsOpen}
+        color={state.theme.themeColor}
+        open={ui.colorSelectionIsOpen}
+        mobile={ui.useMobileLayout}
+        i18n={i18n}
       />
 
       <RouterView
-        class={`content-container ${state.panel ? 'menu-aside' : ''}`}
-        data={state}
-        oncreate={el => (animate(el), handleScrollPosition(page, scrollPositions))}
+        class={`content-container ${ui.menuIsOpen ? 'menu-aside' : ''}`}
+        state={state}
+        oncreate={el => (animate(el), handleScrollPosition(page, scrollPositions, actions))}
       />
     </div>
   )

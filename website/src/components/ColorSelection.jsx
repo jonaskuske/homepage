@@ -1,8 +1,6 @@
-import actions from '@/main'
 import router from '@/router'
 import { Button, ColorPicker } from '@/components'
-import { HTMLColorInput } from '@/lib/browser-support'
-import { withBlur } from '@/lib/helpers'
+import { HTMLColorInput as supportsColorInputElement } from '@/lib/browser-support'
 
 const openColorPicker = color => {
   const el = document.querySelector('input[type=color]')
@@ -10,49 +8,58 @@ const openColorPicker = color => {
   el.focus()
   el.click()
 }
-const openPhonePairing = () => {
-  router.push('/connect')
-  actions.toggleColorSelection()
-}
 
-const ColorSelection = ({ panel, color, text = {}, open, mobile }) => (
-  <section class={`color-btn-container ${panel ? 'menu-aside' : ''}`}>
+const ColorSelection = ({ panel, color, open, mobile, i18n }) => (_, actions) => {
+  const t = i18n.t.forNamespace('App')
+  const selectColorHandler = mobile ? () => openColorPicker(color) : actions.ui.toggleColorSelection
+  const showSelectionButtons = !mobile && open
+
+  const openPhonePairing = () => {
+    router.push('/connect')
+    actions.ui.toggleColorSelection()
+  }
+
+  const ColorSelectWithOptions = [
     <span>
-      <Button onclick={withBlur(actions.setRandomColor)}> {text.ColorButtonRandom} </Button>
+      <Button onclick={selectColorHandler}>{t.inline('colors.select')`Select color`}</Button>
+    </span>,
+    <ColorPicker />,
+    showSelectionButtons && [
+      <br />,
+      <span>
+        <Button onclick={() => openColorPicker(color)}>
+          {t.inline('colors.selectOnDevice')`On device`}
+        </Button>
+      </span>,
+      <span>
+        <Button onclick={openPhonePairing}>{t.inline('colors.selectOnPhone')`On phone`}</Button>
+      </span>,
+    ],
+  ]
+
+  const ColorSelectRemoteOnly = (
+    <span>
+      <Button onclick={openPhonePairing}>
+        {t.inline('colors.selectPhoneOnlyOption')`Control colors remotely using your phone`}
+      </Button>
     </span>
-    {HTMLColorInput
-      ? /* supports HTML color input: show options whether to pick color with <input type=color> or remotely on phone */
-        [
-          <span>
-            <Button
-              onclick={withBlur(
-                mobile ? () => openColorPicker(color) : actions.toggleColorSelection,
-              )}
-            >
-              {text.ColorButtonSelect}
-            </Button>
-          </span>,
-          <ColorPicker />,
-          open &&
-            !mobile && [
-              <br />,
-              <span>
-                <Button onclick={withBlur(() => openColorPicker(color))}>
-                  {text.ColorButtonDevice}
-                </Button>
-              </span>,
-              <span>
-                <Button onclick={withBlur(openPhonePairing)}>{text.ColorButtonPhone}</Button>
-              </span>,
-            ],
-        ]
-      : /* no HTML color input: only show remote color control and only if not in mobile mode */
-        !mobile && (
-          <span>
-            <Button onclick={withBlur(openPhonePairing)}>{text.ColorButtonPhoneOnly}</Button>
-          </span>
-        )}
-  </section>
-)
+  )
+
+  const ColorSelect = () => {
+    if (!supportsColorInputElement) return !mobile && ColorSelectRemoteOnly
+    return ColorSelectWithOptions
+  }
+
+  return (
+    <section class={`color-btn-container ${panel ? 'menu-aside' : ''}`}>
+      <span>
+        <Button onclick={actions.theme.setRandomColor}>
+          {t.inline('colors.random')`Random color`}
+        </Button>
+      </span>
+      <ColorSelect />
+    </section>
+  )
+}
 
 export default ColorSelection

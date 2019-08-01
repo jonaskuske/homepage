@@ -1,4 +1,3 @@
-import actions from '@/main'
 import { wait } from '@/lib/helpers'
 import { objectFitSupported } from '@/lib/browser-support'
 import objectFitPolyfill from 'object-fit-images'
@@ -34,27 +33,31 @@ const revertFocus = ({ src }) => {
   originImage && originImage.focus()
 }
 
-const ImageOverlay = ({ src }) => (
-  <div
-    id="overlay"
-    class="pointer invisible"
-    onclick={() => {
-      isKeyboardNavigation = false
-      actions.hideOverlay()
-    }}
-    oncreate={animateIn}
-    onremove={animateOut}
-    tabindex={0}
-    onkeydown={e => {
-      isKeyboardNavigation = true
-      if (e.keyCode === 13 || e.keyCode === 32) {
-        e.preventDefault()
-        actions.hideOverlay(src)
-      }
-    }}
-  >
-    <img class="overlay-squish" oncreate={showImage} src={src} alt="" />
-  </div>
-)
+const ImageOverlay = ({ showFullsizeImage }) => (_, actions) => {
+  if (!showFullsizeImage) return null
+
+  return (
+    <div
+      id="overlay"
+      class="pointer invisible"
+      onclick={() => {
+        isKeyboardNavigation = false
+        actions.ui.setFullsizeImage(false)
+      }}
+      oncreate={animateIn}
+      onremove={animateOut}
+      tabindex={0}
+      onkeydown={e => {
+        isKeyboardNavigation = true
+        if (e.keyCode === 13 || e.keyCode === 32) {
+          e.preventDefault()
+          actions.ui.setFullsizeImage(false)
+        }
+      }}
+    >
+      <img class="overlay-squish" oncreate={showImage} src={showFullsizeImage} alt="" />
+    </div>
+  )
+}
 
 export default ImageOverlay

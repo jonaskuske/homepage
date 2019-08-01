@@ -1,4 +1,3 @@
-import actions from '@/main'
 import Miniswipe from 'miniswipe'
 import Shake from 'shake.js'
 import { containsArray, createModal } from '@/lib/helpers'
@@ -30,7 +29,8 @@ ogg.src = 'https://ia800605.us.archive.org/8/items/NeverGonnaGiveYouUp/jocofulli
 noRickroll.appendChild(ogg)
 noRickroll.appendChild(mp3)
 document.body.appendChild(noRickroll)
-;(() => {
+
+const initEasteregg = actions => {
   let audioIsPlaying = false
   consoleStyling
     ? console.info('%cKonami%cparty? %cYes.', 'color: red', 'color: gold', 'color: rebeccapurple')
@@ -62,13 +62,13 @@ document.body.appendChild(noRickroll)
     if (containsArray(keyPresses, konamiCode)) {
       keyPresses.empty()
       const startTheShow = () => {
-        actions.toggleEasteregg()
+        actions.theme.toggleEasteregg()
         audioIsPlaying ? (noRickroll.pause(), (noRickroll.currentTime = 0)) : noRickroll.play()
         audioIsPlaying = !audioIsPlaying
       }
 
       if (requiresConfirmation && !audioIsPlaying) {
-        actions.setMenu(false)
+        actions.ui.setMenu(false)
         createModal({
           // mobile: ask before playing audio (required by browsers)
           callback: startTheShow,
@@ -95,4 +95,6 @@ document.body.appendChild(noRickroll)
     },
     false,
   )
-})()
+}
+
+export default initEasteregg
