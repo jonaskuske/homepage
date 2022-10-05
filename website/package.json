@@ -52,7 +52,7 @@
     "webpack-cli": "^3.3.1",
     "webpack-dev-server": "^3.11.3",
     "webpack-manifest-plugin": "^2.0.4",
-    "webpack-pwa-manifest": "^4.0.0"
+    "webpack-pwa-manifest": "^4.3.0"
   },
   "dependencies": {
     "@babel/polyfill": "^7.4.4",
