@@ -63,7 +63,7 @@
     "object-fit-images": "^3.2.4",
     "qrcode": "^1.3.3",
     "shake.js": "^1.2.2",
-    "socket.io": "^2.5.0"
+    "socket.io": "^4.7.2"
   },
   "eslintIgnore": [
     "dist/",
