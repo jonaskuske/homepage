@@ -18,7 +18,7 @@
     "url": "git+https://github.com/jonaskuske/homepage.git"
   },
   "dependencies": {
-    "express": "^4.19.2",
+    "express": "^4.20.0",
     "socket.io": "^2.5.0"
   }
 }
