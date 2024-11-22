@@ -15,7 +15,7 @@
     "url": "git+https://github.com/jonaskuske/homepage.git"
   },
   "dependencies": {
-    "socket.io": "^4.7.2"
+    "socket.io": "^4.8.1"
   },
   "devDependencies": {
     "@babel/core": "^7.4.4",
